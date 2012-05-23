@@ -1,10 +1,10 @@
 <?php
-class Home extends Controller {
+class Home extends CI_Controller {
 
 	function Home()
 	{
-		parent::Controller();
-		$this->load->plugin('facebook');
+		parent::__construct();
+		$this->load->helper('facebook');
 	}
 
 	function index()
