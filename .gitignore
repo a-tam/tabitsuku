@@ -1,6 +1,7 @@
 .buildpath
 .project
 .settings
+.htaccess
 application/cache/*
 application/config/*
 application/logs/*
