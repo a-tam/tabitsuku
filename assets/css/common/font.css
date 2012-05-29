@@ -1,0 +1,329 @@
+@charset "utf-8";
+/* CSS3 Document */
+
+/*　PIEの特徴 ---------------------------------
+IE6 / IE7 / IE8にCSS3を適用する
+IE-CSSよりシャドウが綺麗
+text-shadowが出来ない（2011-09-15)
+
+border-radius（角丸表現）
+box-shadow（ボックスシャドウ）
+border-image（画像罫線）
+multiple background images（複数の背景画像）
+linear-gradient as background image（背景にグラデーション）
+
+下記の１行を各クラスに追加
+behavior: url(/_css/PIE/PIE.htc);
+------------------------------------------------ */
+
+/*　ie-css3の特徴 ---------------------------------
+IE6 / IE7 / IE8にCSS3を適用する
+text-shadowができる
+PIEと併用した場合、テキストシャドウ用
+
+border-radius（角丸表現）
+box-shadow（ボックスシャドウ）
+text-shadow（テキストシャドウ）
+
+下記の１行を各クラスに追加
+behavior: url(/_css/IE-CSS/ie-css3.htc);
+------------------------------------------------ */
+/* ----------------------------------------------------------------- 
+	基本書式
+-------------------------------------------------------------------- */
+.contentsBlock P {
+	padding: 0 0 15px 0;
+	margin: 5px 0;
+	line-height: 180%;
+}
+
+.contentsBlock P.description {
+	line-height: 140%;
+}
+
+
+.contentsBlock .textArea {
+	padding: 0 10px;
+}
+
+.fontS {
+	font-size: 84%;
+	line-height: 140%;
+}
+
+/* ----------------------------------------------------------------- 
+	画像
+-------------------------------------------------------------------- */
+IMG.photo {
+	border:1px solid #ccc;
+	padding: 5px;
+	background: #FFF;
+	margin: 5px;
+}
+
+IMG.photoL {
+	float:left;
+	margin: 3px 15px 15px 0;
+}
+
+IMG.photoR {
+	float:right;
+	margin: 3px 0 15px 15px;
+}
+
+IMG.iconCategory {
+	vertical-align: bottom;
+	padding: 0 5px 3px 0;
+}
+
+/* ----------------------------------------------------------------- 
+	リンク
+-------------------------------------------------------------------- */
+A:link {
+	color:#E0007F;
+	text-decoration: underline;
+}
+
+A:visited {
+	color:#E0007F;
+	text-decoration: underline;
+}
+
+A:hover {
+	color: #FC0;
+	text-decoration: none;
+}
+
+A:active {
+	color:#666;
+}
+
+/* ----------------------------------------------------------------- 
+	罫線
+-------------------------------------------------------------------- */
+.borderBottom {
+	border-bottom: 1px solid #999;
+}
+
+.borderBottomDot {
+	border-bottom: 1px dotted #999;
+}
+
+/* ----------------------------------------------------------------- 
+	見出し
+-------------------------------------------------------------------- */
+H2 {
+	font-size:140%;
+	font-weight: bold;
+	line-height: 130%;
+}
+
+H3 {
+	font-size:120%;
+	font-weight: bold;
+	line-height: 130%;
+}
+
+H4 {
+	font-size:110%;
+	font-weight: bold;
+	line-height: 130%;
+}
+
+H5 {
+	font-size:100%;
+	font-weight: bold;
+	line-height: 130%;
+}
+
+.pageTitle {
+	font-size:250%;
+	margin: 0 0 10px 0;
+	padding:;
+	letter-spacing: 0.1em;
+	text-shadow: 1px 1px 3px #999; 
+	behavior: url(/_css/IE-CSS/ie-css3.htc);
+}
+
+.contentsTitle {
+	background: #02A8DF;
+	padding: 3px 10px;
+	color: #FFF;
+	border-bottom: 1px solid #FFCC00;
+	margin: 0 0 15px 0;
+}
+
+/* ----------------------------------------------------------------- 
+	アイコン
+-------------------------------------------------------------------- */
+A:link.iconLink {
+	padding: 0 0 0 16px;
+	background: url(/renewal/img/interface/icon/icon_link.png) no-repeat 0 center;
+	color: #666;
+}
+A:visited.iconLink {
+	color: #666;
+}
+A:hover.iconLink {
+	padding: 0 0 0 16px;
+	background: url(/renewal/img/interface/icon/icon_link_s2.png) no-repeat 0 center;
+	color: #666;
+	text-decoration: underline;
+}
+
+A:active.iconLink {
+	color:#666;
+}
+
+.externalLink {
+	padding: 0 12px 0 0;
+	background: url(/img/icon/icon_external.gif) no-repeat right 3px;
+}
+
+/* ----------------------------------------------------------------- 
+	ボタン
+-------------------------------------------------------------------- */
+A.linkBtn {
+	display: inline-block;
+	outline: none;
+	cursor: pointer;
+	text-align: center;
+	text-decoration: none;
+	padding: .5em 2em .55em;
+	border: solid 1px #da7c0c;
+	color: #FFF;
+	font-weight: bold;
+	
+	/* 5pxの角まる */
+	border-radius: 5px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	
+	/* 5pxの影 */
+	box-shadow: 1px 1px 3px #555;
+	-webkit-box-shadow:1px 1px 3px #555;
+	-moz-box-shadow: 1px 1px 3px #555;
+	
+	/* グラデーション */
+	background: #f78d1d;
+	background: linear-gradient(#faa51a, #f47a20);
+	background: -moz-linear-gradient(top, #faa51a, #f47a20);
+    background: -webkit-gradient(linear, left top, left bottom, from(#faa51a), to(#f47a20));
+	filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#faa51a', endColorstr='#f47a20');
+	
+	-pie-background: linear-gradient(#faa51a, #f47a20);
+	behavior: url(/css/PIE/PIE.htc);
+}
+
+A.linkBtn:hover {
+	/* グラデーション */
+	background: #f47c20;
+	background: linear-gradient(#f88e11, #f06015);
+	background: -moz-linear-gradient(top, #f88e11, #f06015);
+    background: -webkit-gradient(linear, left top, left bottom, from(#f88e11), to(#f06015));
+	filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#f88e11', endColorstr='#f06015');
+	
+	-pie-background: linear-gradient(#f88e11, #f06015);
+	behavior: url(/css/PIE/PIE.htc);
+}
+
+
+/* ----------------------------------------------------------------- 
+	エントリー標準
+-------------------------------------------------------------------- */
+#mainContentsArea .entryDate {
+	font-size: 100%;
+	padding: 0 0 10px 0;
+	margin:0;
+}
+
+#mainContentsArea .entryTitle {
+	font-weight: bold;
+	line-height: 140%;
+	padding: 0 0 2px 0;
+	margin: 0;
+	font-size:115%;
+}
+
+#mainContentsArea .entryExerpt {
+	line-height: 120%;
+	padding: 0 0 5px 0;
+}
+
+
+/* ----------------------------------------------------------------- 
+	データ構造
+-------------------------------------------------------------------- */
+
+/* 役員
+------------------------------------------- */
+DL.memberList {
+	margin:0 0 10px 0;
+}
+
+DL.memberList DT {
+  clear: left;
+  float: left;
+  text-align: right;
+  margin: 0 0 0.8em;
+  width: 6.5em;
+  padding: 0 0 0 5px;
+  line-height: 150%;
+  
+}
+
+DL.memberList DD {
+  margin-bottom: 0.8em;
+  margin-left: 8.5em;
+  line-height: 150%;
+}
+
+
+/*  日付
+------------------------------------------- */
+ DL.dateList {
+	margin:0 0 10px 0;
+}
+
+DL.dateList DT {
+  clear: left;
+  float: left;
+  margin: 0 0 0.8em;
+  width: 8.5em;
+  padding: 0 0 0 5px;
+  line-height: 130%;
+  
+}
+
+DL.dateList DD {
+  margin-bottom: 0.8em;
+  margin-left: 8.5em;
+  line-height: 130%;
+}
+
+
+
+/* ----------------------------------------------------------------- 
+	リスト
+-------------------------------------------------------------------- */
+#mainContentsArea UL,
+#mainContentsArea OL {
+	line-height: 140%;
+	margin-bottom: 20px;
+}
+
+#mainContentsArea UL LI,
+#mainContentsArea OL LI {
+	margin:0 0 10px 0;
+}
+
+/* ----------------------------------------------------------------- 
+	テーブル
+-------------------------------------------------------------------- */
+#mainContentsArea TABLE {
+	margin: 0 0 15px 0;
+}
+
+#mainContentsArea TABLE TH {
+	background:#DCE1F5;
+}

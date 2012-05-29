@@ -1,0 +1,108 @@
+@charset "utf-8";
+/* CSS3 Document */
+
+/*　PIEの特徴 ---------------------------------
+IE6 / IE7 / IE8にCSS3を適用する
+IE-CSSよりシャドウが綺麗
+text-shadowが出来ない（2011-09-15)
+
+border-radius（角丸表現）
+box-shadow（ボックスシャドウ）
+border-image（画像罫線）
+multiple background images（複数の背景画像）
+linear-gradient as background image（背景にグラデーション）
+
+下記の１行を各クラスに追加
+behavior: url(/_css/PIE/PIE.htc);
+------------------------------------------------ */
+
+/*　ie-css3の特徴 ---------------------------------
+IE6 / IE7 / IE8にCSS3を適用する
+text-shadowができる
+PIEと併用した場合、テキストシャドウ用
+
+border-radius（角丸表現）
+box-shadow（ボックスシャドウ）
+text-shadow（テキストシャドウ）
+
+下記の１行を各クラスに追加
+behavior: url(/_css/IE-CSS/ie-css3.htc);
+------------------------------------------------ */
+
+/* ----------------------------------------------------------------- 
+	フリップ
+-------------------------------------------------------------------- */
+
+
+UL.flipList {
+	padding: 10px 0;
+	margin: 0;
+	list-style: none;
+}
+
+DIV#schejuleBlock UL.flipList {
+	padding-top: 33px;
+}
+
+UL.flipList LI.flip {
+	list-style:none;
+	width: 300px;
+	padding: 8px 8px 5px 8px;
+	margin: 0 auto 10px auto;
+	border: 1px solid #FC6;
+	background:#FFF;
+}
+
+UL.flipList LI.flip .min60 {
+	height: 100px;
+	overflow: hidden;
+}
+
+
+UL.flipList LI.flip .min90 {
+	height: 150px;
+	overflow: hidden;
+}
+
+
+UL.flipList LI.flip .min120 {
+	height: 200px;
+	overflow: hidden;
+}
+
+
+IMG.flipPhoto {
+	padding:5px;
+	float: left;
+	margin: 0 10px 10px 0;
+	border:#CCC 1px solid;
+	/* 5pxの影 */
+	box-shadow: 0px 0px 5px #999;
+	-webkit-box-shadow:0px 0px 5px #999;
+	-moz-box-shadow: 0px 0px 5px #999;
+}
+
+
+.flipTitle {
+	font-size:110%;
+	font-weight: bold;
+	color:#000;
+	line-height: 130%;
+	padding: 3px 0 2px 0;
+	margin: 0;
+}
+
+.flipDescription {
+	line-height: 140%;
+	padding: 0 0 3px 0;
+	margin: 0;
+	color:#333;
+}
+
+.flipBtnArea {
+	clear: both;
+	border-top: 1px solid #ddd;
+	padding: 3px 0 0 0;
+	margin: 5px 0 0 0;
+	text-align: right;
+}

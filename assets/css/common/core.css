@@ -1,0 +1,97 @@
+@charset "utf-8";
+/* CSS3 Document */
+
+/*　PIEの特徴 ---------------------------------
+IE6 / IE7 / IE8にCSS3を適用する
+IE-CSSよりシャドウが綺麗
+text-shadowが出来ない（2011-09-15)
+
+border-radius（角丸表現）
+box-shadow（ボックスシャドウ）
+border-image（画像罫線）
+multiple background images（複数の背景画像）
+linear-gradient as background image（背景にグラデーション）
+
+下記の１行を各クラスに追加
+behavior: url(/_css/PIE/PIE.htc);
+------------------------------------------------ */
+
+/*　ie-css3の特徴 ---------------------------------
+IE6 / IE7 / IE8にCSS3を適用する
+text-shadowができる
+PIEと併用した場合、テキストシャドウ用
+
+border-radius（角丸表現）
+box-shadow（ボックスシャドウ）
+text-shadow（テキストシャドウ）
+
+下記の１行を各クラスに追加
+behavior: url(/_css/IE-CSS/ie-css3.htc);
+------------------------------------------------ */
+#layout {
+	width: 840px;
+	margin: 0 auto;
+	position: relative;
+	padding: 30px 0;
+}
+
+/* ----------------------------------------------------------------- 
+	ヘッダー
+-------------------------------------------------------------------- */
+
+HEADER {
+	margin:0 auto 10px auto;
+	padding: 0 0 10px 0;
+}
+
+/* ----------------------------------------------------------------- 
+	スケジュール
+-------------------------------------------------------------------- */
+DIV#schejuleBlock {
+	width: 430px;
+	float: left;
+	padding:10px;
+	background:;
+	padding: 10px 0 30px 30px;
+	background: #FFFACE url(/img/interface/timeline_bg.gif) no-repeat 0 30px;
+}
+
+DIV#flipBlock {
+	width: 340px;
+	float: right;
+	padding:10px;
+	background:#CCC;
+}
+
+.listTitle {
+	text-align:center;
+	font-size: 120%;
+	padding: 0;
+	margin: 0;
+	line-height: 120%;
+}
+
+.ui-state-highlight {
+	border:1px dashed #ccc;
+	background: #F8F5AD;
+	height:10px;
+}
+
+/* ----------------------------------------------------------------- 
+	ブロック
+-------------------------------------------------------------------- */
+.roundShadow {
+	/* 5pxの角まる */
+	border-radius: 5px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	
+	/* 5pxの影 */
+	box-shadow: 1px 1px 5px #333;
+	-webkit-box-shadow:1px 1px 5px #333;
+	-moz-box-shadow: 1px 1px 5px #333;
+
+	behavior: url(/_css/PIE/PIE.htc);
+	
+	overflow: hidden;
+}

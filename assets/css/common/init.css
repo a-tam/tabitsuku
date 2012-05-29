@@ -1,0 +1,567 @@
+@charset "utf-8";
+/* CSS3 Document */
+
+
+/* ----------------------------------------------------------------- 
+	リセット
+-------------------------------------------------------------------- */
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+nav,
+section {
+    display: block;
+}
+ 
+/*
+ * Add display for embedded HTML5 elements
+ * Addresses display not defined in IE6/7/8/9 & FF3
+ */
+ 
+audio[controls],
+canvas,
+video {
+    display: inline-block;
+    *display: inline;
+    *zoom: 1;
+}
+ 
+/* =============================================================================
+   Base
+   ========================================================================== */
+ 
+/*
+ * 1. Add vertical scrollbar
+ *    Keeps page centred in all browsers regardless of content height
+ * 2. Remove Android and iOS tap highlight color to prevent entire container being highlighted
+ *    www.yuiblog.com/blog/2010/10/01/quick-tip-customizing-the-mobile-safari-tap-highlight-color/
+ * 3. Remove iOS text size adjust without disabling user zoom
+ *    www.456bereastreet.com/archive/201012/controlling_text_size_in_safari_for_ios_without_disabling_user_zoom/
+ */
+ 
+html {
+    overflow-y: scroll; /* 1 */
+    -webkit-tap-highlight-color: rgba(0,0,0,0); /* 2 */
+    -webkit-text-size-adjust: 100%; /* 3 */
+    -ms-text-size-adjust: 100%;
+}
+ 
+/*
+ * 1. Define the base font-size (using % or em will retain text resizing in IE6/7)
+ * 2. Define the base line-height.
+ * 3. Remove margin
+ */
+ 
+body {
+    line-height: normal; /* 2 */
+    margin: 0; /* 3 */
+}
+ 
+/*
+ * Define base font-family
+ * Addresses font-family inconsistency between <textarea> and other form elements.
+ */
+ 
+body,
+input,
+button,
+textarea,
+select {
+    font-family: sans-serif;
+}
+ 
+/*
+ * 1. Remove border
+ *    Improves readability when inside <a> element in all browsers
+ * 2. Allow high quality bicubic image resampling
+ *    Improves readability when scaled in IE7
+ *    Read before using : code.flickr.com/blog/2008/11/12/on-ui-quality-the-little-things-client-side-image-resizing/
+ */
+ 
+img {
+    border: 0; /* 1 */
+    -ms-interpolation-mode: bicubic; /* 2 */
+	vertical-align: bottom;
+}
+ 
+/* =============================================================================
+   Links
+   ========================================================================== */
+ 
+a {
+    color: #00e;
+}
+ 
+a:visited {
+    color: #551a8b;
+}
+ 
+/*
+ * Define outline as thin dotted
+ * Addresses outline displayed oddly in Chrome
+ */
+ 
+a:focus {
+    outline: thin dotted;
+}
+ 
+/*
+ * Remove outline
+ * Improves readability when focused and also mouse hovered in all browsers
+ * people.opera.com/patrickl/experiments/keyboard/test
+ */
+ 
+a:hover,
+a:active {
+    outline: 0;
+}
+ 
+/* =============================================================================
+   Typography
+   ========================================================================== */
+ 
+/*
+ * Add bottom border
+ * Fixes styling not present in IE7/8/9 S5 Chrome
+ */
+ 
+abbr[title] {
+    border-bottom: 1px dotted;
+}
+ 
+/*
+ * Add bold font weight
+ * Fixes style set to 'bolder' in FF3/4 S4/5 Chrome
+*/
+ 
+b,
+strong {
+    font-weight: bold;
+}
+ 
+blockquote {
+    margin: 1em 40px;
+}
+ 
+/*
+ * Add italic font style
+ * Fixes styling not present in S5 Chrome
+ */
+ 
+dfn {
+    font-style: italic;
+}
+ 
+/*
+ * Add yellow background and black text
+ * Fixes styling not present in IE6/7/8/9
+ */
+ 
+mark {
+    background: #ff0;
+    color: #000;
+}
+ 
+/*
+ * Redeclare monospace font family
+ * en.wikipedia.org/wiki/User:Davidgothberg/Test59
+ * 1. Fixes font family set oddly in S5 Chrome
+ * 2. Fixes monospace font family set oddly in IE6
+ */
+ 
+pre,
+code,
+kbd,
+samp {
+    font-family: monospace, monospace; /* 1 */
+    _font-family: 'courier new', monospace; /* 2 */
+    font-size: 1em;
+}
+ 
+/*
+ * Add line wrapping
+ * Improves readability of pre-formatted text in all browsers
+ */
+ 
+pre {
+    white-space: pre;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+ 
+/*
+ * Remove quotes
+ * 1. Addresses CSS quotes not supported in IE6/7
+ * 2. Addresses quote property not supported in S4
+ */
+ 
+/* 1 */
+ 
+q {
+    quotes: none;
+}
+ 
+/* 2 */
+ 
+q:before,
+q:after {
+    content: '';
+    content: none;
+}
+ 
+/*
+ * Define font-size
+ */
+ 
+small {
+    font-size: 75%;
+}
+ 
+/*
+ * Position subscript and superscript content without affecting line-height
+ * Fixes alignment within multi-line text displayed oddly in all browsers
+ * gist.github.com/413930
+ */
+ 
+sub,
+sup {
+    font-size: 75%;
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline;
+}
+ 
+sup {
+    top: -0.5em;
+}
+ 
+sub {
+    bottom: -0.25em;
+}
+ 
+/* =============================================================================
+   Lists
+   ========================================================================== */
+ 
+ul,
+ol {
+    margin: 1em 0;
+    padding: 0 0 0 40px;
+}
+ 
+dd {
+    margin: 0 0 0 40px;
+}
+ 
+nav ul,
+nav ol {
+	margin: 0;
+	padding: 0;
+    list-style: none;
+}
+ 
+/* =============================================================================
+   Figures
+   ========================================================================== */
+ 
+/*
+ * Remove margin
+ * Addresses margin not present in IE6/7/8/9, S5, O11
+ */
+ 
+figure {
+    margin: 0;
+}
+ 
+/* =============================================================================
+   Forms
+   ========================================================================== */
+ 
+/*
+ * Remove margin
+ * Fixes styling in IE6/7
+ */
+ 
+form {
+    margin: 0;
+}
+ 
+/*
+ * Define consistent margin and padding
+ */
+ 
+fieldset {
+    margin: 0 2px;
+    padding: 0.35em 0.625em 0.75em;
+}
+ 
+/*
+ * Add negative left margin
+ * Fixes alignment displayed oddly in IE6/7
+ */
+ 
+legend {
+    *margin-left: -7px;
+}
+ 
+/*
+ * 1. Define font-size as equal to ancestor's
+ * 2. Remove margin
+ *    Fixes different margins set in FF3/4 S5 Chrome
+ * 3. Define consistent vertical alignment display in all browsers
+ */
+ 
+button,
+input,
+select,
+textarea {
+    font-size: 100%; /* 1 */
+    margin: 0; /* 2 */
+    vertical-align: baseline; /* 3 */
+    *vertical-align: middle; /* 3 */
+}
+ 
+/*
+ * 1. Define line-height as normal
+ *    Addresses FF3/4 setting it using !important in the UA stylesheet
+ * 2. Make overflow visible
+ *    Fixes spacing displayed oddly in IE6/7
+ */
+ 
+button,
+input {
+    line-height: normal; /* 1 */
+    *overflow: visible;  /* 2 */
+}
+ 
+/*
+ * 1. Display hand cursor for clickable form elements
+ *    Improves usability and consistency of cursor style between image-type <input> and others
+ * 2. Define appearance for clickable form elements
+ *    Fixes inability to style clickable <input> types in iOS
+ */
+ 
+button,
+input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+    cursor: pointer; /* 1 */
+    -webkit-appearance: button; /* 2 */
+}
+ 
+/*
+ * Define box sizing
+ * Addresses box sizing set to content-box in IE8/9
+ */
+ 
+input[type="checkbox"],
+input[type="radio"] {
+    box-sizing: border-box;
+}
+ 
+/*
+ * Define box sizing and appearance
+ * Addresses box sizing set to border-box in S5 Chrome (include -moz to future-proof)
+ * Addresses appearance set to searchfield in S5 Chrome
+ */
+ 
+input[type="search"] {
+    -webkit-appearance: textfield;
+    -moz-box-sizing: content-box;
+    -webkit-box-sizing: content-box;
+    box-sizing: content-box;
+}
+ 
+/*
+ * Remove WebKit search decoration
+ * Addresses inner padding displaying oddly in S5 Chrome on OSX
+ */
+ 
+input[type="search"]::-webkit-search-decoration {
+    -webkit-appearance: none;
+}
+ 
+/*
+ * Remove inner padding and border
+ * Fixes appearance displayed oddly in FF3/4
+ * www.sitepen.com/blog/2008/05/14/the-devils-in-the-details-fixing-dojos-toolbar-buttons/
+ */
+ 
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+    border: 0;
+    padding: 0;
+}
+ 
+/*
+ * 1. Remove default vertical scrollbar
+ *    Fixes scrollbar displayed oddly in IE6/7/8/9
+ * 2. Add top vertical alignment
+ *    Improves readability and aligment in all browsers
+ */
+ 
+textarea {
+    overflow: auto; /* 1 */
+    vertical-align: top; /* 2 */
+}
+
+
+
+
+/* ----------------------------------------------------------------- 
+	テーブル
+-------------------------------------------------------------------- */
+
+TABLE {
+	border-collapse: collapse;
+	border: solid 1px #999999;
+	font-size:inherit;
+	font:93;
+	width: 100%;
+}
+
+TABLE TH {
+	border: solid 1px #999999;
+	padding: 4px 6px;
+}
+
+TABLE TD {
+	border: solid 1px #999999;
+	padding: 4px 6px;
+}
+
+* HTML TABLE,
+*:first-child+html TABLE {
+	border-collapse: collapse;
+}
+
+
+
+
+/* ----------------------------------------------------------------- 
+	フォントリセット
+-------------------------------------------------------------------- */
+ 
+/* -------------------------------------------
+ |px|%|
+ |10|77|
+ |11|85|
+ |12|93|
+ |13|100|
+ |14|108|
+ |15|116|
+ |16|123.1|
+ |17|131|
+ |18|138.5|
+ |19|146.5|
+ |20|153.9|
+ |21|161.6|
+ |22|167|
+ |23|174|
+ |24|182|
+ |25|189|
+ |26|197|
+------------------------------------------- */
+
+body {
+	font-size: 76%; /* 12px */
+	letter-spacing: 0.05em;
+	line-height: 150%;
+	font-family: "メイリオ","Meiryo","ヒラギノ角ゴ Pro W3","Hiragino Kaku Gothic Pro","ＭＳ Ｐゴシック", "MS P Gothic","Osaka",Verdana,Arial, Helvetica, sans-serif;
+}
+
+
+h1, h2, h3, h4, h5, h6 {
+	line-height: 130%;
+	margin: 0;
+	padding: 0;
+}
+
+select, input, button, textarea, button {
+	font:99% arial, helvetica, clean, sans-serif;
+}
+
+
+pre, code, kbd, samp, tt {
+	font-family:monospace;
+	*font-size:108%;
+	line-height:1;
+}
+* html body {
+	font-family: "メイリオ","Meiryo","ヒラギノ角ゴ Pro W3","Hiragino Kaku Gothic Pro","ＭＳ Ｐゴシック", "MS P Gothic","Osaka",Verdana,Arial, Helvetica, sans-serif;
+}
+
+*:first-child+html body {
+	font-family: "メイリオ","Meiryo","ヒラギノ角ゴ Pro W3","Hiragino Kaku Gothic Pro","ＭＳ Ｐゴシック", "MS P Gothic","Osaka",Verdana,Arial, Helvetica, sans-serif;
+}
+
+
+
+/* ----------------------------------------------------------------- 
+	よく使うスタイル
+-------------------------------------------------------------------- */
+
+.clearfix {
+	zoom:1;
+}
+
+.clearfix:after{
+    content: ""; 
+    display: block; 
+    clear: both;
+}
+
+.clear {
+	clear: both;
+}
+
+.center {
+	text-align: center;
+	margin: 0 auto;
+}
+
+.light {
+	text-align: right;
+}
+
+.right {
+	text-align: right;
+}
+
+.imgLeft {
+	float:left;
+	margin:0 10px 10px 0;
+}
+
+.imgRight {
+	float: right;
+	margin:0 0 10px 10px;
+}
+
+.mb0 {
+	margin-bottom: 0px;
+}
+
+.mb5 {
+	margin-bottom: 5px;
+}
+
+.mb10 {
+	margin-bottom: 10px;
+}
+
+
+/* ----------------------------------------------------------------- 
+	ロールオーバー、カレント　yuga.js用
+-------------------------------------------------------------------- */
+.allbtn { }
+IMG.btn { }
+.currentNavi { }
+.imgLB { }
+.htmlLB { }

@@ -1,0 +1,53 @@
+メソッド一覧
+
+admin/
+	index.php
+		login		ログイン
+		logout		ログアウト
+		index		トップページ
+	account.php
+		list		アカウント一覧
+		detail		アカウント詳細
+	category.php
+		index		カテゴリ一覧
+		create		カテゴリ追加
+		update		カテゴリ更新
+		delete		カテゴリ削除
+	point.php
+		list		位置情報一覧		
+		detail		位置情報詳細
+		create		位置情報追加
+		update		位置情報更新
+		delete		位置情報削除
+		import		インポート
+		export		エクスポート
+	route.php
+		list		スケジュール一覧
+		detail		経路詳細
+		export		エクスポート（※インポートは、インポートデータの生成ツールが必要になるため実装しない）
+	tag.php
+		index		タグ一覧
+		create		タグ追加
+		update		タグ更新
+		delete		タグ削除
+
+/
+	index.php
+		index		初回：アカウント情報取得、トップページ
+		login		
+		point_list	
+		point_add
+		point_update
+		point_delete
+		schedule_list
+		schedule_add
+		schedule_update
+		schedule_delete
+		tag_list
+		tag_add
+		tag_delete
+
+smartphone/
+	index.php
+		
+	
