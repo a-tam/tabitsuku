@@ -9,7 +9,7 @@ class MY_Model extends CI_Model {
 	}
 	
 	function get_structure() {
-		
+		return array();
 	}
 
 	/**
