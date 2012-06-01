@@ -1,14 +1,26 @@
 <?php echo validation_errors(); ?>
-<form action="<?php echo base_url("user/top/singup")?>" method="post">
-<fieldset>
+<style type="text/css">
+<!--
+#signup {
+    width: 50%;
+    float: left;
+}
+#login {
+    width: 50%;
+    float: left;
+}
+-->
+</style>
+<form action="<?php echo base_url("user/top/signup")?>" method="post">
+<fieldset id="signup">
 <legend>サインアップ</legend>
 <div>
 <span>ID(Email)</span><br />
-<input type="text" name="login_id" value="<?php echo set_value('login_id'); ?>" size="40" /><br />
+<input type="text" name="login_id" size="40" value="<?php echo set_value('login_id'); ?>" /><br />
 </div>
 <div>
 <span>パスワード</span><br />
-<input type="text" name="password" value="" /><br />
+<input type="password" name="password" value="" /><br />
 </div>
 <div>
 <span>名前</span><br />
@@ -18,12 +30,15 @@
 </fieldset>
 </form>
 
-<form action="<?php echo base_url("user/top/singin")?>" method="post">
+<form action="<?php echo base_url("user/top/login")?>" method="post">
 <fieldset>
-<legend>ログイン</legend>
-ID: <input type="text" name="user_id" value="" />
-PW: <input type="text" name="user_pw" value="" />
-<input type="submit" />
+<legend>サインイン</legend>
+<label>ID:</label><br />
+<input type="text" name="login_id" size="40" value="" /><br />
+<label>PW:</label><br />
+<input type="password" name="password" value="" /><br />
+<br />
+<input type="submit" /><br />
 <a href="">Facebookでログイン</a>
 </fieldset>
 </form>

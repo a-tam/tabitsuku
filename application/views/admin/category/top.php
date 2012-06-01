@@ -83,7 +83,7 @@ foreach ($this->category["path"] as $key => $name) {
 			print '<li class="ui-state-default" data-category="'.$row["id"].'">'."\n";
 			print '<span class="ui-icon ui-icon-arrowthick-2-n-s ui-corner-all ui-state-hover"></span>'."\n";
 			print '<a href="'.base_url("admin/category/".$row["id"]).'">◯</a>'."\n";
-			print '<span class="category-edit" id="'.$row["id"].'" value="'.$row["id"].'">'.$row["name"].'</span>';
+			print '<span class="category-edit" id="'.$row["id"].'" value="'.$row["id"].'">'.$row["name"].'</span> ( '.$row["child_cnt"].' )';
 			print ' [<a href="'.base_url("admin/category/delete/".$row["id"]).'">削除</a>]</li>'."\n";
 		}
 	}

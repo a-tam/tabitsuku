@@ -34,13 +34,14 @@ class Category_model extends MY_Model {
 	}
 	
 	function get_list($id, $limit = null, $offset = 0, $sorts = array("sort" => "asc")) {
-		return $this->select(
-				array("id", "parent_id", "path", "name"),
-				array("parent_id" => $id, "status" => 1),
-				$limit,
-				$offset,
-				$sorts
-			);
+		$sql = "SELECT node.*".
+			", (SELECT COUNT(parent_id)".
+				" FROM categories".
+				" WHERE parent_id = node.id) AS child_cnt".
+			" FROM categories AS node WHERE id IN".
+			" (SELECT id FROM `categories` WHERE parent_id = ? AND status = ?)".
+			" ORDER BY sort ASC";
+		return $this->db->query($sql, array($id, 1));
 	}
 	
 	/**

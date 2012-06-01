@@ -565,3 +565,8 @@ IMG.btn { }
 .currentNavi { }
 .imgLB { }
 .htmlLB { }
+
+.footer {
+    clear: both;
+    padding-top: 10px;
+}

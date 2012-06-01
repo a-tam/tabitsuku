@@ -1,7 +1,7 @@
 <?php
 class Top extends MY_Controller {
 
-	function Top()
+	function __construct()
 	{
 		parent::__construct();
 		$this->ns = md5(__FILE__);
@@ -15,15 +15,28 @@ class Top extends MY_Controller {
 		$this->render_view("user/top");
 	}
 	
-	function singup() {
+	function signup() {
 		$this->_set_validation($this->form_data);
 		if ($this->form_validation->run() == FALSE) {
 			return $this->login_form();
 		}
-		$this->User_model->insert($this->input->post());
+		$user_info = $this->User_model->signup($this->input->post());
+		$this->phpsession->set("user_info", $user_info);
+		redirect("user/top");
 	}
 	
-	function singout() {
-		
+	function login() {
+		$login_id = $this->input->post("login_id");
+		$password = $this->input->post("password");
+		if (!$user_info = $this->User_model->login($login_id, $password)) {
+			return $this->login_form();
+		}
+		$this->phpsession->set("user_info", $user_info);
+		redirect("user/top");
+	}
+	
+	function logout() {
+		$this->phpsession->clear("user_info");
+		redirect("top");
 	}
 }
