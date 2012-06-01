@@ -39,3 +39,14 @@ define('FOPEN_READ_WRITE_CREATE_STRICT',		'x+b');
 
 /* End of file constants.php */
 /* Location: ./application/config/constants.php */
+
+/**
+ * アプリケーション専用の定数定義
+ */
+define('MY_SERVICE_NAME', 'サービス名');
+
+define('MY_EXEC_TIME', date("Y-m-d H:i:s"));
+
+define('USER_STATUS_NOAPPROVAL'		, "0");		// 認証前
+define('USER_STATUS_APPROVAL'		, "1");		// 認証済み
+define('USER_STATUS_DELETE'			, "2");		// 削除
