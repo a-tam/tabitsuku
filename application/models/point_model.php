@@ -58,7 +58,23 @@ class Point_model extends MY_Model {
 		);
 	}
 	
-	function insert() {
-		// 追加
+	function insert($input) {
+		if (!$user_info = $this->phpsession->get("user_info")) {
+			return array();
+		}
+		$data = array(
+			"owner"			=> $user_info["id"],
+			"name"			=> $input["name"],
+			"image"			=> $input["image"]["file_name"],
+			"description"	=> $input["description"],
+			"stay_time"		=> $input["stay_time"],
+			"x"				=> $input["x"],
+			"y"				=> $input["y"],
+			"like_count"	=> 0,
+			"category_ids"	=> $input["category"],
+			"tags"			=> $input["tags"],
+			"status"		=> POINT_STATUS_ENABLED
+		);
+		return parent::insert($data);
 	}
 }
