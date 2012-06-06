@@ -121,7 +121,7 @@ class MY_Model extends CI_Model {
 	 */
 	function select($fields = array(), $wheres = array(), $limit = null, $offset = 0, $sorts = array()) {
 		if (!is_array($fields) || !is_array($wheres) ||
-			(!is_null($limit) && !is_int($limit)) || !is_int($offset) || !is_array($sorts)) {
+			(!is_null($limit) && !is_int((int)$limit)) || !is_int((int)$offset) || !is_array($sorts)) {
 			log_message("debug", "引数が正しくセットされていない");
 			return FALSE;
 		}
@@ -148,6 +148,19 @@ class MY_Model extends CI_Model {
 			return $query;
 		}
 		return FALSE;
+	}
+	
+	function count($wheres = array()) {
+		$this->db->select("COUNT(id) AS cnt");
+		$this->db->from($this->table);
+		foreach ($wheres as $_key => $_val) {
+			$this->db->where($_key, $_val);
+		}
+		$query = $this->db->get();
+		$row = $query->row_array(1);
+		if (isset($row["cnt"])) {
+			return $row["cnt"];
+		}
 	}
 	
 	/**

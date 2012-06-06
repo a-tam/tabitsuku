@@ -6,6 +6,11 @@ class MY_Controller extends CI_Controller {
 	
 	function __construct() {
 		parent::__construct();
+		$this->db->trans_start(true);
+	}
+	
+	function __destruct() {
+		$this->db->trans_complete();
 	}
 	
 	function auth() {
