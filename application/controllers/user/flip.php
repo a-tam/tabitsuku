@@ -6,11 +6,8 @@ class Flip extends MY_Controller {
 		parent::__construct();
 		$this->ns = md5(__FILE__);
 		$this->load->model("Point_model");
+		$this->load->model("Tag_model");
 		$this->form_data = $this->Point_model->get_structure();
-	}
-	
-	function index() {
-		
 	}
 	
 	function add() {
@@ -18,26 +15,41 @@ class Flip extends MY_Controller {
 		if ($this->form_validation->run() == FALSE) {
 			return $this->render_view("user/flip/form");
 		}
-		$config['upload_path'] = './uploads/';
+		$data = $this->input->post();
+		$config['upload_path'] = FCPATH.'uploads/flip/origin/';
 		$config['allowed_types'] = 'gif|jpg|png';
-		$config['max_size']	= '100';
-		$config['max_width']  = '1024';
-		$config['max_height']  = '768';
-
+		$config['encrypt_name'] = true;
 		$this->load->library('upload', $config);
-
-		if ( ! $this->upload->do_upload("image"))
-		{
+		if ( ! $this->upload->do_upload("image")) {
 			$error = array('error' => $this->upload->display_errors());
-			die("エラー");
+			return $this->render_view("user/flip/form");
+		} else {
+			$data["image"] = $this->upload->data();
+ 			$this->load->library('image_lib');
+			// アプリ用にリサイズ
+			$img_config = array(
+				'image_library'		=> 'gd2',
+//				'image_library'		=> 'imagemagick', 'library_path' => '/opt/local/bin/',
+				'source_image'		=> $data["image"]["full_path"],
+				'new_image'			=> FCPATH.'uploads/flip/middle/',
+				'maintain_ratio'	=> TRUE,
+				'width'				=> 1000,
+				'height'			=> 700
+				);
+			$this->image_lib->initialize($img_config);
+			$this->image_lib->resize();
+			// サムネイル
+			$img_config['source_image']	= $data["image"]["full_path"];
+ 			$img_config['new_image']	= FCPATH.'uploads/flip/thumb/';
+			$img_config['width']		= 110;
+			$img_config['height']		= 81;
+			$this->image_lib->initialize($img_config);
+			$this->image_lib->resize();
 		}
-		else
-		{
-			$data = array('upload_data' => $this->upload->data());
-			die("成功");
-			$this->load->view('upload_success', $data);
-		}
-		redirect ("user/");
+		$tags = $this->Tag_model->tag_keys(json_decode($data["tags"]));
+		$data["tags"] = implode(",", $tags);
+		$this->Point_model->insert($data);
+		redirect("user/top");
 	}
 	
 	function update() {
