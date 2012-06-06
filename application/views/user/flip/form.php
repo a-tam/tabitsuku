@@ -243,30 +243,31 @@ $(function() {
 </p>
 <p>
 <label>名称</label>
-<input type="text" name="name" value="<?php echo set_value("name");?>" />
+<input type="text" name="name" value="<?php echo set_value("name", "東京タワー");?>" />
 </p>
 <p>
 <label>基本滞在時間</label>
-<input type="text" name="stay_time" value="<?php echo set_value("stay_time");?>" />
+<input type="text" name="stay_time" value="<?php echo set_value("stay_time", "60");?>" />
 </p>
 <p>
 <label>説明</label>
-<textarea name="description" rows="4" cols="60"><?php echo set_value("description");?></textarea>
-</p>
-<p>
-<label>カテゴリ</label>
-<input type="text" name="category" id="flip-category" value="<?php echo set_value("category");?>" />
-<div id="select-category"></div>
-</p>
-<p>
-<label>タグ</label>
-<textarea name="tags" id="flip-tags" rows="1" cols="50"></textarea><?php echo set_value("tags");?>
+<textarea name="description" rows="4" cols="60"><?php echo set_value("description", "この鉄塔を建設する際、電波科学の権威を結集してそれぞれ綿密、慎重な検討を行なった結果、東京地区のＶＨＦテレビ7局以上と将来開局が予定されるＵＨＦテレビ局が、東京を中心とした関東一円（北は水戸、東は銚子、南は沼津、西は甲府）をサービスエリアとして電波を送る場合に、鉄塔の必要な高さは333ｍであるということがわかりました。");?></textarea>
 </p>
 <p>
 <label>サムネイル</label>
 <input type="file" name="image" value="" />
 </p>
 <p>
+<label>カテゴリ</label>
+<input type="text" name="category" id="flip-category" value="<?php echo set_value("category");?>" readonly="readonly" />
+<div id="select-category" style="height: 80px; width: 30em; overflow: auto;"></div>
+</p>
+<p>
+<label>タグ</label>
+<textarea name="tags" id="flip-tags" rows="1" cols="50"></textarea><?php echo set_value("tags");?>
+</p>
+<p>
 <input type="submit" value="登録" />
+</p>
 </fieldset>
 </form>
