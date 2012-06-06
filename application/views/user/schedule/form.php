@@ -214,11 +214,7 @@ $(function() {
 	</p>
 	<p>
 	<label>説明:</label><br />
-	<textarea id="guide-description" cols="45" rows="7">GREE「mixiが落ちたようだな…」
-モバゲー「クックック、ヤツは我ら四天王の中でも最弱…」
-Facebook「夏休みごときに耐えられんとはSNSの面汚しよ！」
-？？「ふっふっ、どうやら俺の出番のようだな」
-一同　「生きていたのか！セカンドライフ」</textarea><br />
+	<textarea id="guide-description" cols="45" rows="7">テスト</textarea><br />
 	</p>
 	<p>
 	<label>カテゴリ</label>
