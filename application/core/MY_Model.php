@@ -37,7 +37,9 @@ class MY_Model extends CI_Model {
 	 * @param unknown_type $field
 	 * @return boolean|unknown
 	 */
-	function get_one($wheres, $field, $sorts = array()) {
+	function get_one($wheres, $field, $sorts = array(), $offset = 0) {
+		$row = $this->get_row($wheres, array($field), $sorts, $offset);
+		/*
 		if ($field == "" || !is_array($wheres)) {
 			return FALSE;
 		}
@@ -52,11 +54,9 @@ class MY_Model extends CI_Model {
 			$this->db->order_by($fields, $sort);
 		}
 		$query = $this->db->get();
-		if ($query->num_rows() > 0) {
-			$row = $query->row_array();
-			if (isset($row[$field])) {
-				return $row[$field];
-			}
+		*/
+		if (isset($row[$field])) {
+			return $row[$field];
 		}
 		return FALSE;
 	}
@@ -67,7 +67,9 @@ class MY_Model extends CI_Model {
 	 * @param unknown_type $fields
 	 * @return boolean|unknown
 	 */
-	function get_row($wheres, $fields = array()) {
+	function get_row($wheres, $fields = array(), $sorts = array(), $offset = 0) {
+		$query = $this->select($fields, $wheres, 1, $offset, $sorts);
+		/*
 		if (!is_array($wheres)) {
 			return FALSE;
 		}
@@ -80,6 +82,7 @@ class MY_Model extends CI_Model {
 		}
 		$this->db->limit(1, 0);
 		$query = $this->db->get();
+		*/
 		if ($query->num_rows() > 0) {
 			$row = $query->row_array();
 			return $row;
@@ -144,10 +147,7 @@ class MY_Model extends CI_Model {
 			$this->db->order_by($fields, $sort);
 		}
 		$query = $this->db->get();
-		if ($query->num_rows() > 0) {
-			return $query;
-		}
-		return FALSE;
+		return $query;
 	}
 	
 	function count($wheres = array()) {
