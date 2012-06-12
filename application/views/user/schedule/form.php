@@ -281,10 +281,12 @@ $(function() {
 	<li class="ui-state-default">Item 1</li>
 	<?php if($data["routes"]) :?>
 	<?php foreach($data["routes"] as $ruote) :?>
-	<li class="flip ui-draggable" data-flip-id="<?php echo $ruote["point_id"]?>" style="display: list-item; ">
+	<li class="flip ui-draggable" data-flip-id="<?php echo $ruote["id"]?>" style="display: list-item; ">
 		<p class="flipTitle"><?php echo $ruote["name"]?></p>
 		<div class="min60">
-			<img src="//p0009.kiyomizu.mac/uploads/flip/thumb/DefaultController.jpeg" width="110" height="81" alt="写真" class="flipPhoto" />
+			<?php if ($ruote["image"]): ?>
+			<img src="<?php echo base_url("uploads/flip/thumb/".$ruote["image"]["file_name"]);?>" width="110" height="81" alt="写真" class="flipPhoto" />
+			<?php endif;?>
 			<p class="flipDescription"><?php echo $ruote["description"]?></p>
 		</div>
 		<div class="flipBtnArea">滞在時間：60分<a href="#">詳細を見る</a></div>

@@ -70,19 +70,16 @@ class Point_model extends MY_Model {
 	}
 	
 	function get_route($id) {
-		$sql = "SELECT * ".
-			" FROM points".
-			" WHERE id".
-			" IN (".
-			" SELECT point_id".
-			" FROM routes".
-			" WHERE schedule_id = ?".
-			")";
+		$sql = "SELECT points.*".
+			" FROM points, routes".
+			" WHERE points.id = routes.point_id".
+			" AND  schedule_id = ?".
+			" ORDER BY sort ASC";
 		$rows = array();
 		$query = $this->db->query($sql, $id);
 		foreach($query->result_array() as $row) {
 			$row["image"] = $this->_image_parse($row["image"]);
-			$rows[$row["id"]] = $row;
+			$rows[] = $row;
 		}
 		return $rows;
 	}
