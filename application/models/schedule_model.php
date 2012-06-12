@@ -18,14 +18,14 @@ class Schedule_model extends MY_Model {
 						'rule' => array('required'),
 				),
 				"category" => array(
-					'name' => 'カテゴリ',
-					'type' => 'category',
-					'rule' => array('required'),
+						'name' => 'カテゴリ',
+						'type' => 'category',
+						'rule' => array('required'),
 				),
 				"tag" => array(
-					'name' => 'タグ',
-					'type' => 'text',
-					'rule' => array(),
+						'name' => 'タグ',
+						'type' => 'text',
+						'rule' => array(),
 				),
 		);
 	}

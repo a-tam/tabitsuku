@@ -24,7 +24,7 @@ class Route_model extends MY_Model {
 	
 	function get_route($id) {
 		$query = $this->select(
-				array(),
+				array("point_id"),
 				array("schedule_id" => $id),
 				null, 0,
 				array("sort" => "asc"));

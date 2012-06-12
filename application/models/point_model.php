@@ -43,7 +43,7 @@ class Point_model extends MY_Model {
 				"description" => array(
 					'name' => '説明',
 					'type' => 'textarea',
-					'rule' => array('required', 'min_length[10]'),
+					'rule' => array('required'),
 				),
 				"category" => array(
 					'name' => 'カテゴリ',
@@ -60,20 +60,39 @@ class Point_model extends MY_Model {
 					'type' => 'text',
 					'rule' => array('file_allowed_type[image]')
 				),
-				"image2" => array(
-					'name' => '画像',
-					'type' => 'text',
-					'rule' => array('file_allowed_type[image]')
-				),
 		);
 	}
 	
 	function get_row($wheres, $fields = array()) {
 		$data = parent::get_row($wheres, $fields);
-		if (isset($data["image"])) {
-			$data["image"] = unserialize($data["image"]);
-		}
+		$data["image"] = $this->_image_parse($data["image"]);
 		return $data;
+	}
+	
+	function get_route($id) {
+		$sql = "SELECT * ".
+			" FROM points".
+			" WHERE id".
+			" IN (".
+			" SELECT point_id".
+			" FROM routes".
+			" WHERE schedule_id = ?".
+			")";
+		$rows = array();
+		$query = $this->db->query($sql, $id);
+		foreach($query->result_array() as $row) {
+			$row["image"] = $this->_image_parse($row["image"]);
+			$rows[$row["id"]] = $row;
+		}
+		return $rows;
+	}
+	
+	private function _image_parse($image) {
+		if ($image) {
+			return unserialize($image);
+		} else {
+			return null;
+		}
 	}
 	
 	function insert($input) {
