@@ -257,7 +257,7 @@ $(function() {
 <div id="editor">
 <div id="schedule-list">
 <form action="<?php echo base_url("user/schedule/add");?>" method="post">
-<input type="text" name="id" id="guide-id" value="<?php echo set_value("id", $data["id"]);?>" readonly="readonly" />
+<input type="hidden" name="id" id="guide-id" value="<?php echo set_value("id", $data["id"]);?>" readonly="readonly" />
 	<p>
 	<label>名前:</label><br />
 	<input type="text" id="guide-name" value="<?php echo set_value("name", $data["name"]);?>" />
