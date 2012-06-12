@@ -5,3 +5,7 @@
 application/cache/*
 application/config/*
 application/logs/*
+uploads/flip/thumb/*
+uploads/flip/origin/*
+uploads/flip/middle/*
+uploads/tmp/*
