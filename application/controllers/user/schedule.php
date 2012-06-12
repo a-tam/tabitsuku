@@ -3,9 +3,12 @@ class Schedule extends MY_Controller {
 
 	function __construct() {
 		parent::__construct();
+		$this->ns = md5(__FILE__);
 		$this->load->model("Point_model");
 		$this->load->model("Schedule_model");
 		$this->load->model("Route_model");
+		$this->load->model("Tag_model");
+		$this->form_data = $this->Schedule_model->get_structure();
 	}
 	
 	/**
@@ -20,8 +23,26 @@ class Schedule extends MY_Controller {
 	 * 追加
 	 *
 	 */
-	function form() {
-		return $this->render_view("user/schedule/form");
+	function form($id = "") {
+		if (!$this->auth()) return $this->login_form();
+		if (!$id) {
+			$default = array(
+				"name" => "",
+				"description" => "",
+				"tags" => "",
+				"routes" => array()
+			);
+		} else {
+			$default = $this->Schedule_model->row($id);
+			$default["routes"] = $this->Route_model->get_route($id);
+		}
+		$tags = $this->Tag_model->tag_values($default["tags"]);
+		$default["tags"] = json_encode($tags);
+		print_r($default["routes"]);
+
+		$this->phpsession->set("schedule", $default, $this->ns);
+		$this->_set_validation($this->form_data);
+		return $this->render_view("user/schedule/form", $default);
 	}
 	
 	function add() {
@@ -33,9 +54,13 @@ class Schedule extends MY_Controller {
 		$name			= $this->input->post("name");
 		$description	= $this->input->post("description");
 		$route			= $this->input->post("route");
+		$category		= $this->input->post("category");
+		$tags 			= $this->Tag_model->tag_keys(json_decode($this->input->post("tags")));
 		$data = array(
-			"name" => $name,
-			"description" => $description,
+			"name"			=> $name,
+			"description"	=> $description,
+			"category"		=> $category,
+			"tags"			=> implode(",", $tags),
 		);
 		$schedule_id = $this->Schedule_model->insert($data);
 		$this->input->post("description");
@@ -61,6 +86,7 @@ class Schedule extends MY_Controller {
 		$count		= $this->Point_model->count($wheres);
 		if ($count > 0) {
 			foreach ($point_list->result_array() as $row) {
+				$row["image"] = ($row["image"]) ? unserialize($row["image"]) : null;
 				$rows[] = $row;
 			}
 		}
@@ -74,6 +100,7 @@ class Schedule extends MY_Controller {
 	 *
 	 */
 	function update() {
+		if (!$this->auth()) return $this->login_form();
 		$this->render_view("user/schedule/form");
 	}
 	
@@ -82,6 +109,7 @@ class Schedule extends MY_Controller {
 	 *
 	 */
 	function delete() {
+		if (!$this->auth()) return $this->login_form();
 	}
 	
 }

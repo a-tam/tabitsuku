@@ -120,14 +120,6 @@ class MY_Form_validation extends CI_Form_validation {
 			$postdata = $_FILES[$row['field']];
 			
 			
-			//before doing anything check for errors
-			if($postdata['error'] !== UPLOAD_ERR_OK)
-			{
-				$this->_error_array[$row['field']] = $this->file_upload_error_message($postdata['error']);
-				return FALSE;
-			}
-			
-			
 			$_in_array = FALSE;
 		
 			// If the field is blank, but NOT required, no further tests are necessary
@@ -144,6 +136,14 @@ class MY_Form_validation extends CI_Form_validation {
 				{
 					return;
 				}
+			} else {
+				//before doing anything check for errors
+				if($postdata['error'] !== UPLOAD_ERR_OK)
+				{
+					$this->_error_array[$row['field']] = $this->file_upload_error_message($postdata['error']);
+					return FALSE;
+				}
+				
 			}
 			
 			foreach($rules as $rule)
@@ -366,13 +366,7 @@ class MY_Form_validation extends CI_Form_validation {
 		}
 		
 		//is type a group type? image, application, word_document, code, zip .... -> load proper array
-		$ext_groups = array();
-		$ext_groups['image'] = array('jpg','jpeg','gif','png');
-		$ext_groups['application'] = array('exe','dll','so','cgi');
-		$ext_groups['php_code'] = array('php','php4','php5','inc','phtml');
-		$ext_groups['word_document'] = array('rtf','doc','docx');
-		$ext_groups['compressed'] = array('zip','gzip','tar','gz');
-		
+		$ext_groups = $this->allowed_type_pattern();
 		if(array_key_exists($exts[0],$ext_groups))
 		{
 			$exts = $ext_groups[$exts[0]];
@@ -391,6 +385,17 @@ class MY_Form_validation extends CI_Form_validation {
 		{
 			return TRUE;
 		}
+	}
+	
+	public function allowed_type_pattern() {
+		$ext_groups = array();
+		$ext_groups['image'] = array('jpg','jpeg','gif','png');
+		$ext_groups['application'] = array('exe','dll','so','cgi');
+		$ext_groups['php_code'] = array('php','php4','php5','inc','phtml');
+		$ext_groups['word_document'] = array('rtf','doc','docx');
+		$ext_groups['csv'] = array('csv');
+		$ext_groups['compressed'] = array('zip','gzip','tar','gz');
+		return $ext_groups;
 	}
 	
 	function file_disallowed_type($file,$type)

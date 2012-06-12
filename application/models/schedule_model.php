@@ -16,7 +16,17 @@ class Schedule_model extends MY_Model {
 						'name' => '説明',
 						'type' => 'text',
 						'rule' => array('required'),
-				)
+				),
+				"category" => array(
+					'name' => 'カテゴリ',
+					'type' => 'category',
+					'rule' => array('required'),
+				),
+				"tag" => array(
+					'name' => 'タグ',
+					'type' => 'text',
+					'rule' => array(),
+				),
 		);
 	}
 	

@@ -30,6 +30,23 @@ class Tag_model extends MY_Model {
 		return $tag_keys;
 	}
 	
+	function tag_values($keys) {
+		$result = array();
+		if ($keys) {
+			$_keys = explode(",", $keys);
+			// 登録済みデータの取得
+			$this->db->select('id, name');
+			$this->db->from($this->table);
+			$this->db->where_in("id", $_keys);
+			$this->db->where("status", TAG_STATUS_ENABLED);
+			$query = $this->db->get();
+			foreach($query->result_array() as $row) {
+				array_push($result, $row["name"]);
+			}
+		}
+		return $result;
+	}
+	
 	function insert($tag) {
 		$data["name"] = $tag;
 		$data["status"] = TAG_STATUS_ENABLED;

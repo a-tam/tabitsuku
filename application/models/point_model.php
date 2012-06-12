@@ -7,6 +7,11 @@ class Point_model extends MY_Model {
 	
 	function get_structure() {
 		return array(
+				"id" => array(
+					'name' => 'id',
+					'type' => 'text',
+					'rule' => array('numeric'),
+				),
 				"x" => array(
 					'name' => '経度',
 					'type' => 'text',
@@ -53,9 +58,22 @@ class Point_model extends MY_Model {
 				"image" => array(
 					'name' => '画像',
 					'type' => 'text',
-					'rule' => array('required', 'file_allowed_type[image]')
+					'rule' => array('file_allowed_type[image]')
+				),
+				"image2" => array(
+					'name' => '画像',
+					'type' => 'text',
+					'rule' => array('file_allowed_type[image]')
 				),
 		);
+	}
+	
+	function get_row($wheres, $fields = array()) {
+		$data = parent::get_row($wheres, $fields);
+		if (isset($data["image"])) {
+			$data["image"] = unserialize($data["image"]);
+		}
+		return $data;
 	}
 	
 	function insert($input) {
@@ -65,16 +83,42 @@ class Point_model extends MY_Model {
 		$data = array(
 			"owner"			=> $user_info["id"],
 			"name"			=> $input["name"],
-			"image"			=> $input["image"]["file_name"],
 			"description"	=> $input["description"],
 			"stay_time"		=> $input["stay_time"],
 			"x"				=> $input["x"],
 			"y"				=> $input["y"],
 			"like_count"	=> 0,
-			"category_ids"	=> $input["category"],
+			"category"		=> $input["category"],
 			"tags"			=> $input["tags"],
 			"status"		=> POINT_STATUS_ENABLED
 		);
+		if ($input["image"]["tmp"]) {
+			unset($input["image"]["tmp"]["file_path"]);
+			unset($input["image"]["tmp"]["full_path"]);
+			$data["image"] = serialize($input["image"]["tmp"]);
+		}
 		return parent::insert($data);
+	}
+	
+	function update($input, $id) {
+		$data = array(
+			"name"			=> $input["name"],
+			"description"	=> $input["description"],
+			"stay_time"		=> $input["stay_time"],
+			"x"				=> $input["x"],
+			"y"				=> $input["y"],
+			"like_count"	=> 0,
+			"category"		=> $input["category"],
+			"tags"			=> $input["tags"],
+			"status"		=> POINT_STATUS_ENABLED
+		);
+		if (!isset($input["image"])) {
+			$data["image"] = "";
+		} elseif ($input["image"]["tmp"]) {
+			unset($input["image"]["tmp"]["file_path"]);
+			unset($input["image"]["tmp"]["full_path"]);
+			$data["image"] = serialize($input["image"]["tmp"]);
+		}
+		return $this->updates($data, array("id" => $id));
 	}
 }

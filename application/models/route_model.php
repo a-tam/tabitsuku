@@ -22,4 +22,16 @@ class Route_model extends MY_Model {
 		return $ids;
 	}
 	
+	function get_route($id) {
+		$query = $this->select(
+				array(),
+				array("schedule_id" => $id),
+				null, 0,
+				array("sort" => "asc"));
+		$result = array();
+		foreach($query->result_array() as $row) {
+			$result[] = $row;
+		}
+		return $result;
+	}
 }
