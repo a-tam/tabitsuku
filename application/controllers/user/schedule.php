@@ -38,7 +38,6 @@ class Schedule extends MY_Controller {
 		}
 		$tags = $this->Tag_model->tag_values($default["tags"]);
 		$default["tags"] = json_encode($tags);
-		print_r($default["routes"]);
 
 		$this->phpsession->set("schedule", $default, $this->ns);
 		$this->_set_validation($this->form_data);

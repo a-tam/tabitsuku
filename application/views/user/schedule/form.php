@@ -108,9 +108,11 @@ $(function() {
 				$(json.list).each(function() {
 					var html = '<li class="flip" data-flip-id="'+this.id+'">' +
 					'<p class="flipTitle">'+this.name+'</p>' +
-					'<div class="min60">' +
-					'<img src="<?php echo base_url("uploads/flip/thumb");?>/'+this.image.file_name+'" width="110" height="81" alt="写真" class="flipPhoto">' +
-					'<p class="flipDescription">'+this.description+'</p>' +
+					'<div class="min60">';
+					if (this.image) {
+						html += '<img src="<?php echo base_url("uploads/flip/thumb");?>/'+this.image.file_name+'" width="110" height="81" alt="写真" class="flipPhoto">';
+					}
+					html += '<p class="flipDescription">'+this.description+'</p>' +
 					'</div>' +
 					'<div class="flipBtnArea">滞在時間：60分 <a href="#">詳細を見る</a></div>' +
 					'</li>';
