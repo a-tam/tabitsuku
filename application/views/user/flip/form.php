@@ -5,8 +5,9 @@
 <script type="text/javascript" src="<?php echo base_url("assets/js/jquery/util/jquery.hotkeys.js"); ?>"></script>
 <script type="text/javascript">
 $(function() {
-	var lat = '<?php echo set_value("x", 35.6894875);?>';
-	var lng = '<?php echo set_value("y", 139.69170639999993);?>';
+
+	var lat = '<?php echo set_value("x", $data["x"]);?>';
+	var lng = '<?php echo set_value("y", $data["y"]);?>';
 	var latlng = new google.maps.LatLng(lat, lng);
 	var myOptions = {
 		zoom: 10,
@@ -15,7 +16,7 @@ $(function() {
 	};
 	var map = new google.maps.Map(document.getElementById("map_canvas"),
 	myOptions);
-
+	
 	var input = document.getElementById('search-address');
 	var autocomplete = new google.maps.places.Autocomplete(input);
 	var marker = new google.maps.Marker({
@@ -23,6 +24,8 @@ $(function() {
 		draggable: true
 	});
 
+	marker.setPosition(latlng);
+	setPosition(latlng);
 	autocomplete.bindTo('bounds', map);
 
 	google.maps.event.addListener(autocomplete, 'place_changed', function() {
@@ -111,7 +114,7 @@ $(function() {
 	// タグ
 	$('#flip-tags').textext({
 		plugins : 'tags prompt focus autocomplete ajax arrow',
-		tagsItems : [<?php echo set_value("tags");?>],
+		tagsItems : <?php echo $data["tags"];?>,
 		prompt : 'Add one...',
 		ajax : {
 			url : '<?php echo base_url("user/tag/search/");?>',
@@ -121,6 +124,9 @@ $(function() {
 	});
 });
 </script>
+<a href="<?php echo base_url(""); ?>">TOP</a> &gt;
+<a href="<?php echo base_url("user"); ?>">ユーザー</a> &gt;
+フリップ追加
 <p>
 <label>検索</label>
 <input type="text" id="search-address" value="" />
@@ -229,13 +235,14 @@ $(function() {
 <div id="map_canvas" style="width:800px; height:320px"></div>
 <?php echo validation_errors(); ?>
 <form action="<?php echo base_url("user/flip/add");?>" enctype="multipart/form-data" method="post">
+<input type="hidden" name="id" value="<?php echo set_value("id", $data["id"]);?>" readonly="readonly" />
 <fieldset>
 <legend>フリップ追加</legend>
 <p>
 <label>緯度</label>
-<input type="text" name="x" id="flip-x" value="<?php echo set_value("x", 35.6894875);?>" readonly="readonly" />
+<input type="text" name="x" id="flip-x" value="<?php echo set_value("x", $data["x"]);?>" readonly="readonly" />
 <label>経度</label>
-<input type="text" name="y" id="flip-y" value="<?php echo set_value("y", 139.69170639999993);?>" readonly="readonly" />
+<input type="text" name="y" id="flip-y" value="<?php echo set_value("y", $data["y"]);?>" readonly="readonly" />
 <p>
 <p>
 <label>住所</label>
@@ -243,28 +250,36 @@ $(function() {
 </p>
 <p>
 <label>名称</label>
-<input type="text" name="name" value="<?php echo set_value("name", "東京タワー");?>" />
+<input type="text" name="name" value="<?php echo set_value("name", $data["name"]);?>" />
 </p>
 <p>
 <label>基本滞在時間</label>
-<input type="text" name="stay_time" value="<?php echo set_value("stay_time", "60");?>" />
+<input type="text" name="stay_time" value="<?php echo set_value("stay_time", $data["stay_time"]);?>" />
 </p>
 <p>
 <label>説明</label>
-<textarea name="description" rows="4" cols="60"><?php echo set_value("description", "この鉄塔を建設する際、電波科学の権威を結集してそれぞれ綿密、慎重な検討を行なった結果、東京地区のＶＨＦテレビ7局以上と将来開局が予定されるＵＨＦテレビ局が、東京を中心とした関東一円（北は水戸、東は銚子、南は沼津、西は甲府）をサービスエリアとして電波を送る場合に、鉄塔の必要な高さは333ｍであるということがわかりました。");?></textarea>
+<textarea name="description" rows="4" cols="60"><?php echo set_value("description", $data["description"]);?></textarea>
 </p>
 <p>
 <label>サムネイル</label>
 <input type="file" name="image" value="" />
+<?php if ($data["image"]): ?>
+<?php if (isset($data["image"]["tmp"])):?>
+<a href="<?php echo base_url("uploads/tmp/".$data["image"]["tmp"]["file_name"]);?>" target="_blank">登録ファイル</a>
+<?php else:?>
+<a href="<?php echo base_url("uploads/flip/origin/".$data["image"]["file_name"]);?>" target="_blank">登録ファイル</a>
+<?php endif;?>
+<label><input type="checkbox" name="image_delete" value="1" />&nbsp;削除</label>
+<?php endif;?>
 </p>
 <p>
 <label>カテゴリ</label>
-<input type="text" name="category" id="flip-category" value="<?php echo set_value("category");?>" readonly="readonly" />
+<input type="hidden" name="category" id="flip-category" value="<?php echo set_value("category", $data["category"]);?>" readonly="readonly" />
 <div id="select-category" style="height: 80px; width: 30em; overflow: auto;"></div>
 </p>
 <p>
 <label>タグ</label>
-<textarea name="tags" id="flip-tags" rows="1" cols="50"></textarea><?php echo set_value("tags");?>
+<textarea name="tags" id="flip-tags" rows="1" cols="50"></textarea>
 </p>
 <p>
 <input type="submit" value="登録" />

@@ -14,7 +14,8 @@
 <a href="<?php echo base_url();?>"><img src="<?php echo base_url("assets/images/common/logo.jpg");?>" /></a>
 <!-- GlobalNavi -->
 <!-- GlobalNavi End -->
-<?php if($this->user_info):?>
+<?php if($this->phpsession->get("user_info")):?>
+ようこそ 食べログ会員さん | 管理画面 | ログアウト
 <a href="<?php echo base_url("user/top/logout");?>">ログアウト</a>
 <?php else:?>
 <a href="<?php echo base_url("user/top/login_form");?>">ログイン</a>
