@@ -16,7 +16,7 @@
 }
 
 #sortable {
-    background-color: #eee;
+/*    background-color: #eee;*/
 }
 
 #sortable2 ul{
@@ -82,6 +82,11 @@ $(function() {
 		search();
 	});
 
+	$(".flip_delete").click(function() {
+		$(this).closest(".flip").fadeOut(300).queue(function(){ $(this).remove();});
+		return false;
+	});
+
 	function search(page) {
 		if (!page) page = 1;
 		if (marker_list) {
@@ -107,7 +112,12 @@ $(function() {
 				$("#sortable2").html("");
 				$(json.list).each(function() {
 					var html = '<li class="flip" data-flip-id="'+this.id+'">' +
-					'<p class="flipTitle">'+this.name+'</p>' +
+					'<p class="flipTitle">'+this.name+'&nbsp;<span class="flip_tools">' +
+					'<a class="flip_add">[追加]</a>' +
+					'<a class="flip_up" style="visibility:false; display:none;">↑</a>' +
+					'<a class="flip_down" style="visibility:false; display:none;">↓</a>' +
+					'<a class="flip_delete" style="visibility:false; display:none;">[削除]</a>' +
+					'</span></p>' +
 					'<div class="min60">';
 					if (this.image) {
 						html += '<img src="<?php echo base_url("uploads/flip/thumb");?>/'+this.image.file_name+'" width="110" height="81" alt="写真" class="flipPhoto">';
@@ -131,16 +141,29 @@ $(function() {
 					});
 				});
 
+				$(".add_schedule").click(function() {
+					alert(1);
+				});
+
 				$( "#sortable2 li" ).draggable({
 					connectToSortable: "#sortable",
+					containment: "document",
 					revert: "invalid",
 					helper: "clone",
 					cursor: "move",
 					scroll: true,
-					opacity: 0.8,
+					opacity: 0.8
 //					handle: ".flipTitle"
 				});
 
+				$( "#sortable" ).droppable({
+					accept: "",
+					activeClass: "ui-state-highlight",
+					drop: function() {
+						alert(1);
+					}
+				});
+				
 				$( "#sortable" ).sortable({
 					revert: true
 				});
@@ -282,7 +305,13 @@ $(function() {
 	<?php if($data["routes"]) :?>
 	<?php foreach($data["routes"] as $ruote) :?>
 	<li class="flip ui-draggable" data-flip-id="<?php echo $ruote["id"]?>" style="display: list-item; ">
-		<p class="flipTitle"><?php echo $ruote["name"]?></p>
+		<p class="flipTitle"><?php echo $ruote["name"]?>
+			<span class="flip_tools">
+			<a class="flip_add" style="visibility:false; display:none;">追加</a>
+			<a class="flip_up">↑</a>
+			<a class="flip_down">↓</a>
+			<a class="flip_delete">[削除]</a>
+			</span></p>
 		<div class="min60">
 			<?php if ($ruote["image"]): ?>
 			<img src="<?php echo base_url("uploads/flip/thumb/".$ruote["image"]["file_name"]);?>" width="110" height="81" alt="写真" class="flipPhoto" />
