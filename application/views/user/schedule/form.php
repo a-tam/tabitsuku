@@ -212,11 +212,10 @@ $(function() {
 		}
 	});
 	
-	
-	$("#schedule_add").click(function() {
+	$("#schedule_save").click(function() {
 		var routes = [];
 		$("#sortable li.flip").each(function(i, elm) {
-			var id = $(elm).attr("data-flip-id")
+			var id = $(elm).attr("data-flip-id");
 			routes.push({
 				id: id,
 				stay_time: 60
@@ -230,6 +229,7 @@ $(function() {
 			url: "<?php echo base_url("user/schedule/add");?>",
 			type: "post",
 			data: {
+				id: $("#guide-id").val(),
 				name: $("#guide-name").val(),
 				description: $("#guide-description").val(),
 				category: $("#category").val(),
@@ -257,7 +257,7 @@ $(function() {
 <div id="editor">
 <div id="schedule-list">
 <form action="<?php echo base_url("user/schedule/add");?>" method="post">
-<input type="text" name="id" value="<?php echo set_value("id", $data["id"]);?>" readonly="readonly" />
+<input type="text" name="id" id="guide-id" value="<?php echo set_value("id", $data["id"]);?>" readonly="readonly" />
 	<p>
 	<label>名前:</label><br />
 	<input type="text" id="guide-name" value="<?php echo set_value("name", $data["name"]);?>" />
@@ -268,17 +268,29 @@ $(function() {
 	</p>
 	<p>
 	<label>カテゴリ</label>
-	<input type="text" id="category" value="<?php echo set_value("category", $data["category"]);?>" readonly="readonly" />
+	<input type="hidden" id="category" value="<?php echo set_value("category", $data["category"]);?>" readonly="readonly" />
 	<div id="select-category" style="height: 80px; width: 30em; overflow: auto;"></div>
 	</p>
 	<p>
 	<label>タグ</label>
 	<textarea id="tags" rows="1" cols="40"></textarea>
 	</p>
-	<button id="schedule_add">登録</button>
+	<button id="schedule_save">登録</button>
 </form>
 <ul id="sortable">
 	<li class="ui-state-default">Item 1</li>
+	<?php if($data["routes"]) :?>
+	<?php foreach($data["routes"] as $ruote) :?>
+	<li class="flip ui-draggable" data-flip-id="<?php echo $ruote["point_id"]?>" style="display: list-item; ">
+		<p class="flipTitle"><?php echo $ruote["name"]?></p>
+		<div class="min60">
+			<img src="//p0009.kiyomizu.mac/uploads/flip/thumb/DefaultController.jpeg" width="110" height="81" alt="写真" class="flipPhoto" />
+			<p class="flipDescription"><?php echo $ruote["description"]?></p>
+		</div>
+		<div class="flipBtnArea">滞在時間：60分<a href="#">詳細を見る</a></div>
+	</li>
+	<?php endforeach;?>
+	<?php endif;?>
 </ul>
 </div>
 <div id="flip">

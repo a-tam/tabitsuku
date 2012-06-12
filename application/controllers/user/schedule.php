@@ -34,7 +34,7 @@ class Schedule extends MY_Controller {
 			);
 		} else {
 			$default = $this->Schedule_model->row($id);
-			$default["routes"] = $this->Route_model->get_route($id);
+			$default["routes"] = $this->Point_model->get_route($id);
 		}
 		$tags = $this->Tag_model->tag_values($default["tags"]);
 		$default["tags"] = json_encode($tags);
@@ -50,6 +50,7 @@ class Schedule extends MY_Controller {
 		if ($this->form_validation->run() == FALSE) {
 			return print json_encode(false);
 		}
+		$schedule_id	= $this->input->post("id");
 		$name			= $this->input->post("name");
 		$description	= $this->input->post("description");
 		$route			= $this->input->post("route");
@@ -61,7 +62,12 @@ class Schedule extends MY_Controller {
 			"category"		=> $category,
 			"tags"			=> implode(",", $tags),
 		);
-		$schedule_id = $this->Schedule_model->insert($data);
+		if ($schedule_id) {
+			$this->Schedule_model->update($data, $schedule_id);
+		} else {
+			$schedule_id = $this->Schedule_model->insert($data);
+		}
+		// ルート情報
 		$this->input->post("description");
 		$route_ids = $this->Route_model->update_all($schedule_id, $route);
 		print json_encode(array("schedule_id" => $schedule_id, "route_ids" => $route_ids));
