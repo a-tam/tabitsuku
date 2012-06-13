@@ -5,15 +5,15 @@ class Route_model extends MY_Model {
 		parent::__construct("routes");
 	}
 
-	public function update_all($schedule_id, $route) {
-		$this->deletes(array("schedule_id" => $schedule_id));
+	public function update_all($tour_id, $route) {
+		$this->deletes(array("tour_id" => $tour_id));
 		$ids = array();
 		$sort = 1;
-		foreach ($route as $point) {
+		foreach ($route as $spot) {
 			$data = array(
-					"schedule_id"	=> $schedule_id,
-					"point_id"		=> $point["id"],
-					"stay_time"		=> $point["stay_time"],
+					"tour_id"		=> $tour_id,
+					"spot_id"		=> $spot["id"],
+					"stay_time"		=> $spot["stay_time"],
 					"sort"			=> $sort
 			);
 			$ids[] = $this->insert($data);
@@ -24,8 +24,8 @@ class Route_model extends MY_Model {
 	
 	function get_route($id) {
 		$query = $this->select(
-				array("point_id"),
-				array("schedule_id" => $id),
+				array("spot_id"),
+				array("tour_id" => $id),
 				null, 0,
 				array("sort" => "asc"));
 		$result = array();
