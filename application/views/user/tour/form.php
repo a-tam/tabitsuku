@@ -4,11 +4,11 @@
 #editor {
     width: 1260px;
 }
-#flip {
+#spot {
     width: 970px;
     padding: 10px;
 }
-#schedule-list {
+#tour-list {
     border: 2px;
     float: right;
     width: 260px;
@@ -28,14 +28,14 @@
 	margin-bottom:3px;
 }
 
-#schedule-list ul{
+#tour-list ul{
     list-style: none;
     margin: 0;
     padding: 0;
     margin-bottom: 10px;
 }
 
-#schedule-list li{
+#tour-list li{
     margin: 5px; padding: 5px; width: 235px; }
 
 
@@ -82,8 +82,8 @@ $(function() {
 		search();
 	});
 
-	$(".flip_delete").click(function() {
-		$(this).closest(".flip").fadeOut(300).queue(function(){ $(this).remove();});
+	$(".spot_delete").click(function() {
+		$(this).closest(".spot").fadeOut(300).queue(function(){ $(this).remove();});
 		return false;
 	});
 
@@ -95,7 +95,7 @@ $(function() {
 			});
 		}
 		$.ajax({
-			url: "<?php echo base_url("user/schedule/query");?>",
+			url: "<?php echo base_url("user/tour/query");?>",
 			data: {
 				category: $("#category").val(),
 				keyword: $("#keyword").val(),
@@ -111,20 +111,20 @@ $(function() {
 			success: function(json) {
 				$("#sortable2").html("");
 				$(json.list).each(function() {
-					var html = '<li class="flip" data-flip-id="'+this.id+'">' +
-					'<p class="flipTitle">'+this.name+'&nbsp;<span class="flip_tools">' +
-					'<a class="flip_add">[追加]</a>' +
-					'<a class="flip_up" style="visibility:false; display:none;">↑</a>' +
-					'<a class="flip_down" style="visibility:false; display:none;">↓</a>' +
-					'<a class="flip_delete" style="visibility:false; display:none;">[削除]</a>' +
+					var html = '<li class="spot" data-spot-id="'+this.id+'">' +
+					'<p class="spotTitle">'+this.name+'&nbsp;<span class="spot_tools">' +
+					'<a class="spot_add">[追加]</a>' +
+					'<a class="spot_up" style="visibility:false; display:none;">↑</a>' +
+					'<a class="spot_down" style="visibility:false; display:none;">↓</a>' +
+					'<a class="spot_delete" style="visibility:false; display:none;">[削除]</a>' +
 					'</span></p>' +
 					'<div class="min60">';
 					if (this.image) {
-						html += '<img src="<?php echo base_url("uploads/flip/thumb");?>/'+this.image.file_name+'" width="110" height="81" alt="写真" class="flipPhoto">';
+						html += '<img src="<?php echo base_url("uploads/spot/thumb");?>/'+this.image.file_name+'" width="110" height="81" alt="写真" class="spotPhoto">';
 					}
-					html += '<p class="flipDescription">'+this.description+'</p>' +
+					html += '<p class="spotDescription">'+this.description+'</p>' +
 					'</div>' +
-					'<div class="flipBtnArea">滞在時間：60分 <a href="#">詳細を見る</a></div>' +
+					'<div class="spotBtnArea">滞在時間：60分 <a href="#">詳細を見る</a></div>' +
 					'</li>';
 					$("#sortable2").append(html);
 					var latlng = new google.maps.LatLng(this.x, this.y);
@@ -141,7 +141,7 @@ $(function() {
 					});
 				});
 
-				$(".add_schedule").click(function() {
+				$(".add_tour").click(function() {
 					alert(1);
 				});
 
@@ -153,7 +153,7 @@ $(function() {
 					cursor: "move",
 					scroll: true,
 					opacity: 0.8
-//					handle: ".flipTitle"
+//					handle: ".spotTitle"
 				});
 
 				$( "#sortable" ).droppable({
@@ -170,7 +170,7 @@ $(function() {
 							
 				$("#search-count").text(json.count);
 				var page_count = Math.ceil(json.count / $("#limit").val());
-				pager(page_count, page);
+//				pager(page_count, page);
 			}
 		});
 	}
@@ -235,10 +235,10 @@ $(function() {
 		}
 	});
 	
-	$("#schedule_save").click(function() {
+	$("#tour_save").click(function() {
 		var routes = [];
-		$("#sortable li.flip").each(function(i, elm) {
-			var id = $(elm).attr("data-flip-id");
+		$("#sortable li.spot").each(function(i, elm) {
+			var id = $(elm).attr("data-spot-id");
 			routes.push({
 				id: id,
 				stay_time: 60
@@ -249,7 +249,7 @@ $(function() {
 			return false;
 		}
 		$.ajax({
-			url: "<?php echo base_url("user/schedule/add");?>",
+			url: "<?php echo base_url("user/tour/add");?>",
 			type: "post",
 			data: {
 				id: $("#guide-id").val(),
@@ -261,7 +261,7 @@ $(function() {
 			},
 			dataType: "json",
 			success: function(json) {
-				if (json["schedule_id"]) {
+				if (json["tour_id"]) {
 					location.href = "<?php echo base_url("user/top");?>";
 				}
 			}
@@ -276,10 +276,10 @@ $(function() {
 <link rel="stylesheet" type="text/css" href="<?php echo base_url("assets/js/jquery/jpagenate/css/style.css");?>" media="screen"/>
 <a href="<?php echo base_url(""); ?>">TOP</a> &gt;
 <a href="<?php echo base_url("user"); ?>">ユーザー</a> &gt;
-<a href="<?php echo base_url("user/schedule/form"); ?>">スケジュール追加</a>
+<a href="<?php echo base_url("user/tour/form"); ?>">スケジュール追加</a>
 <div id="editor">
-<div id="schedule-list">
-<form action="<?php echo base_url("user/schedule/add");?>" method="post">
+<div id="tour-list">
+<form action="<?php echo base_url("user/tour/add");?>" method="post">
 <input type="hidden" name="id" id="guide-id" value="<?php echo set_value("id", $data["id"]);?>" readonly="readonly" />
 	<p>
 	<label>名前:</label><br />
@@ -298,33 +298,33 @@ $(function() {
 	<label>タグ</label>
 	<textarea id="tags" rows="1" cols="40"></textarea>
 	</p>
-	<button id="schedule_save">登録</button>
+	<button id="tour_save">登録</button>
 </form>
 <ul id="sortable">
 	<li class="ui-state-default">Item 1</li>
 	<?php if($data["routes"]) :?>
 	<?php foreach($data["routes"] as $ruote) :?>
-	<li class="flip ui-draggable" data-flip-id="<?php echo $ruote["id"]?>" style="display: list-item; ">
-		<p class="flipTitle"><?php echo $ruote["name"]?>
-			<span class="flip_tools">
-			<a class="flip_add" style="visibility:false; display:none;">追加</a>
-			<a class="flip_up">↑</a>
-			<a class="flip_down">↓</a>
-			<a class="flip_delete">[削除]</a>
+	<li class="spot ui-draggable" data-spot-id="<?php echo $ruote["id"]?>" style="display: list-item; ">
+		<p class="spotTitle"><?php echo $ruote["name"]?>
+			<span class="spot_tools">
+			<a class="spot_add" style="visibility:false; display:none;">追加</a>
+			<a class="spot_up">↑</a>
+			<a class="spot_down">↓</a>
+			<a class="spot_delete">[削除]</a>
 			</span></p>
 		<div class="min60">
 			<?php if ($ruote["image"]): ?>
-			<img src="<?php echo base_url("uploads/flip/thumb/".$ruote["image"]["file_name"]);?>" width="110" height="81" alt="写真" class="flipPhoto" />
+			<img src="<?php echo base_url("uploads/spot/thumb/".$ruote["image"]["file_name"]);?>" width="110" height="81" alt="写真" class="spotPhoto" />
 			<?php endif;?>
-			<p class="flipDescription"><?php echo $ruote["description"]?></p>
+			<p class="spotDescription"><?php echo $ruote["description"]?></p>
 		</div>
-		<div class="flipBtnArea">滞在時間：60分<a href="#">詳細を見る</a></div>
+		<div class="spotBtnArea">滞在時間：60分<a href="#">詳細を見る</a></div>
 	</li>
 	<?php endforeach;?>
 	<?php endif;?>
 </ul>
 </div>
-<div id="flip">
+<div id="spot">
 <div id="search-form">
 <form>
 <input type="text" id="place" placeholder="地図" />
@@ -343,8 +343,8 @@ $(function() {
 <div id="search-result"><span id="search-count"></span>件中 <span id="start"></span>件 〜 <span id="end"></span>件 表示</div>
 <div id="pagenation"></div>
 
-<div id="flip_list"></div>
-	<ul id="sortable2" class="flipList">
+<div id="spot_list"></div>
+	<ul id="sortable2" class="spotList">
 	</ul>
 </div>
 </div>

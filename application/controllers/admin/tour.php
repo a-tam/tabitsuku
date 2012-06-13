@@ -1,5 +1,5 @@
 <?php
-class Schedule extends CI_Controller {
+class Tour extends CI_Controller {
 	function index() {
 		print "schedule";
 	}

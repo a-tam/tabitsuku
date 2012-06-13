@@ -1,13 +1,13 @@
 <?php
-class Schedule extends MY_Controller {
+class Tour extends MY_Controller {
 	
 	function __construct() {
 		parent::__construct();
-		$this->load->model("Schedule_model");
+		$this->load->model("Tour_model");
 	}
 	
 	function index() {
-		$data = $this->Schedule_model->select();
+		$data = $this->Tour_model->select();
 		$result["count"] = $data->num_rows();
 		$result["list"] = array();
 		if ($data->num_rows() > 0) {

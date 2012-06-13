@@ -1,5 +1,5 @@
 <?php
-class Point extends CI_Controller {
+class Spot extends CI_Controller {
 	function index() {
 		print "point";
 	}

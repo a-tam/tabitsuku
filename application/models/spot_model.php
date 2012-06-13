@@ -1,8 +1,8 @@
 <?php
-class Point_model extends MY_Model {
+class Spot_model extends MY_Model {
 	
 	function __construct(){
-		parent::__construct("points");
+		parent::__construct("spots");
 	}
 	
 	function get_structure() {
@@ -70,10 +70,10 @@ class Point_model extends MY_Model {
 	}
 	
 	function get_route($id) {
-		$sql = "SELECT points.*".
-			" FROM points, routes".
-			" WHERE points.id = routes.point_id".
-			" AND  schedule_id = ?".
+		$sql = "SELECT spots.*".
+			" FROM spots, routes".
+			" WHERE spots.id = routes.spot_id".
+			" AND  tour_id = ?".
 			" ORDER BY sort ASC";
 		$rows = array();
 		$query = $this->db->query($sql, $id);

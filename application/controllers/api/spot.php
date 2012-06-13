@@ -1,13 +1,13 @@
 <?php
-class Point extends MY_Controller {
+class Spot extends MY_Controller {
 	
 	function __construct() {
 		parent::__construct();
-		$this->load->model("Point_model");
+		$this->load->model("Spot_model");
 	}
 		
 	function index() {
-		$data = $this->Point_model->select();
+		$data = $this->Spot_model->select();
 		$result["count"] = $data->num_rows();
 		$result["list"] = array();
 		if ($data->num_rows() > 0) {

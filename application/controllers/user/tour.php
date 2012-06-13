@@ -1,14 +1,14 @@
 <?php
-class Schedule extends MY_Controller {
+class Tour extends MY_Controller {
 
 	function __construct() {
 		parent::__construct();
 		$this->ns = md5(__FILE__);
-		$this->load->model("Point_model");
-		$this->load->model("Schedule_model");
+		$this->load->model("Spot_model");
+		$this->load->model("Tour_model");
 		$this->load->model("Route_model");
 		$this->load->model("Tag_model");
-		$this->form_data = $this->Schedule_model->get_structure();
+		$this->form_data = $this->Tour_model->get_structure();
 	}
 	
 	/**
@@ -33,24 +33,24 @@ class Schedule extends MY_Controller {
 				"routes" => array()
 			);
 		} else {
-			$default = $this->Schedule_model->row($id);
-			$default["routes"] = $this->Point_model->get_route($id);
+			$default = $this->Tour_model->row($id);
+			$default["routes"] = $this->Spot_model->get_route($id);
 		}
 		$tags = $this->Tag_model->tag_values($default["tags"]);
 		$default["tags"] = json_encode($tags);
 
-		$this->phpsession->set("schedule", $default, $this->ns);
+		$this->phpsession->set("tour", $default, $this->ns);
 		$this->_set_validation($this->form_data);
-		return $this->render_view("user/schedule/form", $default);
+		return $this->render_view("user/tour/form", $default);
 	}
 	
 	function add() {
-		$valid_rule = $this->Schedule_model->get_structure();
+		$valid_rule = $this->Tour_model->get_structure();
 		$this->_set_validation($valid_rule);
 		if ($this->form_validation->run() == FALSE) {
 			return print json_encode(false);
 		}
-		$schedule_id	= $this->input->post("id");
+		$tour_id		= $this->input->post("id");
 		$name			= $this->input->post("name");
 		$description	= $this->input->post("description");
 		$route			= $this->input->post("route");
@@ -62,15 +62,15 @@ class Schedule extends MY_Controller {
 			"category"		=> $category,
 			"tags"			=> implode(",", $tags),
 		);
-		if ($schedule_id) {
-			$this->Schedule_model->update($data, $schedule_id);
+		if ($tour_id) {
+			$this->Tour_model->update($data, $tour_id);
 		} else {
-			$schedule_id = $this->Schedule_model->insert($data);
+			$tour_id = $this->Tour_model->insert($data);
 		}
 		// ルート情報
 		$this->input->post("description");
-		$route_ids = $this->Route_model->update_all($schedule_id, $route);
-		print json_encode(array("schedule_id" => $schedule_id, "route_ids" => $route_ids));
+		$route_ids = $this->Route_model->update_all($tour_id, $route);
+		print json_encode(array("tour_id" => $tour_id, "route_ids" => $route_ids));
 	}
 	
 	function query() {
@@ -87,8 +87,8 @@ class Schedule extends MY_Controller {
 		$page = $this->input->get("page");
 		if (!$page) $page = 1;
 		$offset = ($page - 1) * $limit;
-		$point_list	= $this->Point_model->select(array(), $wheres, $limit, $offset);
-		$count		= $this->Point_model->count($wheres);
+		$point_list	= $this->Spot_model->select(array(), $wheres, $limit, $offset);
+		$count		= $this->Spot_model->count($wheres);
 		if ($count > 0) {
 			foreach ($point_list->result_array() as $row) {
 				$row["image"] = ($row["image"]) ? unserialize($row["image"]) : null;
@@ -106,7 +106,7 @@ class Schedule extends MY_Controller {
 	 */
 	function update() {
 		if (!$this->auth()) return $this->login_form();
-		$this->render_view("user/schedule/form");
+		$this->render_view("user/tour/form");
 	}
 	
 	/**

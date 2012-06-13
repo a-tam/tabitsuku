@@ -78,14 +78,14 @@ $(function() {
 		geocoder.geocode({latLng: location}, function(results, status){
 		if(status == google.maps.GeocoderStatus.OK){
 		// 正常に処理ができた場合
-			$("#flip-address").val(results[0].formatted_address);
+			$("#spot-address").val(results[0].formatted_address);
 		} else {
 		// エラーの場合
-			$("#flip-address").val("");
+			$("#spot-address").val("");
 		}
 		});
-		$("#flip-x").val(location.lat());
-		$("#flip-y").val(location.lng());
+		$("#spot-x").val(location.lat());
+		$("#spot-y").val(location.lng());
 	}
 
 	google.maps.event.addListener(map, 'click', function(event){
@@ -108,11 +108,11 @@ $(function() {
 		"plugins" : [ "themes", "json_data", "ui" ]
 	}).bind("select_node.jstree", function (e, data) {
 		var id = data.rslt.obj.attr("id");
-		$("#flip-category").val(id.replace("node_", ""));
+		$("#spot-category").val(id.replace("node_", ""));
 	});
 	
 	// タグ
-	$('#flip-tags').textext({
+	$('#spot-tags').textext({
 		plugins : 'tags prompt focus autocomplete ajax arrow',
 		tagsItems : <?php echo $data["tags"];?>,
 		prompt : 'Add one...',
@@ -234,19 +234,19 @@ $(function() {
 </p>
 <div id="map_canvas" style="width:800px; height:320px"></div>
 <?php echo validation_errors(); ?>
-<form action="<?php echo base_url("user/flip/add");?>" enctype="multipart/form-data" method="post">
+<form action="<?php echo base_url("user/spot/add");?>" enctype="multipart/form-data" method="post">
 <input type="hidden" name="id" value="<?php echo set_value("id", $data["id"]);?>" readonly="readonly" />
 <fieldset>
 <legend>フリップ追加</legend>
 <p>
 <label>緯度</label>
-<input type="text" name="x" id="flip-x" value="<?php echo set_value("x", $data["x"]);?>" readonly="readonly" />
+<input type="text" name="x" id="spot-x" value="<?php echo set_value("x", $data["x"]);?>" readonly="readonly" />
 <label>経度</label>
-<input type="text" name="y" id="flip-y" value="<?php echo set_value("y", $data["y"]);?>" readonly="readonly" />
+<input type="text" name="y" id="spot-y" value="<?php echo set_value("y", $data["y"]);?>" readonly="readonly" />
 <p>
 <p>
 <label>住所</label>
-<input type="text" name="address" id="flip-address" size="120" value="<?php echo set_value("address");?>" readonly="readonly" />
+<input type="text" name="address" id="spot-address" size="120" value="<?php echo set_value("address");?>" readonly="readonly" />
 </p>
 <p>
 <label>名称</label>
@@ -267,19 +267,19 @@ $(function() {
 <?php if (isset($data["image"]["tmp"])):?>
 <a href="<?php echo base_url("uploads/tmp/".$data["image"]["tmp"]["file_name"]);?>" target="_blank">登録ファイル</a>
 <?php else:?>
-<a href="<?php echo base_url("uploads/flip/origin/".$data["image"]["file_name"]);?>" target="_blank">登録ファイル</a>
+<a href="<?php echo base_url("uploads/spot/origin/".$data["image"]["file_name"]);?>" target="_blank">登録ファイル</a>
 <?php endif;?>
 <label><input type="checkbox" name="image_delete" value="1" />&nbsp;削除</label>
 <?php endif;?>
 </p>
 <p>
 <label>カテゴリ</label>
-<input type="hidden" name="category" id="flip-category" value="<?php echo set_value("category", $data["category"]);?>" readonly="readonly" />
+<input type="hidden" name="category" id="spot-category" value="<?php echo set_value("category", $data["category"]);?>" readonly="readonly" />
 <div id="select-category" style="height: 80px; width: 30em; overflow: auto;"></div>
 </p>
 <p>
 <label>タグ</label>
-<textarea name="tags" id="flip-tags" rows="1" cols="50"></textarea>
+<textarea name="tags" id="spot-tags" rows="1" cols="50"></textarea>
 </p>
 <p>
 <input type="submit" value="登録" />
