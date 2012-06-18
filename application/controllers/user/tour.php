@@ -11,6 +11,14 @@ class Tour extends MY_Controller {
 		$this->form_data = $this->Tour_model->get_structure();
 	}
 	
+	function show($id) {
+		$data = $this->Tour_model->row($id);
+		$data["routes"] = $this->Spot_model->get_route($id);
+		$tags = $this->Tag_model->tag_values($default["tags"]);
+		$data["tags"] = json_encode($tags);
+		$this->render_view("user/tour/show", $data);
+	}
+	
 	/**
 	 * 検索
 	 *
