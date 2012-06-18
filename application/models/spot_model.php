@@ -55,6 +55,11 @@ class Spot_model extends MY_Model {
 					'type' => 'text',
 					'rule' => array(),
 				),
+				"keyword" => array(
+					'name' => 'キーワード',
+					'type' => 'text',
+					'rule' => array(),
+				),
 				"image" => array(
 					'name' => '画像',
 					'type' => 'text',
@@ -92,12 +97,9 @@ class Spot_model extends MY_Model {
 		}
 	}
 	
-	function insert($input) {
-		if (!$user_info = $this->phpsession->get("user_info")) {
-			return array();
-		}
+	function insert($input, $owner_id) {
 		$data = array(
-			"owner"			=> $user_info["id"],
+			"owner"			=> $owner,
 			"name"			=> $input["name"],
 			"description"	=> $input["description"],
 			"stay_time"		=> $input["stay_time"],
@@ -106,6 +108,8 @@ class Spot_model extends MY_Model {
 			"like_count"	=> 0,
 			"category"		=> $input["category"],
 			"tags"			=> $input["tags"],
+			"keyword"		=> $input["keyword"],
+			"addition"		=> serialize($input["addition"]),
 			"status"		=> POINT_STATUS_ENABLED
 		);
 		if ($input["image"]["tmp"]) {
@@ -126,6 +130,8 @@ class Spot_model extends MY_Model {
 			"like_count"	=> 0,
 			"category"		=> $input["category"],
 			"tags"			=> $input["tags"],
+			"keyword"		=> $input["keyword"],
+			"addition"		=> serialize($input["addition"]),
 			"status"		=> POINT_STATUS_ENABLED
 		);
 		if (!isset($input["image"])) {
