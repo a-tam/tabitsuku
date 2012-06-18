@@ -69,6 +69,7 @@ class Category_model extends MY_Model {
 			$path = "/".$insert_id."/";
 		}
 		$this->update(array("path" => $path), $insert_id);
+		return $insert_id;
 	}
 	
 	function enable($id) {
