@@ -96,6 +96,7 @@ $(function() {
 		}
 		$.ajax({
 			url: "<?php echo base_url("user/tour/query");?>",
+			async: false,
 			data: {
 				category: $("#category").val(),
 				keyword: $("#keyword").val(),
@@ -125,6 +126,7 @@ $(function() {
 					html += '<p class="spotDescription">'+this.description+'</p>' +
 					'</div>' +
 					'<div class="spotBtnArea">滞在時間：60分 <a href="#">詳細を見る</a></div>' +
+					'<div class="facebook_like_button" id="'+this.id+'"></div>' +
 					'</li>';
 					$("#sortable2").append(html);
 					var latlng = new google.maps.LatLng(this.x, this.y);
@@ -170,8 +172,14 @@ $(function() {
 							
 				$("#search-count").text(json.count);
 				var page_count = Math.ceil(json.count / $("#limit").val());
-//				pager(page_count, page);
+				pager(page_count, page);
 			}
+		});
+		$('.facebook_like_button').each(function() {
+			$(this).socialbutton('facebook_like', {
+				button: 'button_count',
+				url: '<?php echo base_url("user/spot/show/");?>/'+this.id
+			});
 		});
 	}
 
@@ -187,9 +195,9 @@ $(function() {
 	
 	function pager(page_count, now) {
 		$("#pagenation").paginate({
-			count 		: page_count,
-			start 		: now,
-			display     : 10,
+			count					: page_count,
+			start					: now,
+			display					: 10,
 			border					: true,
 			border_color			: '#fff',
 			text_color  			: '#fff',
@@ -330,7 +338,6 @@ $(function() {
 <input type="text" id="place" placeholder="地図" />
 <input type="text" id="category" placeholder="カテゴリ" />
 <input type="text" id="keyword" placeholder="キーワード、タグ" />
-<input type="text" id="season" placeholder="時期" />
 <select id="limit">
 	<option value="30">30</option>
 	<option value="60">60</option>
