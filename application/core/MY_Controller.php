@@ -30,8 +30,10 @@ class MY_Controller extends CI_Controller {
 	}
 	
 	function login_form() {
+		$params = array("redirect_uri" => base_url("user/top/fb_auth"));
+		$data["fb_login"] = $this->facebook->getLoginUrl($params);
 		$this->load->library("form_validation");
-		$this->render_view('user/login');
+		$this->render_view('user/login', $data);
 	}
 	
 	function admin_login_form() {
@@ -42,7 +44,8 @@ class MY_Controller extends CI_Controller {
 		// JS files
 		$js_files = array(
 			'/assets/js/jquery/jquery-1.7.2.min.js',
-			'/assets/js/jquery/jquery-ui-1.8.20.custom.min.js'
+			'/assets/js/jquery/jquery-ui-1.8.20.custom.min.js',
+			'/assets/js/jquery/social/jquery.socialbutton-1.9.0.min.js'
 		);
 		// CSS files
 		$css_files = array(
