@@ -10,6 +10,11 @@ class Spot extends MY_Controller {
 		$this->form_data = $this->Spot_model->get_structure();
 	}
 	
+	function show($id) {
+		$row = $this->Spot_model->row($id);
+		$this->render_view("user/spot/show", $row);
+	}
+	
 	function form($id = "") {
 		if (!$this->auth()) return $this->login_form();
 		if (!$id) {
@@ -65,7 +70,7 @@ class Spot extends MY_Controller {
 		if ($data["id"]) {
 			$this->Spot_model->update($data, $data["id"]);
 		} else {
-			$this->Spot_model->insert($data);
+			$this->Spot_model->insert($data, $this->user_info["id"]);
 		}
 		$this->phpsession->clear($this->ns, "point");
 		redirect("user/top");
