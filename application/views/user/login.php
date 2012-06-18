@@ -39,6 +39,6 @@
 <input type="password" name="password" value="" /><br />
 <br />
 <input type="submit" /><br />
-<a href="">Facebookでログイン</a>
+<a href="<?php echo $data["fb_login"]; ?>">Facebookでログイン</a>
 </fieldset>
 </form>
