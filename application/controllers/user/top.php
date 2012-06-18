@@ -22,7 +22,7 @@ class Top extends MY_Controller {
 		}
 		$user_info = $this->User_model->signup($this->input->post());
 		$this->phpsession->set("user_info", $user_info);
-		redirect("user/top");
+		redirect("user/top", $data);
 	}
 	
 	function login() {
@@ -38,5 +38,28 @@ class Top extends MY_Controller {
 	function logout() {
 		$this->phpsession->clear("user_info");
 		redirect("top");
+	}
+	
+	/**
+	 * facebook ログイン
+	 *
+	 */
+	function fb_auth() {
+		$user = $this->facebook->getUser();
+		if ($user) {
+			try {
+				$user_profile = $this->facebook->api('/me');
+				if (isset($user_profile["id"])) {
+					$user_info = $this->User_model->oauth_login("facebook", $user_profile);
+					$this->phpsession->set("user_info", $user_info);
+					redirect("top");
+				}
+			} catch (FacebookApiException $e) {
+				$user = null;
+			}
+		} else {
+			// ログイン画面
+			$this->login_form();
+		}
 	}
 }
