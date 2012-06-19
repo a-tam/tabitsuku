@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- ホスト: localhost
--- 生成時間: 2012 年 6 月 19 日 10:27
+-- 生成時間: 2012 年 6 月 19 日 10:31
 -- サーバのバージョン: 5.5.9
 -- PHP のバージョン: 5.3.6
 
@@ -25,6 +25,7 @@ SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 -- テーブルの構造 `categories`
 --
 
+DROP TABLE IF EXISTS `categories`;
 CREATE TABLE `categories` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `parent_id` varchar(45) DEFAULT NULL COMMENT '親ID',
@@ -43,6 +44,7 @@ CREATE TABLE `categories` (
 -- テーブルの構造 `routes`
 --
 
+DROP TABLE IF EXISTS `routes`;
 CREATE TABLE `routes` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `tour_id` bigint(20) DEFAULT NULL COMMENT 'イベントID',
@@ -60,6 +62,7 @@ CREATE TABLE `routes` (
 -- テーブルの構造 `spots`
 --
 
+DROP TABLE IF EXISTS `spots`;
 CREATE TABLE `spots` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `owner` bigint(20) DEFAULT NULL COMMENT '所有者',
@@ -86,6 +89,7 @@ CREATE TABLE `spots` (
 -- テーブルの構造 `tags`
 --
 
+DROP TABLE IF EXISTS `tags`;
 CREATE TABLE `tags` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `name` varchar(200) DEFAULT NULL COMMENT 'タグ名',
@@ -101,6 +105,7 @@ CREATE TABLE `tags` (
 -- テーブルの構造 `tours`
 --
 
+DROP TABLE IF EXISTS `tours`;
 CREATE TABLE `tours` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `owner` int(11) DEFAULT NULL COMMENT '所有者',
@@ -123,6 +128,7 @@ CREATE TABLE `tours` (
 -- テーブルの構造 `users`
 --
 
+DROP TABLE IF EXISTS `users`;
 CREATE TABLE `users` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `login_id` varchar(255) DEFAULT NULL,
