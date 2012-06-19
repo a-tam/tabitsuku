@@ -14,7 +14,12 @@
 | path to your installation.
 |
 */
-$config['base_url']	= '//'.$_SERVER["SERVER_NAME"];
+if (isset($_SERVER["HTTPS"])) {
+	$scheme = "https";
+} else {
+	$scheme = "http";
+}
+$config['base_url']	= $scheme.'://'.$_SERVER["SERVER_NAME"];
 
 /*
 |--------------------------------------------------------------------------
