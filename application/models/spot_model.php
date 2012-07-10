@@ -143,4 +143,14 @@ class Spot_model extends MY_Model {
 		}
 		return $this->updates($data, array("id" => $id));
 	}
+	
+	function like_plus($id) {
+		$sql = "UPDATE  ". $this->table. " SET like_count =  like_count + 1 WHERE id = ?";
+		$this->db->query($sql, $id);
+	}
+	
+	function like_minus($id) {
+		$sql = "UPDATE  ". $this->table. " SET like_count =  like_count - 1 WHERE id = ?";
+		$this->db->query($sql, $id);
+	}
 }
