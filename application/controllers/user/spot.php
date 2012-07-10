@@ -83,6 +83,23 @@ class Spot extends MY_Controller {
 	
 	function delete() {
 		if (!$this->auth()) return $this->login_form();
-		
+	}
+	
+	function like_plus() {
+		$url = $this->input->get("url");
+		$parse_url = parse_url($url);
+		$path = explode("/", $parse_url["path"]);
+		$id = array_pop($path);
+		log_message("error", $id);
+		$this->Spot_model->like_plus($id);
+	}
+	
+	function like_minus() {
+		$url = $this->input->get("url");
+		$parse_url = parse_url($url);
+		$path = explode("/", $parse_url["path"]);
+		$id = array_pop($path);
+		log_message("error", $id);
+		$this->Spot_model->like_minus($id);
 	}
 }
