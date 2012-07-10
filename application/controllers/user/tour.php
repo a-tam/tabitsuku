@@ -49,7 +49,11 @@ class Tour extends MY_Controller {
 
 		$this->phpsession->set("tour", $default, $this->ns);
 		$this->_set_validation($this->form_data);
-		return $this->render_view("user/tour/form", $default);
+		$data = array(
+			'data'			=> $default
+		);
+		$this->load->view("user/tour/form", $data);
+		//return $this->render_view("user/tour/form", $default);
 	}
 	
 	function add() {
@@ -83,26 +87,50 @@ class Tour extends MY_Controller {
 	
 	function query() {
 		$result;
-		$rows = array();
-		$wheres = array(
-			"x < " => $this->input->get("ne_x"),
-			"x > " => $this->input->get("sw_x"),
-			"y < " => $this->input->get("ne_y"),
-			"y > " => $this->input->get("sw_y"),
-		);
-		$limit = $this->input->get("limit");
-		if (!$limit) $limit = 20;
-		$page = $this->input->get("page");
-		if (!$page) $page = 1;
-		$offset = ($page - 1) * $limit;
-		$point_list	= $this->Spot_model->select(array(), $wheres, $limit, $offset);
-		$count		= $this->Spot_model->count($wheres);
-		if ($count > 0) {
-			foreach ($point_list->result_array() as $row) {
-				$row["image"] = ($row["image"]) ? unserialize($row["image"]) : null;
-				$rows[] = $row;
-			}
+		$ne_x		= $this->input->get("ne_x");
+		$sw_x		= $this->input->get("sw_x");
+		$ne_y		= $this->input->get("ne_y");
+		$sw_y		= $this->input->get("sw_y");
+		$limit		= $this->input->get("limit");
+		$sort		= $this->input->get("sort");
+		$keyword	= $this->input->get("keyword");
+		
+		if (!$limit) {
+			$limit = 20;
 		}
+		$page = $this->input->get("page");
+		if (!$page) {
+			$page = 1;
+		}
+		$offset = ($page - 1) * $limit;
+		
+		$rows = array();
+		$sql = "SELECT * FROM ".$this->Spot_model->table;
+		$where = " WHERE x < ?".
+			" AND x > ?".
+			" AND y < ?".
+			" AND y > ?";
+		$values = array(
+			$ne_x,
+			$sw_x,
+			$ne_y,
+			$sw_y
+		);
+		if (trim($keyword)) {
+			$tag_keys = $this->Tag_model->tag_keys(array($keyword));
+			$where .= " AND ( tags IN (".implode(",", $tag_keys).") OR name LIKE ? )";
+			array_push($values, "%".$keyword."%");
+		}
+		$sql .= $where." ORDER BY ".$sort." LIMIT ".$offset.", ".$limit;
+		$point_list = $this->Spot_model->db->query($sql, $values);
+		foreach ($point_list->result_array() as $row) {
+			$row["image"] = ($row["image"]) ? unserialize($row["image"]) : null;
+			$rows[] = $row;
+		}
+		$sql = "SELECT COUNT(id) as cnt FROM ".$this->Spot_model->table.$where;
+		$count_rs = $this->Spot_model->db->query($sql, $values);
+		$row = $count_rs->row_array(1);
+		$count = $row["cnt"];
 		$result["count"] = $count;
 		$result["list"] = $rows;
 		print json_encode($result);
