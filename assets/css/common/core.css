@@ -1,4 +1,5 @@
 @charset "utf-8";
+
 /* CSS3 Document */
 
 /*　PIEの特徴 ---------------------------------
@@ -28,70 +29,217 @@ text-shadow（テキストシャドウ）
 下記の１行を各クラスに追加
 behavior: url(/_css/IE-CSS/ie-css3.htc);
 ------------------------------------------------ */
-#layout {
-	width: 840px;
-	margin: 0 auto;
-	position: relative;
-	padding: 30px 0;
+
+html,
+body {
+	width: 100%;
+	height: 100%;
+	padding: 0;
+	margin: 0;
+	overflow: auto; /* when page gets too small */
+	min-height: 600px;
+	background: #EEE;
 }
+
+#layout {
+	width: 100%;
+	min-width: 400px;
+	height: 90%;
+	margin: 0;
+	padding: 0;
+	position: relative;
+}
+
+#container {
+	height: 100%;
+	min-height: 300px;
+	min-width: 600px;
+	position: absolute;
+	top: 40px;	/* margins in pixels */
+	bottom: 0;	/* could also use a percent */
+	left: 20px;
+	right: 20px;
+}
+
 
 /* ----------------------------------------------------------------- 
 	ヘッダー
 -------------------------------------------------------------------- */
-
 HEADER {
-	margin:0 auto 10px auto;
-	padding: 0 0 10px 0;
-}
-
-/* ----------------------------------------------------------------- 
-	スケジュール
--------------------------------------------------------------------- */
-DIV#schejuleBlock {
-	width: 430px;
-	float: left;
-	padding:10px;
-	background:;
-	padding: 10px 0 30px 30px;
-	background: #FFFACE url(/img/interface/timeline_bg.gif) no-repeat 0 30px;
-}
-
-DIV#flipBlock {
-	width: 340px;
-	float: right;
-	padding:10px;
-	background:#CCC;
-}
-
-.listTitle {
-	text-align:center;
-	font-size: 120%;
-	padding: 0;
 	margin: 0;
-	line-height: 120%;
+	padding: 0;
+	width: 100%;
+	position: fixed;
+	top: 0;
+	left: 0;
+	background: #1A2F8D;
+	border-bottom: 1px solid #2D3D9C;
+	/* 5pxの影 */
+	box-shadow: 0px 2px 5px #999;
+	-webkit-box-shadow: 0px 2px 5px #999;
+	-moz-box-shadow: 0px 2px 5px #999;
+	z-index: 99;
+	color: #FFF;
 }
 
-.ui-state-highlight {
-	border:1px dashed #ccc;
-	background: #F8F5AD;
-	height:10px;
+HEADER DIV#headerInner {
+	padding:10px 30px;
 }
 
 /* ----------------------------------------------------------------- 
-	ブロック
+	フッター
 -------------------------------------------------------------------- */
-.roundShadow {
-	/* 5pxの角まる */
-	border-radius: 5px;
-	-webkit-border-radius: 5px;
-	-moz-border-radius: 5px;
-	
-	/* 5pxの影 */
-	box-shadow: 1px 1px 5px #333;
-	-webkit-box-shadow:1px 1px 5px #333;
-	-moz-box-shadow: 1px 1px 5px #333;
+FOOTER {
+	width: 100%;
+	margin-top:50px;
+	background:#063;
+}
 
-	behavior: url(/_css/PIE/PIE.htc);
-	
-	overflow: hidden;
+FOOTER DIV#footerInner {
+	padding:10px 30px;
+}
+
+/* ----------------------------------------------------------------- 
+	メインビジュアル
+-------------------------------------------------------------------- */
+
+#mainVisual {
+	height: 300px;
+	background: #FF9;
+}
+
+/* ----------------------------------------------------------------- 
+	検索
+-------------------------------------------------------------------- */
+
+.searchArea {
+	background: #E1ECFB;
+	/* margin-right: 222px; */
+	padding: 10px;
+	border-top: 1px solid #FFF;
+	border-right: 1px solid #BBB;
+	border-bottom: 1px solid #999;
+	border-left: 1px solid #DDD;
+	margin-top: 0px;
+}
+
+/* ----------------------------------------------------------------- 
+	保存
+-------------------------------------------------------------------- */
+
+#headerSaveArea {
+	background: #396;
+	padding: 10px;
+	border-top: 1px solid #FFF;
+	border-right: 1px solid #BBB;
+	border-bottom: 1px solid #999;
+	border-left: 1px solid #DDD;
+	text-align: center;
+	color: #FFF;
+	font-weight: bold;
+	margin-bottom: 20px;
+}
+
+/* ----------------------------------------------------------------- 
+	マップエリア
+-------------------------------------------------------------------- */
+
+DIV#mapAreaFrame {
+	padding: 10px;
+	border-top: 1px solid #FFF;
+	border-right: 1px solid #BBB;
+	border-bottom: 1px solid #999;
+	border-left: 1px solid #DDD;
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#F6F6F6), to(#FCFCFC));
+	background-image: -webkit-linear-gradient(top, #F6F6F6, #FCFCFC);
+	background-image: -moz-linear-gradient(top, #F6F6F6, #FCFCFC);
+	background-image: -ms-linear-gradient(top, #F6F6F6, #FCFCFC);
+	background-image: -o-linear-gradient(top, #F6F6F6, #FCFCFC);
+	background-image: linear-gradient(top, #F6F6F6, #FCFCFC);
+}
+
+DIV#mapArea {
+	border: 1px solid #CCC;
+}
+
+/* ----------------------------------------------------------------- 
+	ツアー組み立てエリア
+-------------------------------------------------------------------- */
+
+DIV#buildTourArea {
+	width: 629px;
+	height: 75%;
+	min-height: 500px;
+	float: right;
+	clear: both;
+}
+
+/* ----------------------------------------------------------------- 
+	ポイントエリア
+-------------------------------------------------------------------- */
+
+#spotAreaFrame {
+	width: 285px;
+	height: 100%;
+	float: left;
+	padding: 10px;
+	border-top: 1px solid #FFF;
+	border-right: 1px solid #BBB;
+	border-bottom: 1px solid #999;
+	border-left: 1px solid #DDD;
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#F6F6F6), to(#FCFCFC));
+	background-image: -webkit-linear-gradient(top, #F6F6F6, #FCFCFC);
+	background-image: -moz-linear-gradient(top, #F6F6F6, #FCFCFC);
+	background-image: -ms-linear-gradient(top, #F6F6F6, #FCFCFC);
+	background-image: -o-linear-gradient(top, #F6F6F6, #FCFCFC);
+	background-image: linear-gradient(top, #F6F6F6, #FCFCFC);
+}
+
+#spotAreaFrameScroll {
+	height: 100%;
+	overflow-y: scroll;
+	margin-bottom:1px;
+}
+
+/* ----------------------------------------------------------------- 
+	ツアーエリア
+-------------------------------------------------------------------- */
+
+#tourAreaFrame {
+	width: 300px;
+	height: 100%;
+	float: right;
+	padding: 10px;
+	border-top: 1px solid #FFF;
+	border-right: 1px solid #BBB;
+	border-bottom: 1px solid #999;
+	border-left: 1px solid #DDD;
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#F6F6F6), to(#EAEEA6));
+	background-image: -webkit-linear-gradient(top, #F6F6F6, #EAEEA6);
+	background-image: -moz-linear-gradient(top, #F6F6F6, #EAEEA6);
+	background-image: -ms-linear-gradient(top, #F6F6F6, #EAEEA6);
+	background-image: -o-linear-gradient(top, #F6F6F6, #EAEEA6);
+	background-image: linear-gradient(top, #F6F6F6, #EAEEA6);
+}
+
+#tourAreaFrameScroll {
+	height: 100%;
+	overflow-y: scroll;
+	margin-bottom:1px;
+	background:url(../..//img/interface/tour/timeline.gif) repeat-y 4px 0;
+}
+
+
+/* ----------------------------------------------------------------- 
+	ツアー詳細入力
+-------------------------------------------------------------------- */
+
+#tourDetailFormArea {
+	clear: both;
+	padding: 10px;
+	background: #FFF;
+	border-top: 1px solid #FFF;
+	border-right: 1px solid #BBB;
+	border-bottom: 1px solid #999;
+	border-left: 1px solid #DDD;
 }

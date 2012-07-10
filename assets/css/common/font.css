@@ -186,7 +186,7 @@ A:active.iconLink {
 A.linkBtn {
 	display: inline-block;
 	outline: none;
-	cursor: pointer;
+	cursor: spoter;
 	text-align: center;
 	text-decoration: none;
 	padding: .5em 2em .55em;

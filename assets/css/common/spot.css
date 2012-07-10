@@ -1,0 +1,183 @@
+@charset "utf-8";
+/* CSS3 Document */
+
+/*　PIEの特徴 ---------------------------------
+IE6 / IE7 / IE8にCSS3を適用する
+IE-CSSよりシャドウが綺麗
+text-shadowが出来ない（2011-09-15)
+
+border-radius（角丸表現）
+box-shadow（ボックスシャドウ）
+border-image（画像罫線）
+multiple background images（複数の背景画像）
+linear-gradient as background image（背景にグラデーション）
+
+下記の１行を各クラスに追加
+behavior: url(/_css/PIE/PIE.htc);
+------------------------------------------------ */
+
+/*　ie-css3の特徴 ---------------------------------
+IE6 / IE7 / IE8にCSS3を適用する
+text-shadowができる
+PIEと併用した場合、テキストシャドウ用
+
+border-radius（角丸表現）
+box-shadow（ボックスシャドウ）
+text-shadow（テキストシャドウ）
+
+下記の１行を各クラスに追加
+behavior: url(/_css/IE-CSS/ie-css3.htc);
+------------------------------------------------ */
+
+/* ----------------------------------------------------------------- 
+	スポット
+------------------------------------------------------------------- */
+
+
+/* ツアー作成時のスポット
+------------------------------------------ */
+#makeTour #spotAreaFrame .spotArea {
+	width:250px;
+	background: #72CEFF;
+}
+
+#makeTour #spotAreaFrame .spotArea .textArea {
+	width: 145px;
+}
+
+#makeTour #spotAreaFrame .timePullDown,
+#makeTour #spotAreaFrame .iconClose,
+#makeTour #spotAreaFrame .iconUp,
+#makeTour #spotAreaFrame .iconDown {
+	display: none;
+}
+
+/* ツアー作成時のツアー
+------------------------------------------ */
+#makeTour #tourAreaFrame .spotArea {
+	width:250px;
+	margin-left: 15px;
+	background: #8FB609;
+}
+
+#makeTour #tourAreaFrame .spotArea .textArea {
+	width: 145px;
+}
+
+#makeTour #tourAreaFrame .spotDescription,
+#makeTour #tourAreaFrame .iconAdd {
+	display: none;
+}
+
+/* ----------------------------------------------------------------- 
+	共通
+------------------------------------------------------------------- */
+.spotList {
+	margin: 0;
+	padding: 0;
+	list-style:  none;
+}
+
+.timecode {
+	font-size:76%;
+	font-weight:bold;
+	padding: 0 0 0 15px;
+	margin: 0;
+	line-height:120%;
+	background: url(../../img/interface/tour/timepoint.png) no-repeat 0 center;
+
+}
+
+/* スポットベース */
+.spotArea {
+	display: block;
+	margin-top: 2px;
+	margin-bottom: 2px;
+	zoom: 1;
+}
+.spotArea:after {
+	content: "";
+	display: block;
+	clear: both;
+}
+
+.spotArea .spotDetail {
+	background: #FFF;
+	padding: 5px;
+	display: table-cell;
+	border-top: 1px solid #FFF;
+	border-right: 1px solid #BBB;
+	border-bottom: 1px solid #999;
+	border-left: 1px solid #DDD;
+}
+
+.spotArea .thumbnail {
+	float: left;
+	margin: 0;
+	width: 60px;
+	height: 60px;
+	overflow: hidden;
+}
+.spotArea .textArea {
+	float: left;
+	line-height: 135%;
+	margin-left:10px;
+	height: 60px;
+	overflow: hidden;
+}
+.spotArea .categoryTitle {
+	font-size: 84%;
+	padding: 0;
+	margin: 0;
+}
+.spotArea .spotTitle {
+	padding: 0 0 5px 0;
+	margin: 0;
+	font-weight: bold;
+}
+.spotArea .spotDescription {
+	padding: 0;
+	margin: 0;
+}
+
+.spotArea .spotBtnArea {
+	clear: both;
+	padding: 5px 0 0 0;
+}
+
+.spotArea .spotBtnArea .bntDetail A {
+	padding:0 5px;
+	background: #F60;
+	color:#FFF;
+	text-align:center;
+	float: left;
+	margin-right: 5px;
+	text-decoration: none;
+	
+	/* 5pxの角まる */
+	border-radius: 3px;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+}
+
+.spotArea .spotBtnArea .bntDetail A:hover {
+	text-decoration: none;
+	background:#F66;
+}
+
+.spotArea .spotBtnArea .fb-like {
+	width: 120px;
+	float: left;
+	overflow: hidden;
+}
+	
+.naviArea {
+	width: 20px;
+	text-align:center;
+	color: #FFF;
+	vertical-align: middle;
+	display: table-cell;
+}
+.iconClose {
+	margin:10px 0;
+}
