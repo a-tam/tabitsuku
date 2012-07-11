@@ -31,7 +31,11 @@ class Spot extends MY_Controller {
 		
 		$this->phpsession->set("point", $default, $this->ns);
 		$this->_set_validation($this->form_data);
-		$this->render_view("user/spot/form", $default);
+		$data = array(
+			'data'			=> $default
+		);
+		$this->load->view("user/spot/form", $data);
+		//$this->render_view("user/spot/form", $default);
 	}
 	
 	function add() {
@@ -86,20 +90,18 @@ class Spot extends MY_Controller {
 	}
 	
 	function like_plus() {
-		$url = $this->input->get("url");
-		$parse_url = parse_url($url);
-		$path = explode("/", $parse_url["path"]);
-		$id = array_pop($path);
-		log_message("error", $id);
-		$this->Spot_model->like_plus($id);
+		$user_id = $this->input->post("user_id");
+		$spot_id = $this->input->post("spot_id");
+		log_message("error", $spot_id);
+		$this->Spot_model->like_plus($spot_id);
+		print json_encode("success");
 	}
 	
 	function like_minus() {
-		$url = $this->input->get("url");
-		$parse_url = parse_url($url);
-		$path = explode("/", $parse_url["path"]);
-		$id = array_pop($path);
-		log_message("error", $id);
-		$this->Spot_model->like_minus($id);
+		$user_id = $this->input->post("user_id");
+		$spot_id = $this->input->post("spot_id");
+		log_message("error", $spot_id);
+		$this->Spot_model->like_minus($spot_id);
+		print json_encode("success");
 	}
 }
