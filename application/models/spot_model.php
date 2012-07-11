@@ -71,6 +71,7 @@ class Spot_model extends MY_Model {
 	function get_row($wheres, $fields = array()) {
 		$data = parent::get_row($wheres, $fields);
 		$data["image"] = $this->_image_parse($data["image"]);
+		$data["category"] = explode(",", $data["category"]);
 		return $data;
 	}
 	
@@ -106,7 +107,7 @@ class Spot_model extends MY_Model {
 			"x"				=> $input["x"],
 			"y"				=> $input["y"],
 			"like_count"	=> 0,
-			"category"		=> $input["category"],
+			"category"		=> implode(",", $input["category"]),
 			"tags"			=> $input["tags"],
 			"keyword"		=> $input["keyword"],
 			"addition"		=> serialize($input["addition"]),
@@ -128,7 +129,7 @@ class Spot_model extends MY_Model {
 			"x"				=> $input["x"],
 			"y"				=> $input["y"],
 			"like_count"	=> 0,
-			"category"		=> $input["category"],
+			"category"		=> implode(",", $input["category"]),
 			"tags"			=> $input["tags"],
 			"keyword"		=> $input["keyword"],
 			"addition"		=> serialize($input["addition"]),
