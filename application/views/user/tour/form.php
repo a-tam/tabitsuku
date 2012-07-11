@@ -1,64 +1,116 @@
-
-<style type="text/css">
-<!--
-#editor {
-    width: 1260px;
-}
-#spot {
-    width: 970px;
-    padding: 10px;
-}
-#tour-list {
-    border: 2px;
-    float: right;
-    width: 260px;
-    height: 900px;
-}
-
-#sortable {
-/*    background-color: #eee;*/
-}
-
-#sortable2 ul{
-}
-
-#sortable2 li{
-	float:left;
-	margin-right:3px;
-	margin-bottom:3px;
-}
-
-#tour-list ul{
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    margin-bottom: 10px;
-}
-
-#tour-list li{
-    margin: 5px; padding: 5px; width: 235px; }
-
-
--->
-</style>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja" xmlns:fb="http://www.facebook.com/2008/fbml" xmlns:mixi="http://mixi-platform.com/ns#" xmlns:og="http://ogp.me/ns#">
+<head>
+<meta charset="utf-8" />
+<title>たびつく</title>
+<link href="<?php echo base_url("assets"); ?>/css/common/import.css" rel="stylesheet" type="text/css">
+<!-- java script -->
+<!-- IEにHTML5タグを追加する -->
+<!--[if lt IE 9]>
+<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+<!-- IE6でも半透明のPNGを適用する -->
+<!--[if IE 6]>
+<script src="/_js/DD_belatedPNG/DD_belatedPNG_0.0.8a.js"></script>
+<script>DD_belatedPNG.fix('img, .png_bg');</script>
+<![endif]-->
 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=true&libraries=places"></script>
-<script type="text/javascript" src="<?php echo base_url("assets/js/jquery/textext/jquery.textext.js"); ?>"></script>
-<script type="text/javascript" src="<?php echo base_url("assets/js/jquery/jstree/jquery.jstree.js"); ?>"></script>
-<script type="text/javascript" src="<?php echo base_url("assets/js/jquery/util/jquery.cookie.js"); ?>"></script>
-<script type="text/javascript" src="<?php echo base_url("assets/js/jquery/util/jquery.hotkeys.js"); ?>"></script>
-<script type="text/javascript" src="<?php echo base_url("assets/js/jquery/jpagenate/jquery.paginate.js"); ?>"></script>
+<script type="text/javascript" src="<?php echo base_url("assets"); ?>/js/jquery/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="<?php echo base_url("assets"); ?>/js/jquery/jquery-ui-1.8.20.custom.min.js"></script>
+<script type="text/javascript" src="<?php echo base_url("assets"); ?>/js/jquery/layout/jquery.layout.min-1.2.0.js"></script>
+<script type="text/javascript" src="<?php echo base_url("assets"); ?>/js/jquery/textext/jquery.textext.js"></script>
+<script type="text/javascript" src="<?php echo base_url("assets"); ?>/js/jquery/jstree/jquery.jstree.js"></script>
+<script type="text/javascript" src="<?php echo base_url("assets"); ?>/js/jquery/util/jquery.cookie.js"></script>
+<script type="text/javascript" src="<?php echo base_url("assets"); ?>/js/jquery/util/jquery.hotkeys.js"></script>
+<script type="text/javascript" src="<?php echo base_url("assets"); ?>/js/jquery/util/jquery.dateFormat-1.0.js"></script>
+<script type="text/javascript" src="<?php echo base_url("assets"); ?>/js/jquery/util/jquery.url.js"></script>
+<script type="text/javascript" src="<?php echo base_url("assets"); ?>/js/jquery/jpagenate/jquery.paginate.js"></script>
+
 <script type="text/javascript">
+	
 var map = null;
-$(function() {
+
+$(document).ready(function () {
+
+	change_time();
+	// ツアー作成
+	$('#container').layout({
+		east__paneSelector:	".ui-layout-east" ,
+		east__size: 310,
+		enableCursorHotkey: false,
+		closable: false,
+		resizable: false
+	});
+	// 地図・スポット
+	centerLayout = $('div.ui-layout-center').layout({
+		minSize: 100 ,	// ALL panes
+		center__paneSelector:	".center-center" ,
+		east__paneSelector:	".center-east" ,
+		east__size: 300,
+		enableCursorHotkey: false,
+		closable: false,
+		resizable: false
+	});
+	// スポット検索
+	centerLayout = $('div.center-center').layout({
+		center__paneSelector:	".ui-layout-center" ,
+		north__paneSelector:	".ui-layout-north" ,
+		north__size: 35
+	});
+	// スポットレイアウト
+	spotLayout = $('div.center-east').layout({
+		center__paneSelector:	".ui-layout-center"
+		,north__paneSelector:	".ui-layout-north"
+		,north__size: 100
+		,south__paneSelector:	".ui-layout-south"
+		,south__size: 50
+	});
+	// ツアーレイアウト
+	spotLayout = $('div.ui-layout-east').layout({
+		center__paneSelector:	".ui-layout-center"
+		,north__paneSelector:	".ui-layout-north"
+		,north__size: 60
+		,south__paneSelector:	".ui-layout-south"
+		,south__size: 230
+	});
+
 	var latlng = new google.maps.LatLng(35.6894875, 139.69170639999993);
 	var myOptions = {
 		zoom: 10,
 		center: latlng,
 		mapTypeId: google.maps.MapTypeId.ROADMAP
 	};
-	map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+	map = new google.maps.Map(document.getElementById("mapArea"), myOptions);
 	var marker_list = new Array();
 	var info_list = new Array();
+
+	// 移動
+	var input = document.getElementById('searchAddress');
+	var autocomplete = new google.maps.places.Autocomplete(input);
+	autocomplete.bindTo('bounds', map);
+	google.maps.event.addListener(autocomplete, 'place_changed', function() {
+		var place = autocomplete.getPlace();
+		if (place.geometry.viewport) {
+			map.fitBounds(place.geometry.viewport);
+		} else {
+			map.setCenter(place.geometry.location);
+			map.setZoom(17);  // Why 17? Because it looks good.
+		}
+		//
+		var _place = $("#search-place").val();
+		var _name = $("#search-name").val();
+		var request={
+				location: place.geometry.location,
+				radius: '500',
+				types: [_place],
+				name: _name
+			};
+//		infowindow = new google.maps.InfoWindow();
+//		service = new google.maps.places.PlacesService(map);
+//		service.search(request, callback);
+		// 検索結果の中央座標設定
+		setPosition(place.geometry.location);
+	});
 	
 	google.maps.event.addListener(map, 'dragend', function() {
 	    setTimeout(search, 300);
@@ -70,23 +122,67 @@ $(function() {
 
 	google.maps.event.addListenerOnce(map, 'tilesloaded', function() {
 	    setTimeout(search, 300);
-	  });
-	  
+	});
 	
 	$("#search").click(function() {
 		search();
 		return false;
 	});
 
-	$("#category,#keyword,#season,#limit").change(function() {
+	$("#category,#keyword,#season,#limit,#sort").change(function() {
 		search();
 	});
 
-	$(".spot_delete").click(function() {
-		$(this).closest(".spot").fadeOut(300).queue(function(){ $(this).remove();});
-		return false;
+	$("#spotFilterButton").click(function() {
+		search();
 	});
 
+	$("#start_time, .stay_time").change(function() {
+		change_time();
+	});
+
+	$(".iconAdd").live("click", function() {
+		var self = $(this).closest(".spot");
+		self.clone().insertBefore($("#tourAreaFrameScroll .spotList li:last"));
+		change_time();
+		return false;
+	});
+	
+	$(".iconClose").live("click", function() {
+		$(this).closest(".spot").fadeOut(300).queue(function(){ $(this).remove();});
+		change_time();
+		return false;
+	});
+	
+	$(".iconUp").live("click", function() {
+		var self = $(this).closest(".spot");
+		self.insertBefore(self.prev());
+		change_time();
+		return false;
+	});
+	
+	$(".iconDown").live("click", function() {
+		var self = $(this).closest(".spot");
+		self.insertAfter(self.next());
+		change_time();
+		return false;
+	});
+	
+	function change_time() {
+		var start_time = $("#start_time").val();
+		var time = new Date();
+		var times = start_time.split(":");
+		time.setHours(times[0]);
+		time.setMinutes(times[1]);
+		time.setSeconds(0);
+		$("#tourAreaFrameScroll .timecode").text(start_time);
+		$("#tourAreaFrameScroll .spotList li").each(function(i, elm) {
+			var stay_time = $(elm).find(".stay_time").val();
+			time.setTime(time.getTime() + (stay_time * 60 * 1000));
+			$(elm).find(".timecode").text($.format.date(time, "HH:mm"));
+		});
+	}
+	
 	function search(page) {
 		if (!page) page = 1;
 		if (marker_list) {
@@ -100,8 +196,8 @@ $(function() {
 			data: {
 				category: $("#category").val(),
 				keyword: $("#keyword").val(),
-				season: $("#season").val(),
 				limit: $("#limit").val(),
+				sort: $("#sort").val(),
 				page: page,
 				ne_x: map.getBounds().getNorthEast().lat(),
 				ne_y: map.getBounds().getNorthEast().lng(),
@@ -110,8 +206,52 @@ $(function() {
 			},
 			dataType: "json",
 			success: function(json) {
-				$("#sortable2").html("");
+				$("#spotAreaFrameScroll").html("");
 				$(json.list).each(function() {
+					var html = '<li data-spot-id="'+this.id+'" class="spot">' +
+						'<div class="spotArea">' +
+						'<div class="spotDetail">' +
+						'<div class="thumbnail">';
+						if (this.image) {
+							html += '<img src="<?php echo base_url("uploads/spot/thumb");?>/'+this.image.file_name+'" width="60" height="60" alt="" />';
+						}
+						html += '</div>' +
+						'<div class="textArea">' +
+						'<p class="spotTitle">'+this.name+'</p>' +
+						'<p class="spotDescription">'+this.description+'</p>' +
+						'<div class="timePullDown">' +
+						'滞在時間' +
+						'<select name="stay_time" class="stay_time">' +
+						'<option value="15">15分</option>' +
+						'<option value="30">30分</option>' +
+						'<option value="45">45分</option>' +
+						'</select>' +
+						'</div>' +
+						'</div>' +
+						'<div class="spotBtnArea clearfix">' +
+						'<span class="bntDetail"><a href="<?php echo base_url("user/spot/show/");?>/'+this.id+'">詳細をみる</a></span>' +
+						'<div class="fb-like" data-href="<?php echo base_url("user/spot/show/");?>/'+this.id+'" data-send="false" data-layout="button_count" data-width="450" data-show-faces="false">' +
+						'</div>' +
+						'</div>' +
+						'</div>' +
+						'<div class="naviArea">' +
+						'<div class="iconAdd">' +
+						'<img src="<?php echo base_url("assets"); ?>/img/interface/icon/add16.png" width="16" height="16" alt="add">' +
+						'</div>' +
+						'<div class="iconUp">' +
+						'<img src="<?php echo base_url("assets"); ?>/img/interface/icon/up16.png" width="16" height="16" alt="up">' +
+						'</div>' +
+						'<div class="iconClose">' +
+						'<img src="<?php echo base_url("assets"); ?>/img/interface/icon/close16.png" width="16" height="16" alt="add">' +
+						'</div>' +
+						'<div class="iconDown">' +
+						'<img src="<?php echo base_url("assets"); ?>/img/interface/icon/down16.png" width="16" height="16" alt="add">' +
+						'</div>' +
+						'</div>' +
+						'</div>' +
+						'<span class="timecode">9:00</span>' +
+						'</li>';
+					/*
 					var html = '<li class="spot" data-spot-id="'+this.id+'">' +
 					'<p class="spotTitle">'+this.name+'&nbsp;<span class="spot_tools">' +
 					'<a class="spot_add">[追加]</a>' +
@@ -128,7 +268,9 @@ $(function() {
 					'<div class="spotBtnArea">滞在時間：60分 <a href="#">詳細を見る</a></div>' +
 					'<div class="facebook_like_button" id="'+this.id+'"></div>' +
 					'</li>';
-					$("#sortable2").append(html);
+					*/
+
+					$("#spotAreaFrameScroll").append(html);
 					var latlng = new google.maps.LatLng(this.x, this.y);
 					var marker = new google.maps.Marker({
 						map: map,
@@ -142,36 +284,53 @@ $(function() {
 						position: latlng
 					});
 				});
-
+				
+				FB.XFBML.parse();
+				
 				$(".add_tour").click(function() {
 					alert(1);
 				});
 
-				$( "#sortable2 li" ).draggable({
-					connectToSortable: "#sortable",
+				$( "#spotAreaFrameScroll li" ).draggable({
+					connectToSortable: "#tourAreaFrameScroll ul",
 					containment: "document",
 					revert: "invalid",
 					helper: "clone",
-					cursor: "move",
-					scroll: true,
+					delay: 100,
+//					cursor: "move",
+					scroll: false,
 					opacity: 0.8
 //					handle: ".spotTitle"
 				});
 
-				$( "#sortable" ).droppable({
+				$( "#tourAreaFrameScroll ul" ).droppable({
 					accept: "",
 					activeClass: "ui-state-highlight",
-					drop: function() {
-						alert(1);
+					drop: function(event, ui) {
+						console.log(1111);
 					}
 				});
 				
-				$( "#sortable" ).sortable({
+				$( "#tourAreaFrameScroll ul" ).sortable({
+					stop: function(event, ui) {
+						change_time();
+						FB.XFBML.parse();
+					},
+					axis: "y",
+					delay: 100,
 					revert: true
 				});
-							
+
+				var start = ((page - 1) * $("#limit").val()) + 1;
+				var end = page * $("#limit").val();
+				if (json.count < end) {
+					end = json.count;
+				}
 				$("#search-count").text(json.count);
+				$("#start").text(start);
+				$("#end").text(end);
 				var page_count = Math.ceil(json.count / $("#limit").val());
+				
 				pager(page_count, page);
 			}
 		});
@@ -197,7 +356,7 @@ $(function() {
 		$("#pagenation").paginate({
 			count					: page_count,
 			start					: now,
-			display					: 10,
+			display					: 6,
 			border					: true,
 			border_color			: '#fff',
 			text_color  			: '#fff',
@@ -243,13 +402,13 @@ $(function() {
 		}
 	});
 	
-	$("#tour_save").click(function() {
+	$("#headerSaveArea").click(function() {
 		var routes = [];
-		$("#sortable li.spot").each(function(i, elm) {
+		$("#tourAreaFrameScroll .spotList li").each(function(i, elm) {
 			var id = $(elm).attr("data-spot-id");
 			routes.push({
 				id: id,
-				stay_time: 60
+				stay_time: $(elm).find(".stay_time").val()
 			});
 		});
 		if (routes.length == 0) {
@@ -264,6 +423,7 @@ $(function() {
 				name: $("#guide-name").val(),
 				description: $("#guide-description").val(),
 				category: $("#category").val(),
+				start_time: $("#start_time").val(),
 				tags: $("#tags").textext()[0]. hiddenInput().val(),
 				route: routes
 			},
@@ -272,86 +432,215 @@ $(function() {
 				if (json["tour_id"]) {
 					location.href = "<?php echo base_url("user/top");?>";
 				}
+				alert("保存しました");
+				console.log(routes);
 			}
 		});
 		return false;
 	});
 });
 
-
-
 </script>
-<link rel="stylesheet" type="text/css" href="<?php echo base_url("assets/js/jquery/jpagenate/css/style.css");?>" media="screen"/>
-<a href="<?php echo base_url(""); ?>">TOP</a> &gt;
-<a href="<?php echo base_url("user"); ?>">ユーザー</a> &gt;
-<a href="<?php echo base_url("user/tour/form"); ?>">スケジュール追加</a>
-<div id="editor">
-<div id="tour-list">
-<form action="<?php echo base_url("user/tour/add");?>" method="post">
-<input type="hidden" name="id" id="guide-id" value="<?php echo set_value("id", $data["id"]);?>" readonly="readonly" />
-	<p>
-	<label>名前:</label><br />
-	<input type="text" id="guide-name" value="<?php echo set_value("name", $data["name"]);?>" />
-	</p>
-	<p>
-	<label>説明:</label><br />
-	<textarea id="guide-description" cols="45" rows="7"><?php echo set_value("description", $data["description"]);?></textarea><br />
-	</p>
-	<p>
-	<label>カテゴリ</label>
-	<input type="hidden" id="category" value="<?php echo set_value("category", $data["category"]);?>" readonly="readonly" />
-	<div id="select-category" style="height: 80px; width: 30em; overflow: auto;"></div>
-	</p>
-	<p>
-	<label>タグ</label>
-	<textarea id="tags" rows="1" cols="40"></textarea>
-	</p>
-	<button id="tour_save">登録</button>
-</form>
-<ul id="sortable">
-	<li class="ui-state-default">Item 1</li>
-	<?php if($data["routes"]) :?>
-	<?php foreach($data["routes"] as $ruote) :?>
-	<li class="spot ui-draggable" data-spot-id="<?php echo $ruote["id"]?>" style="display: list-item; ">
-		<p class="spotTitle"><?php echo $ruote["name"]?>
-			<span class="spot_tools">
-			<a class="spot_add" style="visibility:false; display:none;">追加</a>
-			<a class="spot_up">↑</a>
-			<a class="spot_down">↓</a>
-			<a class="spot_delete">[削除]</a>
-			</span></p>
-		<div class="min60">
-			<?php if ($ruote["image"]): ?>
-			<img src="<?php echo base_url("uploads/spot/thumb/".$ruote["image"]["file_name"]);?>" width="110" height="81" alt="写真" class="spotPhoto" />
-			<?php endif;?>
-			<p class="spotDescription"><?php echo $ruote["description"]?></p>
-		</div>
-		<div class="spotBtnArea">滞在時間：60分<a href="#">詳細を見る</a></div>
-	</li>
-	<?php endforeach;?>
-	<?php endif;?>
-</ul>
-</div>
-<div id="spot">
-<div id="search-form">
-<form>
-<input type="text" id="place" placeholder="地図" />
-<input type="text" id="category" placeholder="カテゴリ" />
-<input type="text" id="keyword" placeholder="キーワード、タグ" />
-<select id="limit">
-	<option value="30">30</option>
-	<option value="60">60</option>
-	<option value="90">90</option>
-</select>
-<input type="button" id="search" value="検索" />
-</form>
-</div>
-<div id="map_canvas" style="width:960px; height:450px"></div>
-<div id="search-result"><span id="search-count"></span>件中 <span id="start"></span>件 〜 <span id="end"></span>件 表示</div>
-<div id="pagenation"></div>
+</HEAD>
 
-<div id="spot_list"></div>
-	<ul id="sortable2" class="spotList">
-	</ul>
+<BODY id="makeTour">
+<script>
+window.onload = function() {
+	// like
+	FB.Event.subscribe('edge.create', function(response) {
+		var url = $.url(response);
+		var path_info = url.attr("path").split("/");
+		var fb_auth = FB.getAuthResponse();
+		$.ajax({
+			url: "<?php echo base_url("user/spot/like_plus");?>",
+			async: false,
+			data: {
+				user_id: fb_auth.userID,
+				spot_id: path_info[path_info.length -1]
+			},
+			dataType: "json",
+			type: "post",
+			success: function(json) {
+				console.log(json);
+			},
+			error: function() {
+				console.log(arguments);
+			}
+		});
+	});
+	// not like
+	FB.Event.subscribe('edge.remove', function(response) {
+		var url = $.url(response);
+		var path_info = url.attr("path").split("/");
+		var fb_auth = FB.getAuthResponse();
+		// ソート順用
+		$.ajax({
+			url: "<?php echo base_url("user/spot/like_minus");?>",
+			async: false,
+			data: {
+				user_id: fb_auth.userID,
+				spot_id: path_info[path_info.length -1]
+			},
+			dataType: "json",
+			type: "post",
+			success: function(json) {
+				console.log(json);
+			},
+			error: function() {
+				console.log(arguments);
+			}
+		});
+	});
+};
+
+(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/ja_JP/all.js#xfbml=1&appId=248010585308088";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<div id="layout">
+	<header>
+		<div id="headerInner">
+			たびつく　TOP - ツアーを作る - マイページ　会員登録　ログイン　ログアウト
+		</div>
+	</header>
+	<div id="container">
+		<!-- ツアー作成 -->
+		<div class="pane ui-layout-center">
+			<div id="mapAreaFrame" class="center-center">
+				<DIV class="ui-layout-north searchArea">
+					<input type="text" id="searchAddress" value="" />
+					<input type="submit" name="button" id="mapSearchButton" value="検索">
+				</DIV>
+				<div id="mapArea" class="ui-layout-center"></div>
+			</div>
+			<div id="spotAreaFrame" class="center-east">
+				<DIV class="ui-layout-north">
+					スポット一覧
+					<DIV class="ui-layout-north searchArea">
+						カテゴリ<input type="text" name="select" id="category" size="10" value="">
+						表示<select name="limit" id="limit">
+							<option value="10">10</option>
+							<option value="100">100</option>
+						</select><br />
+						<label for="textfield">キーワード</label>
+						<input type="text" name="textfield" id="keyword" size="10"><br />
+						ソート:<select name="sort" id="sort">
+							<option value="like_count desc">人気順</option>
+							<option value="name asc">スポット名</option>
+						</select>
+						<input type="submit" name="button" id="spotFilterButton" value="検索">
+						<div>
+						<div id="search-result"><span id="search-count"></span>件中 <span id="start"></span>件 〜 <span id="end"></span>件 表示</div>
+						<<div id="pagenation"></div>
+						</div>
+					</DIV>
+				</DIV>
+				<ul id="spotAreaFrameScroll" class="ui-layout-center spotList"></ul>
+				<DIV class="ui-layout-south">
+					<div class="spotArea">
+						<div class="spotDetail">
+							<p class="spotTitle">移動用スポット</p>
+						</div>
+						<div class="naviArea">
+							+
+						</div>
+					</div>
+				</DIV>
+			</div>
+		</div>
+		<div id="tourAreaFrame" class="pane ui-layout-east">
+			<DIV class="ui-layout-north">
+				ツアー作成<br>
+				スタート時間を設定
+				<label for="start_time"></label>
+				<input type="time" name="start_time" id="start_time" value="<?php echo set_value("start_time", $data["start_time"]);?>">
+			</DIV>
+			<div id="tourAreaFrameScroll" class="ui-layout-center">
+				<span class="timecode">9:00</span>
+				<ul class="spotList">
+				<?php if($data["routes"]) :?>
+				<?php foreach($data["routes"] as $ruote) :?>
+					<li data-spot-id="<?php echo $ruote["id"]?>" class="spot">
+						<div class="spotArea">
+							<div class="spotDetail">
+								<div class="thumbnail">
+									<?php if ($ruote["image"]) :?>
+									<img src="" width="60" height="60" alt="" />
+									<?php endif;?>
+								</div>
+								<div class="textArea">
+									<p class="spotTitle"><?php echo $ruote["name"]?></p>
+									<p class="spotDescription"><?php echo $ruote["description"]?></p>
+									<div class="timePullDown">
+										滞在時間
+										<select name="stay_time" class="stay_time">
+											<option value="15">15分</option>
+											<option value="30">30分</option>
+											<option value="45">45分</option>
+										</select>
+									</div>
+								</div>
+								<div class="spotBtnArea clearfix">
+									<span class="bntDetail"><a href="<?php echo base_url("user/spot/show/".$ruote["id"]);?>">詳細をみる</a></span>
+									<div class="fb-like" data-href="<?php echo base_url("user/spot/show/".$ruote["id"]);?>" data-send="false" data-layout="button_count" data-width="450" data-show-faces="false">
+									</div>
+								</div>
+							</div>
+							<div class="naviArea">
+								<div class="iconAdd">
+									<img src="<?php echo base_url("assets"); ?>/img/interface/icon/add16.png" width="16" height="16" alt="add">
+								</div>
+								<div class="iconUp">
+									<img src="<?php echo base_url("assets"); ?>/img/interface/icon/up16.png" width="16" height="16" alt="up">
+								</div>
+								<div class="iconClose">
+									<img src="<?php echo base_url("assets"); ?>/img/interface/icon/close16.png" width="16" height="16" alt="add">
+								</div>
+								<div class="iconDown">
+									<img src="<?php echo base_url("assets"); ?>/img/interface/icon/down16.png" width="16" height="16" alt="add">
+								</div>
+							</div>
+						</div>
+						<span class="timecode">9:00</span>
+					</li>
+				<?php endforeach;?>
+				<?php endif;?>
+				</ul>
+			</div>
+			<DIV class="ui-layout-south">
+				<p>ツアー情報 </p>
+				<p>
+					<input type="hidden" name="id" id="guide-id" value="<?php echo set_value("id", $data["id"]);?>" readonly="readonly" />
+					<label for="textfield2">ツアー名</label>
+					<input type="text" name="textfield2" id="guide-name" value="<?php echo set_value("name", $data["name"]);?>">
+					<br>
+					<label for="textfield2">ツアー説明</label>
+					<textarea name="textfield2" id="guide-description"><?php echo set_value("description", $data["description"]);?></textarea>
+					<br>
+					<label for="textfield2">カテゴリ</label>
+					<input type="hidden" id="category" value="<?php echo set_value("category", $data["category"]);?>" readonly="readonly" />
+					<div id="select-category" style="height: 30px; width: 20em; overflow: auto;"></div>
+					<label for="textfield2"><br>
+					タグ</label>
+					<textarea id="tags" rows="1" cols="25"></textarea>
+				</p>
+				<div id="headerSaveArea">
+				ツアーを保存する
+				</div>
+			</DIV>
+		</div>
+		<!-- //ツアー作成 -->
+	</div>
 </div>
-</div>
+<footer>
+	<div id="footerInner">
+		aaa<br>
+		aaaa<br>
+		aaa<br>
+	</div>
+</footer>
+</BODY>
+</HTML>
