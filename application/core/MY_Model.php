@@ -134,10 +134,9 @@ class MY_Model extends CI_Model {
 		}
 		// from
 		$this->db->from($this->table);
-		// where
-		foreach ($wheres as $_key => $_val) {
-			$this->db->where($_key, $_val);
-		}
+		// foreach ($wheres as $_key => $_val) {
+		$this->db->where($wheres);
+		// }
 		// limit
 		if (is_numeric($limit)) {
 			$this->db->limit($limit, $offset);
