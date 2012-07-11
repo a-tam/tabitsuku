@@ -35,14 +35,16 @@ class Tour extends MY_Controller {
 		if (!$this->auth()) return $this->login_form();
 		if (!$id) {
 			$default = array(
-				"name" => "",
-				"description" => "",
-				"tags" => "",
-				"routes" => array()
+				"name"			=> "",
+				"description"	=> "",
+				"tags"			=> "",
+				"start_time"	=> "10:00",
+				"routes"		=> array()
 			);
 		} else {
 			$default = $this->Tour_model->row($id);
 			$default["routes"] = $this->Spot_model->get_route($id);
+			$default["start_time"] = date("H:i", strtotime($default["start_time"]));
 		}
 		$tags = $this->Tag_model->tag_values($default["tags"]);
 		$default["tags"] = json_encode($tags);
@@ -67,10 +69,12 @@ class Tour extends MY_Controller {
 		$description	= $this->input->post("description");
 		$route			= $this->input->post("route");
 		$category		= $this->input->post("category");
+		$start_time		= $this->input->post("start_time");
 		$tags 			= $this->Tag_model->tag_keys(json_decode($this->input->post("tags")));
 		$data = array(
 			"name"			=> $name,
 			"description"	=> $description,
+			"start_time"	=> $start_time,
 			"category"		=> $category,
 			"tags"			=> implode(",", $tags),
 		);
