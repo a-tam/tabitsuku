@@ -16,6 +16,8 @@
 <script>DD_belatedPNG.fix('img, .png_bg');</script>
 <![endif]-->
 
+<link href="<?php echo base_url("assets"); ?>/js/jquery/jstree/themes/classic/style.css" rel="stylesheet" type="text/css">
+
 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=true&libraries=places"></script>
 <script type="text/javascript" src="<?php echo base_url("assets"); ?>/js/jquery/jquery-1.7.2.min.js"></script>
 <script type="text/javascript" src="<?php echo base_url("assets"); ?>/js/jquery/jquery-ui-1.8.20.custom.min.js"></script>
@@ -129,10 +131,26 @@
 			setPosition(event.latLng);
 		});
 
+		$(document).click(function(e) {
+			$(".select-category").hide("fast");
+		});
+
+		$(".category_label").click(function(e, elm) {
+			$(".select-category").hide("fast");
+			$(this).next()
+			.css("left", $(this).position().left + 10)
+			.show("fast");
+			e.stopPropagation();
+		});
+
+		$(".select-category").click(function(e) {
+			e.stopPropagation();
+		});
+		
 		$(".select-category").jstree({
 			"json_data" : {
 				"ajax": {
-					"url": "<?php echo base_url("user/category/test"); ?>",
+					"url": "<?php echo base_url("user/category/tree/970"); ?>",
 					"data": function(n) {
 						return {
 							"opration": "get_children",
@@ -141,10 +159,14 @@
 					}
 				}
 			},
+			"ui" : {
+				"initially_select": [ "node_970" ]
+			},
 			"plugins" : [ "themes", "json_data", "ui" ]
 		}).bind("select_node.jstree", function (e, data) {
-			var id = data.rslt.obj.attr("id");
-			$(e.currentTarget).next().val(id.replace("node_", ""));
+			$(this).parent().find(".category_label").val($(this).jstree("get_path", data.rslt.obj, false).join(" > "));
+			$(this).parent().find(".category_val").val($(this).jstree("get_path", data.rslt.obj, true).join("/").replace(/node_/g, ""));
+			$(this).hide();
 		});
 		
 		// タグ
@@ -223,27 +245,32 @@ fjs.parentNode.insertBefore(js, fjs);
 				<label><input type="checkbox" name="image_delete" value="1" />&nbsp;削除</label>
 <?php endif;?>
 				</p>
-				<p>
+				<div>
 					<label for="textfield">参考滞在時間</label>
 					<input type="text" name="stay_time" value="<?php echo set_value("stay_time", $data["stay_time"]);?>" />
-				</p>
-				<p>
+				</div>
+				<div>
 					<label for="select">カテゴリ１</label>
-					<div id="select-category1" class="select-category" style="height: 80px; width: 30em; overflow: auto;"></div>
-					<input type="text" name="category[]" id="spot-category1" value="<?php echo set_value("category", $data["category"][0]);?>" readonly="readonly" />
-					<br />
+					<input type="hidden" class="category_val" name="category[]" value="<?php echo set_value("category", $data["category"][0]);?>" />
+					<input type="text" class="category_label" size="60" value="<?php echo set_value("category", $data["category"][0]);?>" />
+					<div id="select-category1" class="select-category" style="height: 130px; width: 30em; position: absolute; overflow: auto; z-index: 9999; display: none; background: #ffc;">&nbsp;</div>
+				</div>
+				<div>
 					<label for="select">カテゴリ２</label>
-					<div id="select-category2" class="select-category" style="height: 80px; width: 30em; overflow: auto;"></div>
-					<input type="text" name="category[]" id="spot-category2" value="<?php echo set_value("category", $data["category"][1]);?>" readonly="readonly" />
-					<br />
+					<input type="hidden" class="category_val" name="category[]" value="<?php echo set_value("category", $data["category"][1]);?>" />
+					<input type="text" class="category_label" size="60" value="<?php echo set_value("category", $data["category"][1]);?>" />
+					<div id="select-category2" class="select-category" style="height: 130px; width: 30em; position: absolute; overflow: auto; z-index: 9999; display: none; background: #ffc;">&nbsp;</div>
+				</div>
+				<div>
 					<label for="select">カテゴリ３</label>
-					<div id="select-category3" class="select-category" style="height: 80px; width: 30em; overflow: auto;"></div>
-					<input type="text" name="category[]" id="spot-category3" value="<?php echo set_value("category", $data["category"][2]);?>" readonly="readonly" />
-				</p>
-				<p>
+					<input type="hidden" class="category_val" name="category[]" value="<?php echo set_value("category", $data["category"][2]);?>" />
+					<input type="text" class="category_label" size="60" value="<?php echo set_value("category", $data["category"][2]);?>" />
+					<div id="select-category3" class="select-category" style="height: 130px; width: 30em; position: absolute; overflow: auto; z-index: 9999; display: none; background: #ffc;">&nbsp;</div>
+				</div>
+				<div>
 					<label for="textfield">タグ</label>
 					<textarea name="tags" id="spot-tags" rows="1" cols="50"></textarea>
-				</p>
+				</div>
 				<div id="headerSaveArea">
 				ツアーを保存する
 				</div>
