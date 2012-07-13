@@ -10,6 +10,8 @@ class Category extends MY_Controller {
 	}
 	
 	function test() {
+// 		print '<html lang="ja">';
+// 		print '<head><meta http-equiv="content-type" content="text/html; charset=utf-8"></head><body><pre>';
 		$id = $this->input->get("id", true);
 		$this->list = $this->Category_model->get_list($id);
 		$data = array();
@@ -23,7 +25,21 @@ class Category extends MY_Controller {
 				"state" => ($row["child_cnt"] > 0) ? "closed" : ""
 			);
 		}
+// 		print_r($data);
 		print json_encode($data);
+	}
+	
+	function tree($id) {
+// 		print '<html lang="ja">';
+// 		print '<head><meta http-equiv="content-type" content="text/html; charset=utf-8"></head><body><pre>';
+		$node = $this->input->get("id", true);
+		if ($node) {
+			$this->test();
+		} else {
+			$tree = $this->Category_model->get_tree($id);
+// 			print_r($tree);
+			print json_encode($tree);
+		}
 	}
 	
 	function node() {
