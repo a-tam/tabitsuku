@@ -13,6 +13,48 @@ class Category_model extends MY_Model {
 		
 	}
 	
+	function get_tree($id) {
+		$category_info = $this->row($id);
+		if ($category_info["path"]) {
+			$path_keys = explode("/", $category_info["path"]);
+			$path_keys = array_unique($path_keys);
+			array_pop($path_keys);
+			$tree = array();
+			foreach($path_keys as $_id) {
+				$list_rs = $this->get_list($_id);
+				$list = array();
+				$_addr = array();
+				foreach($list_rs->result_array() as $row) {
+					$list[] = array(
+						"attr" => array(
+							"id" => "node_".$row["id"],
+							"rel" => "default"
+						),
+						"data" => $row["name"],
+						"state" => ($row["child_cnt"] > 0) ? "closed" : ""
+					);
+					$_addr[] = $row["id"];
+				}
+				if (!$tree) {
+					$tree = $list;
+				} else {
+					$idx = array_search($_id, $addr);
+					if (!$child) {
+						$tree[$idx]["state"] = "open";
+						$tree[$idx]["children"] = $list;
+						$child =& $tree[$idx]["children"];
+ 					} else {
+						$child[$idx]["state"] = "open";
+ 						$child[$idx]["children"] = $list;
+						$child =& $child[$idx]["children"];
+ 					}
+				}
+				$addr = $_addr;
+			}
+		}
+		return $tree;
+	}
+	
 	function get_node($id) {
 		$category_info = $this->row($id);
 		$path = array();
