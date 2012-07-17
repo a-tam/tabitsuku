@@ -161,7 +161,7 @@ class MY_Form_validation extends CI_Form_validation {
 				// Strip the parameter (if exists) from the rule
 				// Rules can contain a parameter: max_length[5]
 				$param = FALSE;
-				if (preg_match("/(.*?)\[(.*?)\]/", $rule, $match))
+				if (preg_match("/(.*?)\[(.*)\]/", $rule, $match))
 				{
 					$rule	= $match[1];
 					$param	= $match[2];
@@ -378,7 +378,8 @@ class MY_Form_validation extends CI_Form_validation {
 		
 		if(!in_array($file_ext,$exts))
 		{
-			$this->set_message('file_allowed_type',"%s should be $type.");
+			log_message("error", $this->CI->lang->line("file_allowed_type"));
+//			$this->set_message('file_allowed_type',"%s should be $type.");
 			return false;
 		}
 		else
