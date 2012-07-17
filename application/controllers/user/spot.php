@@ -43,7 +43,11 @@ class Spot extends MY_Controller {
 		$this->_set_validation($this->form_data);
 		$data = $this->phpsession->set_post($this->ns, "point", $this->form_data);
 		if ($this->form_validation->run() == FALSE) {
-			return $this->render_view("user/spot/form", $data);
+			$data = array(
+				'data' => $data
+			);
+			return $this->load->view("user/spot/form", $data);
+//			return $this->render_view("user/spot/form", $data);
 		}
 		if ($data["image"]["tmp"]) {
  			$this->load->library('image_lib');
