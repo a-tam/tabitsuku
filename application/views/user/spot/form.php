@@ -31,89 +31,119 @@
 <script type="text/javascript" src="<?php echo base_url("assets"); ?>/js/jquery/jpagenate/jquery.paginate.js"></script>
 
 <script type="text/javascript">
+
+var marker;
+
+$(document).ready(function () {
+	// レイアウト - ツアー作成
+	$('#container').layout({
+		east__paneSelector:	".ui-layout-east" ,
+		east__size: 500,
+		enableCursorHotkey: false,
+		closable: false,
+		resizable: false
+	});
+	// レイアウト - スポット検索
+	centerLayout = $('div.ui-layout-center').layout({
+		center__paneSelector:	".ui-layout-center" ,
+		north__paneSelector:	".ui-layout-north" ,
+		north__size: 35
+	});
+	var lat = '<?php echo set_value("x", $data["x"]);?>';
+	var lng = '<?php echo set_value("y", $data["y"]);?>';
+	var latlng = new google.maps.LatLng(lat, lng);
+	var zoom = 10;
+	if ("" != "<?php echo set_value("id", $data["id"]);?>") {
+		zoom = 17;
+	}
+	var myOptions = {
+		zoom: zoom,
+		center: latlng,
+		mapTypeId: google.maps.MapTypeId.ROADMAP
+	};
+	var map = new google.maps.Map(document.getElementById("mapArea"), myOptions);
+	// マーカー表示
+	marker = new google.maps.Marker({
+		map: map,
+		draggable: true
+	});
+	marker.setPosition(latlng);
 	
-	$(document).ready(function () {
-		// レイアウト - ツアー作成
-		$('#container').layout({
-			east__paneSelector:	".ui-layout-east" ,
-			east__size: 500,
-			enableCursorHotkey: false,
-			closable: false,
-			resizable: false
-		});
-		// レイアウト - スポット検索
-		centerLayout = $('div.ui-layout-center').layout({
-			center__paneSelector:	".ui-layout-center" ,
-			north__paneSelector:	".ui-layout-north" ,
-			north__size: 35
-		});
-		var lat = '<?php echo set_value("x", $data["x"]);?>';
-		var lng = '<?php echo set_value("y", $data["y"]);?>';
-		var latlng = new google.maps.LatLng(lat, lng);
-		var myOptions = {
-			zoom: 10,
-			center: latlng,
-			mapTypeId: google.maps.MapTypeId.ROADMAP
-		};
-		var map = new google.maps.Map(document.getElementById("mapArea"), myOptions);
-		// マーカー表示
-		var marker = new google.maps.Marker({
-			map: map,
-			draggable: true
-		});
-		marker.setPosition(latlng);
-		// MAP検索
-		var input = document.getElementById('search-address');
-		var autocomplete = new google.maps.places.Autocomplete(input);
-		setPosition(latlng);
-		autocomplete.bindTo('bounds', map);
-		google.maps.event.addListener(autocomplete, 'place_changed', function() {
-			var place = autocomplete.getPlace();
-			if (place.geometry.viewport) {
-				map.fitBounds(place.geometry.viewport);
+	// MAP検索
+	var input = document.getElementById('search-address');
+	var autocomplete = new google.maps.places.Autocomplete(input);
+	setPosition(latlng);
+	autocomplete.bindTo('bounds', map);
+
+	$("#search-map").submit(function(){
+		var adrs = $("#search-address").val();
+		var gc = new google.maps.Geocoder();
+		gc.geocode({ address : adrs }, function(results, status){
+			if (status == google.maps.GeocoderStatus.OK) {
+				var ll = results[0].geometry.location;
+				var glat = ll.lat();
+				var glng = ll.lng();
+				map.setCenter(ll);
 			} else {
-				map.setCenter(place.geometry.location);
-				map.setZoom(17);  // Why 17? Because it looks good.
+				$("#search-address").select();
+				$("#falledMessage").show().fadeOut(4000);
 			}
-			//
-			var _place = $("#search-place").val();
-			var _name = $("#search-name").val();
-			var request = {
-				location: place.geometry.location,
-				radius: '500',
-				types: [_place],
-				name: _name
-			};
+		});
+		return false;
+	});
+
+	google.maps.event.addListener(marker, 'dragend', function() {
+		setPosition(this.getPosition());
+	});
+		
+	google.maps.event.addListener(autocomplete, 'place_changed', function() {
+		var place = autocomplete.getPlace();
+		if (place.geometry.viewport) {
+			map.fitBounds(place.geometry.viewport);
+		} else {
+			map.setCenter(place.geometry.location);
+			map.setZoom(17);  // Why 17? Because it looks good.
+		}
+		//
+		var _place = $("#search-place").val();
+		var _name = $("#search-name").val();
+		var request = {
+			location: place.geometry.location,
+			radius: '500',
+			types: [_place],
+			name: _name
+		};
 //			infowindow = new google.maps.InfoWindow();
 //			service = new google.maps.places.PlacesService(map);
 //			service.search(request, callback);
 			// 検索結果の中央座標設定
 			setPosition(place.geometry.location);
-		});
-		function callback(results, status) {
-			if (status == google.maps.places.PlacesServiceStatus.OK) {
-				for (var i=0; i < results.length; i++) {
-					var place=results[i];
-					createMarker(results[i]);
-				}
+	});
+	
+	function callback(results, status) {
+		if (status == google.maps.places.PlacesServiceStatus.OK) {
+			for (var i=0; i < results.length; i++) {
+				var place=results[i];
+				createMarker(results[i]);
 			}
 		}
+	}
 
-		function createMarker(place) {
-			var placeLoc=place.geometry.location;
-			var marker=new google.maps.Marker({
-				map: map,
-				position: new google.maps.LatLng(placeLoc.lat(), placeLoc.lng())
-			});
-			google.maps.event.addListener(marker, 'click', function() {
-				infowindow.setContent(place.name);
-				infowindow.open(map, this);
-			});
-		}
-		
-		function setPosition(location) {
-			var geocoder = new google.maps.Geocoder();
-			geocoder.geocode({latLng: location}, function(results, status){
+	function createMarker(place) {
+		var placeLoc=place.geometry.location;
+		var marker = new google.maps.Marker({
+			map: map,
+			position: new google.maps.LatLng(placeLoc.lat(), placeLoc.lng())
+		});
+		google.maps.event.addListener(marker, 'click', function() {
+			infowindow.setContent(place.name);
+			infowindow.open(map, this);
+		});
+	}
+	
+	function setPosition(location) {
+		var geocoder = new google.maps.Geocoder();
+		geocoder.geocode({latLng: location}, function(results, status){
 			if(status == google.maps.GeocoderStatus.OK){
 			// 正常に処理ができた場合
 				$("#spot-address").val(results[0].formatted_address);
@@ -121,36 +151,44 @@
 			// エラーの場合
 				$("#spot-address").val("");
 			}
-			});
-			$("#spot-x").val(location.lat());
-			$("#spot-y").val(location.lng());
+		});
+		$("#spot-x").val(location.lat());
+		$("#spot-y").val(location.lng());
+	}
+
+	google.maps.event.addListener(map, 'click', function(event){
+		marker.setPosition(event.latLng);
+		setPosition(event.latLng);
+	});
+
+	$(document).click(function(e) {
+		$(".select-category").hide("fast");
+	});
+
+	$(".category_label").click(function(e, elm) {
+		$(".select-category").not($(this).next()).hide("fast");
+		$(this).next()
+		.css({
+			"left": $(this).position().left + 25,
+			"width": $(this).css("width") - 25
+			})
+		.toggle("fast");
+		e.stopPropagation();
+	});
+
+	$(".select-category").click(function(e) {
+		e.stopPropagation();
+	});
+
+	$(".select-category").each(function() {
+		var path = $(this).parent().find(".category_val").val();
+		if (path) {
+			current = path.split("/").pop();
 		}
-
-		google.maps.event.addListener(map, 'click', function(event){
-			marker.setPosition(event.latLng);
-			setPosition(event.latLng);
-		});
-
-		$(document).click(function(e) {
-			$(".select-category").hide("fast");
-		});
-
-		$(".category_label").click(function(e, elm) {
-			$(".select-category").hide("fast");
-			$(this).next()
-			.css("left", $(this).position().left + 10)
-			.show("fast");
-			e.stopPropagation();
-		});
-
-		$(".select-category").click(function(e) {
-			e.stopPropagation();
-		});
-		
-		$(".select-category").jstree({
+		$(this).jstree({
 			"json_data" : {
 				"ajax": {
-					"url": "<?php echo base_url("user/category/tree/970"); ?>",
+					"url": "<?php echo base_url("user/category/tree/"); ?>/" + current,
 					"data": function(n) {
 						return {
 							"opration": "get_children",
@@ -160,7 +198,7 @@
 				}
 			},
 			"ui" : {
-				"initially_select": [ "node_970" ]
+				"initially_select": [ "node_"+current ]
 			},
 			"plugins" : [ "themes", "json_data", "ui" ]
 		}).bind("select_node.jstree", function (e, data) {
@@ -168,24 +206,90 @@
 			$(this).parent().find(".category_val").val($(this).jstree("get_path", data.rslt.obj, true).join("/").replace(/node_/g, ""));
 			$(this).hide();
 		});
-		
-		// タグ
-		$('#spot-tags').textext({
-			plugins : 'tags prompt focus autocomplete ajax arrow',
-			tagsItems : <?php echo $data["tags"];?>,
-			prompt : 'Add one...',
-			ajax : {
-				url : '<?php echo base_url("user/tag/search/");?>',
-				dataType : 'json',
-				cacheResults : true
+	});
+
+	var marker_list = new Array();
+	var info_list = new Array();
+	var current_window = null;
+	$("#point_confirm").click(function(e) {
+		map.setCenter(marker.getPosition());
+		if (map.getZoom() < 17) {
+			map.setZoom(17);
+		}
+		$.ajax({
+			url: "<?php echo base_url("user/tour/query");?>",
+			async: false,
+			data: {
+				limit: 999,
+				ne_x: map.getBounds().getNorthEast().lat(),
+				ne_y: map.getBounds().getNorthEast().lng(),
+				sw_x: map.getBounds().getSouthWest().lat(),
+				sw_y: map.getBounds().getSouthWest().lng()
+			},
+			dataType: "json",
+			success: function(json) {
+				if (marker_list) {
+					marker_list.forEach(function(marker, idx) {
+						marker.setMap(null);
+					});
+				}
+				$(json.list).each(function() {
+					var spot = this;
+					if (spot.id != "<?php echo set_value("id", $data["id"]);?>") {
+						var latlng = new google.maps.LatLng(spot.x, spot.y);
+						var marker = new google.maps.Marker({
+							map: map,
+							position: latlng,
+							icon : "<?php echo base_url("assets");?>/images/map/icons/myMarker.png",
+							shadow: "<?php echo base_url("assets");?>/images/map/icons/myShadow.png",
+							title: spot.name,
+							draggable: false
+						});
+						google.maps.event.addListener(marker, "click", function() {
+							if (current_window) {
+								current_window.close();
+							}
+							var content = "";
+							if (spot.image) {
+								content += '<img style="float:left;" src="<?php echo base_url("uploads/spot/thumb");?>/'+spot.image.file_name+'" width="60" height="60" alt="" />';
+							}
+							content += "<b>"+spot.name + "</b><br />" + spot.description;
+							var infowindow = new google.maps.InfoWindow({
+								content: content
+							});
+							infowindow.open(map, marker);
+							current_window = infowindow;
+						});
+						marker_list[this.id] = marker;
+					}
+				});
 			}
 		});
-
-		$("#headerSaveArea").click(function() {
-			$("#spot-form").submit();
-		});
+		return false;
 	});
+	
+	// タグ
+	$('#spot-tags').textext({
+		plugins : 'tags prompt focus autocomplete ajax arrow',
+		tagsItems : <?php echo $data["tags"];?>,
+		prompt : 'Add one...',
+		ajax : {
+			url : '<?php echo base_url("user/tag/search/");?>',
+			dataType : 'json',
+			cacheResults : true
+		}
+	});
+
+	$("#headerSaveArea").click(function() {
+		$("#spot-form").submit();
+	});
+});
 </script>
+<style type="text/css">
+.error {
+        color: red;
+    }
+</style>
 </HEAD>
 
 <BODY id="makeSpot">
@@ -206,8 +310,11 @@ fjs.parentNode.insertBefore(js, fjs);
 		<!-- ツアー作成 -->
 		<div class="pane ui-layout-center">
 			<DIV class="ui-layout-north searchArea">
+				<form id="search-map">
 				<input type="text" id="search-address" value="" />
-				<input type="submit" name="button" id="button" value="検索">
+				<input type="submit" name="button" value="検索">
+				<span id="falledMessage" style="color:red; display:none;">見つかりませんでした。</span>
+				</form>
 			</DIV>
 			<div id="mapArea" class="ui-layout-center">
 			</div>
@@ -222,12 +329,15 @@ fjs.parentNode.insertBefore(js, fjs);
 					<input type="text" name="y" id="spot-y" value="<?php echo set_value("y", $data["y"]);?>" readonly="readonly" />
 				</p>
 				<p>
-					<label for="textfield">スポット名称</label>
+					<label for="textfield">住所</label>
 					<input type="text" name="address" id="spot-address" size="120" value="<?php echo set_value("address");?>" readonly="readonly" />
 				</p>
 				<p>
+				<input type="button" id="point_confirm" value="近くにある登録済みのスポットを確認します" />
+				</p>
+				<p>
 					<label for="textfield">スポット名称</label>
-					<input type="text" name="name" value="<?php echo set_value("name", $data["name"]);?>" />
+					<input type="text" name="name" value="<?php echo set_value("name", $data["name"]);?>" /><?php echo form_error('name'); ?>
 				</p>
 				<p>
 					<label for="textfield">詳細</label>
@@ -244,28 +354,30 @@ fjs.parentNode.insertBefore(js, fjs);
 <?php endif;?>
 				<label><input type="checkbox" name="image_delete" value="1" />&nbsp;削除</label>
 <?php endif;?>
+				<?php echo form_error('image'); ?>
 				</p>
 				<div>
 					<label for="textfield">参考滞在時間</label>
 					<input type="text" name="stay_time" value="<?php echo set_value("stay_time", $data["stay_time"]);?>" />
+					<?php echo form_error('stay_time'); ?>
 				</div>
 				<div>
 					<label for="select">カテゴリ１</label>
 					<input type="hidden" class="category_val" name="category[]" value="<?php echo set_value("category", $data["category"][0]);?>" />
-					<input type="text" class="category_label" size="60" value="<?php echo set_value("category", $data["category"][0]);?>" />
-					<div id="select-category1" class="select-category" style="height: 130px; width: 30em; position: absolute; overflow: auto; z-index: 9999; display: none; background: #ffc;">&nbsp;</div>
+					<input type="text" class="category_label" size="60" value="" readonly="readonly" />
+					<div id="select-category1" class="select-category" style="height: 130px; width: 30em; position: absolute; overflow: auto; z-index: 9999999; display: none; background: #ffc; box-shadow: 1px 1px 3px #000;"">&nbsp;</div>
 				</div>
 				<div>
 					<label for="select">カテゴリ２</label>
 					<input type="hidden" class="category_val" name="category[]" value="<?php echo set_value("category", $data["category"][1]);?>" />
-					<input type="text" class="category_label" size="60" value="<?php echo set_value("category", $data["category"][1]);?>" />
-					<div id="select-category2" class="select-category" style="height: 130px; width: 30em; position: absolute; overflow: auto; z-index: 9999; display: none; background: #ffc;">&nbsp;</div>
+					<input type="text" class="category_label" size="60" value="" readonly="readonly" />
+					<div id="select-category2" class="select-category" style="height: 130px; width: 30em; position: absolute; overflow: auto; z-index: 9999999; display: none; background: #ffc; box-shadow: 1px 1px 3px #000;"">&nbsp;</div>
 				</div>
 				<div>
 					<label for="select">カテゴリ３</label>
 					<input type="hidden" class="category_val" name="category[]" value="<?php echo set_value("category", $data["category"][2]);?>" />
-					<input type="text" class="category_label" size="60" value="<?php echo set_value("category", $data["category"][2]);?>" />
-					<div id="select-category3" class="select-category" style="height: 130px; width: 30em; position: absolute; overflow: auto; z-index: 9999; display: none; background: #ffc;">&nbsp;</div>
+					<input type="text" class="category_label" size="60" value="" readonly="readonly" />
+					<div id="select-category3" class="select-category" style="height: 130px; width: 30em; position: absolute; overflow: auto; z-index: 9999999; display: none; background: #ffc; box-shadow: 1px 1px 3px #000;">&nbsp;</div>
 				</div>
 				<div>
 					<label for="textfield">タグ</label>
