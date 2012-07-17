@@ -898,14 +898,14 @@ class CI_Upload {
 			{
 				$msg = ($CI->lang->line($val) == FALSE) ? $val : $CI->lang->line($val);
 				$this->error_msg[] = $msg;
-				log_message('error', $msg);
+// 				log_message('error', $msg);
 			}
 		}
 		else
 		{
 			$msg = ($CI->lang->line($msg) == FALSE) ? $msg : $CI->lang->line($msg);
 			$this->error_msg[] = $msg;
-			log_message('error', $msg);
+//			log_message('error', $msg);
 		}
 	}
 
