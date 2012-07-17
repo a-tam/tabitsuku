@@ -10,7 +10,12 @@
 |
 */
 
-
+$hook['post_controller_constructor'] = array(
+		'class'    => 'Localize',
+		'function' => 'pick_language',
+		'filename' => 'Localize.php',
+		'filepath' => 'hooks',
+);
 
 /* End of file hooks.php */
 /* Location: ./application/config/hooks.php */
