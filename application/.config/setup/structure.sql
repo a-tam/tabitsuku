@@ -3,17 +3,11 @@
 -- http://www.phpmyadmin.net
 --
 -- ホスト: localhost
--- 生成時間: 2012 年 6 月 19 日 10:31
+-- 生成時間: 2012 年 7 月 17 日 11:07
 -- サーバのバージョン: 5.5.9
 -- PHP のバージョン: 5.3.6
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
-
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
 
 --
 -- データベース: `p0009`
@@ -25,8 +19,7 @@ SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 -- テーブルの構造 `categories`
 --
 
-DROP TABLE IF EXISTS `categories`;
-CREATE TABLE `categories` (
+CREATE TABLE IF NOT EXISTS `categories` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `parent_id` varchar(45) DEFAULT NULL COMMENT '親ID',
   `path` varchar(221) DEFAULT NULL COMMENT 'パス（最大カテゴリ数10億、10階層）',
@@ -44,8 +37,7 @@ CREATE TABLE `categories` (
 -- テーブルの構造 `routes`
 --
 
-DROP TABLE IF EXISTS `routes`;
-CREATE TABLE `routes` (
+CREATE TABLE IF NOT EXISTS `routes` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `tour_id` bigint(20) DEFAULT NULL COMMENT 'イベントID',
   `spot_id` bigint(20) DEFAULT NULL COMMENT 'ポイントID',
@@ -62,8 +54,7 @@ CREATE TABLE `routes` (
 -- テーブルの構造 `spots`
 --
 
-DROP TABLE IF EXISTS `spots`;
-CREATE TABLE `spots` (
+CREATE TABLE IF NOT EXISTS `spots` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `owner` bigint(20) DEFAULT NULL COMMENT '所有者',
   `name` varchar(200) DEFAULT NULL COMMENT 'イベント名',
@@ -89,8 +80,7 @@ CREATE TABLE `spots` (
 -- テーブルの構造 `tags`
 --
 
-DROP TABLE IF EXISTS `tags`;
-CREATE TABLE `tags` (
+CREATE TABLE IF NOT EXISTS `tags` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `name` varchar(200) DEFAULT NULL COMMENT 'タグ名',
   `created_time` varchar(45) DEFAULT NULL COMMENT '作成日時',
@@ -105,14 +95,13 @@ CREATE TABLE `tags` (
 -- テーブルの構造 `tours`
 --
 
-DROP TABLE IF EXISTS `tours`;
-CREATE TABLE `tours` (
+CREATE TABLE IF NOT EXISTS `tours` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `owner` int(11) DEFAULT NULL COMMENT '所有者',
   `name` varchar(200) DEFAULT NULL COMMENT 'スケジュール名（例：オススメ東京観光旅行）',
   `description` text COMMENT '説明',
-  `start_time` datetime DEFAULT NULL COMMENT '開始時間',
-  `end_time` datetime DEFAULT NULL COMMENT '終了時間',
+  `start_time` time DEFAULT NULL COMMENT '開始時間',
+  `end_time` time DEFAULT NULL COMMENT '終了時間',
   `like_count` varchar(45) DEFAULT NULL COMMENT 'いいね！件数',
   `category` varchar(200) DEFAULT NULL,
   `tags` varchar(200) DEFAULT NULL,
@@ -128,8 +117,7 @@ CREATE TABLE `tours` (
 -- テーブルの構造 `users`
 --
 
-DROP TABLE IF EXISTS `users`;
-CREATE TABLE `users` (
+CREATE TABLE IF NOT EXISTS `users` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `login_id` varchar(255) DEFAULT NULL,
   `password` varchar(64) DEFAULT NULL,
