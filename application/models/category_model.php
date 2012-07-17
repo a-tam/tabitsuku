@@ -15,6 +15,7 @@ class Category_model extends MY_Model {
 	
 	function get_tree($id) {
 		$category_info = $this->row($id);
+		$child = null;
 		if ($category_info["path"]) {
 			$path_keys = explode("/", $category_info["path"]);
 			$path_keys = array_unique($path_keys);
