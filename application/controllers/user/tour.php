@@ -107,6 +107,13 @@ class Tour extends MY_Controller {
 			$page = 1;
 		}
 		$offset = ($page - 1) * $limit;
+		switch ($sort) {
+			case "like_count":
+			case "name":
+				break;
+			default:
+				$sort = "name";
+		}
 		
 		$rows = array();
 		$sql = "SELECT * FROM ".$this->Spot_model->table;
