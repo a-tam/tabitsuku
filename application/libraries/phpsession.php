@@ -59,7 +59,7 @@ var $_flash = array();
 						'upload_path' => FCPATH.'uploads/tmp/',
 						);
 				$param = FALSE;
-				if ($data[$key."_delete"] == "1") {
+				if (isset($data[$key."_delete"]) && $data[$key."_delete"] == "1") {
 					if ($data[$key]["tmp"]) {
 						unlink($data[$key]["tmp"]["full_path"]);
 					}
