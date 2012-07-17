@@ -28,7 +28,7 @@ class Spot_model extends MY_Model {
 					'rule' => array('required'),
 				),
 				"name" => array(
-					'name' => 'Eメール',
+					'name' => 'スポット',
 					'type' => 'text',
 					'attr' => array(
 							'size' => 50
