@@ -63,7 +63,7 @@ $(document).ready(function () {
 		,north__paneSelector:	".ui-layout-north"
 		,north__size: 100
 		,south__paneSelector:	".ui-layout-south"
-		,south__size: 50
+		,south__size: 100
 	});
 	// ツアーレイアウト
 	spotLayout = $('div.ui-layout-east').layout({
@@ -154,7 +154,7 @@ $(document).ready(function () {
 		search();
 	});
 
-	$("#start_time, .stay_time").change(function() {
+	$("#start_time, .stay_time").live("change", function() {
 		change_time();
 	});
 
@@ -308,7 +308,7 @@ $(document).ready(function () {
 					alert(1);
 				});
 
-				$( "#spotAreaFrameScroll li" ).draggable({
+				$( "#spotAreaFrameScroll li, #toolSpot li" ).draggable({
 					connectToSortable: "#tourAreaFrameScroll ul",
 					containment: "document",
 					revert: "invalid",
@@ -413,7 +413,8 @@ $(document).ready(function () {
 		var current = 1;
 		var node = [];
 		if (path) {
-			current = path.split("/").pop();
+			path_split = path.split("/");
+			current = path_split[path_split.length - 2];
 			node = [ "node_"+current ];
 		}
 		var jstree_option = {
@@ -434,7 +435,6 @@ $(document).ready(function () {
 		$(this).jstree(jstree_option).bind("select_node.jstree", function (e, data) {
 			$(this).parent().find(".category_label").val($(this).jstree("get_path", data.rslt.obj, false).join(" > "));
 			var val = "/" + $(this).jstree("get_path", data.rslt.obj, true).join("/").replace(/node_/g, "") + "/";
-			console.log(val);
 			$(this).parent().find(".category_val").val(val);
 			$(this).hide();
 		});
@@ -457,8 +457,9 @@ $(document).ready(function () {
 		$("#tourAreaFrameScroll .spotList li").each(function(i, elm) {
 			var id = $(elm).attr("data-spot-id");
 			routes.push({
-				id: id,
-				stay_time: $(elm).find(".stay_time").val()
+				id: 		id,
+				stay_time:	$(elm).find(".stay_time").val(),
+				info:		$(elm).find(".spot_info").val()
 			});
 		});
 		if (routes.length == 0) {
@@ -616,14 +617,40 @@ window.onload = function() {
 				</DIV>
 				<ul id="spotAreaFrameScroll" class="ui-layout-center spotList"></ul>
 				<DIV class="ui-layout-south">
-					<div class="spotArea">
-						<div class="spotDetail">
-							<p class="spotTitle">移動用スポット</p>
+					<ul id="toolSpot">
+					<li data-spot-id="0">
+						<div class="spotArea">
+							<div class="spotDetail">
+								<div class="textArea">
+									<div class="timePullDown">
+										<textarea cols="20" rows="2" class="spot_info"></textarea><br />
+										滞在時間
+										<select name="stay_time" class="stay_time">
+											<option value="15">15分</option>
+											<option value="30">30分</option>
+											<option value="45">45分</option>
+										</select>
+									</div>
+								</div>
+							</div>
+							<div class="naviArea">
+								<div class="iconAdd">
+									<img src="<?php echo base_url("assets"); ?>/img/interface/icon/add16.png" width="16" height="16" alt="add">
+								</div>
+								<div class="iconUp">
+									<img src="<?php echo base_url("assets"); ?>/img/interface/icon/up16.png" width="16" height="16" alt="up">
+								</div>
+								<div class="iconClose">
+									<img src="<?php echo base_url("assets"); ?>/img/interface/icon/close16.png" width="16" height="16" alt="add">
+								</div>
+								<div class="iconDown">
+									<img src="<?php echo base_url("assets"); ?>/img/interface/icon/down16.png" width="16" height="16" alt="add">
+								</div>
+							</div>
 						</div>
-						<div class="naviArea">
-							+
-						</div>
-					</div>
+						<span class="timecode">9:00</span>
+					</li>
+					</ul>
 				</DIV>
 			</div>
 		</div>
@@ -642,6 +669,19 @@ window.onload = function() {
 					<li data-spot-id="<?php echo $ruote["id"]?>" class="spot">
 						<div class="spotArea">
 							<div class="spotDetail">
+<?php if ($ruote["id"] == 0): ?>
+								<div class="textArea">
+									<div class="timePullDown">
+										<textarea cols="20" rows="2" class="spot_info"><?php echo $ruote["info"]; ?></textarea><br />
+										滞在時間
+										<select name="stay_time" class="stay_time">
+											<option value="15"<?php if ($ruote["stay_time"] == "15"): ?> selected="selected"<?php endif;?>>15分</option>
+											<option value="30"<?php if ($ruote["stay_time"] == "30"): ?> selected="selected"<?php endif;?>>30分</option>
+											<option value="45"<?php if ($ruote["stay_time"] == "45"): ?> selected="selected"<?php endif;?>>45分</option>
+										</select>
+									</div>
+								</div>
+<?php else: ?>
 								<div class="thumbnail">
 									<?php if ($ruote["image"]) :?>
 									<img src="" width="60" height="60" alt="" />
@@ -653,9 +693,9 @@ window.onload = function() {
 									<div class="timePullDown">
 										滞在時間
 										<select name="stay_time" class="stay_time">
-											<option value="15">15分</option>
-											<option value="30">30分</option>
-											<option value="45">45分</option>
+											<option value="15"<?php if ($ruote["stay_time"] == "15"): ?> selected="selected"<?php endif;?>>15分</option>
+											<option value="30"<?php if ($ruote["stay_time"] == "30"): ?> selected="selected"<?php endif;?>>30分</option>
+											<option value="45"<?php if ($ruote["stay_time"] == "45"): ?> selected="selected"<?php endif;?>>45分</option>
 										</select>
 									</div>
 								</div>
@@ -664,6 +704,7 @@ window.onload = function() {
 									<div class="fb-like" data-href="<?php echo base_url("user/spot/show/".$ruote["id"]);?>" data-send="false" data-layout="button_count" data-width="450" data-show-faces="false">
 									</div>
 								</div>
+<?php endif;?>
 							</div>
 							<div class="naviArea">
 								<div class="iconAdd">
