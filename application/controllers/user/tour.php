@@ -97,6 +97,7 @@ class Tour extends MY_Controller {
 		$sw_y		= $this->input->get("sw_y");
 		$limit		= $this->input->get("limit");
 		$sort		= $this->input->get("sort");
+		$category	= $this->input->get("category");
 		$keyword	= $this->input->get("keyword");
 		
 		if (!$limit) {
@@ -131,6 +132,10 @@ class Tour extends MY_Controller {
 			$tag_keys = $this->Tag_model->tag_keys(array($keyword));
 			$where .= " AND ( tags IN (".implode(",", $tag_keys).") OR name LIKE ? )";
 			array_push($values, "%".$keyword."%");
+		}
+		if (trim($category)) {
+			$where .= " AND category like ?";
+			array_push($values, "%".$category."%");
 		}
 		$sql .= $where." ORDER BY ".$sort." LIMIT ".$offset.", ".$limit;
 		$point_list = $this->Spot_model->db->query($sql, $values);
