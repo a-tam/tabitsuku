@@ -7,7 +7,14 @@ class Tour extends MY_Controller {
 	}
 	
 	function index() {
-		$data = $this->Tour_model->select();
+		$fields = array();
+		$wheres = array();
+		$limit = 20;
+		$page = 1;
+		$offset = ($page - 1 ) * $limit;
+		$sorts = array();
+		
+		$data = $this->Tour_model->select($fields, $wheres, $limit, $offset, $sorts);
 		$result["count"] = $data->num_rows();
 		$result["list"] = array();
 		if ($data->num_rows() > 0) {
