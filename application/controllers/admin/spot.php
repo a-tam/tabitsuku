@@ -9,7 +9,7 @@ class Spot extends CI_Controller {
 		$this->load->model("Tag_model");
 		$prefectures = array(
 //				"hokkaido"	=>	"北海道",
-//				"ishikawa"	=>	"石川",
+// 				"ishikawa"	=>	"石川",
 // 				"okayama"	=>	"岡山",
 // 				"aomori"	=>	"青森",
 // 				"fukui"		=>	"福井",
@@ -44,17 +44,17 @@ class Spot extends CI_Controller {
 // 				"chiba"		=>	"千葉",
 // 				"hyogo"		=>	"兵庫",
 // 				"oita"		=>	"大分",
-//				"tokyo"		=>	"東京",
+// 				"tokyo"		=>	"東京",
 // 				"nara"		=>	"奈良",
-//				"miyazaki"	=>	"宮崎",
+// 				"miyazaki"	=>	"宮崎",
 // 				"kanagawa"	=>	"神奈川",
 // 				"wakayama"	=>	"和歌山",
 // 				"kagoshima"	=>	"鹿児島",
 // 				"niigata"	=>	"新潟",
 // 				"tottori"	=>	"鳥取",
-// 				"okinawa"	=>	"沖縄",
+//				"okinawa"	=>	"沖縄",
 // 				"toyama"	=>	"富山",
-// 				"shimane"	=>	"島根"
+//				"shimane"	=>	"島根"
 				);
 		$base_url = 'http://api.tabelog.com/Ver2.1/RestaurantSearch/';
 		$params["Key"] = "20666000a86337884fb30c001fa3d57f67a9af49";
@@ -127,19 +127,20 @@ class Spot extends CI_Controller {
 			if ($result[$hash]) {
 				$result[$hash];
 			} else {
-				if ($id = $this->Category_model->get_one(array("name" => $name), "id")) {
-					$result[$hash] = $id;
+				if ($path = $this->Category_model->get_one(array("name" => $name), "path")) {
+					$result[$hash] = $path;
 				} else {
 					$data = array(
 							"parent_id" => 4,
 							"path" => "/4/",
 							"name" => $name,
 					);
-					$result[$hash] = $this->Category_model->insert($data);
+					$id = $this->Category_model->insert($data);
+					$result[$hash] = $this->Category_model->one($id, "path");
 				}
 			}
 			$keys[] = $result[$hash];
 		}
-		return implode(",", $keys);
+		return $keys;
 	}
 }
