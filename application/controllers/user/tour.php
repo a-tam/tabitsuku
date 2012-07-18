@@ -28,7 +28,7 @@ class Tour extends MY_Controller {
 	}
 	
 	/**
-	 * 追加
+	 * 登録フォーム
 	 *
 	 */
 	function form($id = "") {
