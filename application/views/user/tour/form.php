@@ -85,9 +85,26 @@ $(document).ready(function () {
 	var info_list = new Array();
 
 	// 移動
-	var input = document.getElementById('searchAddress');
+	var input = document.getElementById('search-address');
 	var autocomplete = new google.maps.places.Autocomplete(input);
 	autocomplete.bindTo('bounds', map);
+
+	$("#search-map").submit(function(){
+		var adrs = $("#search-address").val();
+		var gc = new google.maps.Geocoder();
+		gc.geocode({ address : adrs }, function(results, status){
+			if (status == google.maps.GeocoderStatus.OK) {
+				var ll = results[0].geometry.location;
+				map.setCenter(ll);
+				map.fitBounds(results[0].geometry.viewport);
+			} else {
+				$("#search-address").select();
+				$("#falledMessage").show().fadeOut(4000);
+			}
+		});
+		return false;
+	});
+	
 	google.maps.event.addListener(autocomplete, 'place_changed', function() {
 		var place = autocomplete.getPlace();
 		if (place.geometry.viewport) {
@@ -143,7 +160,7 @@ $(document).ready(function () {
 
 	$(".iconAdd").live("click", function() {
 		var self = $(this).closest(".spot");
-		self.clone().insertBefore($("#tourAreaFrameScroll .spotList li:last"));
+		self.clone().hide().appendTo($("#tourAreaFrameScroll .spotList")).fadeIn("slow");
 		change_time();
 		return false;
 	});
@@ -194,15 +211,15 @@ $(document).ready(function () {
 			url: "<?php echo base_url("user/tour/query");?>",
 			async: false,
 			data: {
-				category: $("#category").val(),
-				keyword: $("#keyword").val(),
-				limit: $("#limit").val(),
-				sort: $("#sort").val(),
-				page: page,
-				ne_x: map.getBounds().getNorthEast().lat(),
-				ne_y: map.getBounds().getNorthEast().lng(),
-				sw_x: map.getBounds().getSouthWest().lat(),
-				sw_y: map.getBounds().getSouthWest().lng()
+				category:	$("#search-category").val(),
+				keyword:	$("#keyword").val(),
+				limit:		$("#limit").val(),
+				sort:		$("#sort").val(),
+				page:		page,
+				ne_x:		map.getBounds().getNorthEast().lat(),
+				ne_y:		map.getBounds().getNorthEast().lng(),
+				sw_x:		map.getBounds().getSouthWest().lat(),
+				sw_y:		map.getBounds().getSouthWest().lng()
 			},
 			dataType: "json",
 			success: function(json) {
@@ -372,24 +389,57 @@ $(document).ready(function () {
 		});
 	}
 
-	$("#select-category").jstree({
-		"json_data" : {
-			"ajax": {
-				"url": "<?php echo base_url("user/category/test"); ?>",
-				"data": function(n) {
-					return {
-						"opration": "get_children",
-						"id": n.attr ? n.attr("id").replace("node_", ""): ""
-					};
-				}
-			}
-		},
-		"plugins" : [ "themes", "json_data", "ui" ]
-	}).bind("select_node.jstree", function (e, data) {
-		var id = data.rslt.obj.attr("id");
-		$("#category").val(id.replace("node_", ""));
+	$(document).click(function(e) {
+		$(".select-category").hide("fast");
 	});
 
+	$(".category_label").click(function(e, elm) {
+		$(".select-category").not($(this).next()).hide("fast");
+		$(this).next()
+		.css({
+			"left": $(this).position().left + 25,
+			"width": $(this).css("width") - 25
+			})
+		.toggle("fast");
+		e.stopPropagation();
+	});
+
+	$(".select-category").click(function(e) {
+		e.stopPropagation();
+	});
+
+	$(".select-category").each(function() {
+		var path = $(this).parent().find(".category_val").val();
+		var current = 1;
+		var node = [];
+		if (path) {
+			current = path.split("/").pop();
+			node = [ "node_"+current ];
+		}
+		var jstree_option = {
+			"json_data" : {
+				"ajax": {
+					"url": "<?php echo base_url("user/category/tree/"); ?>/" + current,
+					"data": function(n) {
+						return {
+							"opration": "get_children",
+							"id": n.attr ? n.attr("id").replace("node_", ""): ""
+						};
+					}
+				}
+			},
+			"ui": { "initially_select": node },
+			"plugins" : [ "themes", "json_data", "ui" ]
+		};
+		$(this).jstree(jstree_option).bind("select_node.jstree", function (e, data) {
+			$(this).parent().find(".category_label").val($(this).jstree("get_path", data.rslt.obj, false).join(" > "));
+			var val = "/" + $(this).jstree("get_path", data.rslt.obj, true).join("/").replace(/node_/g, "") + "/";
+			console.log(val);
+			$(this).parent().find(".category_val").val(val);
+			$(this).hide();
+		});
+	});
+	
 	// タグ
 	$('#tags').textext({
 		plugins : 'tags prompt focus autocomplete ajax arrow',
@@ -419,13 +469,13 @@ $(document).ready(function () {
 			url: "<?php echo base_url("user/tour/add");?>",
 			type: "post",
 			data: {
-				id: $("#guide-id").val(),
-				name: $("#guide-name").val(),
-				description: $("#guide-description").val(),
-				category: $("#category").val(),
-				start_time: $("#start_time").val(),
-				tags: $("#tags").textext()[0]. hiddenInput().val(),
-				route: routes
+				id:				$("#guide-id").val(),
+				name:			$("#guide-name").val(),
+				description:	$("#guide-description").val(),
+				category:		$("#category").val(),
+				start_time:		$("#start_time").val(),
+				tags:			$("#tags").textext()[0]. hiddenInput().val(),
+				route: 			routes
 			},
 			dataType: "json",
 			success: function(json) {
@@ -441,6 +491,24 @@ $(document).ready(function () {
 });
 
 </script>
+<style type="text/css">
+<!--
+    .error {
+    	color: red;
+    }
+
+    .select-category {
+    	height: 130px;
+    	width: 30em;
+    	position: absolute;
+    	overflow: auto;
+    	z-index: 9999999;
+    	display: none;
+    	background: #ffc;
+    	box-shadow: 1px 1px 3px #000;
+    }
+//-->
+</style>
 </HEAD>
 
 <BODY id="makeTour">
@@ -494,11 +562,11 @@ window.onload = function() {
 };
 
 (function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/ja_JP/all.js#xfbml=1&appId=248010585308088";
-  fjs.parentNode.insertBefore(js, fjs);
+	var js, fjs = d.getElementsByTagName(s)[0];
+	if (d.getElementById(id)) return;
+	js = d.createElement(s); js.id = id;
+	js.src = "//connect.facebook.net/ja_JP/all.js#xfbml=1&appId=248010585308088";
+	fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
 <div id="layout">
 	<header>
@@ -511,8 +579,11 @@ window.onload = function() {
 		<div class="pane ui-layout-center">
 			<div id="mapAreaFrame" class="center-center">
 				<DIV class="ui-layout-north searchArea">
-					<input type="text" id="searchAddress" value="" />
-					<input type="submit" name="button" id="mapSearchButton" value="検索">
+				<form id="search-map">
+				<input type="text" id="search-address" value="" />
+				<input type="submit" name="button" value="検索">
+				<span id="falledMessage" style="color:red; display:none;">見つかりませんでした。</span>
+				</form>
 				</DIV>
 				<div id="mapArea" class="ui-layout-center"></div>
 			</div>
@@ -520,11 +591,16 @@ window.onload = function() {
 				<DIV class="ui-layout-north">
 					スポット一覧
 					<DIV class="ui-layout-north searchArea">
-						カテゴリ<input type="text" name="select" id="category" size="10" value="">
+						<div>
+							<label for="textfield2">カテゴリ</label>
+							<input type="hidden" class="category_val" id="search-category" value="" />
+							<input type="text" class="category_label" size="30" value="" readonly="readonly" />
+							<div id="select-category" class="select-category">&nbsp;</div>
+						</div>
 						表示<select name="limit" id="limit">
 							<option value="10">10</option>
 							<option value="100">100</option>
-						</select><br />
+						</select>
 						<label for="textfield">キーワード</label>
 						<input type="text" name="textfield" id="keyword" size="10"><br />
 						ソート:<select name="sort" id="sort">
@@ -620,10 +696,13 @@ window.onload = function() {
 					<label for="textfield2">ツアー説明</label>
 					<textarea name="textfield2" id="guide-description"><?php echo set_value("description", $data["description"]);?></textarea>
 					<br>
-					<label for="textfield2">カテゴリ</label>
-					<input type="hidden" id="category" value="<?php echo set_value("category", $data["category"]);?>" readonly="readonly" />
-					<div id="select-category" style="height: 30px; width: 20em; overflow: auto;"></div>
-					<label for="textfield2"><br>
+					<div>
+						<label for="textfield2">カテゴリ</label>
+						<input type="hidden" class="category_val" id="category" value="<?php echo set_value("category", $data["category"]);?>" />
+						<input type="text" class="category_label" size="30" value="" readonly="readonly" />
+						<div id="select-category" class="select-category">&nbsp;</div>
+					</div>
+					<br />
 					タグ</label>
 					<textarea id="tags" rows="1" cols="25"></textarea>
 				</p>
