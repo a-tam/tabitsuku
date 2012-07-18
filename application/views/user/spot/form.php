@@ -182,7 +182,8 @@ $(document).ready(function () {
 	$(".select-category").each(function() {
 		var path = $(this).parent().find(".category_val").val();
 		if (path) {
-			current = path.split("/").pop();
+			path_split = path.split("/");
+			current = path_split[path_split.length - 2];
 		}
 		$(this).jstree({
 			"json_data" : {
@@ -202,7 +203,7 @@ $(document).ready(function () {
 			"plugins" : [ "themes", "json_data", "ui" ]
 		}).bind("select_node.jstree", function (e, data) {
 			$(this).parent().find(".category_label").val($(this).jstree("get_path", data.rslt.obj, false).join(" > "));
-			$(this).parent().find(".category_val").val($(this).jstree("get_path", data.rslt.obj, true).join("/").replace(/node_/g, ""));
+			$(this).parent().find(".category_val").val("/"+$(this).jstree("get_path", data.rslt.obj, true).join("/").replace(/node_/g, "")+"/");
 			$(this).hide();
 		});
 	});
