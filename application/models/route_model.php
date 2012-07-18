@@ -14,7 +14,8 @@ class Route_model extends MY_Model {
 					"tour_id"		=> $tour_id,
 					"spot_id"		=> $spot["id"],
 					"stay_time"		=> $spot["stay_time"],
-					"sort"			=> $sort
+					"info"			=> $spot["info"],
+					"sort"			=> $sort,
 			);
 			$ids[] = $this->insert($data);
 			$sort++;
