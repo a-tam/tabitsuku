@@ -81,9 +81,8 @@ $(document).ready(function () {
 		gc.geocode({ address : adrs }, function(results, status){
 			if (status == google.maps.GeocoderStatus.OK) {
 				var ll = results[0].geometry.location;
-				var glat = ll.lat();
-				var glng = ll.lng();
 				map.setCenter(ll);
+				map.fitBounds(results[0].geometry.viewport);
 			} else {
 				$("#search-address").select();
 				$("#falledMessage").show().fadeOut(4000);
@@ -286,19 +285,32 @@ $(document).ready(function () {
 });
 </script>
 <style type="text/css">
-.error {
-        color: red;
+<!--
+    .error {
+    	color: red;
     }
+
+    .select-category {
+    	height: 130px;
+    	width: 30em;
+    	position: absolute;
+    	overflow: auto;
+    	z-index: 9999999;
+    	display: none;
+    	background: #ffc;
+    	box-shadow: 1px 1px 3px #000;
+    }
+//-->
 </style>
 </HEAD>
 
 <BODY id="makeSpot">
 <script>(function(d, s, id) {
-var js, fjs = d.getElementsByTagName(s)[0];
-if (d.getElementById(id)) return;
-js = d.createElement(s); js.id = id;
-js.src = "//connect.facebook.net/ja_JP/all.js#xfbml=1&appId=113756558761728";
-fjs.parentNode.insertBefore(js, fjs);
+	var js, fjs = d.getElementsByTagName(s)[0];
+	if (d.getElementById(id)) return;
+	js = d.createElement(s); js.id = id;
+	js.src = "//connect.facebook.net/ja_JP/all.js#xfbml=1&appId=113756558761728";
+	fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
 <div id="layout">
 	<header>
@@ -365,19 +377,19 @@ fjs.parentNode.insertBefore(js, fjs);
 					<label for="select">カテゴリ１</label>
 					<input type="hidden" class="category_val" name="category[]" value="<?php echo set_value("category", $data["category"][0]);?>" />
 					<input type="text" class="category_label" size="60" value="" readonly="readonly" />
-					<div id="select-category1" class="select-category" style="height: 130px; width: 30em; position: absolute; overflow: auto; z-index: 9999999; display: none; background: #ffc; box-shadow: 1px 1px 3px #000;"">&nbsp;</div>
+					<div id="select-category1" class="select-category">&nbsp;</div>
 				</div>
 				<div>
 					<label for="select">カテゴリ２</label>
 					<input type="hidden" class="category_val" name="category[]" value="<?php echo set_value("category", $data["category"][1]);?>" />
 					<input type="text" class="category_label" size="60" value="" readonly="readonly" />
-					<div id="select-category2" class="select-category" style="height: 130px; width: 30em; position: absolute; overflow: auto; z-index: 9999999; display: none; background: #ffc; box-shadow: 1px 1px 3px #000;"">&nbsp;</div>
+					<div id="select-category2" class="select-category">&nbsp;</div>
 				</div>
 				<div>
 					<label for="select">カテゴリ３</label>
 					<input type="hidden" class="category_val" name="category[]" value="<?php echo set_value("category", $data["category"][2]);?>" />
 					<input type="text" class="category_label" size="60" value="" readonly="readonly" />
-					<div id="select-category3" class="select-category" style="height: 130px; width: 30em; position: absolute; overflow: auto; z-index: 9999999; display: none; background: #ffc; box-shadow: 1px 1px 3px #000;">&nbsp;</div>
+					<div id="select-category3" class="select-category">&nbsp;</div>
 				</div>
 				<div>
 					<label for="textfield">タグ</label>
