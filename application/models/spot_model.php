@@ -76,10 +76,22 @@ class Spot_model extends MY_Model {
 	}
 	
 	function get_route($id) {
-		$sql = "SELECT spots.*".
-			" FROM spots, routes".
-			" WHERE spots.id = routes.spot_id".
-			" AND  tour_id = ?".
+		$sql = "SELECT spots.id".
+			", spots.name".
+			", spots.image".
+			", spots.description".
+			", spots.stay_time AS defalut_time".
+			", spots.x".
+			", spots.y".
+			", spots.like_count".
+			", spots.category".
+			", spots.tags".
+			", spots.keyword".
+			", routes.stay_time".
+			", routes.info".
+			" FROM routes".
+			" LEFT JOIN spots ON spots.id = routes.spot_id".
+			" WHERE tour_id = ?".
 			" ORDER BY sort ASC";
 		$rows = array();
 		$query = $this->db->query($sql, $id);
