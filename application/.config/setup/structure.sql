@@ -3,11 +3,17 @@
 -- http://www.phpmyadmin.net
 --
 -- ホスト: localhost
--- 生成時間: 2012 年 7 月 17 日 11:07
+-- 生成時間: 2012 年 7 月 18 日 15:42
 -- サーバのバージョン: 5.5.9
 -- PHP のバージョン: 5.3.6
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
 
 --
 -- データベース: `p0009`
@@ -43,6 +49,7 @@ CREATE TABLE IF NOT EXISTS `routes` (
   `spot_id` bigint(20) DEFAULT NULL COMMENT 'ポイントID',
   `stay_time` int(11) DEFAULT NULL COMMENT '滞在時間（フリップとは別に任意で変更可能）',
   `sort` int(11) DEFAULT NULL COMMENT 'ソート順',
+  `info` text,
   `created_time` datetime DEFAULT NULL COMMENT '作成日時',
   `updated_time` datetime DEFAULT NULL COMMENT '更新日時',
   PRIMARY KEY (`id`)
