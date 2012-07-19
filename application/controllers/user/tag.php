@@ -1,29 +1,18 @@
 <?php
 class Tag extends MY_Controller {
 	
+	function __construct() {
+		parent::__construct();
+		$this->load->model("Tag_model");
+	}
+	
 	function index() {
 		
 	}
 	
 	function search() {
-		print '[
-	"Basic",
-	"Closure",
-	"Cobol",
-	"Delphi",
-	"Erlang",
-	"Fortran",
-	"Go",
-	"Groovy",
-	"Haskel",
-	"Java",
-	"JavaScript",
-	"OCAML",
-	"PHP",
-	"Perl",
-	"Python",
-	"Ruby",
-	"Scala"
-]';
+		$term = $this->input->get("term");
+		$result = $this->Tag_model->like($term);
+		print json_encode($result);
 	}
 }
