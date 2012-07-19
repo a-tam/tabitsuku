@@ -4,6 +4,8 @@
 <meta charset="utf-8" />
 <title>たびつく</title>
 <link href="<?php echo base_url("assets"); ?>/css/common/import.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/flick/jquery-ui.css">
+<link href="<?php echo base_url("assets"); ?>/js/jquery/autocomplete/css/jquery.tagit.css" rel="stylesheet" type="text/css">
 <!-- java script -->
 
 <!-- IEにHTML5タグを追加する -->
@@ -22,7 +24,8 @@
 <script type="text/javascript" src="<?php echo base_url("assets"); ?>/js/jquery/jquery-1.7.2.min.js"></script>
 <script type="text/javascript" src="<?php echo base_url("assets"); ?>/js/jquery/jquery-ui-1.8.20.custom.min.js"></script>
 <script type="text/javascript" src="<?php echo base_url("assets"); ?>/js/jquery/layout/jquery.layout.min-1.2.0.js"></script>
-<script type="text/javascript" src="<?php echo base_url("assets"); ?>/js/jquery/textext/jquery.textext.js"></script>
+<script type="text/javascript" src="<?php echo base_url("assets"); ?>/js/jquery/autocomplete/tag-it.js"></script>
+<!-- script type="text/javascript" src="<?php echo base_url("assets"); ?>/js/jquery/textext/jquery.textext.js"></script -->
 <script type="text/javascript" src="<?php echo base_url("assets"); ?>/js/jquery/jstree/jquery.jstree.js"></script>
 <script type="text/javascript" src="<?php echo base_url("assets"); ?>/js/jquery/util/jquery.cookie.js"></script>
 <script type="text/javascript" src="<?php echo base_url("assets"); ?>/js/jquery/util/jquery.hotkeys.js"></script>
@@ -181,9 +184,12 @@ $(document).ready(function () {
 
 	$(".select-category").each(function() {
 		var path = $(this).parent().find(".category_val").val();
+		var current = 1;
+		var node = [];
 		if (path) {
 			path_split = path.split("/");
 			current = path_split[path_split.length - 2];
+			node = [ "node_"+current ];
 		}
 		$(this).jstree({
 			"json_data" : {
@@ -198,7 +204,7 @@ $(document).ready(function () {
 				}
 			},
 			"ui" : {
-				"initially_select": [ "node_"+current ]
+				"initially_select": node
 			},
 			"plugins" : [ "themes", "json_data", "ui" ]
 		}).bind("select_node.jstree", function (e, data) {
@@ -269,6 +275,7 @@ $(document).ready(function () {
 	});
 	
 	// タグ
+	/*
 	$('#spot-tags').textext({
 		plugins : 'tags prompt focus autocomplete ajax arrow',
 		tagsItems : <?php echo $data["tags"];?>,
@@ -279,7 +286,23 @@ $(document).ready(function () {
 			cacheResults : true
 		}
 	});
+	*/
 
+	$("#tags").tagit({
+		itemName: "tags",
+		fieldName: "name",
+		tagSource: function(search, showChoices) {
+			$.ajax({
+				url : '<?php echo base_url("user/tag/search/");?>',
+				data: { term: search.term },
+				dataType : 'json',
+				success: function(data) {
+					showChoices(data);
+				}
+			});
+		}
+	});
+	
 	$("#headerSaveArea").click(function() {
 		$("#spot-form").submit();
 	});
@@ -394,7 +417,13 @@ $(document).ready(function () {
 				</div>
 				<div>
 					<label for="textfield">タグ</label>
-					<textarea name="tags" id="spot-tags" rows="1" cols="50"></textarea>
+					<ul id="tags">
+<?php if ($data["tags"]):?>
+<?php foreach(set_value("category", $data["tags"]) as $tag):?>
+						<li><?php echo $tag;?></li>
+<?php endforeach;?>
+<?php endif;?>
+					</ul>
 				</div>
 				<div id="headerSaveArea">
 				ツアーを保存する
