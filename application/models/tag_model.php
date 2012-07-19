@@ -30,6 +30,18 @@ class Tag_model extends MY_Model {
 		return $tag_keys;
 	}
 	
+	function like($term) {
+		$sql = "SELECT id, name FROM ".$this->table.
+				" WHERE name LIKE ?".
+				" ORDER BY name ASC";
+		$query = $this->db->query($sql, $term."%");
+		$rows = array();
+		foreach($query->result_array() as $row) {
+			$rows[] = $row["name"];
+		}
+		return $rows;
+	}
+	
 	function tag_values($keys) {
 		$result = array();
 		if ($keys) {

@@ -26,8 +26,7 @@ class Spot extends MY_Controller {
 		} else {
 			$default = $this->Spot_model->row($id);
 		}
-		$tags = $this->Tag_model->tag_values($default["tags"]);
-		$default["tags"] = json_encode($tags);
+		$default["tags"] = $this->Tag_model->tag_values($default["tags"]);
 		
 		$this->phpsession->set("point", $default, $this->ns);
 		$this->_set_validation($this->form_data);
@@ -73,7 +72,7 @@ class Spot extends MY_Controller {
 			// オリジナルデータを移動
 			rename($data["image"]["tmp"]["full_path"], FCPATH.'uploads/spot/origin/'.$data["image"]["tmp"]["file_name"]);
 		}
-		$tags = $this->Tag_model->tag_keys(json_decode($data["tags"]));
+		$tags = $this->Tag_model->tag_keys($data["tags"]["name"]);
 		$data["tags"] = implode(",", $tags);
 		if ($data["id"]) {
 			$this->Spot_model->update($data, $data["id"]);

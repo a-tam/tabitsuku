@@ -47,7 +47,7 @@ class Tour extends MY_Controller {
 			$default["start_time"] = date("H:i", strtotime($default["start_time"]));
 		}
 		$tags = $this->Tag_model->tag_values($default["tags"]);
-		$default["tags"] = json_encode($tags);
+		$default["tags"] = $tags;
 
 		$this->phpsession->set("tour", $default, $this->ns);
 		$this->_set_validation($this->form_data);
@@ -70,7 +70,7 @@ class Tour extends MY_Controller {
 		$route			= $this->input->post("route");
 		$category		= $this->input->post("category");
 		$start_time		= $this->input->post("start_time");
-		$tags 			= $this->Tag_model->tag_keys(json_decode($this->input->post("tags")));
+		$tags 			= $this->Tag_model->tag_keys($this->input->post("tags"));
 		$data = array(
 			"name"			=> $name,
 			"description"	=> $description,
