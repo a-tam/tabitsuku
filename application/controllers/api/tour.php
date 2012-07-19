@@ -12,7 +12,7 @@ class Tour extends MY_Controller {
 		$limit = 20;
 		$page = 1;
 		$offset = ($page - 1 ) * $limit;
-		$sorts = array();
+		$sorts = array("created_time" => "desc");
 		
 		$data = $this->Tour_model->select($fields, $wheres, $limit, $offset, $sorts);
 		$result["count"] = $data->num_rows();
