@@ -42,6 +42,7 @@ class MY_Controller extends CI_Controller {
 	
 	function render_view($page, $_data = array(), $options = array()) {
 		// JS files
+		/*
 		$js_files = array(
 			'/assets/js/jquery/jquery-1.7.2.min.js',
 			'/assets/js/jquery/jquery-ui-1.8.20.custom.min.js',
@@ -54,8 +55,9 @@ class MY_Controller extends CI_Controller {
 			);
 		if (isset($options['js_files'])) 	$js_files = array_merge($js_files, $options['js_files']);
 		if (isset($options['css_files'])) 	$css_files = array_merge($css_files, $options['css_files']);
+		*/
 		$header = array(
-			'title' 		=> 'プロジェクト管理システム',
+			'title' 		=> 'たびつく',
 			'sub_title' 	=> isset($options['sub_title']) ? $options['sub_title'] : "",
 			'js_files'		=> $js_files,
 			'css_files' 	=> $css_files,
