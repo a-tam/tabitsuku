@@ -18,23 +18,19 @@ class Spot extends MY_Controller {
 	function form($id = "") {
 		if (!$this->auth()) return $this->login_form();
 		if (!$id) {
-			$default = array(
+			$data = array(
 				"x" => 35.6894875,
 				"y" => 139.69170639999993,
 				"tags" => array()
 			);
 		} else {
-			$default = $this->Spot_model->row($id);
+			$data = $this->Spot_model->row($id);
 		}
-		$default["tags"] = $this->Tag_model->tag_values($default["tags"]);
+		$data["tags"] = $this->Tag_model->tag_values($data["tags"]);
 		
-		$this->phpsession->set("point", $default, $this->ns);
+		$this->phpsession->set("point", $data, $this->ns);
 		$this->_set_validation($this->form_data);
-		$data = array(
-			'data'			=> $default
-		);
-		$this->load->view("user/spot/form", $data);
-		//$this->render_view("user/spot/form", $default);
+		$this->render_view("user/spot/form", $data);
 	}
 	
 	function add() {
@@ -42,11 +38,7 @@ class Spot extends MY_Controller {
 		$this->_set_validation($this->form_data);
 		$data = $this->phpsession->set_post($this->ns, "point", $this->form_data);
 		if ($this->form_validation->run() == FALSE) {
-			$data = array(
-				'data' => $data
-			);
-			return $this->load->view("user/spot/form", $data);
-//			return $this->render_view("user/spot/form", $data);
+			return $this->render_view("user/spot/form", $data);
 		}
 		if ($data["image"]["tmp"]) {
  			$this->load->library('image_lib');
