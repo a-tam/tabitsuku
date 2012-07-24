@@ -27,6 +27,19 @@ class Tour extends MY_Controller {
 		
 	}
 	
+	function copy($id) {
+		if (!$this->auth()) return $this->login_form();
+		$default = $this->Tour_model->row($id);
+		$default["routes"] = $this->Spot_model->get_route($id);
+		$default["start_time"] = date("H:i", strtotime($default["start_time"]));
+		$tags = $this->Tag_model->tag_values($default["tags"]);
+		$default["tags"] = $tags;
+		unset($default["id"]);
+		$this->phpsession->set("tour", $default, $this->ns);
+		$this->_set_validation($this->form_data);
+		return $this->render_view("user/tour/form", $default);
+	}
+	
 	/**
 	 * 登録フォーム
 	 *
@@ -51,11 +64,7 @@ class Tour extends MY_Controller {
 
 		$this->phpsession->set("tour", $default, $this->ns);
 		$this->_set_validation($this->form_data);
-		$data = array(
-			'data'			=> $default
-		);
-		$this->load->view("user/tour/form", $data);
-		//return $this->render_view("user/tour/form", $default);
+		return $this->render_view("user/tour/form", $default);
 	}
 	
 	function add() {
