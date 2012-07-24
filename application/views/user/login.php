@@ -1,4 +1,3 @@
-<?php echo validation_errors(); ?>
 <style type="text/css">
 <!--
 #signup {
@@ -11,6 +10,8 @@
 }
 -->
 </style>
+<?php $this->load->view("contents_header"); ?>
+<?php echo validation_errors(); ?>
 <form action="<?php echo base_url("user/top/signup")?>" method="post">
 <fieldset id="signup">
 <legend>サインアップ</legend>
