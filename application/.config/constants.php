@@ -50,3 +50,12 @@ define('MY_EXEC_TIME', date("Y-m-d H:i:s"));
 define('USER_STATUS_NOAPPROVAL'		, "0");		// 認証前
 define('USER_STATUS_APPROVAL'		, "1");		// 認証済み
 define('USER_STATUS_DELETE'			, "2");		// 削除
+
+define('POINT_STATUS_ENABLED'		, "1");		// 利用可
+define('POINT_STATUS_DISABLED'		, "0");		// 利用不可
+
+define('TAG_STATUS_ENABLED'			, "1");		// 利用可
+define('TAG_STATUS_DISABLED'		, "0");		// 利用不可
+
+define('SCHEDULE_STATUS_ENABLED'	, "1");		// 利用可
+define('SCHEDULE_STATUS_DISABLED'	, "0");		// 利用不可
