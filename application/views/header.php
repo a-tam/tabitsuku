@@ -1,23 +1,26 @@
-<!DOCTYPE html><html lang="ja" id="todo">
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja" xmlns:fb="http://www.facebook.com/2008/fbml" xmlns:mixi="http://mixi-platform.com/ns#" xmlns:og="http://ogp.me/ns#">
 <head>
-<meta http-equiv="content-type" content="text/html; charset=utf-8">
-<title><?php echo $header["title"];?> | <?php echo $header["sub_title"];?></title>
-<?php foreach ($header["css_files"] as $css_file):?>
-<link type="text/css" rel="stylesheet" href="<?php echo base_url().$css_file; ?>" />
-<?php endforeach;?>
-<?php foreach ($header["js_files"] as $js_file):?>
-<script type="text/javascript" charset="utf-8" src="<?php echo base_url().$js_file; ?>"></script>
-<?php endforeach;?>
-</head>
-<body>
-<!-- Contents Header -->
-<a href="<?php echo base_url();?>"><img src="<?php echo base_url("assets/images/common/logo.jpg");?>" /></a>
-<!-- GlobalNavi -->
-<!-- GlobalNavi End -->
-<?php if($this->user_info):?>
-ようこそ 会員さん | <a href="<?php echo base_url("user/top/");?>">管理画面</a> |
-<a href="<?php echo base_url("user/top/logout");?>">ログアウト</a>
-<?php else:?>
-ようこそ ゲストさん | <a href="<?php echo base_url("user/top");?>">会員登録・ログイン</a>
-<?php endif;?>
-<hr size="1" />
+<meta charset="utf-8" />
+<title>たびつく</title>
+<link rel="shortcut icon" href="<?php echo base_url("assets"); ?>/images/favicon.ico">
+<!-- common javascript -->
+<script type="text/javascript" src="<?php echo base_url("assets"); ?>/js/jquery/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="<?php echo base_url("assets"); ?>/js/jquery/jquery-ui-1.8.20.custom.min.js"></script>
+<script type="text/javascript" src="<?php echo base_url("assets"); ?>/js/apps/common.js"></script>
+<script type="text/javascript">
+// ベースパス
+var gBaseUrl = '<?php echo base_url(); ?>';
+var gAssetUrl = '<?php echo base_url("assets"); ?>/';
+</script>
+<!-- common css -->
+<link href="<?php echo base_url("assets"); ?>/css/common/import.css" rel="stylesheet" type="text/css">
+<!-- IEにHTML5タグを追加する -->
+<!--[if lt IE 9]>
+<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+<!-- IE6でも半透明のPNGを適用する -->
+<!--[if IE 6]>
+<script src="/_js/DD_belatedPNG/DD_belatedPNG_0.0.8a.js"></script>
+<script>DD_belatedPNG.fix('img, .png_bg');</script>
+<![endif]-->
