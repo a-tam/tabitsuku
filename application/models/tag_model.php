@@ -45,15 +45,17 @@ class Tag_model extends MY_Model {
 	function tag_values($keys) {
 		$result = array();
 		if ($keys) {
-			$_keys = explode(",", $keys);
+			if (!is_array($keys)) {
+				$keys = explode(",", $keys);
+			}
 			// 登録済みデータの取得
 			$this->db->select('id, name');
 			$this->db->from($this->table);
-			$this->db->where_in("id", $_keys);
+			$this->db->where_in("id", $keys);
 			$this->db->where("status", TAG_STATUS_ENABLED);
 			$query = $this->db->get();
 			foreach($query->result_array() as $row) {
-				array_push($result, $row["name"]);
+				$result[$row["id"]] = $row["name"];
 			}
 		}
 		return $result;
