@@ -17,11 +17,22 @@ class Tour extends MY_Controller {
 			"category"	=> $this->input->get("category"),
 			"keyword"	=> $this->input->get("keyword"),
 		);
-		$page 		= $this->input->get("page");
+		$owner		= $this->input->get("owner");
+		$page		= $this->input->get("page");
 		$limit		= $this->input->get("limit");
 		$sort		= $this->input->get("sort");
 		$sort_type	= $this->input->get("sort_type");
-
+		
+		if ($owner) {
+			switch ($owner) {
+				case "mydata":
+					if ($user_info = $this->phpsession->get("user_info")) {
+						$request["owner"] = $user_info["id"];
+					}
+					break;
+			}
+		}
+		
 		$offset = ($page - 1) * $limit;
 		$request["tags"] = $this->Tag_model->tag_keys(array($condition["keyword"]));
 		$tour = $this->Tour_model->search($request, $offset, $limit, null, $sort, $sort_type);
