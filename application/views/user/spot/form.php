@@ -111,9 +111,7 @@
 <?php endif;?>
 			</ul>
 		</div>
-		<div id="headerSaveArea">
-		ツアーを保存する
-		</div>
+		<div id="headerSaveArea">スポットを保存する</div>
 	</form>
 </div>
 <!-- //ツアー作成 -->
