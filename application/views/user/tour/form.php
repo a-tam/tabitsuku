@@ -16,6 +16,11 @@
 	background: #ffc;
 	box-shadow: 1px 1px 3px #000;
 }
+
+#toolSpot .timecode {
+    display:none;
+}
+
 </style>
 <!-- javascript -->
 <script type="text/javascript" src="<?php echo base_url("assets"); ?>/js/jquery/layout/jquery.layout.min-1.2.0.js"></script>
@@ -70,10 +75,11 @@
 		</DIV>
 		<ul id="spotAreaFrameScroll" class="ui-layout-center spotList"></ul>
 		<DIV class="ui-layout-south">
-			<ul id="toolSpot">
-			<li data-spot-id="0">
+			<ul id="toolSpot" style="margin-left: 0px; padding-left: 0px;">
+			<li data-spot-id="0" style="list-style-type: none;">
 				<div class="spotArea">
-					<div class="spotDetail">
+					<div class="spotDetail" style="width: 215px;">
+						メモ
 						<div class="textArea">
 							<div class="timePullDown">
 								<textarea cols="20" rows="2" class="spot_info"></textarea><br />
@@ -153,8 +159,8 @@
 							</div>
 						</div>
 						<div class="spotBtnArea clearfix">
-							<span class="bntDetail"><a href="<?php echo base_url("user/spot/show/".$ruote["id"]);?>">詳細をみる</a></span>
-							<div class="fb-like" data-href="<?php echo base_url("user/spot/show/".$ruote["id"]);?>" data-send="false" data-layout="button_count" data-width="450" data-show-faces="false">
+							<span class="bntDetail"><a href="<?php echo base_url("spot/show/".$ruote["id"]);?>">詳細をみる</a></span>
+							<div class="fb-like" data-href="<?php echo base_url("spot/show/".$ruote["id"]);?>" data-send="false" data-layout="button_count" data-width="450" data-show-faces="false">
 							</div>
 						</div>
 <?php endif;?>
