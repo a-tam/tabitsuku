@@ -10,17 +10,27 @@ class Spot extends MY_Controller {
 		
 	function index() {
 		$request = array(
-				"ne_x"		=> $this->input->get("ne_x"),
-				"sw_x"		=> $this->input->get("sw_x"),
-				"ne_y"		=> $this->input->get("ne_y"),
-				"sw_y"		=> $this->input->get("sw_y"),
-				"category"	=> $this->input->get("category"),
-				"keyword"	=> $this->input->get("keyword"),
+			"ne_x"		=> $this->input->get("ne_x"),
+			"sw_x"		=> $this->input->get("sw_x"),
+			"ne_y"		=> $this->input->get("ne_y"),
+			"sw_y"		=> $this->input->get("sw_y"),
+			"category"	=> $this->input->get("category"),
+			"keyword"	=> $this->input->get("keyword"),
 		);
+		$owner		= $this->input->get("owner");
 		$page 		= $this->input->get("page");
 		$limit		= $this->input->get("limit");
 		$sort		= $this->input->get("sort");
 		$sort_type	= $this->input->get("sort_type");
+		if ($owner) {
+			switch ($owner) {
+				case "mydata":
+					if ($user_info = $this->phpsession->get("user_info")) {
+						$request["owner"] = $user_info["id"];
+					}
+					break;
+			}
+		}
 		
 		if (!$limit) $limit = 20;
 		if (!$page) $page = 1;
