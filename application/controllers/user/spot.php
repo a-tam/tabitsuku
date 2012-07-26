@@ -9,12 +9,7 @@ class Spot extends MY_Controller {
 		$this->load->model("Tag_model");
 		$this->form_data = $this->Spot_model->get_structure();
 	}
-	
-	function show($id) {
-		$row = $this->Spot_model->row($id);
-		$this->render_view("user/spot/show", $row);
-	}
-	
+
 	function form($id = "") {
 		if (!$this->auth()) return $this->login_form();
 		if (!$id) {
