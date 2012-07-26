@@ -92,8 +92,10 @@ $(document).ready(function () {
 			
 			spot.find(".pg_like_count")
 				.addClass("fb-like")
-				.attr("data-href", gBaseUrl + 'user/tour/show/' + spot_info.id);
+				.attr("data-href", gBaseUrl + 'tour/show/' + spot_info.id);
 		
+			spot.find(".pg_detail a").attr("href", gBaseUrl + 'spot/show/' + spot_info.id)
+
 			spot.find(".pg_stay_time")
 				.text(spot_info.stay_time + "分");
 			
@@ -107,7 +109,7 @@ $(document).ready(function () {
 			});
 
 			spot.find(".pg_description").text(spot_info.description);
-
+			
 			spot.find(".pg_tags").empty();
 			$(spot_info.tags.match(/\d+/g)).each(function(i, tag_id) {
 				spot.find(".pg_tags").append("<li>" + json["relation"]["tags"][tag_id] + "</li>");

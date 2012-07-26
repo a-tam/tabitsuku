@@ -87,13 +87,15 @@ $(document).ready(function () {
 			
 			tour.find(".pg_like_count")
 				.addClass("fb-like")
-				.attr("data-href", gBaseUrl + 'user/tour/show/' + tour_info.id);
+				.attr("data-href", gBaseUrl + 'tour/show/' + tour_info.id);
 			
 			if (tour.image) {
 				tour.find(".pg_img img")
 					.attr("src", gBaseUrl + "uploads/tour/thumb/" + tour.image.file_name);
 			}
 			
+			tour.find(".pg_detail a").attr("href", gBaseUrl + 'tour/show/' + tour_info.id)
+
 			tour.find(".pg_description").text(tour_info.description);
 			
 			tour.find(".pg_category").empty();

@@ -2,7 +2,7 @@ $(function() {
 	$.ajax({
 		url: gBaseUrl + "api/tour",
 		data: {
-			type: "mydata",
+			owner: "mydata",
 		},
 		dataType: "json",
 		success: function(json) {
@@ -17,7 +17,7 @@ $(function() {
 	$.ajax({
 		url: gBaseUrl + "api/spot",
 		data: {
-			type: "mydata"
+			owner: "mydata"
 		},
 		dataType: "json",
 		success: function(json) {

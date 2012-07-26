@@ -216,8 +216,8 @@ $(document).ready(function () {
 						'</div>' +
 						'</div>' +
 						'<div class="spotBtnArea clearfix">' +
-						'<span class="bntDetail"><a href="' + gBaseUrl + 'user/spot/show/' + this.id + '">詳細をみる</a></span>' +
-						'<div class="fb-like" data-href="' + gBaseUrl + 'user/spot/show/' + this.id + '" data-send="false" data-layout="button_count" data-width="450" data-show-faces="false">' +
+						'<span class="bntDetail"><a href="' + gBaseUrl + 'spot/show/' + this.id + '">詳細をみる</a></span>' +
+						'<div class="fb-like" data-href="' + gBaseUrl + 'spot/show/' + this.id + '" data-send="false" data-layout="button_count" data-width="450" data-show-faces="false">' +
 						'</div>' +
 						'</div>' +
 						'</div>' +
