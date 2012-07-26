@@ -69,6 +69,9 @@ class Tour_model extends MY_Model {
 		if ($condition["category"]) {
 			$wheres[] = "category like '%".mysql_escape_string($condition["category"])."%'";
 		}
+		if ($condition["owner"]) {
+			$wheres[] = "owner = '".mysql_escape_string($condition["owner"])."'";
+		}
 		if (trim($condition["keyword"])) {
 			if ($condition["tags"]) {
 				$_cond[] = "tags IN (".implode(",", $condition["tag"]).")";
