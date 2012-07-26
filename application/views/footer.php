@@ -7,6 +7,6 @@
 		aaa<br>
 	</div>
 </footer>
-<?php $this->output->enable_profiler(TRUE);?>
 </body>
 </html>
+<?php $this->output->enable_profiler(TRUE);?>
