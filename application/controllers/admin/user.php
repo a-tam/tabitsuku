@@ -1,5 +1,5 @@
 <?php
-class Tag extends MY_Controller {
+class User extends MY_Controller {
 	
 	function __construct() {
 		parent::__construct();
@@ -14,6 +14,6 @@ class Tag extends MY_Controller {
 	}
 	
 	function top() {
-		$this->render_view("admin/tag/index");
+		$this->render_view("admin/user/index");
 	}
 }

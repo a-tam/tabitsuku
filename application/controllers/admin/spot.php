@@ -1,6 +1,23 @@
 <?php
-class Spot extends CI_Controller {
+class Spot extends MY_Controller {
+	
+	function __construct() {
+		parent::__construct();
+	}
+	
 	function index() {
+		if ($this->admin_auth() === FALSE) {
+			$this->render_view("admin/login");
+		} else {
+			$this->top();
+		}
+	}
+	
+	function top() {
+		$this->render_view("admin/spot/index");
+	}
+	
+	function ifafasdndex() {
 		
 		header("Content-type: text/html; charset=utf8;");
 		$this->load->library("xml");
