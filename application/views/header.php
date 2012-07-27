@@ -14,7 +14,8 @@ var gBaseUrl = '<?php echo base_url(); ?>';
 var gAssetUrl = '<?php echo base_url("assets"); ?>/';
 </script>
 <!-- common css -->
-<link href="<?php echo base_url("assets"); ?>/css/common/import.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="<?php echo base_url("assets"); ?>/css/common/import.css">
+<link rel="stylesheet" type="text/css" href="<?php echo base_url("assets"); ?>/css/ui-lightness/jquery-ui-1.8.20.custom.css">
 <!-- IEにHTML5タグを追加する -->
 <!--[if lt IE 9]>
 <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
