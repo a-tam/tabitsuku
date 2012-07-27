@@ -1,6 +1,4 @@
-<?php $this->load->view("admin/header.php"); ?>
-<div class="contents">
-<font color="gray"><?php echo $main_page;?></font><br />
+<?php $this->load->view("admin/header"); ?>
 <?php $this->load->view($main_page); ?>
-</div>
-<?php $this->load->view("admin/footer.php"); ?>
+<div style="position:fixed; right: 20px; top:40px;">Template file: <span style="color:#ff0000;"><?php echo FCPATH.APPPATH."views/".$main_page.".php";?></span></div>
+<?php $this->load->view("admin/footer"); ?>

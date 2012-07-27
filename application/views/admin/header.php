@@ -1,29 +1,27 @@
-<!DOCTYPE html><html lang="ja" id="todo">
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja" xmlns:fb="http://www.facebook.com/2008/fbml" xmlns:mixi="http://mixi-platform.com/ns#" xmlns:og="http://ogp.me/ns#">
 <head>
-<meta http-equiv="content-type" content="text/html; charset=utf-8">
-<title><?php echo $header["title"];?> | <?php echo $header["sub_title"];?></title>
-<?php foreach ($header["css_files"] as $css_file):?>
-<link type="text/css" rel="stylesheet" href="<?php echo base_url().$css_file; ?>" />
-<?php endforeach;?>
-<?php foreach ($header["js_files"] as $js_file):?>
-<script type="text/javascript" charset="utf-8" src="<?php echo base_url().$js_file; ?>"></script>
-<?php endforeach;?>
-</head>
-<body>
-<!-- Contents Header -->
-旅つく管理画面
-<!-- GlobalNavi -->
-<!-- GlobalNavi End -->
-<?php if($this->admin_info):?>
-<a href="<?php echo base_url("admin/logout");?>">ログアウト</a>
-<div>
-<ul>
-<li><a href="<?php echo base_url("admin/category");?>">カテゴリー</a></li>
-<li><a href="<?php echo base_url("admin/schedule");?>">スケジュール</a></li>
-<li><a href="<?php echo base_url("admin/point");?>">フリップ</a></li>
-<li><a href="<?php echo base_url("admin/tag");?>">タグ</a></li>
-</ul>
-</div>
-<?php endif;?>
-
-<hr size="1" />
+<meta charset="utf-8" />
+<title>たびつく</title>
+<link rel="shortcut icon" href="<?php echo base_url("assets"); ?>/images/favicon.ico">
+<!-- common javascript -->
+<script type="text/javascript" src="<?php echo base_url("assets"); ?>/js/jquery/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="<?php echo base_url("assets"); ?>/js/jquery/jquery-ui-1.8.20.custom.min.js"></script>
+<script type="text/javascript" src="<?php echo base_url("assets"); ?>/js/apps/common.js"></script>
+<script type="text/javascript">
+// ベースパス
+var gBaseUrl = '<?php echo base_url(); ?>';
+var gAssetUrl = '<?php echo base_url("assets"); ?>/';
+</script>
+<!-- common css -->
+<link rel="stylesheet" type="text/css" href="<?php echo base_url("assets"); ?>/css/common/import.css">
+<link rel="stylesheet" type="text/css" href="<?php echo base_url("assets"); ?>/css/ui-lightness/jquery-ui-1.8.20.custom.css">
+<!-- IEにHTML5タグを追加する -->
+<!--[if lt IE 9]>
+<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+<!-- IE6でも半透明のPNGを適用する -->
+<!--[if IE 6]>
+<script src="/_js/DD_belatedPNG/DD_belatedPNG_0.0.8a.js"></script>
+<script>DD_belatedPNG.fix('img, .png_bg');</script>
+<![endif]-->

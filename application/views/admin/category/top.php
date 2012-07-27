@@ -1,5 +1,7 @@
 <script type="text/javascript" src="<?php echo base_url("assets/js/jquery/jquery.editinplace.js");?>"></script>
+<?php $this->load->view("admin/contents_header"); ?>
 <div>
+<h2>カテゴリ管理</h2>
 <hr size="1" />
 / <a href="<?php echo base_url("admin/category/"); ?>">TOP</a>
 <?php
@@ -88,18 +90,5 @@ foreach ($this->category["path"] as $key => $name) {
 		}
 	}
 ?>
-</ul>
-</div>
-<hr size="1" />
-フリップ一覧
-<div>
-<input type="text" value="" />
-<input type="button" value="追加" />
-<ul>
-<li><a href="<?php echo base_url("admin/category/111");?>">テスト1</a> [<a href="<?php echo base_url("admin/category/update/111");?>">更新</a>] [<a href="<?php echo base_url("admin/category/delete/111");?>">削除</a>]</li>
-<li>テスト2</li>
-<li>テスト3</li>
-<li>テスト4</li>
-<li>テスト5</li>
 </ul>
 </div>
