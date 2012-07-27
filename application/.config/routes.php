@@ -41,8 +41,12 @@
 $route['default_controller'] = "top";
 $route['404_override'] = '';
 
+$route['tour/show/(:num)'] = 'top/tour_show/$1';
+$route['spot/show/(:num)'] = 'top/spot_show/$1';
+
 $route['tour/search'] = 'top/tour_search';
 $route['spot/search'] = 'top/spot_search';
+
 $route['admin/login'] = 'admin/top/login';
 $route['admin/logout'] = 'admin/top/logout';
 $route['admin/category/(:num)'] = 'admin/category/index/$1';
