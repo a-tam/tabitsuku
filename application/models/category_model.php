@@ -124,7 +124,7 @@ class Category_model extends MY_Model {
 		$path = $this->one($id, "path");
 		$data["status"] = 0;
 		$data["updated_time"] = MY_EXEC_TIME;
-		$this->db->where("path like '". mysql_escape_string($path). "%'");
+		$this->db->where("path like '". mysql_real_escape_string($path). "%'");
 		$this->db->update($this->table, $data);
 	}
 	

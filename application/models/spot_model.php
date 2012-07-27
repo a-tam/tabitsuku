@@ -135,10 +135,10 @@ class Spot_model extends MY_Model {
 			$wheres[] = "y > ".$condition["sw_y"];
 		}
 		if ($condition["owner"]) {
-			$wheres[] = "owner = '".mysql_escape_string($condition["owner"])."'";
+			$wheres[] = "owner = '".mysql_real_escape_string($condition["owner"])."'";
 		}
 		if ($condition["category"]) {
-			$wheres[] = "category like '%".mysql_escape_string($condition["category"])."%'";
+			$wheres[] = "category like '%".mysql_real_escape_string($condition["category"])."%'";
 		}
 		if (trim($condition["keyword"])) {
 			if ($condition["tags"]) {
