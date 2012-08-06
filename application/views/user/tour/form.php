@@ -21,6 +21,14 @@
     display:none;
 }
 
+.pg_jqui_state_highlight {
+    border: ridge 1px #f00;
+}
+
+.pg_jqui_state_hover {
+    border-color: #ccf;
+}
+
 </style>
 <!-- javascript -->
 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=true&libraries=places"></script>
@@ -76,7 +84,7 @@
 		<ul id="spotAreaFrameScroll" class="ui-layout-center spotList"></ul>
 		<DIV class="ui-layout-south">
 			<ul id="toolSpot" style="margin-left: 0px; padding-left: 0px;">
-			<li data-spot-id="0" style="list-style-type: none;">
+			<li data-spot-id="0" style="list-style-type: none;" class="spot">
 				<div class="spotArea">
 					<div class="spotDetail" style="width: 215px;">
 						メモ
@@ -122,7 +130,7 @@
 	</DIV>
 	<div id="tourAreaFrameScroll" class="ui-layout-center">
 		<span class="timecode">9:00</span>
-		<ul class="spotList">
+		<ul class="spotList" style="height:100%; overflow-y: scroll;">
 		<?php if($data["routes"]) :?>
 		<?php foreach($data["routes"] as $ruote) :?>
 			<li data-spot-id="<?php echo $ruote["id"]?>" class="spot">
