@@ -82,7 +82,7 @@ $(document).ready(function () {
 //			service = new google.maps.places.PlacesService(map);
 //			service.search(request, callback);
 			// 検索結果の中央座標設定
-			setPosition(place.geometry.location);
+		setPosition(place.geometry.location);
 	});
 	
 	function callback(results, status) {
@@ -202,7 +202,7 @@ $(document).ready(function () {
 						marker.setMap(null);
 					});
 				}
-				$(json.list).each(function() {
+				$.each(json.list, function() {
 					var spot = this;
 					if (spot.id != $('#spot-id').val()) {
 						var latlng = new google.maps.LatLng(spot.x, spot.y);
