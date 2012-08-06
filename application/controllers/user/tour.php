@@ -142,7 +142,7 @@ class Tour extends MY_Controller {
 		$point_list = $this->Spot_model->db->query($sql, $values);
 		foreach ($point_list->result_array() as $row) {
 			$row["image"] = ($row["image"]) ? unserialize($row["image"]) : null;
-			$rows[] = $row;
+			$rows[$row["id"]] = $row;
 		}
 		$sql = "SELECT COUNT(id) as cnt FROM ".$this->Spot_model->table.$where;
 		$count_rs = $this->Spot_model->db->query($sql, $values);
