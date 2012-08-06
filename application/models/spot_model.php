@@ -71,7 +71,10 @@ class Spot_model extends MY_Model {
 	function get_row($wheres, $fields = array()) {
 		$data = parent::get_row($wheres, $fields);
 		$data["image"] = $this->_image_parse($data["image"]);
+		preg_match_all("/\d+/", $data["category"], $cateogry);
+		$data["category_keys"] = $cateogry[0];
 		$data["category"] = explode(",", $data["category"]);
+		$data["tags"] = explode(",", $data["tags"]);
 		return $data;
 	}
 	
