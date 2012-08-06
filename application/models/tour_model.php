@@ -29,6 +29,11 @@ class Tour_model extends MY_Model {
 				),
 		);
 	}
+
+	function get_row($wheres, $fields = array()) {
+		$data = parent::get_row($wheres, $fields);
+		return $data;
+	}
 	
 	function insert($data) {
 		if (!$user_info = $this->phpsession->get("user_info")) {
