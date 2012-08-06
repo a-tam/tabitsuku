@@ -1,4 +1,9 @@
-window.onload = function() {
+var FB = null;
+var google = null;
+$(function() {
+	if (!FB) {
+		return false;
+	}
 	// like
 	FB.Event.subscribe('edge.create', function(response) {
 		var url = $.url(response);
@@ -44,7 +49,7 @@ window.onload = function() {
 			}
 		});
 	});
-};
+});
 
 (function(d, s, id) {
 	var js, fjs = d.getElementsByTagName(s)[0];
