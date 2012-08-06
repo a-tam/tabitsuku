@@ -2,7 +2,9 @@ var map = null;
 
 $(document).ready(function () {
 
+	var current_window = null;
 	change_time();
+
 	// ツアー作成
 	$('#container').layout({
 		east__paneSelector:	".ui-layout-east" ,
@@ -194,18 +196,18 @@ $(document).ready(function () {
 			dataType: "json",
 			success: function(json) {
 				$("#spotAreaFrameScroll").html("");
-				$(json.list).each(function() {
-					var html = '<li data-spot-id="'+this.id+'" class="spot">' +
+				$.each(json.list, function(spot_id, spot_info) {
+					var html = '<li data-spot-id="'+spot_info.id+'" class="spot">' +
 						'<div class="spotArea">' +
 						'<div class="spotDetail">' +
 						'<div class="thumbnail">';
-						if (this.image) {
-							html += '<img src="' + gBaseUrl + 'uploads/spot/thumb/' + this.image.file_name + '" width="60" height="60" alt="" />';
+						if (spot_info.image) {
+							html += '<img src="' + gBaseUrl + 'uploads/spot/thumb/' + spot_info.image.file_name + '" width="60" height="60" alt="" />';
 						}
 						html += '</div>' +
 						'<div class="textArea">' +
-						'<p class="spotTitle">'+this.name+'</p>' +
-						'<p class="spotDescription">'+this.description+'</p>' +
+						'<p class="spotTitle">'+spot_info.name+'</p>' +
+						'<p class="spotDescription">'+spot_info.description+'</p>' +
 						'<div class="timePullDown">' +
 						'滞在時間' +
 						'<select name="stay_time" class="stay_time">' +
@@ -216,8 +218,8 @@ $(document).ready(function () {
 						'</div>' +
 						'</div>' +
 						'<div class="spotBtnArea clearfix">' +
-						'<span class="bntDetail"><a href="' + gBaseUrl + 'spot/show/' + this.id + '">詳細をみる</a></span>' +
-						'<div class="fb-like" data-href="' + gBaseUrl + 'spot/show/' + this.id + '" data-send="false" data-layout="button_count" data-width="450" data-show-faces="false">' +
+						'<span class="bntDetail"><a href="' + gBaseUrl + 'spot/show/' + spot_info.id + '">詳細をみる</a></span>' +
+						'<div class="fb-like" data-href="' + gBaseUrl + 'spot/show/' + spot_info.id + '" data-send="false" data-layout="button_count" data-width="450" data-show-faces="false">' +
 						'</div>' +
 						'</div>' +
 						'</div>' +
@@ -239,37 +241,48 @@ $(document).ready(function () {
 						'<span class="timecode">9:00</span>' +
 						'</li>';
 					/*
-					var html = '<li class="spot" data-spot-id="'+this.id+'">' +
-					'<p class="spotTitle">'+this.name+'&nbsp;<span class="spot_tools">' +
+					var html = '<li class="spot" data-spot-id="'+spot_info.id+'">' +
+					'<p class="spotTitle">'+spot_info.name+'&nbsp;<span class="spot_tools">' +
 					'<a class="spot_add">[追加]</a>' +
 					'<a class="spot_up" style="visibility:false; display:none;">↑</a>' +
 					'<a class="spot_down" style="visibility:false; display:none;">↓</a>' +
 					'<a class="spot_delete" style="visibility:false; display:none;">[削除]</a>' +
 					'</span></p>' +
 					'<div class="min60">';
-					if (this.image) {
-						html += '<img src="' + gBaseUrl + '/uploads/spot/thumb/' + this.image.file_name + '" width="110" height="81" alt="写真" class="spotPhoto">';
+					if (spot_info.image) {
+						html += '<img src="' + gBaseUrl + '/uploads/spot/thumb/' + spot_info.image.file_name + '" width="110" height="81" alt="写真" class="spotPhoto">';
 					}
-					html += '<p class="spotDescription">'+this.description+'</p>' +
+					html += '<p class="spotDescription">'+spot_info.description+'</p>' +
 					'</div>' +
 					'<div class="spotBtnArea">滞在時間：60分 <a href="#">詳細を見る</a></div>' +
-					'<div class="facebook_like_button" id="'+this.id+'"></div>' +
+					'<div class="facebook_like_button" id="'+spot_info.id+'"></div>' +
 					'</li>';
 					*/
 
 					$("#spotAreaFrameScroll").append(html);
-					var latlng = new google.maps.LatLng(this.x, this.y);
+					var latlng = new google.maps.LatLng(spot_info.x, spot_info.y);
 					var marker = new google.maps.Marker({
 						map: map,
 						position: latlng,
-						title: this.name,
+						title: spot_info.name,
 						draggable: false
 					});
-					marker_list[this.id] = marker;
-					info_list[this.id] = new google.maps.InfoWindow({
-						content: this.description,
-						position: latlng
+					google.maps.event.addListener(marker, "click", function() {
+						if (current_window) {
+							current_window.close();
+						}
+						var content = "";
+						if (spot_info.image) {
+							content += '<img style="float:left;" src="' + gBaseUrl + 'uploads/spot/thumb/' + spot_info.image.file_name+'" width="60" height="60" alt="" />';
+						}
+						content += "<b>"+spot_info.name + "</b><br />" + spot_info.description;
+						var infowindow = new google.maps.InfoWindow({
+							content: content
+						});
+						infowindow.open(map, marker);
+						current_window = infowindow;
 					});
+					marker_list[spot_info.id] = marker;
 				});
 				
 				FB.XFBML.parse();
@@ -286,13 +299,31 @@ $(document).ready(function () {
 					delay: 100,
 //					cursor: "move",
 					scroll: false,
-					opacity: 0.8
-//					handle: ".spotTitle"
+					opacity: 0.6,
+//					handle: ".spotTitle",
+					start: function(event, ui) {
+						$("#spotAreaFrameScroll").css("overflow-y", "visible");
+					},
+					stop: function(event, ui) {
+						$("#spotAreaFrameScroll").css("overflow-y", "auto");
+					}
+				});
+				
+				$( "#spotAreaFrameScroll li, #toolSpot li" ).bind("mouseenter", function() {
+					var spot_id = $(this).attr("data-spot-id");
+					console.log($(this).attr("data-spot-id"));
+					console.log(json.list[spot_id]);
 				});
 
+				$( "#spotAreaFrameScroll li, #toolSpot li" ).bind("mouseleave", function() {
+					console.log($(this).attr("data-spot-id"));
+				});
+
+				
 				$( "#tourAreaFrameScroll ul" ).droppable({
-					accept: "",
-					activeClass: "ui-state-highlight",
+					accept: "#spotAreaFrameScroll li",
+					activeClass: "pg_jqui_state_highlight",
+					hoverClass: "pg_jqui_state-hover",
 					drop: function(event, ui) {
 						console.log(1111);
 					}
