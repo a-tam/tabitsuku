@@ -28,44 +28,44 @@ $(document).ready(function () {
 	
 	function show_tour(json) {
 		$.each(json["list"], function(tour_id, tour_info) {
-			var tour = $("#pg_tour_temp").clone(true).attr("id", "");
-			tour.css("display", "block");
+			var tour_elm = $("#pg_tour_temp").clone(true).attr("id", "");
+			tour_elm.css("display", "block");
 			
-			tour.find(".pg_title")
+			tour_elm.find(".pg_title")
 				.text(tour_info.name);
 			
-			tour.find(".pg_like_count")
+			tour_elm.find(".pg_like_count")
 				.addClass("fb-like")
 				.attr("data-href", gBaseUrl + 'user/tour/show/' + tour_info.id);
 			
-			if (tour.image) {
-				tour.find(".pg_img img")
-					.attr("src", gBaseUrl + "uploads/tour/thumb/" + tour.image.file_name);
+			if (tour_info.image) {
+				tour_elm.find(".pg_img img")
+					.attr("src", gBaseUrl + "uploads/tour/thumb/" + tour_info.image.file_name);
 			}
 			
-			tour.find(".pg_description").text(tour_info.description);
+			tour_elm.find(".pg_description").text(tour_info.description);
 			
-			tour.find(".pg_category").empty();
+			tour_elm.find(".pg_category").empty();
 			var category_name = [];
 			$(tour_info.category.match(/\d+/g)).each(function(i, category_id) {
 				category_name.push(json["relation"]["categories"][category_id]);
 			});
-			tour.find(".pg_category").append("<li>" + category_name.join(" > ") + "</li>");
+			tour_elm.find(".pg_category").append("<li>" + category_name.join(" > ") + "</li>");
 
-			tour.find(".pg_tags").empty();
+			tour_elm.find(".pg_tags").empty();
 			$(tour_info.tags.match(/\d+/g)).each(function(i, tag_id) {
-				tour.find(".pg_tags").append("<li>" + json["relation"]["tags"][tag_id] + "</li>");
+				tour_elm.find(".pg_tags").append("<li>" + json["relation"]["tags"][tag_id] + "</li>");
 			});
 			
-			tour.find(".pg_routes").empty();
+			tour_elm.find(".pg_routes").empty();
 			$(this.routes).each(function(i, route) {
-				tour.find(".pg_routes").append("<li>" + route.name + " (" + route.stay_time + "分)</li>");
+				tour_elm.find(".pg_routes").append("<li>" + route.name + " (" + route.stay_time + "分)</li>");
 			});
 
-			tour.find(".pg_copy a")
+			tour_elm.find(".pg_copy a")
 				.attr("href", gBaseUrl + 'user/tour/copy/' + tour_info.id);
 			
-			tour.appendTo("#pg_tours");
+			tour_elm.appendTo("#pg_tours");
 		});
 	}
 
@@ -93,40 +93,40 @@ $(document).ready(function () {
 
 	function show_spot(json) {
 		$.each(json["list"], function(spot_id, spot_info) {
-			var spot = $("#pg_spot_temp").clone(true).attr("id", "");
-			spot.css("display", "block");
+			var spot_elm = $("#pg_spot_temp").clone(true).attr("id", "");
+			spot_elm.css("display", "block");
 			
 			if (spot_info.image) {
-				spot.find(".pg_img img")
+				spot_elm.find(".pg_img img")
 					.attr("src", gBaseUrl + "uploads/spot/thumb/" + spot_info.image.file_name);
 			}
 			
-			spot.find(".pg_name")
+			spot_elm.find(".pg_name")
 				.text(spot_info.name);
 			
-			spot.find(".pg_like_count")
+			spot_elm.find(".pg_like_count")
 				.addClass("fb-like")
 				.attr("data-href", gBaseUrl + 'user/tour/show/' + spot_info.id);
 		
-			spot.find(".pg_stay_time")
+			spot_elm.find(".pg_stay_time")
 				.text(spot_info.stay_time + "分");
 			
-			spot.find(".pg_category").empty();
+			spot_elm.find(".pg_category").empty();
 			$(spot_info.category.split(",")).each(function(i, category) {
 				var category_name = [];
 				$(category.match(/\d+/g)).each(function(i, category_id) {
 					category_name.push(json["relation"]["categories"][category_id]);
 				});
-				spot.find(".pg_category").append("<li>" + category_name.join(" > ") + "</li>");
+				spot_elm.find(".pg_category").append("<li>" + category_name.join(" > ") + "</li>");
 			});
 
-			spot.find(".pg_description").text(spot_info.description);
+			spot_elm.find(".pg_description").text(spot_info.description);
 
-			spot.find(".pg_tags").empty();
+			spot_elm.find(".pg_tags").empty();
 			$(spot_info.tags.match(/\d+/g)).each(function(i, tag_id) {
-				spot.find(".pg_tags").append("<li>" + json["relation"]["tags"][tag_id] + "</li>");
+				spot_elm.find(".pg_tags").append("<li>" + json["relation"]["tags"][tag_id] + "</li>");
 			});
-			spot.appendTo("#pg_spots");
+			spot_elm.appendTo("#pg_spots");
 		});
 	}
 
