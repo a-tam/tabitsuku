@@ -56,18 +56,21 @@ class Top extends MY_Controller {
 		$this->render_view('guest/spot/search');
 	}
 	
-	function tour_show() {
+	function tour_show($id) {
 		$data = $this->Tour_model->row($id);
+		preg_match_all("/\d+/", $data["category"], $cateogry);
+		$data["category_names"]	= $this->Category_model->get_names($cateogry[0]);
+		$data["tag_names"]		= $this->Tag_model->tag_values(explode(",", $data["tags"]));
 		$data["routes"] = $this->Spot_model->get_route($id);
-		$tags = $this->Tag_model->tag_values($default["tags"]);
-		$data["tags"] = json_encode($tags);
 		$this->render_view("guest/tour/show", $data);
 	}
 	
 	
 	function spot_show($id) {
-		$row = $this->Spot_model->row($id);
-		$this->render_view("guest/spot/show", $row);
+		$data = $this->Spot_model->row($id);
+		$data["category_names"]	= $this->Category_model->get_names($data["category_keys"]);
+		$data["tag_names"]		= $this->Tag_model->tag_values($data["tags"]);
+		$this->render_view("guest/spot/show", $data);
 	}
 	
 	function phpinfo() {
