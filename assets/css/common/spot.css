@@ -76,6 +76,7 @@ behavior: url(/_css/IE-CSS/ie-css3.htc);
 	margin: 0;
 	padding: 0;
 	list-style:  none;
+	border: ridge 1px #ccf;
 }
 
 .timecode {
