@@ -53,7 +53,7 @@
 <h3><a href="<?php echo base_url("tour/search");?>">新着ツアー</a></h3>
 <div>
 	<div>
-		<ul id="pg_tours">
+		<ul id="pg_tours" class="clearfix">
 			<?php foreach($data["tours"]["list"] as $tour) :?>
 			<li class="pg_tour" id="pg_tour_temp">
 				<div>
@@ -118,7 +118,7 @@
 <h3><a href="<?php echo base_url("spot/search");?>">新着スポット</a></h3>
 <div>
 	<div>
-		<ul id="pg_tours">
+		<ul id="pg_tours" class="clearfix">
 			<?php foreach($data["spots"]["list"] as $spot) :?>
 			<li class="pg_tour" id="pg_tour_temp">
 				<div>
@@ -167,15 +167,69 @@
 			<?php endforeach;?>
 		</ul><!-- pg_tours -->
 	
-		<p style="clear: both;">一覧をみる</p>
+		<p>一覧をみる</p>
 	</div>
 </div>
 
 <h3>特集</h3>
 <div>
 	<div>
-		<ul>
-			<li></li>
+		<ul class="clearfix">
+			<?php foreach($data["topics"]["list"] as $tour) :?>
+			<li class="pg_tour" id="pg_tour_temp">
+				<div>
+					<div class="pg_tour_left">
+						<?php if ($tour["image"]):?>
+						<div class="pg_img"><img src="" alt="" /></div>
+						<?php endif;?>
+						<div>
+							<label>タイトル</label>
+							<p class="pg_title"><?php echo $tour["name"];?></p>
+						</div>
+						<div class="pg_like_count fb-like" data-href="<?php echo base_url("spot/show/".$tour["id"]);?>" data-send="false" data-layout="button_count" data-width="450" data-show-faces="false"></div>
+						<div>
+							<label>カテゴリ</label>
+							<ul class="pg_category">
+<?php
+								preg_match_all("/\d+/", $tour["category"], $category);
+								$tree = array();
+								foreach($category[0] as $category_id):
+									$tree[] = $data["topics"]["relation"]["categories"][$category_id];
+								endforeach;
+?>
+								<li><?php echo implode(" > ", $tree);?></li>
+							</ul>
+						</div>
+						<div>
+							<label>タグ</label>
+							<ul class="pg_tags">
+								<?php
+								preg_match_all("/\d+/", $tour["tags"], $tags);
+								foreach($tags[0] as $tag_id):
+								?>
+								<li><?php echo $data["topics"]["relation"]["tags"][$tag_id];?></li>
+								<?php endforeach;?>
+							</ul>
+						</div>
+						<div>
+							<label>説明</label>
+							<p class="pg_description"><?php echo $tour["description"];?></p>
+						</div>
+					</div>
+					<div class="pg_tour_right">
+						<ul class="pg_routes">
+							<?php foreach($tour["routes"] as $spot):?>
+							<li><?php echo ($spot["spot_id"]) ? $spot["name"] : $spot["info"];?><span>(<?php echo $spot["stay_time"];?>分)</span></li>
+							<?php endforeach;?>
+						</ul>
+					</div>
+					<p class="pg_detail" style="clear: both;"><a href="<?php echo base_url("tour/show/".$tour["id"]);?>">詳細</a></p>
+					<?php if($this->user_info):?>
+					<p class="pg_copy"><a href="<?php echo base_url("user/tour/copy/".$tour["id"]);?>">コピーしてツアーを作る</a></p>
+					<?php endif;?>
+				</div>
+			</li>
+			<?php endforeach;?>
 		</ul>
 		<p>一覧をみる</p>
 	</div>
