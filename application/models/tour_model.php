@@ -57,26 +57,19 @@ class Tour_model extends MY_Model {
 				$this->db->select($field);
 			}
 		}
-		
 		// from
 		$this->db->from($this->table);
-		
 		// where
 		$wheres = array();
-		/*
-		if ($condition["ne_x"] && $condition["sw_x"] && $condition["ne_y"] && $condition["sw_y"]) {
-			$wheres[] = "x < ".$condition["ne_x"];
-			$wheres[] = "x > ".$condition["sw_x"];
-			$wheres[] = "y < ".$condition["ne_y"];
-			$wheres[] = "y > ".$condition["sw_y"];
-		}
-		*/
+		// カテゴリ検索
 		if ($condition["category"]) {
 			$wheres[] = "category like '%".mysql_real_escape_string($condition["category"])."%'";
 		}
+		// ユーザ検索
 		if ($condition["owner"]) {
 			$wheres[] = "owner = '".mysql_real_escape_string($condition["owner"])."'";
 		}
+		// キーワード、タグ検索
 		if (trim($condition["keyword"])) {
 			if ($condition["tags"]) {
 				$_cond[] = "tags IN (".implode(",", $condition["tag"]).")";
@@ -84,8 +77,9 @@ class Tour_model extends MY_Model {
 			$_cond[] = "name LIKE '%".$condition["keyword"]."%'";
 			$wheres[] = implode(" OR ", $_cond);
 		}
-		if (trim($category)) {
-			$wheres[] = "category like '%".$category."%'";
+		// 特集検索
+		if (trim($condition["topic"])) {
+			$wheres[] = "topic LIKE '".$condition["topic"]."'";
 		}
 		if ($wheres) {
 			$this->db->where(implode(" AND ", $wheres));
