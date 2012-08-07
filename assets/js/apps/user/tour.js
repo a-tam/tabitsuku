@@ -7,6 +7,7 @@ $(document).ready(function () {
 	var info_list = new Array();
 	var latlng = {};
 	var myOptions = {};
+	var linePath = null;
 	
 	// 初期処理
 	initialize();
@@ -33,7 +34,7 @@ $(document).ready(function () {
 		centerLayout = $('div.center-center').layout({
 			center__paneSelector:	".ui-layout-center" ,
 			north__paneSelector:	".ui-layout-north" ,
-			north__size: 35
+			north__size: 45
 		});
 		// スポットレイアウト
 		spotLayout = $('div.center-east').layout({
@@ -47,9 +48,9 @@ $(document).ready(function () {
 		spotLayout = $('div.ui-layout-east').layout({
 			center__paneSelector:	".ui-layout-center"
 			,north__paneSelector:	".ui-layout-north"
-			,north__size: 60
+			,north__size: 30
 			,south__paneSelector:	".ui-layout-south"
-			,south__size: 230
+			,south__size: 200
 		});
 		// 地図表示
 		latlng = new google.maps.LatLng(35.6894875, 139.69170639999993);
@@ -124,12 +125,14 @@ $(document).ready(function () {
 			var self = $(this).closest(".spot");
 			self.clone().hide().appendTo($("#tourAreaFrameScroll .spotList")).fadeIn("slow");
 			change_time();
+			show_route();
 			return false;
 		});
 		// ツアーにスポット解除
 		$(".iconClose").live("click", function() {
 			$(this).closest(".spot").fadeOut(300).queue(function(){ $(this).remove();});
 			change_time();
+			show_route();
 			return false;
 		});
 		// 予定のスポットを入れ替え
@@ -137,12 +140,14 @@ $(document).ready(function () {
 			var self = $(this).closest(".spot");
 			self.insertBefore(self.prev());
 			change_time();
+			show_route();
 			return false;
 		});
 		$(".iconDown").live("click", function() {
 			var self = $(this).closest(".spot");
 			self.insertAfter(self.next());
 			change_time();
+			show_route();
 			return false;
 		});
 		// スポットのソート、滞在時間変更で予定時刻を変更
@@ -274,12 +279,102 @@ $(document).ready(function () {
 			height		: '70%',
 			autoSize	: false,
 			closeClick	: false,
-			openEffect	: 'none',
-			closeEffect	: 'none'
+			openEffect : 'elastic',
+			openSpeed  : 150,
+
+			closeEffect : 'elastic',
+			closeSpeed  : 150,
+
+			closeClick : true,
+			helpers : {
+				title : {
+					type : 'inside'
+				},
+				overlay : {
+					opacity : 0.5
+				}
+			}
 		});
+		
+		$("#pg_tour_center").click(tour_center);
+		tour_center();
+	}
+	
+	/**
+	 * 地図にツアー全体を表示
+	 */
+	function tour_center() {
+		var route = [];
+		var min_x = min_y = max_x = max_y = null;
+		$("#tourAreaFrameScroll .spotList li").each(function() {
+			var id = $(this).attr("data-spot-id");
+			if (id) {
+				var y = $(this).attr("data-spot-x");
+				var x = $(this).attr("data-spot-y");
+				if (min_x == null) {
+					min_x = x;
+					max_x = x;
+					min_y = y;
+					max_y = y;
+				}
+				if (x <= min_x) { min_x = x; }
+				if (x >  max_x) { max_x = x; }
+				if (y <= min_y) { min_y = y; }
+				if (y >  max_y) { max_y = y; }
+			}
+		});
+		if (min_x) {
+			var sw = new google.maps.LatLng(max_y, min_x);
+			var ne = new google.maps.LatLng(min_y, max_x);
+			var bounds = new google.maps.LatLngBounds(sw, ne);
+			map.fitBounds(bounds);
+		}
+	}
+	
+	/**
+	 * ルートを表示
+	 */
+	function show_route() {
+		var route = [];
+		if (linePath) {
+			linePath.setMap(null);
+		}
+		$("#tourAreaFrameScroll .spotList li").each(function() {
+			var id = $(this).attr("data-spot-id");
+			if (id) {
+				if (id in marker_list) {
+					marker = marker_list[id]; 
+				} else {
+					var x = $(this).attr("data-spot-x");
+					var y = $(this).attr("data-spot-y");
+					var name = $(this).find(".spotTitle").text();
+					var latlng = new google.maps.LatLng(x, y);
+					var marker = new google.maps.Marker({
+						map: map,
+						position: latlng,
+						title: name,
+						draggable: false
+					});
+				}
+				route.push(marker.getPosition());
+			}
+		});
+		if (route.length > 1) {
+			linePath = new google.maps.Polyline({
+				path: route,
+				clickable:		false,
+				geodesic:		true,
+				strokeColor:	"#009",
+				strokeOpacity:	0.6,
+				strokeWeight:	3
+			});
+			linePath.setMap(map);			
+		}
 	}
 
-	// 滞在時間で予定時刻を表示
+	/**
+	 * 滞在時間で予定時刻を表示
+	 */
 	function change_time() {
 		var start_time = $("#start_time").val();
 		var time = new Date();
@@ -295,7 +390,9 @@ $(document).ready(function () {
 		});
 	}
 	
-	// スポット一覧検索
+	/**
+	 * スポット一覧検索
+	 */
 	function search(page) {
 		if (!page) page = 1;
 		if (marker_list) {
@@ -321,7 +418,7 @@ $(document).ready(function () {
 			success: function(json) {
 				$("#spotAreaFrameScroll").html("");
 				$.each(json.list, function(spot_id, spot_info) {
-					var html = '<li data-spot-id="'+spot_info.id+'" class="spot">' +
+					var html = '<li data-spot-id="' + spot_info.id + '" class="spot" data-spot-x="' + spot_info.x +'" data-spot-y="' + spot_info.y + '" >' +
 						'<div class="spotArea">' +
 						'<div class="spotDetail">' +
 						'<div class="thumbnail">';
@@ -448,7 +545,7 @@ $(document).ready(function () {
 //					handle: ".spotTitle",
 				});
 
-				$( ".spotList li" ).bind("mouseenter", function() {
+				$( ".spotList li" ).bind("click", function() {
 					var spot_id = $(this).attr("data-spot-id");
 					if (spot_id in marker_list) {
 						google.maps.event.trigger(marker_list[spot_id], 'click');
@@ -469,6 +566,7 @@ $(document).ready(function () {
 				$( "#tourAreaFrameScroll ul" ).sortable({
 					stop: function(event, ui) {
 						change_time();
+						show_route();
 						FB.XFBML.parse();
 					},
 					axis: "y",
@@ -487,25 +585,29 @@ $(document).ready(function () {
 				var page_count = Math.ceil(json.count / $("#limit").val());
 				
 				pager(page_count, page);
+				show_route();
 			}
 		});
 	}
 
-	function infoWindowOpen(id) {
-		$.each(kmlInfoWindow, function(index, infoWindow_) {
-			if (id == index) {
-				infoWindow_.open(map);
-			} else {
-				infoWindow_.close(map);
-			}
-		});
-	};
+//	function infoWindowOpen(id) {
+//		$.each(kmlInfoWindow, function(index, infoWindow_) {
+//			if (id == index) {
+//				infoWindow_.open(map);
+//			} else {
+//				infoWindow_.close(map);
+//			}
+//		});
+//	};
 	
+	/**
+	 * スポット一覧のページネーション
+	 */
 	function pager(page_count, now) {
 		$("#pagenation").paginate({
 			count					: page_count,
 			start					: now,
-			display					: 6,
+			display					: 5,
 			border					: true,
 			border_color			: '#fff',
 			text_color  			: '#fff',
