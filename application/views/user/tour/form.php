@@ -235,7 +235,7 @@
 				<label for="textfield2">カテゴリ</label>
 				<input type="hidden" class="category_val" id="category" value="<?php echo set_value("category", $data["category"]);?>" />
 				<input type="text" class="category_label" size="30" value="" readonly="readonly" />
-				<input type="button" class="category_clear" value="×" /><br />
+				<!-- input type="button" class="category_clear" value="×" /><br /> -->
 				<div id="select-category" class="select-category">&nbsp;</div>
 			</div>
 			<br />
