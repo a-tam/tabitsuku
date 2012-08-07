@@ -133,12 +133,14 @@ class Category_model extends MY_Model {
 	}
 	
 	function get_names($ids) {
-		$sql = "SELECT id, name FROM ".$this->table.
-			" WHERE id IN (".implode(",", array_filter($ids)).")";
-		$query = $this->db->query($sql);
 		$rows = array();
-		foreach($query->result_array() as $row) {
-			$rows[$row["id"]] = $row["name"];
+		if ($ids) {
+			$sql = "SELECT id, name FROM ".$this->table.
+				" WHERE id IN (".implode(",", array_filter($ids)).")";
+			$query = $this->db->query($sql);
+			foreach($query->result_array() as $row) {
+				$rows[$row["id"]] = $row["name"];
+			}
 		}
 		return $rows;
 	}
