@@ -43,17 +43,27 @@
 <script type="text/javascript" src="<?php echo base_url("assets"); ?>/js/jquery/jpagenate/jquery.paginate.js"></script>
 <script type="text/javascript" src="<?php echo base_url("assets"); ?>/js/jquery/timepicker/jquery.timepicker.js"></script>
 <script type="text/javascript" src="<?php echo base_url("assets"); ?>/js/apps/user/tour.js"></script>
+
+<!-- Add mousewheel plugin (this is optional) -->
+<link rel="stylesheet" type="text/css" href="<?php echo base_url("assets"); ?>/js/jquery/lightbox/source/jquery.fancybox.css?v=2.0.6" media="screen" />
+<link rel="stylesheet" type="text/css" href="<?php echo base_url("assets"); ?>/js/jquery/lightbox/source/helpers/jquery.fancybox-buttons.css?v=1.0.2" />
+<link rel="stylesheet" type="text/css" href="<?php echo base_url("assets"); ?>/js/jquery/lightbox/source/helpers/jquery.fancybox-thumbs.css?v=1.0.2" />
+<script type="text/javascript" src="<?php echo base_url("assets"); ?>/js/jquery/lightbox/jquery.mousewheel-3.0.6.pack.js"></script>
+<script type="text/javascript" src="<?php echo base_url("assets"); ?>/js/jquery/lightbox/source/jquery.fancybox.js?v=2.0.6"></script>
+<script type="text/javascript" src="<?php echo base_url("assets"); ?>/js/jquery/lightbox/source/helpers/jquery.fancybox-thumbs.js?v=1.0.2"></script>
+<script type="text/javascript" src="<?php echo base_url("assets"); ?>/js/jquery/lightbox/source/helpers/jquery.fancybox-media.js?v=1.0.0"></script>
+<script type="text/javascript" src="<?php echo base_url("assets"); ?>/js/jquery/lightbox/source/helpers/jquery.fancybox-buttons.js?v=1.0.2"></script>
 <?php $this->load->view("contents_header"); ?>
 <!-- ツアー作成 -->
 <div class="pane ui-layout-center">
 	<div id="mapAreaFrame" class="center-center">
-		<DIV class="ui-layout-north searchArea">
+		<div class="ui-layout-north searchArea">
 		<form id="search-map">
 		<input type="text" id="search-address" value="" />
 		<input type="submit" name="button" value="検索">
 		<span id="falledMessage" style="color:red; display:none;">見つかりませんでした。</span>
 		</form>
-		</DIV>
+		</div>
 		<div id="mapArea" class="ui-layout-center"></div>
 	</div>
 	<div id="spotAreaFrame" class="center-east">
@@ -184,7 +194,7 @@
 							</div>
 						</div>
 						<div class="spotBtnArea clearfix">
-							<span class="bntDetail"><a href="<?php echo base_url("spot/show/".$ruote["id"]);?>">詳細をみる</a></span>
+							<span class="bntDetail"><a class="various fancybox.ajax" href="<?php echo base_url("spot/show/".$ruote["id"]);?>">詳細をみる</a></span>
 							<div class="fb-like" data-href="<?php echo base_url("spot/show/".$ruote["id"]);?>" data-send="false" data-layout="button_count" data-width="450" data-show-faces="false">
 							</div>
 						</div>

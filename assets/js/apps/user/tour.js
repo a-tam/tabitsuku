@@ -264,6 +264,19 @@ $(document).ready(function () {
 			});
 			return false;
 		});
+		
+		// lightbox設置
+		$(".various").fancybox({
+			maxWidth	: 800,
+			maxHeight	: 600,
+			fitToView	: false,
+			width		: '70%',
+			height		: '70%',
+			autoSize	: false,
+			closeClick	: false,
+			openEffect	: 'none',
+			closeEffect	: 'none'
+		});
 	}
 
 	// 滞在時間で予定時刻を表示
@@ -332,7 +345,7 @@ $(document).ready(function () {
 						'</div>' +
 						'</div>' +
 						'<div class="spotBtnArea clearfix">' +
-						'<span class="bntDetail"><a href="' + gBaseUrl + 'spot/show/' + spot_info.id + '">詳細をみる</a></span>' +
+						'<span class="bntDetail"><a class="various fancybox.ajax" href="' + gBaseUrl + 'spot/show/' + spot_info.id + '">詳細をみる</a></span>' +
 						'<div class="fb-like" data-href="' + gBaseUrl + 'spot/show/' + spot_info.id + '" data-send="false" data-layout="button_count" data-width="450" data-show-faces="false">' +
 						'</div>' +
 						'</div>' +
@@ -411,7 +424,7 @@ $(document).ready(function () {
 					revert: "invalid",
 					helper: "clone",
 					delay: 100,
-//					cursor: "move",
+					cursor: "move",
 					scroll: false,
 					opacity: 0.6,
 //					handle: ".spotTitle",
@@ -429,7 +442,7 @@ $(document).ready(function () {
 					revert: "invalid",
 					helper: "clone",
 					delay: 100,
-//					cursor: "move",
+					cursor: "move",
 					scroll: false,
 					opacity: 0.6,
 //					handle: ".spotTitle",
