@@ -150,22 +150,6 @@ $(document).ready(function () {
 			change_time();
 		});
 		// カテゴリ選択UI設定
-		$(document).click(function(e) {
-			$(".select-category").hide("fast");
-		});
-		$(".category_label").click(function(e, elm) {
-			$(".select-category").not($(this).next()).hide("fast");
-			$(this).next()
-			.css({
-				"left": $(this).position().left + 25,
-				"width": $(this).css("width") - 25
-				})
-			.toggle("fast");
-			e.stopPropagation();
-		});
-		$(".select-category").click(function(e) {
-			e.stopPropagation();
-		});
 		$(".select-category").each(function() {
 			var path = $(this).parent().find(".category_val").val();
 			var current = 1;
@@ -196,6 +180,28 @@ $(document).ready(function () {
 				$(this).parent().find(".category_val").val(val);
 				$(this).hide();
 			});
+		});
+		// カテゴリのラベルクリックで入力
+		$(".category_label").click(function(e, elm) {
+			var current_category = $(this).parent().find(".select-category");
+			$(".select-category").not(current_category).hide("fast");
+			$(current_category).css({
+				"left": $(this).position().left + 25,
+				"width": $(this).css("width") - 25
+			}).toggle("fast");
+			e.stopPropagation();
+		});
+		// カテゴリ選択後のイベントバブリング停止
+		$(".select-category").click(function(e) {
+			e.stopPropagation();
+		});
+		// カテゴリ入力クリア
+		$(".category_clear").click(function(e){
+			$(this).parent().find(".category_val, .category_label").val("");
+		});
+		// カテゴリ選択キャンセル 
+		$(document).click(function(e) {
+			$(".select-category").hide("fast");
 		});
 		// 時間選択
 		$('#start_time').timepicker({

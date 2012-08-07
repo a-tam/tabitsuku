@@ -129,15 +129,18 @@ $(document).ready(function () {
 	$(document).click(function(e) {
 		$(".select-category").hide("fast");
 	});
+	// カテゴリ入力クリア
+	$(".category_clear").click(function(e){
+		$(this).parent().find(".category_val, .category_label").val("");
+	});
 
 	$(".category_label").click(function(e, elm) {
-		$(".select-category").not($(this).next()).hide("fast");
-		$(this).next()
-		.css({
+		var current_category = $(this).parent().find(".select-category");
+		$(".select-category").not(current_category).hide("fast");
+		$(current_category).css({
 			"left": $(this).position().left + 25,
 			"width": $(this).css("width") - 25
-			})
-		.toggle("fast");
+		}).toggle("fast");
 		e.stopPropagation();
 	});
 

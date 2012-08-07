@@ -63,7 +63,8 @@
 				<div>
 					<label for="textfield2">カテゴリ</label>
 					<input type="hidden" class="category_val" id="search-category" value="" />
-					<input type="text" class="category_label" size="30" value="" readonly="readonly" />
+					<input type="text" class="category_label" size="25" value="" readonly="readonly" />
+					<input type="button" class="category_clear" value="×" /><br />
 					<div id="select-category" class="select-category">&nbsp;</div>
 				</div>
 				表示<select name="limit" id="limit">
@@ -224,6 +225,7 @@
 				<label for="textfield2">カテゴリ</label>
 				<input type="hidden" class="category_val" id="category" value="<?php echo set_value("category", $data["category"]);?>" />
 				<input type="text" class="category_label" size="30" value="" readonly="readonly" />
+				<input type="button" class="category_clear" value="×" /><br />
 				<div id="select-category" class="select-category">&nbsp;</div>
 			</div>
 			<br />

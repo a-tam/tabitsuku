@@ -87,18 +87,21 @@
 			<label for="select">カテゴリ１</label>
 			<input type="hidden" class="category_val" name="category[]" value="<?php echo set_value("category", $data["category"][0]);?>" />
 			<input type="text" class="category_label" size="60" value="" readonly="readonly" />
+			<input type="button" class="category_clear" value="×" /><br />
 			<div id="select-category1" class="select-category">&nbsp;</div>
 		</div>
 		<div>
 			<label for="select">カテゴリ２</label>
 			<input type="hidden" class="category_val" name="category[]" value="<?php echo set_value("category", $data["category"][1]);?>" />
 			<input type="text" class="category_label" size="60" value="" readonly="readonly" />
+			<input type="button" class="category_clear" value="×" /><br />
 			<div id="select-category2" class="select-category">&nbsp;</div>
 		</div>
 		<div>
 			<label for="select">カテゴリ３</label>
 			<input type="hidden" class="category_val" name="category[]" value="<?php echo set_value("category", $data["category"][2]);?>" />
 			<input type="text" class="category_label" size="60" value="" readonly="readonly" />
+			<input type="button" class="category_clear" value="×" /><br />
 			<div id="select-category3" class="select-category">&nbsp;</div>
 		</div>
 		<div>
