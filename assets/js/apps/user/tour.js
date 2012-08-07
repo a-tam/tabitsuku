@@ -3,160 +3,264 @@ var map = null;
 $(document).ready(function () {
 
 	var current_window = null;
-	change_time();
-
-	// ツアー作成
-	$('#container').layout({
-		east__paneSelector:	".ui-layout-east" ,
-		east__size: 310,
-		enableCursorHotkey: false,
-		closable: false,
-		resizable: false
-	});
-	// 地図・スポット
-	centerLayout = $('div.ui-layout-center').layout({
-		minSize: 100 ,	// ALL panes
-		center__paneSelector:	".center-center" ,
-		east__paneSelector:	".center-east" ,
-		east__size: 300,
-		enableCursorHotkey: false,
-		closable: false,
-		resizable: false
-	});
-	// スポット検索
-	centerLayout = $('div.center-center').layout({
-		center__paneSelector:	".ui-layout-center" ,
-		north__paneSelector:	".ui-layout-north" ,
-		north__size: 35
-	});
-	// スポットレイアウト
-	spotLayout = $('div.center-east').layout({
-		center__paneSelector:	".ui-layout-center"
-		,north__paneSelector:	".ui-layout-north"
-		,north__size: 130
-		,south__paneSelector:	".ui-layout-south"
-		,south__size: 100
-	});
-	// ツアーレイアウト
-	spotLayout = $('div.ui-layout-east').layout({
-		center__paneSelector:	".ui-layout-center"
-		,north__paneSelector:	".ui-layout-north"
-		,north__size: 60
-		,south__paneSelector:	".ui-layout-south"
-		,south__size: 230
-	});
-
-	var latlng = new google.maps.LatLng(35.6894875, 139.69170639999993);
-	var myOptions = {
-		zoom: 10,
-		center: latlng,
-		mapTypeId: google.maps.MapTypeId.ROADMAP
-	};
-	map = new google.maps.Map(document.getElementById("mapArea"), myOptions);
 	var marker_list = new Array();
 	var info_list = new Array();
-
-	// 移動
-	var input = document.getElementById('search-address');
-	var autocomplete = new google.maps.places.Autocomplete(input);
-	autocomplete.bindTo('bounds', map);
-
-	$("#search-map").submit(function(){
-		var adrs = $("#search-address").val();
-		var gc = new google.maps.Geocoder();
-		gc.geocode({ address : adrs }, function(results, status){
-			if (status == google.maps.GeocoderStatus.OK) {
-				var ll = results[0].geometry.location;
-				map.setCenter(ll);
-				map.fitBounds(results[0].geometry.viewport);
+	var latlng = {};
+	var myOptions = {};
+	
+	// 初期処理
+	initialize();
+	function initialize() {
+		// 全体レイアウト
+		$('#container').layout({
+			east__paneSelector:	".ui-layout-east" ,
+			east__size: 310,
+			enableCursorHotkey: false,
+			closable: false,
+			resizable: false
+		});
+		// 地図・スポットレイアウト
+		centerLayout = $('div.ui-layout-center').layout({
+			minSize: 100 ,	// ALL panes
+			center__paneSelector:	".center-center" ,
+			east__paneSelector:	".center-east" ,
+			east__size: 300,
+			enableCursorHotkey: false,
+			closable: false,
+			resizable: false
+		});
+		// スポット検索レイアウト
+		centerLayout = $('div.center-center').layout({
+			center__paneSelector:	".ui-layout-center" ,
+			north__paneSelector:	".ui-layout-north" ,
+			north__size: 35
+		});
+		// スポットレイアウト
+		spotLayout = $('div.center-east').layout({
+			center__paneSelector:	".ui-layout-center"
+			,north__paneSelector:	".ui-layout-north"
+			,north__size: 130
+			,south__paneSelector:	".ui-layout-south"
+			,south__size: 100
+		});
+		// ツアーレイアウト
+		spotLayout = $('div.ui-layout-east').layout({
+			center__paneSelector:	".ui-layout-center"
+			,north__paneSelector:	".ui-layout-north"
+			,north__size: 60
+			,south__paneSelector:	".ui-layout-south"
+			,south__size: 230
+		});
+		// 地図表示
+		latlng = new google.maps.LatLng(35.6894875, 139.69170639999993);
+		myOptions = {
+			zoom: 10,
+			center: latlng,
+			mapTypeId: google.maps.MapTypeId.ROADMAP
+		};
+		map = new google.maps.Map(document.getElementById("mapArea"), myOptions);
+		// 地図検索
+		var autocomplete = new google.maps.places.Autocomplete($('#search-address')[0]);
+		autocomplete.bindTo('bounds', map);
+		$("#search-map").submit(function(){
+			var adrs = $("#search-address").val();
+			var gc = new google.maps.Geocoder();
+			gc.geocode({ address : adrs }, function(results, status){
+				if (status == google.maps.GeocoderStatus.OK) {
+					var ll = results[0].geometry.location;
+					map.setCenter(ll);
+					map.fitBounds(results[0].geometry.viewport);
+				} else {
+					$("#search-address").select();
+					$("#falledMessage").show().fadeOut(4000);
+				}
+			});
+			return false;
+		});
+		// 移動
+		google.maps.event.addListener(autocomplete, 'place_changed', function() {
+			var place = autocomplete.getPlace();
+			if (place.geometry.viewport) {
+				map.fitBounds(place.geometry.viewport);
 			} else {
-				$("#search-address").select();
-				$("#falledMessage").show().fadeOut(4000);
+				map.setCenter(place.geometry.location);
+				map.setZoom(17);  // Why 17? Because it looks good.
+			}
+			//
+			var _place = $("#search-place").val();
+			var _name = $("#search-name").val();
+			var request={
+					location: place.geometry.location,
+					radius: '500',
+					types: [_place],
+					name: _name
+				};
+			// 検索結果の中央座標設定
+			setPosition(place.geometry.location);
+		});
+		// スポット一覧再検索
+		$("#category,#keyword,#season,#limit,#sort").change(function() {
+			search();
+		});
+		google.maps.event.addListener(map, 'dragend', function() {
+			setTimeout(search, 300);
+		});
+		google.maps.event.addListener(map, 'zoom_changed', function() {
+			setTimeout(search, 300);
+		});
+		google.maps.event.addListenerOnce(map, 'tilesloaded', function() {
+			setTimeout(search, 300);
+		});
+		$("#search").click(function() {
+			search();
+		});
+		$("#spotFilterButton").click(function() {
+			search();
+		});
+		// 予定時刻を反映
+		change_time();
+		// ツアーにスポット追加
+		$(".iconAdd").live("click", function() {
+			var self = $(this).closest(".spot");
+			self.clone().hide().appendTo($("#tourAreaFrameScroll .spotList")).fadeIn("slow");
+			change_time();
+			return false;
+		});
+		// ツアーにスポット解除
+		$(".iconClose").live("click", function() {
+			$(this).closest(".spot").fadeOut(300).queue(function(){ $(this).remove();});
+			change_time();
+			return false;
+		});
+		// 予定のスポットを入れ替え
+		$(".iconUp").live("click", function() {
+			var self = $(this).closest(".spot");
+			self.insertBefore(self.prev());
+			change_time();
+			return false;
+		});
+		$(".iconDown").live("click", function() {
+			var self = $(this).closest(".spot");
+			self.insertAfter(self.next());
+			change_time();
+			return false;
+		});
+		// スポットのソート、滞在時間変更で予定時刻を変更
+		$("#start_time, .stay_time").live("change", function() {
+			change_time();
+		});
+		// カテゴリ選択UI設定
+		$(document).click(function(e) {
+			$(".select-category").hide("fast");
+		});
+		$(".category_label").click(function(e, elm) {
+			$(".select-category").not($(this).next()).hide("fast");
+			$(this).next()
+			.css({
+				"left": $(this).position().left + 25,
+				"width": $(this).css("width") - 25
+				})
+			.toggle("fast");
+			e.stopPropagation();
+		});
+		$(".select-category").click(function(e) {
+			e.stopPropagation();
+		});
+		$(".select-category").each(function() {
+			var path = $(this).parent().find(".category_val").val();
+			var current = 1;
+			var node = [];
+			if (path) {
+				path_split = path.split("/");
+				current = path_split[path_split.length - 2];
+				node = [ "node_"+current ];
+			}
+			var jstree_option = {
+				"json_data" : {
+					"ajax": {
+						"url": gBaseUrl + 'user/category/tree/' + current,
+						"data": function(n) {
+							return {
+								"opration": "get_children",
+								"id": n.attr ? n.attr("id").replace("node_", ""): ""
+							};
+						}
+					}
+				},
+				"ui": { "initially_select": node },
+				"plugins" : [ "themes", "json_data", "ui" ]
+			};
+			$(this).jstree(jstree_option).bind("select_node.jstree", function (e, data) {
+				$(this).parent().find(".category_label").val($(this).jstree("get_path", data.rslt.obj, false).join(" > "));
+				var val = "/" + $(this).jstree("get_path", data.rslt.obj, true).join("/").replace(/node_/g, "") + "/";
+				$(this).parent().find(".category_val").val(val);
+				$(this).hide();
+			});
+		});
+		// 時間選択
+		$('#start_time').timepicker({
+			'minTime': '0:00am',
+			'maxTime': '12:00pm',
+			'step': 30,
+			'timeFormat': 'H:i'
+		});
+		// timepickerのz-indexを変更しても反映されない。ツアーリストのz-indexを無理やり変更しているので後で編集する
+		$("#tourAreaFrameScroll").css("zIndex", 1);
+		// タグ入力補完
+		$("#tags").tagit({
+			itemName: "tags",
+			tagSource: function(search, showChoices) {
+				$.ajax({
+					url : gBaseUrl + 'user/tag/search',
+					data: { term: search.term },
+					dataType : 'json',
+					success: function(data) {
+						showChoices(data);
+					}
+				});
 			}
 		});
-		return false;
-	});
-	
-	google.maps.event.addListener(autocomplete, 'place_changed', function() {
-		var place = autocomplete.getPlace();
-		if (place.geometry.viewport) {
-			map.fitBounds(place.geometry.viewport);
-		} else {
-			map.setCenter(place.geometry.location);
-			map.setZoom(17);  // Why 17? Because it looks good.
-		}
-		//
-		var _place = $("#search-place").val();
-		var _name = $("#search-name").val();
-		var request={
-				location: place.geometry.location,
-				radius: '500',
-				types: [_place],
-				name: _name
-			};
-//		infowindow = new google.maps.InfoWindow();
-//		service = new google.maps.places.PlacesService(map);
-//		service.search(request, callback);
-		// 検索結果の中央座標設定
-		setPosition(place.geometry.location);
-	});
-	
-	google.maps.event.addListener(map, 'dragend', function() {
-	    setTimeout(search, 300);
-	  });
+		// 保存ボタン
+		$("#headerSaveArea").click(function() {
+			var routes = [];
+			$("#tourAreaFrameScroll .spotList li").each(function(i, elm) {
+				var id = $(elm).attr("data-spot-id");
+				routes.push({
+					id: 		id,
+					stay_time:	$(elm).find(".stay_time").val(),
+					info:		$(elm).find(".spot_info").val()
+				});
+			});
+			if (routes.length == 0) {
+				alert("ルートの指定がありません");
+				return false;
+			}
+			$.ajax({
+				url: gBaseUrl + 'user/tour/add',
+				type: "post",
+				data: {
+					id:				$("#guide-id").val(),
+					name:			$("#guide-name").val(),
+					description:	$("#guide-description").val(),
+					category:		$("#category").val(),
+					start_time:		$("#start_time").val(),
+					tags:			$("#tags").tagit("assignedTags"),
+					route: 			routes
+				},
+				dataType: "json",
+				success: function(json) {
+					if (json["tour_id"]) {
+						location.href = gBaseUrl + 'user/top';
+					}
+					alert("保存しました");
+					console.log(routes);
+				}
+			});
+			return false;
+		});
+	}
 
-	google.maps.event.addListener(map, 'zoom_changed', function() {
-	    setTimeout(search, 300);
-	  });
-
-	google.maps.event.addListenerOnce(map, 'tilesloaded', function() {
-	    setTimeout(search, 300);
-	});
-	
-	$("#search").click(function() {
-		search();
-		return false;
-	});
-
-	$("#category,#keyword,#season,#limit,#sort").change(function() {
-		search();
-	});
-
-	$("#spotFilterButton").click(function() {
-		search();
-	});
-
-	$("#start_time, .stay_time").live("change", function() {
-		change_time();
-	});
-
-	$(".iconAdd").live("click", function() {
-		var self = $(this).closest(".spot");
-		self.clone().hide().appendTo($("#tourAreaFrameScroll .spotList")).fadeIn("slow");
-		change_time();
-		return false;
-	});
-	
-	$(".iconClose").live("click", function() {
-		$(this).closest(".spot").fadeOut(300).queue(function(){ $(this).remove();});
-		change_time();
-		return false;
-	});
-	
-	$(".iconUp").live("click", function() {
-		var self = $(this).closest(".spot");
-		self.insertBefore(self.prev());
-		change_time();
-		return false;
-	});
-	
-	$(".iconDown").live("click", function() {
-		var self = $(this).closest(".spot");
-		self.insertAfter(self.next());
-		change_time();
-		return false;
-	});
-	
+	// 滞在時間で予定時刻を表示
 	function change_time() {
 		var start_time = $("#start_time").val();
 		var time = new Date();
@@ -172,6 +276,7 @@ $(document).ready(function () {
 		});
 	}
 	
+	// スポット一覧検索
 	function search(page) {
 		if (!page) page = 1;
 		if (marker_list) {
@@ -210,11 +315,14 @@ $(document).ready(function () {
 						'<p class="spotDescription">'+spot_info.description+'</p>' +
 						'<div class="timePullDown">' +
 						'滞在時間' +
-						'<select name="stay_time" class="stay_time">' +
-						'<option value="15">15分</option>' +
-						'<option value="30">30分</option>' +
-						'<option value="45">45分</option>' +
-						'</select>' +
+						'<select name="stay_time" class="stay_time">';
+						var step = 15;
+						for (i = 1; i <= 24; i++) {
+							stay_time = i * step;
+							disp_stay_time = new Date(0, 1, 1, 0, stay_time, 0);
+							html += '<option value="' + stay_time + '">' + $.format.date(disp_stay_time, "HH:mm") + '</option>';
+						}
+						html += '</select>' +
 						'</div>' +
 						'</div>' +
 						'<div class="spotBtnArea clearfix">' +
@@ -290,8 +398,8 @@ $(document).ready(function () {
 				$(".add_tour").click(function() {
 					alert(1);
 				});
-
-				$( "#spotAreaFrameScroll li, #toolSpot li" ).draggable({
+				
+				$( "#spotAreaFrameScroll li" ).draggable({
 					connectToSortable: "#tourAreaFrameScroll ul",
 					containment: "document",
 					revert: "invalid",
@@ -309,14 +417,27 @@ $(document).ready(function () {
 					}
 				});
 				
-				$( "#spotAreaFrameScroll li, #toolSpot li" ).bind("mouseenter", function() {
+				$( "#toolSpot li" ).draggable({
+					connectToSortable: "#tourAreaFrameScroll ul",
+					containment: "document",
+					revert: "invalid",
+					helper: "clone",
+					delay: 100,
+//					cursor: "move",
+					scroll: false,
+					opacity: 0.6,
+//					handle: ".spotTitle",
+				});
+
+				$( ".spotList li" ).bind("mouseenter", function() {
 					var spot_id = $(this).attr("data-spot-id");
-					console.log($(this).attr("data-spot-id"));
-					console.log(json.list[spot_id]);
+					if (spot_id in marker_list) {
+						google.maps.event.trigger(marker_list[spot_id], 'click');
+					}
 				});
 
 				$( "#spotAreaFrameScroll li, #toolSpot li" ).bind("mouseleave", function() {
-					console.log($(this).attr("data-spot-id"));
+					//console.log($(this).attr("data-spot-id"));
 				});
 
 				
@@ -324,9 +445,6 @@ $(document).ready(function () {
 					accept: "#spotAreaFrameScroll li",
 					activeClass: "pg_jqui_state_highlight",
 					hoverClass: "pg_jqui_state-hover",
-					drop: function(event, ui) {
-						console.log(1111);
-					}
 				});
 				
 				$( "#tourAreaFrameScroll ul" ).sortable({
@@ -383,107 +501,4 @@ $(document).ready(function () {
 			}
 		});
 	}
-
-	$(document).click(function(e) {
-		$(".select-category").hide("fast");
-	});
-
-	$(".category_label").click(function(e, elm) {
-		$(".select-category").not($(this).next()).hide("fast");
-		$(this).next()
-		.css({
-			"left": $(this).position().left + 25,
-			"width": $(this).css("width") - 25
-			})
-		.toggle("fast");
-		e.stopPropagation();
-	});
-
-	$(".select-category").click(function(e) {
-		e.stopPropagation();
-	});
-
-	$(".select-category").each(function() {
-		var path = $(this).parent().find(".category_val").val();
-		var current = 1;
-		var node = [];
-		if (path) {
-			path_split = path.split("/");
-			current = path_split[path_split.length - 2];
-			node = [ "node_"+current ];
-		}
-		var jstree_option = {
-			"json_data" : {
-				"ajax": {
-					"url": gBaseUrl + 'user/category/tree/' + current,
-					"data": function(n) {
-						return {
-							"opration": "get_children",
-							"id": n.attr ? n.attr("id").replace("node_", ""): ""
-						};
-					}
-				}
-			},
-			"ui": { "initially_select": node },
-			"plugins" : [ "themes", "json_data", "ui" ]
-		};
-		$(this).jstree(jstree_option).bind("select_node.jstree", function (e, data) {
-			$(this).parent().find(".category_label").val($(this).jstree("get_path", data.rslt.obj, false).join(" > "));
-			var val = "/" + $(this).jstree("get_path", data.rslt.obj, true).join("/").replace(/node_/g, "") + "/";
-			$(this).parent().find(".category_val").val(val);
-			$(this).hide();
-		});
-	});
-	
-	$("#tags").tagit({
-		itemName: "tags",
-		tagSource: function(search, showChoices) {
-			$.ajax({
-				url : gBaseUrl + 'user/tag/search',
-				data: { term: search.term },
-				dataType : 'json',
-				success: function(data) {
-					showChoices(data);
-				}
-			});
-		}
-	});
-	
-	$("#headerSaveArea").click(function() {
-		var routes = [];
-		$("#tourAreaFrameScroll .spotList li").each(function(i, elm) {
-			var id = $(elm).attr("data-spot-id");
-			routes.push({
-				id: 		id,
-				stay_time:	$(elm).find(".stay_time").val(),
-				info:		$(elm).find(".spot_info").val()
-			});
-		});
-		if (routes.length == 0) {
-			alert("ルートの指定がありません");
-			return false;
-		}
-		$.ajax({
-			url: gBaseUrl + 'user/tour/add',
-			type: "post",
-			data: {
-				id:				$("#guide-id").val(),
-				name:			$("#guide-name").val(),
-				description:	$("#guide-description").val(),
-				category:		$("#category").val(),
-				start_time:		$("#start_time").val(),
-				tags:			$("#tags").tagit("assignedTags"),
-				route: 			routes
-			},
-			dataType: "json",
-			success: function(json) {
-				if (json["tour_id"]) {
-					location.href = gBaseUrl + 'user/top';
-				}
-				alert("保存しました");
-				console.log(routes);
-			}
-		});
-		return false;
-	});
 });
