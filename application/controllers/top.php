@@ -12,12 +12,13 @@ class Top extends MY_Controller {
 	
 	function index() {
 		//
-		$request = array();
-		$offset = 0;
+		$request	= array();
+		$offset		= 0;
 		$limit		= 10;
 		$sort		= "created_time";
 		$sort_type	= "desc";
-		
+
+		// ツアー一覧
 		$request["tags"] = $this->Tag_model->tag_keys(array($condition["keyword"]));
 		$tour = $this->Tour_model->search($request, $offset, $limit, null, $sort, $sort_type);
 		if ($tour["list"]) {
@@ -30,6 +31,7 @@ class Top extends MY_Controller {
 		}
 		$data["tours"] = $tour;
 
+		// スポット一覧
 		$limit		= 20;
 		$sort		= "created_time";
 		$sort_type	= "desc";
@@ -41,6 +43,20 @@ class Top extends MY_Controller {
 			$spot["relation"]["tags"] 		= $this->Tag_model->tag_values($spot["relation"]["tags"]);
 		}
 		$data["spots"] = $spot;
+		
+		$topics = array();
+		// ツアー一覧
+		$request["topic"] = "宮沢賢治特集";
+		$topics = $this->Tour_model->search($request, $offset, $limit, null, $sort, $sort_type);
+		if ($topics["list"]) {
+			$routes = $this->Tour_model->get_routes(array_keys($topics["list"]));
+			foreach ($routes as $tour_id => $route) {
+				$topics["list"][$tour_id]["routes"] = $route;
+			}
+			$topics["relation"]["categories"] = $this->Category_model->get_names($topics["relation"]["categories"]);
+			$topics["relation"]["tags"] 		= $this->Tag_model->tag_values($topics["relation"]["tags"]);
+		}
+		$data["topics"] = $topics;
 		$this->render_view('guest/top', $data);
 	}
 	
