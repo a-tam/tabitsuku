@@ -2,6 +2,7 @@
 <link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/flick/jquery-ui.css">
 <link rel="stylesheet" type="text/css" href="<?php echo base_url("assets"); ?>/js/jquery/autocomplete/css/jquery.tagit.css">
 <link rel="stylesheet" type="text/css" href="<?php echo base_url("assets");?>/js/jquery/jpagenate/css/style.css">
+<link rel="stylesheet" type="text/css" href="<?php echo base_url("assets"); ?>/js/jquery/timepicker/jquery.timepicker.css"></script>
 <style type="text/css">
 .error {
 	color: red;
@@ -17,7 +18,7 @@
 	box-shadow: 1px 1px 3px #000;
 }
 
-#toolSpot .timecode {
+#toolSpot .timecode, #spotAreaFrameScroll .timecode {
     display:none;
 }
 
@@ -32,7 +33,7 @@
 </style>
 <!-- javascript -->
 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=true&libraries=places"></script>
-<script type="text/javascript" src="<?php echo base_url("assets"); ?>/js/jquery/layout/jquery.layout.min-1.2.0.js"></script>
+<script type="text/javascript" src="<?php echo base_url("assets"); ?>/js/jquery/layout/jquery.layout-1.2.0.js"></script>
 <script type="text/javascript" src="<?php echo base_url("assets"); ?>/js/jquery/autocomplete/tag-it.js"></script>
 <script type="text/javascript" src="<?php echo base_url("assets"); ?>/js/jquery/jstree/jquery.jstree.js"></script>
 <script type="text/javascript" src="<?php echo base_url("assets"); ?>/js/jquery/util/jquery.cookie.js"></script>
@@ -40,6 +41,7 @@
 <script type="text/javascript" src="<?php echo base_url("assets"); ?>/js/jquery/util/jquery.dateFormat-1.0.js"></script>
 <script type="text/javascript" src="<?php echo base_url("assets"); ?>/js/jquery/util/jquery.url.js"></script>
 <script type="text/javascript" src="<?php echo base_url("assets"); ?>/js/jquery/jpagenate/jquery.paginate.js"></script>
+<script type="text/javascript" src="<?php echo base_url("assets"); ?>/js/jquery/timepicker/jquery.timepicker.js"></script>
 <script type="text/javascript" src="<?php echo base_url("assets"); ?>/js/apps/user/tour.js"></script>
 <?php $this->load->view("contents_header"); ?>
 <!-- ツアー作成 -->
@@ -93,9 +95,14 @@
 								<textarea cols="20" rows="2" class="spot_info"></textarea><br />
 								滞在時間
 								<select name="stay_time" class="stay_time">
-									<option value="15">15分</option>
-									<option value="30">30分</option>
-									<option value="45">45分</option>
+<?php
+	$step = 15;
+	for ($i = 1; $i <= 24; $i++):
+		$stay_time = $i * $step;
+		$disp_stay_time = date("H:i", mktime(0, $stay_time, 0, 0, 0, 0));
+?>
+									<option value="<?php echo $stay_time;?>><?php echo $disp_stay_time;?></option>
+<?php endfor;?>
 								</select>
 							</div>
 						</div>
@@ -126,7 +133,7 @@
 		ツアー作成<br>
 		スタート時間を設定
 		<label for="start_time"></label>
-		<input type="time" name="start_time" id="start_time" value="<?php echo set_value("start_time", $data["start_time"]);?>">
+		<input type="time" name="start_time" id="start_time" size="7" value="<?php echo set_value("start_time", $data["start_time"]);?>">
 	</DIV>
 	<div id="tourAreaFrameScroll" class="ui-layout-center">
 		<span class="timecode">9:00</span>
@@ -142,10 +149,14 @@
 								<textarea cols="20" rows="2" class="spot_info"><?php echo $ruote["info"]; ?></textarea><br />
 								滞在時間
 								<select name="stay_time" class="stay_time">
-									<option value="15"<?php if ($ruote["stay_time"] == "15"): ?> selected="selected"<?php endif;?>>15分</option>
-									<option value="30"<?php if ($ruote["stay_time"] == "30"): ?> selected="selected"<?php endif;?>>30分</option>
-									<option value="45"<?php if ($ruote["stay_time"] == "45"): ?> selected="selected"<?php endif;?>>45分</option>
-								</select>
+<?php
+	$step = 15;
+	for ($i = 1; $i <= 24; $i++):
+		$stay_time = $i * $step;
+		$disp_stay_time = date("H:i", mktime(0, $stay_time, 0, 0, 0, 0));
+?>
+									<option value="<?php echo $stay_time;?>"<?php if ($ruote["stay_time"] == $stay_time): ?> selected="selected"<?php endif;?>><?php echo $disp_stay_time;?></option>
+<?php endfor;?>
 							</div>
 						</div>
 <?php else: ?>
@@ -160,9 +171,14 @@
 							<div class="timePullDown">
 								滞在時間
 								<select name="stay_time" class="stay_time">
-									<option value="15"<?php if ($ruote["stay_time"] == "15"): ?> selected="selected"<?php endif;?>>15分</option>
-									<option value="30"<?php if ($ruote["stay_time"] == "30"): ?> selected="selected"<?php endif;?>>30分</option>
-									<option value="45"<?php if ($ruote["stay_time"] == "45"): ?> selected="selected"<?php endif;?>>45分</option>
+<?php
+	$step = 15;
+	for ($i = 1; $i <= 24; $i++):
+		$stay_time = $i * $step;
+		$disp_stay_time = date("H:i", mktime(0, $stay_time, 0, 0, 0, 0));
+?>
+									<option value="<?php echo $stay_time;?>"<?php if ($ruote["stay_time"] == $stay_time): ?> selected="selected"<?php endif;?>><?php echo $disp_stay_time;?></option>
+<?php endfor;?>
 								</select>
 							</div>
 						</div>
