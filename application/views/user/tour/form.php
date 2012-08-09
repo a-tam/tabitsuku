@@ -187,6 +187,7 @@ if ($data["routes"]) :
 ?>
 									<option value="<?php echo $stay_time;?>"<?php if ($ruote["stay_time"] == $stay_time): ?> selected="selected"<?php endif;?>><?php echo $disp_stay_time;?></option>
 <?php endfor;?>
+								</select>
 							</div>
 						</div>
 <?php else: ?>
