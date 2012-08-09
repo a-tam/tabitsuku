@@ -1,3 +1,6 @@
+<!-- css -->
+
+<!-- javascript -->
 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=true&libraries=places"></script>
 <script type="text/javascript" src="<?php echo base_url("assets"); ?>/js/jquery/layout/jquery.layout.min-1.2.0.js"></script>
 <script type="text/javascript" src="<?php echo base_url("assets"); ?>/js/jquery/autocomplete/tag-it.js"></script>
@@ -12,52 +15,18 @@
 <h2>マイページ</h2>
 <div id="pg_tabs">
 	<ul>
-		<li><a href="#pg_tabs_spot">あなたが登録したスポット</a></li>
 		<li><a href="#pg_tabs_tour">あなたが登録したツアー</a></li>
+		<li><a href="#pg_tabs_spot">あなたが登録したスポット</a></li>
 	</ul>
 	
-	<div id="pg_tabs_spot" class="clearfix">
-		<div class="pg_map" style="width:300px; height:300px; float:left; margin-right: 10px;"></div>
-		<div>
-			<div class="pg_pagenation"></div>
-			<p>[<a href="<?php echo base_url("user/spot/form");?>">追加</a>]</p>
-			<ul id="pg_spots">
-				<li id="pg_spot_temp" style="display: none;">
-					<div class="clearfix">
-						<div>
-							<img class="pg_image" src="" /><br />
-							<div class="pg_like_count fb-like" data-href="" data-send="false" data-layout="button_count" data-width="450" data-show-faces="false"></div>
-						</div>
-						<div>
-							<p>名称：<span class="pg_name"></span></p>
-							<p>参考滞在時間：<ul class="pg_stay_time"></ul>
-						</div>
-						<div>
-							<p>カテゴリ：<span class="pg_category"></span></p>
-							<p>タグ<ul class="pg_tags"></ul></p>
-						</div>
-						<div>
-							<p>説明：<span class="pg_description"></span></p>
-						</div>
-					</div>
-					<div>
-						<a class="pg_detail" href="">詳細</a>
-						<a class="pg_edit" href="">編集</a>
-						<a class="pg_delete" href="">削除</a>
-					</div>
-				</li>
-			</ul>
-		</div>
-	</div>
-
 	<div id="pg_tabs_tour" class="clearfix">
-		<div class="pg_map" style="width:400px; height:400px; float:left; margin-right: 10px;"></div>
-		<div>
+		<div class="pg_map" style="width:50%; height:600px; float:left;"></div>
+		<div style="margin-left: 50%; padding: 5px;">
 			<div class="pg_pagenation"></div>
 			<p>[<a href="<?php echo base_url("user/tour/form");?>">追加</a>]</p>
 			<ul id="pg_tours">
 				<li id="pg_tour_temp" style="display: none;">
-					<div class="clearfix">
+					<div>
 						<div>
 							<img class="pg_image" src="" />
 							<div class="pg_like_count fb-like" data-href="<?php echo base_url("spot/show/".$spot["id"]);?>" data-send="false" data-layout="button_count" data-width="450" data-show-faces="false"></div>
@@ -84,6 +53,41 @@
 			</ul>
 		</div>
 	</div>
+
+	<div id="pg_tabs_spot" class="clearfix">
+		<div class="pg_map" style="width:50%; height:600px; float:left;"></div>
+		<div style="margin-left: 50%; padding: 5px;">
+			<div class="pg_pagenation"></div>
+			<p>[<a href="<?php echo base_url("user/spot/form");?>">追加</a>]</p>
+			<ul id="pg_spots">
+				<li id="pg_spot_temp" style="display: none;">
+					<div>
+						<div>
+							<img class="pg_image" src="" /><br />
+							<div class="pg_like_count fb-like" data-href="" data-send="false" data-layout="button_count" data-width="450" data-show-faces="false"></div>
+						</div>
+						<div>
+							<p>名称：<span class="pg_name"></span></p>
+							<p>参考滞在時間：<ul class="pg_stay_time"></ul>
+						</div>
+						<div>
+							<p>カテゴリ：<span class="pg_category"></span></p>
+							<p>タグ<ul class="pg_tags"></ul></p>
+						</div>
+						<div>
+							<p>説明：<span class="pg_description"></span></p>
+						</div>
+					</div>
+					<div>
+						<a class="pg_detail" href="">詳細</a>
+						<a class="pg_edit" href="">編集</a>
+						<a class="pg_delete" href="">削除</a>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</div>
+
 </div>
 
 
