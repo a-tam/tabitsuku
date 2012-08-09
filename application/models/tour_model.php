@@ -35,14 +35,85 @@ class Tour_model extends MY_Model {
 		return $data;
 	}
 	
-	function insert($data) {
+	function insert($_data) {
 		if (!$user_info = $this->phpsession->get("user_info")) {
 			return array();
 		}
-		$data["owner"]		= $user_info["id"];
-		$data["like_count"]	= 0;
-		$data["status"]		= SCHEDULE_STATUS_ENABLED;
+		$data = array(
+			"name"			=> $_data["name"],
+			"description"	=> $_data["description"],
+			"start_time"	=> $_data["start_time"],
+			"category"		=> $_data["category"],
+			"tags"			=> implode(",", $_data["tags"]),
+			"owner"			=> $user_info["id"],
+			"like_count"	=> 0,
+			"status"		=> SCHEDULE_STATUS_ENABLED
+		);
+		if ($area = $this->get_route_area($_data["route"])) {
+			$data["lat_min"] = $area["lat_min"];
+			$data["lat_max"] = $area["lat_max"];
+			$data["lng_min"] = $area["lng_min"];
+			$data["lng_max"] = $area["lng_max"];
+		}
+		log_message("error", $data);
 		return parent::insert($data);
+	}
+	
+	function update($_data, $id) {
+		if (!$user_info = $this->phpsession->get("user_info")) {
+			return array();
+		}
+		$data = array(
+			"name"			=> $_data["name"],
+			"description"	=> $_data["description"],
+			"start_time"	=> $_data["start_time"],
+			"category"		=> $_data["category"],
+			"tags"			=> implode(",", $_data["tags"]),
+		);
+		if ($area = $this->get_route_area($_data["route"])) {
+			$data["lat_min"] = $area["lat_min"];
+			$data["lat_max"] = $area["lat_max"];
+			$data["lng_min"] = $area["lng_min"];
+			$data["lng_max"] = $area["lng_max"];
+		}
+		return parent::update($data, $id);
+	}
+	
+	/**
+	 * ルートの範囲取得
+	 * @param unknown_type $route
+	 * @return boolean|multitype:unknown
+	 */
+	private function get_route_area($route) {
+		log_message('error', $route);
+		$lat_min = null;
+		$lat_max = null;
+		$lng_min = null;
+		$lng_max = null;
+		foreach ($route as $spot) {
+			if ($spot["id"] > 0) {
+				if (is_null($lat_min)) {
+					$lat_min = $spot["lat"];
+					$lat_max = $spot["lat"];
+					$lng_min = $spot["lng"];
+					$lng_max = $spot["lng"];
+				}
+				if ($lat_min > $spot["lat"]) $lat_min = $spot["lat"];
+				if ($lat_max < $spot["lat"]) $lat_max = $spot["lat"];
+				if ($lng_min > $spot["lng"]) $lng_min = $spot["lng"];
+				if ($lng_max < $spot["lng"]) $lng_max = $spot["lng"];
+			}
+		}
+		if (is_null($lat_min)) {
+			return false;
+		} else {
+			return array(
+				"lat_min" => $lat_min,
+				"lat_max" => $lat_max,
+				"lng_min" => $lng_min,
+				"lng_max" => $lng_max,
+			);
+		}
 	}
 	
 	function search($condition, $offset, $limit, $columns = array(), $sort = "created_time", $sort_type = "desc") {
@@ -61,6 +132,13 @@ class Tour_model extends MY_Model {
 		$this->db->from($this->table);
 		// where
 		$wheres = array();
+		// 地図検索
+		if ($condition["ne_x"] && $condition["sw_x"] && $condition["ne_y"] && $condition["sw_y"]) {
+//			$wheres[] = "lng_max < ".$condition["sw_x"];
+// 			$wheres[] = "lng_min < ".$condition["ne_x"];
+// 			$wheres[] = "lat_max > ".$condition["sw_y"];
+// 			$wheres[] = "lat_min < ".$condition["ne_y"];
+		}
 		// カテゴリ検索
 		if ($condition["category"]) {
 			$wheres[] = "category like '%".mysql_real_escape_string($condition["category"])."%'";
