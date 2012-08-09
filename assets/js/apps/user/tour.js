@@ -104,13 +104,13 @@ $(document).ready(function () {
 			search();
 		});
 		google.maps.event.addListener(map, 'dragend', function() {
-			setTimeout(search, 300);
+			search();
 		});
 		google.maps.event.addListener(map, 'zoom_changed', function() {
-			setTimeout(search, 300);
+			search();
 		});
 		google.maps.event.addListenerOnce(map, 'tilesloaded', function() {
-			setTimeout(search, 300);
+			search();
 		});
 		$("#search").click(function() {
 			search();
