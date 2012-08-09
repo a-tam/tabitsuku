@@ -235,7 +235,7 @@ class Spot_model extends MY_Model {
 			"x"				=> $input["x"],
 			"y"				=> $input["y"],
 			"like_count"	=> 0,
-			"category"		=> implode(",", $input["category"]),
+			"category"		=> implode(",", array_filter($input["category"])),
 			"tags"			=> $input["tags"],
 			"keyword"		=> $input["keyword"],
 			"addition"		=> serialize($input["addition"]),
