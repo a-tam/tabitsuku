@@ -464,24 +464,6 @@ $(document).ready(function () {
 						'</div>' +
 						'<span class="timecode">9:00</span>' +
 						'</li>';
-					/*
-					var html = '<li class="spot" data-spot-id="'+spot_info.id+'">' +
-					'<p class="spotTitle">'+spot_info.name+'&nbsp;<span class="spot_tools">' +
-					'<a class="spot_add">[追加]</a>' +
-					'<a class="spot_up" style="visibility:false; display:none;">↑</a>' +
-					'<a class="spot_down" style="visibility:false; display:none;">↓</a>' +
-					'<a class="spot_delete" style="visibility:false; display:none;">[削除]</a>' +
-					'</span></p>' +
-					'<div class="min60">';
-					if (spot_info.image) {
-						html += '<img src="' + gBaseUrl + '/uploads/spot/thumb/' + spot_info.image.file_name + '" width="110" height="81" alt="写真" class="spotPhoto">';
-					}
-					html += '<p class="spotDescription">'+spot_info.description+'</p>' +
-					'</div>' +
-					'<div class="spotBtnArea">滞在時間：60分 <a href="#">詳細を見る</a></div>' +
-					'<div class="facebook_like_button" id="'+spot_info.id+'"></div>' +
-					'</li>';
-					*/
 
 					$("#spotAreaFrameScroll").append(html);
 					var latlng = new google.maps.LatLng(spot_info.x, spot_info.y);
@@ -590,16 +572,6 @@ $(document).ready(function () {
 		});
 	}
 
-//	function infoWindowOpen(id) {
-//		$.each(kmlInfoWindow, function(index, infoWindow_) {
-//			if (id == index) {
-//				infoWindow_.open(map);
-//			} else {
-//				infoWindow_.close(map);
-//			}
-//		});
-//	};
-	
 	/**
 	 * スポット一覧のページネーション
 	 */
