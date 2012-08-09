@@ -239,7 +239,9 @@ $(document).ready(function () {
 				routes.push({
 					id: 		id,
 					stay_time:	$(elm).find(".stay_time").val(),
-					info:		$(elm).find(".spot_info").val()
+					info:		$(elm).find(".spot_info").val(),
+					lat:		$(elm).attr("data-spot-x"),
+					lng:		$(elm).attr("data-spot-y")
 				});
 			});
 			if (routes.length == 0) {
