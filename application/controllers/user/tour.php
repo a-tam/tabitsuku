@@ -77,7 +77,8 @@ class Tour extends MY_Controller {
 			"description"	=> $description,
 			"start_time"	=> $start_time,
 			"category"		=> $category,
-			"tags"			=> implode(",", $tags),
+			"tags"			=> $tags,
+			"route"			=> $route
 		);
 		if ($tour_id) {
 			$this->Tour_model->update($data, $tour_id);
