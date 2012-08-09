@@ -1,10 +1,12 @@
+var spot_map;
+var tour_map;
+
 $(function() {
-	var map;
+	var spot_marker_list = [];
+	var tour_marker_list = [];
+	var current_window;
 
-	show_spot();
-	show_tour();
-
-	var tabIndexs = {'pg_tabs_spot' : 0, 'pg_tabs_tour' : 1};
+	var tabIndexs = {'pg_tabs_tour' : 0, 'pg_tabs_spot' : 1};
 	var tab_index = tabIndexs[window.location.hash.slice(3)];
 	tab_index = tab_index ? tab_index : 0;
 	
@@ -12,9 +14,39 @@ $(function() {
 		selected: tab_index,
 		show: function(event, ui){
 			if (ui.index == 0) {
-				load_map(ui.panel.id, -34.397, 150.644, 8);
+				if (!tour_map) {
+					tour_map = new google.maps.Map($("#pg_tabs_tour").find(".pg_map")[0], {
+						zoom: 10,
+						center: new google.maps.LatLng(35.6894875, 139.69170639999993),
+						mapTypeId: google.maps.MapTypeId.ROADMAP
+					});
+					google.maps.event.addListener(tour_map, 'dragend', function() {
+						show_tour(1);
+					});
+					google.maps.event.addListener(tour_map, 'zoom_changed', function() {
+						show_tour(1);
+					});
+					google.maps.event.addListenerOnce(tour_map, 'tilesloaded', function() {
+						show_tour(1);
+					});
+				}
 			} else if (ui.index==1) {
-				load_map(ui.panel.id, 34.397, 135.644, 8);
+				if (!spot_map) {
+					spot_map = new google.maps.Map($("#pg_tabs_spot").find(".pg_map")[0], {
+						zoom: 10,
+						center: new google.maps.LatLng(35.6894875, 139.69170639999993),
+						mapTypeId: google.maps.MapTypeId.ROADMAP
+					});
+					google.maps.event.addListener(spot_map, 'dragend', function() {
+						show_spot(1);
+					});
+					google.maps.event.addListener(spot_map, 'zoom_changed', function() {
+						show_spot(1);
+					});
+					google.maps.event.addListenerOnce(spot_map, 'tilesloaded', function() {
+						show_spot(1);
+					});
+				}
 			}
 		},
 		select: function(event, ui) {
@@ -28,18 +60,6 @@ $(function() {
 		$('#pg_tabs').tabs("select", index);
 	});
 
-	function load_map(placeholder, lat, lng, z) {
-		if (!google) {
-			return false;
-		}
-		var myOptions = {
-				zoom: z,
-				center: new google.maps.LatLng(lat, lng),
-				mapTypeId: google.maps.MapTypeId.ROADMAP
-			};
-		map = new google.maps.Map($("#"+placeholder).find(".pg_map")[0], myOptions);
-	}
-	
 	function pager(page_count, now) {
 		$("#pg_tabs_spot #pg_pagenation").paginate({
 			count					: page_count,
@@ -59,34 +79,54 @@ $(function() {
 			}
 		});
 	}
-	
+
 	/**
 	 * スポット一覧表示
 	 */
-	function show_spot() {
+	function show_spot(page) {
+		if (!page) {
+			page = 1;
+		}
+		if (spot_marker_list) {
+			spot_marker_list.forEach(function(marker, idx) {
+				marker.setMap(null);
+			});
+		}
 		$.ajax({
 			url: gBaseUrl + "api/spot",
 			data: {
-				owner: "mydata"
+				owner:		"mydata",
+				category:	$("#pg_spot_search_category").val(),
+				keyword:	$("#pg_spot_keyword").val(),
+				limit:		$("#pg_spot_limit").val(),
+				sort:		$("#pg_spot_sort").val(),
+				page:		page,
+				ne_x:		spot_map.getBounds().getNorthEast().lat(),
+				ne_y:		spot_map.getBounds().getNorthEast().lng(),
+				sw_x:		spot_map.getBounds().getSouthWest().lat(),
+				sw_y:		spot_map.getBounds().getSouthWest().lng()
 			},
 			dataType: "json",
 			success: function(json) {
+				// テンプレートを除くリストクリア
+				$("#pg_spots li:not(#pg_spot_temp)").html("");
 				if (json["count"] > 0) {
 					$.each(json["list"], function(spot_id, spot_info) {
+						// テンプレートのクローン作成
 						var spot_elm = $("#pg_spot_temp").clone(true).attr("id", "");
 						spot_elm.css("display", "block");
-
+						// スポット名
 						spot_elm.find(".pg_name")
 							.text(spot_info.name);
-
+						// 画像
 						if (spot_info.image) {
 							spot_elm.find(".pg_image")
 								.attr("src", gBaseUrl + "uploads/spot/thumb/" + spot_info.image.file_name);
 						}
-
+						// 滞在時間
 						spot_elm.find(".pg_stay_time")
 							.text(spot_info.stay_time + "分");
-
+						// カテゴリ
 						spot_elm.find(".pg_category").empty();
 						$(spot_info.category.split(",")).each(function(i, category) {
 							var category_name = [];
@@ -95,19 +135,46 @@ $(function() {
 							});
 							spot_elm.find(".pg_category").append("<li>" + category_name.join(" > ") + "</li>");
 						});
-
+						// 内容
 						spot_elm.find(".pg_description").text(spot_info.description);
-
+						// タグ
 						spot_elm.find(".pg_tags").empty();
 						$(spot_info.tags.match(/\d+/g)).each(function(i, tag_id) {
 							spot_elm.find(".pg_tags").append("<li>" + json["relation"]["tags"][tag_id] + "</li>");
 						});
-						
-						spot_elm.find(".pg_detail").attr("href", gBaseUrl + "spot/show/" + spot_info.id);
-						spot_elm.find(".pg_edit").attr("href", gBaseUrl + "user/spot/form/" + spot_info.id);
-						spot_elm.find(".pg_delete").attr("href", gBaseUrl + "user/spot/delete/" + spot_info.id);
-						
+						// リンク
+						spot_elm.find(".pg_detail")
+							.attr("href", gBaseUrl + "spot/show/" + spot_info.id);
+						spot_elm.find(".pg_edit")
+							.attr("href", gBaseUrl + "user/spot/form/" + spot_info.id);
+						spot_elm.find(".pg_delete")
+							.attr("href", gBaseUrl + "user/spot/delete/" + spot_info.id);
 						spot_elm.appendTo("#pg_spots");
+						// 地図にマーカー表示
+						var latlng = new google.maps.LatLng(spot_info.x, spot_info.y);
+						var marker = new google.maps.Marker({
+							map: spot_map,
+							position: latlng,
+							title: spot_info.name,
+							draggable: false
+						});
+						// 情報ウィンドウ表示
+						google.maps.event.addListener(marker, "click", function() {
+							if (current_window) {
+								current_window.close();
+							}
+							var content = "";
+							if (spot_info.image) {
+								content += '<img style="float:left;" src="' + gBaseUrl + 'uploads/spot/thumb/' + spot_info.image.file_name+'" width="60" height="60" alt="" />';
+							}
+							content += "<b>"+spot_info.name + "</b><br />" + spot_info.description;
+							var infowindow = new google.maps.InfoWindow({
+								content: content
+							});
+							infowindow.open(spot_map, marker);
+							current_window = infowindow;
+						});
+						spot_marker_list[spot_info.id] = marker;
 					});
 				}
 			}
@@ -117,52 +184,69 @@ $(function() {
 	/**
 	 * ツアー一覧表示
 	 */
-	function show_tour() {
+	function show_tour(page) {
 		$.ajax({
 			url: gBaseUrl + "api/tour",
 			data: {
-				owner: "mydata",
+				owner:		"mydata",
+				category:	$("#pg_tour_search_category").val(),
+				keyword:	$("#pg_tour_keyword").val(),
+				limit:		$("#pg_tour_limit").val(),
+				sort:		$("#pg_tour_sort").val(),
+				page:		page,
+				ne_x:		tour_map.getBounds().getNorthEast().lat(),
+				ne_y:		tour_map.getBounds().getNorthEast().lng(),
+				sw_x:		tour_map.getBounds().getSouthWest().lat(),
+				sw_y:		tour_map.getBounds().getSouthWest().lng()
 			},
 			dataType: "json",
 			success: function(json) {
+				// テンプレートを除くリストクリア
+				$("#pg_tours li:not(#pg_tour_temp)").html("");
 				if (json["count"] > 0) {
 					$.each(json["list"], function(tour_id, tour_info) {
+						console.log(tour_info);
+						// テンプレートのクローン作成
 						var tour_elm = $("#pg_tour_temp").clone(true).attr("id", "");
 						tour_elm.css("display", "block");
-						
+						// ツアー名 
 						tour_elm.find(".pg_name")
 							.text(tour_info.name);
-						
+						// いいねボタン
 						tour_elm.find(".pg_like_count")
 							.addClass("fb-like")
 							.attr("data-href", gBaseUrl + 'user/tour/show/' + tour_info.id);
-						
+						// 画像
 						if (tour_info.image) {
 							tour_elm.find(".pg_image")
 								.attr("src", gBaseUrl + "uploads/tour/thumb/" + tour_info.image.file_name);
 						}
-
+						// 滞在時間
 						var stay_time = 0;
 						$(this.routes).each(function(i, route) {
 							stay_time += (route.stay_time * 1);
 						});
 						tour_elm.find(".pg_stay_time")
-						.text(stay_time + "分");
-
+							.text(stay_time + "分");
+						// 内容
 						tour_elm.find(".pg_description").text(tour_info.description);
-						
+						// カテゴリ
 						tour_elm.find(".pg_category").empty();
 						var category_name = [];
-						$(tour_info.category.match(/\d+/g)).each(function(i, category_id) {
-							category_name.push(json["relation"]["categories"][category_id]);
-						});
+						if (tour_info.category) {
+							$(tour_info.category.match(/\d+/g)).each(function(i, category_id) {
+								category_name.push(json["relation"]["categories"][category_id]);
+							});
+						}
 						tour_elm.find(".pg_category").append("<li>" + category_name.join(" > ") + "</li>");
-
+						// タグ
 						tour_elm.find(".pg_tags").empty();
-						$(tour_info.tags.match(/\d+/g)).each(function(i, tag_id) {
-							tour_elm.find(".pg_tags").append("<li>" + json["relation"]["tags"][tag_id] + "</li>");
-						});
-						
+						if (tour_info.tags) {
+							$(tour_info.tags.match(/\d+/g)).each(function(i, tag_id) {
+								tour_elm.find(".pg_tags").append("<li>" + json["relation"]["tags"][tag_id] + "</li>");
+							});
+						}
+						// リンク
 						tour_elm.find(".pg_detail")
 							.attr("href", gBaseUrl + "tour/show/" + tour_info.id);
 						tour_elm.find(".pg_copy")
@@ -171,7 +255,6 @@ $(function() {
 							.attr("href", gBaseUrl + "user/tour/form/" + tour_info.id);
 						tour_elm.find(".pg_delete")
 							.attr("href", gBaseUrl + "user/tour/delete/" + tour_info.id);
-						
 						tour_elm.appendTo("#pg_tours");
 					});
 				}
