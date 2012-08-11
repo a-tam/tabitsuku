@@ -217,6 +217,7 @@ $(document).ready(function () {
 		});
 		// timepickerのz-indexを変更しても反映されない。ツアーリストのz-indexを無理やり変更しているので後で編集する
 		$("#tourAreaFrameScroll").css("zIndex", 1);
+		$("#spotAreaFrameScroll").css("zIndex", 1);
 		// タグ入力補完
 		$("#tags").tagit({
 			itemName: "tags",
