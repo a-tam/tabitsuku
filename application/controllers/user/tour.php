@@ -171,5 +171,4 @@ class Tour extends MY_Controller {
 	function delete() {
 		if (!$this->auth()) return $this->login_form();
 	}
-	
 }

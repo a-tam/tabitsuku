@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <title>たびつく</title>
-<link rel="shortcut icon" href="<?php echo base_url("assets"); ?>/images/favicon.ico">
+<link rel="shortcut icon" href="<?php echo base_url("assets"); ?>/img/favicon.ico">
 <!-- common javascript -->
 <script type="text/javascript" src="<?php echo base_url("assets"); ?>/js/jquery/jquery-1.7.2.min.js"></script>
 <script type="text/javascript" src="<?php echo base_url("assets"); ?>/js/jquery/jquery-ui-1.8.20.custom.min.js"></script>

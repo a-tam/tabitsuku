@@ -212,8 +212,8 @@ $(document).ready(function () {
 						var marker = new google.maps.Marker({
 							map: map,
 							position: latlng,
-							icon : gAssetUrl + "images/map/icons/myMarker.png",
-							shadow: gAssetUrl + "images/map/icons/myShadow.png",
+							icon : gAssetUrl + "img/map/icons/myMarker.png",
+							shadow: gAssetUrl + "img/map/icons/myShadow.png",
 							title: spot.name,
 							draggable: false
 						});
