@@ -93,10 +93,10 @@ class Tour extends MY_Controller {
 	
 	function query() {
 		$result;
-		$ne_x		= $this->input->get("ne_x");
-		$sw_x		= $this->input->get("sw_x");
-		$ne_y		= $this->input->get("ne_y");
-		$sw_y		= $this->input->get("sw_y");
+		$ne_lat		= $this->input->get("ne_lat");
+		$sw_lat		= $this->input->get("sw_lat");
+		$ne_lng		= $this->input->get("ne_lng");
+		$sw_lng		= $this->input->get("sw_lng");
 		$limit		= $this->input->get("limit");
 		$sort		= $this->input->get("sort");
 		$category	= $this->input->get("category");
@@ -120,15 +120,16 @@ class Tour extends MY_Controller {
 		
 		$rows = array();
 		$sql = "SELECT * FROM ".$this->Spot_model->table;
-		$where = " WHERE x < ?".
-			" AND x > ?".
-			" AND y < ?".
-			" AND y > ?";
+		$where = " WHERE".
+				" lat < ?".
+			" AND lat > ?".
+			" AND lng < ?".
+			" AND lng > ?";
 		$values = array(
-			$ne_x,
-			$sw_x,
-			$ne_y,
-			$sw_y
+			$ne_lat,
+			$sw_lat,
+			$ne_lng,
+			$sw_lng
 		);
 		if (trim($keyword)) {
 			$tag_keys = $this->Tag_model->tag_keys(array($keyword));

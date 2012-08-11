@@ -240,8 +240,8 @@ $(document).ready(function () {
 					id: 		id,
 					stay_time:	$(elm).find(".stay_time").val(),
 					info:		$(elm).find(".spot_info").val(),
-					lat:		$(elm).attr("data-spot-x"),
-					lng:		$(elm).attr("data-spot-y")
+					lat:		$(elm).attr("data-spot-lat"),
+					lng:		$(elm).attr("data-spot-lng")
 				});
 			});
 			if (routes.length == 0) {
@@ -307,27 +307,27 @@ $(document).ready(function () {
 	 */
 	function tour_center() {
 		var route = [];
-		var min_x = min_y = max_x = max_y = null;
+		var lat_min = lat_max = lng_min = lng_max = null;
 		$("#tourAreaFrameScroll .spotList li").each(function() {
 			var id = $(this).attr("data-spot-id");
 			if (id) {
-				var y = $(this).attr("data-spot-x");
-				var x = $(this).attr("data-spot-y");
-				if (min_x == null) {
-					min_x = x;
-					max_x = x;
-					min_y = y;
-					max_y = y;
+				var lat = $(this).attr("data-spot-lat");
+				var lng = $(this).attr("data-spot-lng");
+				if (lat_min == null) {
+					lat_min = lat;
+					lat_max = lat;
+					lng_min = lng;
+					lng_max = lng;
 				}
-				if (x <= min_x) { min_x = x; }
-				if (x >  max_x) { max_x = x; }
-				if (y <= min_y) { min_y = y; }
-				if (y >  max_y) { max_y = y; }
+				if (lat <= lat_min) { lat_min = lat; }
+				if (lat >  lat_max) { lat_max = lat; }
+				if (lng <= lng_min) { lng_min = lng; }
+				if (lng >  lng_max) { lng_max = lng; }
 			}
 		});
-		if (min_x) {
-			var sw = new google.maps.LatLng(max_y, min_x);
-			var ne = new google.maps.LatLng(min_y, max_x);
+		if (lat_min) {
+			var ne = new google.maps.LatLng(lat_max, lng_max);
+			var sw = new google.maps.LatLng(lat_min, lng_min);
 			var bounds = new google.maps.LatLngBounds(sw, ne);
 			map.fitBounds(bounds);
 		}
@@ -347,15 +347,15 @@ $(document).ready(function () {
 				if (id in marker_list) {
 					marker = marker_list[id]; 
 				} else {
-					var x = $(this).attr("data-spot-x");
-					var y = $(this).attr("data-spot-y");
+					var lat = $(this).attr("data-spot-lat");
+					var lng = $(this).attr("data-spot-lng");
 					var name = $(this).find(".spotTitle").text();
-					var latlng = new google.maps.LatLng(x, y);
+					var latlng = new google.maps.LatLng(lat, lng);
 					var marker = new google.maps.Marker({
-						map: map,
-						position: latlng,
-						title: name,
-						draggable: false
+						map			: map,
+						position	: latlng,
+						title		: name,
+						draggable	: false
 					});
 				}
 				route.push(marker.getPosition());
@@ -411,16 +411,16 @@ $(document).ready(function () {
 				limit:		$("#limit").val(),
 				sort:		$("#sort").val(),
 				page:		page,
-				ne_x:		map.getBounds().getNorthEast().lat(),
-				ne_y:		map.getBounds().getNorthEast().lng(),
-				sw_x:		map.getBounds().getSouthWest().lat(),
-				sw_y:		map.getBounds().getSouthWest().lng()
+				ne_lat:		map.getBounds().getNorthEast().lat(),
+				ne_lng:		map.getBounds().getNorthEast().lng(),
+				sw_lat:		map.getBounds().getSouthWest().lat(),
+				sw_lng:		map.getBounds().getSouthWest().lng()
 			},
 			dataType: "json",
 			success: function(json) {
 				$("#spotAreaFrameScroll").html("");
 				$.each(json.list, function(spot_id, spot_info) {
-					var html = '<li data-spot-id="' + spot_info.id + '" class="spot" data-spot-x="' + spot_info.x +'" data-spot-y="' + spot_info.y + '" >' +
+					var html = '<li data-spot-id="' + spot_info.id + '" class="spot" data-spot-lat="' + spot_info.lat +'" data-spot-lng="' + spot_info.lng + '" >' +
 						'<div class="spotArea">' +
 						'<div class="spotDetail">' +
 						'<div class="thumbnail">';
@@ -468,7 +468,7 @@ $(document).ready(function () {
 						'</li>';
 
 					$("#spotAreaFrameScroll").append(html);
-					var latlng = new google.maps.LatLng(spot_info.x, spot_info.y);
+					var latlng = new google.maps.LatLng(spot_info.lat, spot_info.lng);
 					var marker = new google.maps.Marker({
 						map: map,
 						position: latlng,

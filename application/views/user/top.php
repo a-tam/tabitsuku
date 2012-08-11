@@ -1,5 +1,22 @@
 <!-- css -->
+<style type="text/css">
+ul#pg_tours li.pg_tour_list:hover {
+    background: #999;
+}
 
+#pg_tours {
+	display: block;
+	height: 700px;
+	overflow-y: scroll;
+}
+
+#pg_spots {
+	display: block;
+	height: 700px;
+	overflow-y: scroll;
+}
+
+</style>
 <!-- javascript -->
 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=true&libraries=places"></script>
 <script type="text/javascript" src="<?php echo base_url("assets"); ?>/js/jquery/layout/jquery.layout.min-1.2.0.js"></script>
@@ -25,7 +42,7 @@
 			<div class="pg_pagenation"></div>
 			<p>[<a href="<?php echo base_url("user/tour/form");?>">追加</a>]</p>
 			<ul id="pg_tours">
-				<li id="pg_tour_temp" style="display: none;">
+				<li class="pg_tour_list pg_tour_temp" style="display: none;">
 					<div>
 						<div>
 							<img class="pg_image" src="" />
@@ -60,7 +77,7 @@
 			<div class="pg_pagenation"></div>
 			<p>[<a href="<?php echo base_url("user/spot/form");?>">追加</a>]</p>
 			<ul id="pg_spots">
-				<li id="pg_spot_temp" style="display: none;">
+				<li class="pg_spot_temp" style="display: none;">
 					<div>
 						<div>
 							<img class="pg_image" src="" /><br />

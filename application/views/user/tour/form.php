@@ -170,7 +170,7 @@
 if ($data["routes"]) :
 	foreach ($data["routes"] as $ruote) :
 ?>
-			<li data-spot-id="<?php echo $ruote["id"]?>" data-spot-x="<?php echo $ruote["x"];?>" data-spot-y="<?php echo $ruote["y"];?>" class="spot">
+			<li data-spot-id="<?php echo $ruote["id"]?>" data-spot-lat="<?php echo $ruote["lat"];?>" data-spot-lng="<?php echo $ruote["lng"];?>" class="spot">
 				<div class="spotArea">
 					<div class="spotDetail">
 <?php if ($ruote["id"] == 0): ?>

@@ -53,7 +53,7 @@
 <script type="text/javascript" src="<?php echo base_url("assets"); ?>/js/jquery/util/jquery.dateFormat-1.0.js"></script>
 <script type="text/javascript" src="<?php echo base_url("assets"); ?>/js/jquery/util/jquery.url.js"></script>
 <script type="text/javascript" src="<?php echo base_url("assets"); ?>/js/jquery/jpagenate/jquery.paginate.js"></script>
-<script type="text/javascript" src="<?php echo base_url("assets"); ?>/js/apps/guest/spot_search.js"></script>
+<script type="text/javascript" src="<?php echo base_url("assets"); ?>/js/apps/guest/spot/search.js"></script>
 
 <?php $this->load->view("contents_header"); ?>
 <h2>スポット検索</h2>

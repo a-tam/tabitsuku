@@ -10,10 +10,10 @@ class Tour extends MY_Controller {
 	
 	function index() {
 		$request = array(
-			"ne_x"		=> $this->input->get("ne_x"),
-			"sw_x"		=> $this->input->get("sw_x"),
-			"ne_y"		=> $this->input->get("ne_y"),
-			"sw_y"		=> $this->input->get("sw_y"),
+			"ne_lat"	=> $this->input->get("ne_lat"),
+			"sw_lat"	=> $this->input->get("sw_lat"),
+			"ne_lng"	=> $this->input->get("ne_lng"),
+			"sw_lng"	=> $this->input->get("sw_lng"),
 			"category"	=> $this->input->get("category"),
 			"keyword"	=> $this->input->get("keyword"),
 		);
@@ -22,7 +22,6 @@ class Tour extends MY_Controller {
 		$limit		= $this->input->get("limit");
 		$sort		= $this->input->get("sort");
 		$sort_type	= $this->input->get("sort_type");
-		
 		if ($owner) {
 			switch ($owner) {
 				case "mydata":

@@ -63,7 +63,7 @@
 <script type="text/javascript" src="<?php echo base_url("assets"); ?>/js/jquery/util/jquery.dateFormat-1.0.js"></script>
 <script type="text/javascript" src="<?php echo base_url("assets"); ?>/js/jquery/util/jquery.url.js"></script>
 <script type="text/javascript" src="<?php echo base_url("assets"); ?>/js/jquery/jpagenate/jquery.paginate.js"></script>
-<script type="text/javascript" src="<?php echo base_url("assets"); ?>/js/apps/guest/tour_search.js"></script>
+<script type="text/javascript" src="<?php echo base_url("assets"); ?>/js/apps/guest/tour/search.js"></script>
 
 <?php $this->load->view("contents_header"); ?>
 <h2>ツアー検索</h2>

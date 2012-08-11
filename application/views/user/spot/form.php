@@ -46,9 +46,9 @@
 		<input type="hidden" id="spot-id" value="<?php echo set_value("id", $data["id"]);?>" />
 		<p>
 			<label>緯度</label>
-			<input type="text" name="x" id="spot-x" value="<?php echo set_value("x", $data["x"]);?>" readonly="readonly" />
+			<input type="text" name="lat" id="spot-lat" value="<?php echo set_value("lat", $data["lat"]);?>" readonly="readonly" />
 			<label>経度</label>
-			<input type="text" name="y" id="spot-y" value="<?php echo set_value("y", $data["y"]);?>" readonly="readonly" />
+			<input type="text" name="lng" id="spot-lng" value="<?php echo set_value("lng", $data["lng"]);?>" readonly="readonly" />
 		</p>
 		<p>
 			<label for="textfield">住所</label>

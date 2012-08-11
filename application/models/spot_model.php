@@ -12,13 +12,13 @@ class Spot_model extends MY_Model {
 					'type' => 'text',
 					'rule' => array('numeric'),
 				),
-				"x" => array(
-					'name' => '経度',
+				"lat" => array(
+					'name' => '緯度',
 					'type' => 'text',
 					'rule' => array('required', 'numeric'),
 				),
-				"y" => array(
-					'name' => '緯度',
+				"lng" => array(
+					'name' => '経度',
 					'type' => 'text',
 					'rule' => array('required', 'numeric'),
 				),
@@ -84,8 +84,8 @@ class Spot_model extends MY_Model {
 			", spots.image".
 			", spots.description".
 			", spots.stay_time AS defalut_time".
-			", spots.x".
-			", spots.y".
+			", spots.lat".
+			", spots.lng".
 			", spots.like_count".
 			", spots.category".
 			", spots.tags".
@@ -131,11 +131,11 @@ class Spot_model extends MY_Model {
 		
 		// where
 		$wheres = array();
-		if ($condition["ne_x"] && $condition["sw_x"] && $condition["ne_y"] && $condition["sw_y"]) {
-			$wheres[] = "x < ".$condition["ne_x"];
-			$wheres[] = "x > ".$condition["sw_x"];
-			$wheres[] = "y < ".$condition["ne_y"];
-			$wheres[] = "y > ".$condition["sw_y"];
+		if ($condition["ne_lat"] && $condition["sw_lat"] && $condition["ne_lng"] && $condition["sw_lng"]) {
+			$wheres[] = "lat < ".$condition["ne_lat"];
+			$wheres[] = "lat > ".$condition["sw_lat"];
+			$wheres[] = "lng < ".$condition["ne_lng"];
+			$wheres[] = "lng > ".$condition["sw_lng"];
 		}
 		if ($condition["owner"]) {
 			$wheres[] = "owner = '".mysql_real_escape_string($condition["owner"])."'";
@@ -210,8 +210,8 @@ class Spot_model extends MY_Model {
 			"name"			=> $input["name"],
 			"description"	=> $input["description"],
 			"stay_time"		=> $input["stay_time"],
-			"x"				=> $input["x"],
-			"y"				=> $input["y"],
+			"lat"			=> $input["lat"],
+			"lng"			=> $input["lng"],
 			"like_count"	=> 0,
 			"category"		=> implode(",", $input["category"]),
 			"tags"			=> $input["tags"],
@@ -232,8 +232,8 @@ class Spot_model extends MY_Model {
 			"name"			=> $input["name"],
 			"description"	=> $input["description"],
 			"stay_time"		=> $input["stay_time"],
-			"x"				=> $input["x"],
-			"y"				=> $input["y"],
+			"lat"			=> $input["lat"],
+			"lng"			=> $input["lng"],
 			"like_count"	=> 0,
 			"category"		=> implode(",", array_filter($input["category"])),
 			"tags"			=> $input["tags"],

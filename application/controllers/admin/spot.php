@@ -110,15 +110,15 @@ class Spot extends MY_Controller {
 							$_tags = explode("、", $item["Situation"]);
 							$tags = $this->Tag_model->tag_keys($_tags);
 							$data = array(
-									"name" => $item["RestaurantName"],
-									"description" => $item["TabelogUrl"],
-									"stay_time" => 60,
-									"x" => $item["Latitude"],
-									"y" => $item["Longitude"],
-									"category" => $this->getCategory($item["Category"]),
-									"tags" => implode(",", $tags),
-									"keyword" => $item["Rcd"],
-									"addition" => $item
+									"name"			=> $item["RestaurantName"],
+									"description"	=> $item["TabelogUrl"],
+									"stay_time"		=> 60,
+									"lat"			=> $item["Latitude"],
+									"lng"			=> $item["Longitude"],
+									"category"		=> $this->getCategory($item["Category"]),
+									"tags"			=> implode(",", $tags),
+									"keyword"		=> $item["Rcd"],
+									"addition"		=> $item
 							);
 							if ($id = $this->Spot_model->get_one(array("keyword" => $item["Rcd"]), "id")) {
 								$this->Spot_model->update($data, $id);

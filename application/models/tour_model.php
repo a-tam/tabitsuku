@@ -133,11 +133,11 @@ class Tour_model extends MY_Model {
 		// where
 		$wheres = array();
 		// 地図検索
-		if ($condition["ne_x"] && $condition["sw_x"] && $condition["ne_y"] && $condition["sw_y"]) {
-//			$wheres[] = "lng_max < ".$condition["sw_x"];
-// 			$wheres[] = "lng_min < ".$condition["ne_x"];
-// 			$wheres[] = "lat_max > ".$condition["sw_y"];
-// 			$wheres[] = "lat_min < ".$condition["ne_y"];
+		if ($condition["ne_lng"] && $condition["sw_lng"] && $condition["ne_lat"] && $condition["sw_lat"]) {
+			$wheres[] = "lng_max > ".$condition["sw_lng"];
+			$wheres[] = "lng_min < ".$condition["ne_lng"];
+			$wheres[] = "lat_max > ".$condition["sw_lat"];
+			$wheres[] = "lat_min < ".$condition["ne_lat"];
 		}
 		// カテゴリ検索
 		if ($condition["category"]) {

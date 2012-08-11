@@ -15,8 +15,8 @@ $(document).ready(function () {
 		north__paneSelector:	".ui-layout-north" ,
 		north__size: 35
 	});
-	var lat = $('#spot-x').val();
-	var lng = $('#spot-y').val();
+	var lat = $('#spot-lat').val();
+	var lng = $('#spot-lng').val();
 	var latlng = new google.maps.LatLng(lat, lng);
 	var zoom = 10;
 	if ("" != $('#spot-id').val()) {
@@ -192,11 +192,11 @@ $(document).ready(function () {
 			url: gBaseUrl + "user/tour/query",
 			async: false,
 			data: {
-				limit: 999,
-				ne_x: map.getBounds().getNorthEast().lat(),
-				ne_y: map.getBounds().getNorthEast().lng(),
-				sw_x: map.getBounds().getSouthWest().lat(),
-				sw_y: map.getBounds().getSouthWest().lng()
+				limit	: 999,
+				ne_lat	: map.getBounds().getNorthEast().lat(),
+				ne_lng	: map.getBounds().getNorthEast().lng(),
+				sw_lat	: map.getBounds().getSouthWest().lat(),
+				sw_lng	: map.getBounds().getSouthWest().lng()
 			},
 			dataType: "json",
 			success: function(json) {

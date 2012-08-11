@@ -1,10 +1,13 @@
 var spot_map;
 var tour_map;
 
+var spot_marker_list = [];
+var spot_current_window;
+
+var tour_marker_list = {};
+var tour_path_list = [];
+var tour_current_window;
 $(function() {
-	var spot_marker_list = [];
-	var tour_marker_list = [];
-	var current_window;
 
 	var tabIndexs = {'pg_tabs_tour' : 0, 'pg_tabs_spot' : 1};
 	var tab_index = tabIndexs[window.location.hash.slice(3)];
@@ -101,20 +104,29 @@ $(function() {
 				limit:		$("#pg_spot_limit").val(),
 				sort:		$("#pg_spot_sort").val(),
 				page:		page,
-				ne_x:		spot_map.getBounds().getNorthEast().lat(),
-				ne_y:		spot_map.getBounds().getNorthEast().lng(),
-				sw_x:		spot_map.getBounds().getSouthWest().lat(),
-				sw_y:		spot_map.getBounds().getSouthWest().lng()
+				ne_lat:		spot_map.getBounds().getNorthEast().lat(),
+				ne_lng:		spot_map.getBounds().getNorthEast().lng(),
+				sw_lat:		spot_map.getBounds().getSouthWest().lat(),
+				sw_lng:		spot_map.getBounds().getSouthWest().lng()
 			},
 			dataType: "json",
 			success: function(json) {
 				// テンプレートを除くリストクリア
-				$("#pg_spots li:not(#pg_spot_temp)").html("");
+				$("#pg_spots li:not(.pg_spot_temp)").html("");
 				if (json["count"] > 0) {
+					// 
+					google.maps.event.addListener(spot_map, "click", function(e) {
+						if (spot_current_window) {
+							spot_current_window.close();
+						}
+					});
 					$.each(json["list"], function(spot_id, spot_info) {
 						// テンプレートのクローン作成
-						var spot_elm = $("#pg_spot_temp").clone(true).attr("id", "");
-						spot_elm.css("display", "block");
+						var spot_elm = $(".pg_spot_temp")
+							.clone(true)
+							.removeClass("pg_spot_temp")
+							.css("display", "block")
+							.attr("data-spot-id", spot_id);
 						// スポット名
 						spot_elm.find(".pg_name")
 							.text(spot_info.name);
@@ -151,17 +163,17 @@ $(function() {
 							.attr("href", gBaseUrl + "user/spot/delete/" + spot_info.id);
 						spot_elm.appendTo("#pg_spots");
 						// 地図にマーカー表示
-						var latlng = new google.maps.LatLng(spot_info.x, spot_info.y);
+						var latlng = new google.maps.LatLng(spot_info.lat, spot_info.lng);
 						var marker = new google.maps.Marker({
-							map: spot_map,
-							position: latlng,
-							title: spot_info.name,
-							draggable: false
+							map			: spot_map,
+							position	: latlng,
+							title		: spot_info.name,
+							draggable	: false
 						});
 						// 情報ウィンドウ表示
 						google.maps.event.addListener(marker, "click", function() {
-							if (current_window) {
-								current_window.close();
+							if (spot_current_window) {
+								spot_current_window.close();
 							}
 							var content = "";
 							if (spot_info.image) {
@@ -169,10 +181,11 @@ $(function() {
 							}
 							content += "<b>"+spot_info.name + "</b><br />" + spot_info.description;
 							var infowindow = new google.maps.InfoWindow({
-								content: content
+								content		: content,
+								position	: marker.getPosition()
 							});
-							infowindow.open(spot_map, marker);
-							current_window = infowindow;
+							infowindow.open(spot_map);
+							spot_current_window = infowindow;
 						});
 						spot_marker_list[spot_info.id] = marker;
 					});
@@ -180,7 +193,7 @@ $(function() {
 			}
 		});
 	}
-	
+
 	/**
 	 * ツアー一覧表示
 	 */
@@ -194,21 +207,34 @@ $(function() {
 				limit:		$("#pg_tour_limit").val(),
 				sort:		$("#pg_tour_sort").val(),
 				page:		page,
-				ne_x:		tour_map.getBounds().getNorthEast().lat(),
-				ne_y:		tour_map.getBounds().getNorthEast().lng(),
-				sw_x:		tour_map.getBounds().getSouthWest().lat(),
-				sw_y:		tour_map.getBounds().getSouthWest().lng()
+				ne_lat:		tour_map.getBounds().getNorthEast().lat(),
+				ne_lng:		tour_map.getBounds().getNorthEast().lng(),
+				sw_lat:		tour_map.getBounds().getSouthWest().lat(),
+				sw_lng:		tour_map.getBounds().getSouthWest().lng()
 			},
 			dataType: "json",
 			success: function(json) {
+				$.each(tour_marker_list, function(marker, idx) {
+					marker.setMap(null);
+				});
+				$.each(tour_path_list, function(path, idx) {
+					path.setMap(null);
+				});
 				// テンプレートを除くリストクリア
-				$("#pg_tours li:not(#pg_tour_temp)").html("");
+				$("#pg_tours li:not(.pg_tour_temp)").html("");
 				if (json["count"] > 0) {
+					google.maps.event.addListener(tour_map, "click", function(e) {
+						if (tour_current_window) {
+							tour_current_window.close();
+						}
+					});
 					$.each(json["list"], function(tour_id, tour_info) {
-						console.log(tour_info);
 						// テンプレートのクローン作成
-						var tour_elm = $("#pg_tour_temp").clone(true).attr("id", "");
-						tour_elm.css("display", "block");
+						var tour_elm = $(".pg_tour_temp")
+							.clone(true)
+							.removeClass("pg_tour_temp")
+							.css("display", "block")
+							.attr("data-tour-id", tour_id);
 						// ツアー名 
 						tour_elm.find(".pg_name")
 							.text(tour_info.name);
@@ -256,10 +282,107 @@ $(function() {
 						tour_elm.find(".pg_delete")
 							.attr("href", gBaseUrl + "user/tour/delete/" + tour_info.id);
 						tour_elm.appendTo("#pg_tours");
+						// 
+						path = [];
+						var _marker_list = {};
+						$(tour_info.routes).each(function(i, route) {
+							if (route.id) {
+								var name = route.name;
+								var latlng = new google.maps.LatLng(route.lat, route.lng);
+								var marker = new google.maps.Marker({
+									position	: latlng,
+									title		: name,
+									draggable	: false,
+									visible		: false
+								});
+								marker.setMap(tour_map);
+								google.maps.event.addListener(marker, "click", function(e) {
+									if (tour_current_window) {
+										tour_current_window.close();
+									}
+									var infowindow = new google.maps.InfoWindow({
+										content		: route.name,
+										position	: e.latLng,
+									});
+									infowindow.open(tour_map);
+									tour_current_window = infowindow;
+								});
+								_marker_list[route.id] = marker;
+								path.push(marker.getPosition());
+								tour_marker_list[tour_id] = _marker_list;
+							}
+						});
+						if (path.length > 0) {
+							linePath = new google.maps.Polyline({
+								map				: tour_map,
+								path			: path,
+								clickable		: true,
+								geodesic		: true,
+								strokeColor		: "#000099",
+								strokeOpacity	: 0.2,
+								strokeWeight	: 3
+							});
+							google.maps.event.addListener(linePath, "click", function(e) {
+								if (tour_current_window) {
+									tour_current_window.close();
+								}
+								var infowindow = new google.maps.InfoWindow({
+									content		: tour_info.description,
+									position	: e.latLng,
+								});
+								infowindow.open(tour_map);
+								tour_current_window = infowindow;
+							});
+							tour_path_list[tour_id] = linePath;
+						}
 					});
 				}
+				
+				var current_tour_id;
+				
+				$("#pg_tours .pg_tour_list").bind("mouseenter", function() {
+					current_tour_id = $(this).attr("data-tour-id");
+					$.each(tour_marker_list[current_tour_id], function(i, marker) {
+						marker.setVisible(true);
+					});
+					tour_path_list[current_tour_id].setOptions({strokeOpacity: 1});
+				});
+				
+				$("#pg_tours .pg_tour_list").bind("mouseleave", function() {
+					current_tour_id = $(this).attr("data-tour-id");
+					$.each(tour_marker_list[current_tour_id], function(i, marker) {
+						marker.setVisible(false);
+					});
+					tour_path_list[current_tour_id].setOptions({strokeOpacity: 0.2});
+				});
+
+				$("#pg_tours .pg_tour_list").bind("click", function() {
+					current_tour_id = $(this).attr("data-tour-id");
+					var lat_min = lat_max = lng_min = lng_max = null;
+					$.each(tour_marker_list[current_tour_id], function(i, marker) {
+						var lat = marker.getPosition().lat();
+						var lng = marker.getPosition().lng();
+						if (lat_min == null) {
+							lat_min = lat;
+							lat_max = lat;
+							lng_min = lng;
+							lng_max = lng;
+						}
+						if (lat <= lat_min) { lat_min = lat; }
+						if (lat >  lat_max) { lat_max = lat; }
+						if (lng <= lng_min) { lng_min = lng; }
+						if (lng >  lng_max) { lng_max = lng; }
+					});
+					console.log(lat_max);
+					console.log(lng_max);
+					console.log(lat_min);
+					console.log(lng_min);
+					var ne = new google.maps.LatLng(lat_max, lng_max);
+					var sw = new google.maps.LatLng(lat_min, lng_min);
+					var bounds = new google.maps.LatLngBounds(sw, ne);
+					tour_map.fitBounds(bounds);
+				});
 			}
 		});
 	}
-	
 });
