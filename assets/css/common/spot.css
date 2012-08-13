@@ -39,6 +39,7 @@ behavior: url(/_css/IE-CSS/ie-css3.htc);
 #makeTour #spotAreaFrame .spotArea {
 	width:250px;
 	background: #72CEFF;
+	margin-bottom:10px;
 }
 
 #makeTour #spotAreaFrame .spotArea .textArea {
@@ -73,10 +74,10 @@ behavior: url(/_css/IE-CSS/ie-css3.htc);
 	共通
 ------------------------------------------------------------------- */
 .spotList {
-	margin: 0;
-	padding: 0;
+	margin: 0 0 1px 0;
+	padding:0 0 5px 0;
+	height: 100%;
 	list-style:  none;
-	border: ridge 1px #ccf;
 }
 
 .timecode {
@@ -85,7 +86,7 @@ behavior: url(/_css/IE-CSS/ie-css3.htc);
 	padding: 0 0 0 15px;
 	margin: 0;
 	line-height:120%;
-	background: url(../../img/interface/tour/timepoint.png) no-repeat 0 center;
+	background: url(/assets/img/interface/tour/timepoint.png) no-repeat 0 center;
 
 }
 
@@ -95,6 +96,7 @@ behavior: url(/_css/IE-CSS/ie-css3.htc);
 	margin-top: 2px;
 	margin-bottom: 2px;
 	zoom: 1;
+	z-index:1;
 }
 .spotArea:after {
 	content: "";
@@ -147,7 +149,7 @@ behavior: url(/_css/IE-CSS/ie-css3.htc);
 }
 
 .spotArea .spotBtnArea .bntDetail A {
-	padding:0 5px;
+	padding:3px 5px;
 	background: #F60;
 	color:#FFF;
 	text-align:center;
@@ -181,4 +183,50 @@ behavior: url(/_css/IE-CSS/ie-css3.htc);
 }
 .iconClose {
 	margin:10px 0;
+}
+
+
+.error {
+	color: red;
+}
+.select-category {
+	height: 130px;
+	width: 30em;
+	position: absolute;
+	overflow: auto;
+	z-index: 10;
+	display: none;
+	background: #ffc;
+	box-shadow: 1px 1px 3px #000;
+}
+
+
+#toolSpot .timecode, #spotAreaFrameScroll .timecode {
+    display:none;
+}
+
+.spotList li .spotDetail:hover{
+    background-color: #eee;
+    
+}
+
+.pg_jqui_state_highlight {
+    border: ridge 1px #f00;
+}
+
+.pg_jqui_state_hover {
+    border-color: #ccf;
+}
+
+.pg_form_table {
+	border: none 0px;
+	border-spacing: 0px;
+}
+
+.pg_form_table td, .pg_form_table th {
+    border: none;
+}
+
+.pg_form_table_th {
+    white-space: nowrap;
 }

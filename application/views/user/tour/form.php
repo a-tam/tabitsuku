@@ -3,52 +3,8 @@
 <link rel="stylesheet" type="text/css" href="<?php echo base_url("assets"); ?>/js/jquery/autocomplete/css/jquery.tagit.css">
 <link rel="stylesheet" type="text/css" href="<?php echo base_url("assets");?>/js/jquery/jpagenate/css/style.css">
 <link rel="stylesheet" type="text/css" href="<?php echo base_url("assets"); ?>/js/jquery/timepicker/jquery.timepicker.css"></script>
-<style type="text/css">
-.error {
-	color: red;
-}
-.select-category {
-	height: 130px;
-	width: 30em;
-	position: absolute;
-	overflow: auto;
-	z-index: 9999999;
-	display: none;
-	background: #ffc;
-	box-shadow: 1px 1px 3px #000;
-}
 
-#toolSpot .timecode, #spotAreaFrameScroll .timecode {
-    display:none;
-}
 
-.spotList li .spotDetail:hover{
-    background-color: #eee;
-    
-}
-
-.pg_jqui_state_highlight {
-    border: ridge 1px #f00;
-}
-
-.pg_jqui_state_hover {
-    border-color: #ccf;
-}
-
-.pg_form_table {
-	border: none 0px;
-	border-spacing: 0px;
-}
-
-.pg_form_table td, .pg_form_table th {
-    border: none;
-}
-
-.pg_form_table_th {
-    white-space: nowrap;
-}
-
-</style>
 <!-- javascript -->
 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=true&libraries=places"></script>
 <script type="text/javascript" src="<?php echo base_url("assets"); ?>/js/jquery/layout/jquery.layout-1.2.0.js"></script>
@@ -71,14 +27,26 @@
 <script type="text/javascript" src="<?php echo base_url("assets"); ?>/js/jquery/lightbox/source/helpers/jquery.fancybox-thumbs.js?v=1.0.2"></script>
 <script type="text/javascript" src="<?php echo base_url("assets"); ?>/js/jquery/lightbox/source/helpers/jquery.fancybox-media.js?v=1.0.0"></script>
 <script type="text/javascript" src="<?php echo base_url("assets"); ?>/js/jquery/lightbox/source/helpers/jquery.fancybox-buttons.js?v=1.0.2"></script>
+
+
+
+
+
+
+
 <?php $this->load->view("contents_header"); ?>
 <!-- ツアー作成 -->
 <div class="pane ui-layout-center">
 	<div id="mapAreaFrame" class="center-center">
 		<div class="ui-layout-north searchArea">
+		
+		
+		
+		
+		
 		<form id="search-map">
-		<input type="text" id="search-address" value="" />
-		<input type="submit" name="button" value="検索">
+		<input type="text" id="search-address" value=""  class="search inputRounnd" placeholder="スポットを検索する" style="margin-right:10px;" />
+		<input type="submit" name="button" value="検 索">
 		<span id="falledMessage" style="color:red; display:none;">見つかりませんでした。</span>
 		</form>
 		</div>
@@ -87,32 +55,47 @@
 	<div id="spotAreaFrame" class="center-east">
 		<div class="ui-layout-north">
 			<div class="ui-layout-north searchArea">
-				<div>
-					<label for="textfield2">カテゴリ</label>
-					<input type="hidden" class="category_val" id="search-category" value="" />
-					<input type="text" class="category_label" size="25" value="" readonly="readonly" />
-					<input type="button" class="category_clear" value="×" /><br />
-					<div id="select-category" class="select-category">&nbsp;</div>
-				</div>
-				表示<select name="limit" id="limit">
-					<option value="10">10</option>
-					<option value="100">100</option>
+								<!-- 上部検索 -->
+
+				
+				<div style="padding-bottom:8px;">
+			<select name="limit" id="limit" style="margin-right:5px; width:100px;">
+					
+					<option value="10">表示件数</option>
+					<option value="10">10件</option>
+					<option value="100">100件</option>
 				</select>
-				<label for="textfield">キーワード</label>
-				<input type="text" name="textfield" id="keyword" size="10"><br />
-				ソート:<select name="sort" id="sort">
+				<select name="sort" id="sort" style="width:100px;">
+					<option value="like_count desc">表示順</option>
 					<option value="like_count desc">人気順</option>
 					<option value="name asc">スポット名</option>
 				</select>
-				<input type="submit" name="button" id="spotFilterButton" value="検索">
+				</div>
+				<div style="padding-bottom:5px;">
+					<input type="text" name="textfield" id="keyword" class="inputRounnd" style="width:250px;" placeholder="キーワード">
+				</div>
+				<div style="padding-bottom:5px;">
+					<input type="hidden" class="category_val " id="search-category" value="" />
+					<input type="text" class="category_label inputRounnd" size="25" value="" readonly="readonly" placeholder="カテゴリを指定する" />
+					<input type="button" class="category_clear" value="×" />
+					<div id="select-category" class="select-category">&nbsp;</div>
+					<input type="submit" name="button" id="spotFilterButton" value="検 索" style="font-size:100%; margin:0 auto;">
+
+				</div>
 				<div>
 				<div id="search-result"><span id="search-count"></span>件中 <span id="start"></span>件 〜 <span id="end"></span>件 表示</div>
 				<div id="pagenation"></div>
 				</div>
+				<!-- //上部検索 -->
 			</div>
 		</div>
-		<ul id="spotAreaFrameScroll" class="ui-layout-center spotList"></ul>
+		<ul id="spotAreaFrameScroll" class="ui-layout-center spotList" style="z-index:-10">
+			<!-- スポットリスト -->
+			<!-- //スポットリスト -->
+		</ul>
 		<div class="ui-layout-south">
+		
+		<!--  メモスポット -->
 			<ul id="toolSpot" style="margin-left: 0px; padding-left: 0px;">
 			<li data-spot-id="0" style="list-style-type: none;" class="spot">
 				<div class="spotArea">
@@ -153,6 +136,7 @@
 				<span class="timecode">9:00</span>
 			</li>
 			</ul>
+		<!--  メモスポット -->
 		</div>
 	</div>
 </div>
