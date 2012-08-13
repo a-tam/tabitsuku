@@ -9,4 +9,4 @@
 </footer>
 </body>
 </html>
-<?php $this->output->enable_profiler(TRUE);?>
+<?php //$this->output->enable_profiler(TRUE);?>
