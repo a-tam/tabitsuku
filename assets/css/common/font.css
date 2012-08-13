@@ -142,7 +142,7 @@ H5 {
 	padding:;
 	letter-spacing: 0.1em;
 	text-shadow: 1px 1px 3px #999; 
-	behavior: url(/_css/IE-CSS/ie-css3.htc);
+	behavior: url(/assets/_css/IE-CSS/ie-css3.htc);
 }
 
 .contentsTitle {
