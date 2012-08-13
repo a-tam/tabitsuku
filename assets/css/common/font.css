@@ -79,18 +79,18 @@ IMG.iconCategory {
 /* ----------------------------------------------------------------- 
 	リンク
 -------------------------------------------------------------------- */
-A:link {
-	color:#E0007F;
-	text-decoration: underline;
+A {
+	color: #f05e1c;
+	text-decoration: none;
 }
 
 A:visited {
-	color:#E0007F;
-	text-decoration: underline;
+	color: #f05e1c;
+	text-decoration: none;
 }
 
 A:hover {
-	color: #FC0;
+	color: #4BBAC8;
 	text-decoration: none;
 }
 
