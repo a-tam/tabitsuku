@@ -1,0 +1,465 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RestaurantInfo>
+<NumOfResult>3554</NumOfResult> 
+<Item>
+	<Rcd>18000793</Rcd>
+	<RestaurantName>L-Black</RestaurantName>
+	<TabelogUrl>http://tabelog.com/fukui/A1803/A180301/18000793/</TabelogUrl>
+<TabelogMobileUrl>http://m.tabelog.com/fukui/A1803/A180301/18000793/</TabelogMobileUrl>
+	<TotalScore>3.5</TotalScore>
+	<TasteScore>3.1</TasteScore>
+	<ServiceScore>3.29</ServiceScore>
+	<MoodScore>3.09</MoodScore>
+	<Situation>友人・同僚と、デート、一人で</Situation>
+	<DinnerPrice>￥2,000～￥2,999</DinnerPrice>
+	<LunchPrice>￥1,000～￥1,999</LunchPrice>
+	<Category>ピザ、カフェ、バー</Category>
+	<Station>敦賀</Station>
+	<Address>敦賀市白銀町4-11 </Address>
+	<Tel>0770-23-2355</Tel>
+	<BusinessHours>11:00～24:00(L.O.23:30)
+
+（ランチ 11:00～14:00）</BusinessHours>
+	<Holiday>木曜日</Holiday>
+	<Latitude>35.6463439326747</Latitude>
+	<Longitude>136.07461888181</Longitude>
+
+</Item>
+<Item>
+	<Rcd>18003967</Rcd>
+	<RestaurantName>手づくり菓子工房　ペルシュ</RestaurantName>
+	<TabelogUrl>http://tabelog.com/fukui/A1802/A180201/18003967/</TabelogUrl>
+<TabelogMobileUrl>http://m.tabelog.com/fukui/A1802/A180201/18003967/</TabelogMobileUrl>
+	<TotalScore>3.5</TotalScore>
+	<TasteScore>3.51</TasteScore>
+	<ServiceScore></ServiceScore>
+	<MoodScore></MoodScore>
+	<Situation>家族・子供と</Situation>
+	<DinnerPrice>￥1,000～￥1,999</DinnerPrice>
+	<LunchPrice>￥1,000～￥1,999</LunchPrice>
+	<Category>ケーキ、洋菓子（その他）、カフェ</Category>
+	<Station>北鯖江</Station>
+	<Address>鯖江市神中2-407-2 </Address>
+	<Tel>0778-54-4500</Tel>
+	<BusinessHours>[火～土]
+9:00～19:30
+[日・祝]
+9:00～19:00
+</BusinessHours>
+	<Holiday>月曜日（祝日の場合は翌日）</Holiday>
+	<Latitude>35.9730308747872</Latitude>
+	<Longitude>136.195827579669</Longitude>
+
+</Item>
+<Item>
+	<Rcd>18003407</Rcd>
+	<RestaurantName>串揚げ処　喜寿</RestaurantName>
+	<TabelogUrl>http://tabelog.com/fukui/A1801/A180101/18003407/</TabelogUrl>
+<TabelogMobileUrl>http://m.tabelog.com/fukui/A1801/A180101/18003407/</TabelogMobileUrl>
+	<TotalScore>3.5</TotalScore>
+	<TasteScore>3.51</TasteScore>
+	<ServiceScore>3.48</ServiceScore>
+	<MoodScore>3.48</MoodScore>
+	<Situation>友人・同僚と、デート</Situation>
+	<DinnerPrice>￥4,000～￥4,999</DinnerPrice>
+	<LunchPrice></LunchPrice>
+	<Category>串揚げ・串かつ</Category>
+	<Station>市役所前、福井駅前、仁愛女子高校</Station>
+	<Address>福井市順化1-12-19 </Address>
+	<Tel>0776-28-7107</Tel>
+	<BusinessHours>17:30～22:30(LO)</BusinessHours>
+	<Holiday></Holiday>
+	<Latitude>36.0644387373423</Latitude>
+	<Longitude>136.217327290743</Longitude>
+
+</Item>
+<Item>
+	<Rcd>18004528</Rcd>
+	<RestaurantName>Cona Cona</RestaurantName>
+	<TabelogUrl>http://tabelog.com/fukui/A1803/A180301/18004528/</TabelogUrl>
+<TabelogMobileUrl>http://m.tabelog.com/fukui/A1803/A180301/18004528/</TabelogMobileUrl>
+	<TotalScore>3.5</TotalScore>
+	<TasteScore></TasteScore>
+	<ServiceScore></ServiceScore>
+	<MoodScore></MoodScore>
+	<Situation>友人・同僚と、一人で</Situation>
+	<DinnerPrice></DinnerPrice>
+	<LunchPrice>￥1,000～￥1,999</LunchPrice>
+	<Category>ケーキ、カフェ、ベーグル</Category>
+	<Station>敦賀</Station>
+	<Address>敦賀市相生町6-8 </Address>
+	<Tel>0770-23-8768</Tel>
+	<BusinessHours>10:00～19:00</BusinessHours>
+	<Holiday>火曜、第２・４水曜日</Holiday>
+	<Latitude>35.6558208751096</Latitude>
+	<Longitude>136.069610773438</Longitude>
+
+</Item>
+<Item>
+	<Rcd>18004531</Rcd>
+	<RestaurantName>観山洞</RestaurantName>
+	<TabelogUrl>http://tabelog.com/fukui/A1801/A180103/18004531/</TabelogUrl>
+<TabelogMobileUrl>http://m.tabelog.com/fukui/A1801/A180103/18004531/</TabelogMobileUrl>
+	<TotalScore>3.5</TotalScore>
+	<TasteScore></TasteScore>
+	<ServiceScore></ServiceScore>
+	<MoodScore></MoodScore>
+	<Situation>家族・子供と</Situation>
+	<DinnerPrice></DinnerPrice>
+	<LunchPrice> ～￥999</LunchPrice>
+	<Category>和菓子、ケーキ、アイスクリーム</Category>
+	<Station>小舟渡</Station>
+	<Address>勝山市北郷町東野28-47 </Address>
+	<Tel>0779-89-1102</Tel>
+	<BusinessHours>平日
+8：30～18：00
+日曜
+8：30～17：00</BusinessHours>
+	<Holiday></Holiday>
+	<Latitude>36.0833764073811</Latitude>
+	<Longitude>136.429531530873</Longitude>
+
+</Item>
+<Item>
+	<Rcd>18003465</Rcd>
+	<RestaurantName>御菓子処あさみ</RestaurantName>
+	<TabelogUrl>http://tabelog.com/fukui/A1803/A180301/18003465/</TabelogUrl>
+<TabelogMobileUrl>http://m.tabelog.com/fukui/A1803/A180301/18003465/</TabelogMobileUrl>
+	<TotalScore>3.5</TotalScore>
+	<TasteScore></TasteScore>
+	<ServiceScore></ServiceScore>
+	<MoodScore></MoodScore>
+	<Situation>友人・同僚と</Situation>
+	<DinnerPrice></DinnerPrice>
+	<LunchPrice></LunchPrice>
+	<Category>和菓子</Category>
+	<Station>敦賀</Station>
+	<Address>敦賀市神楽2-6-21 </Address>
+	<Tel>0770-22-0289</Tel>
+	<BusinessHours> 
+</BusinessHours>
+	<Holiday></Holiday>
+	<Latitude>35.6537903751108</Latitude>
+	<Longitude>136.067486173401</Longitude>
+
+</Item>
+<Item>
+	<Rcd>18004589</Rcd>
+	<RestaurantName>森八大名閣 福井西武店</RestaurantName>
+	<TabelogUrl>http://tabelog.com/fukui/A1801/A180101/18004589/</TabelogUrl>
+<TabelogMobileUrl>http://m.tabelog.com/fukui/A1801/A180101/18004589/</TabelogMobileUrl>
+	<TotalScore>3.5</TotalScore>
+	<TasteScore></TasteScore>
+	<ServiceScore></ServiceScore>
+	<MoodScore></MoodScore>
+	<Situation>友人・同僚と、家族・子供と、一人で</Situation>
+	<DinnerPrice></DinnerPrice>
+	<LunchPrice> ～￥999</LunchPrice>
+	<Category>和菓子、洋菓子（その他）</Category>
+	<Station>福井駅前、福井、市役所前</Station>
+	<Address>福井市中央1-9-20 福井西武店 B1F</Address>
+	<Tel>0776-25-0009</Tel>
+	<BusinessHours>10:00～19:30</BusinessHours>
+	<Holiday>福井西武店に準ずる</Holiday>
+	<Latitude>36.0615475373451</Latitude>
+	<Longitude>136.220071590712</Longitude>
+
+</Item>
+<Item>
+	<Rcd>18000153</Rcd>
+	<RestaurantName>池田屋ごんちゃん</RestaurantName>
+	<TabelogUrl>http://tabelog.com/fukui/A1803/A180301/18000153/</TabelogUrl>
+<TabelogMobileUrl>http://m.tabelog.com/fukui/A1803/A180301/18000153/</TabelogMobileUrl>
+	<TotalScore>3.48</TotalScore>
+	<TasteScore>3.4</TasteScore>
+	<ServiceScore>3.12</ServiceScore>
+	<MoodScore>3.48</MoodScore>
+	<Situation>友人・同僚と、一人で</Situation>
+	<DinnerPrice> ～￥999</DinnerPrice>
+	<LunchPrice> ～￥999</LunchPrice>
+	<Category>ラーメン</Category>
+	<Station>敦賀</Station>
+	<Address>敦賀市本町2-11-1 </Address>
+	<Tel>090-1639-5512</Tel>
+	<BusinessHours>20:00～翌1:00頃</BusinessHours>
+	<Holiday>火曜・水曜・悪天候不定休</Holiday>
+	<Latitude>35.6500095738702</Latitude>
+	<Longitude>136.072163663236</Longitude>
+
+</Item>
+<Item>
+	<Rcd>18002027</Rcd>
+	<RestaurantName>高良</RestaurantName>
+	<TabelogUrl>http://tabelog.com/fukui/A1801/A180102/18002027/</TabelogUrl>
+<TabelogMobileUrl>http://m.tabelog.com/fukui/A1801/A180102/18002027/</TabelogMobileUrl>
+	<TotalScore>3.47</TotalScore>
+	<TasteScore>3.28</TasteScore>
+	<ServiceScore>3.47</ServiceScore>
+	<MoodScore>3.03</MoodScore>
+	<Situation>友人・同僚と、家族・子供と、一人で</Situation>
+	<DinnerPrice> ～￥999</DinnerPrice>
+	<LunchPrice> ～￥999</LunchPrice>
+	<Category>とんかつ、かつ丼・かつ重、定食・食堂</Category>
+	<Station>春江、森田、越前島橋</Station>
+	<Address>坂井市丸岡町羽崎5-6-1 </Address>
+	<Tel>0776-66-8857</Tel>
+	<BusinessHours></BusinessHours>
+	<Holiday></Holiday>
+	<Latitude>36.1186993703683</Latitude>
+	<Longitude>136.258611599422</Longitude>
+
+</Item>
+<Item>
+	<Rcd>18000496</Rcd>
+	<RestaurantName>らーめん 岩本屋 福井店</RestaurantName>
+	<TabelogUrl>http://tabelog.com/fukui/A1801/A180101/18000496/</TabelogUrl>
+<TabelogMobileUrl>http://m.tabelog.com/fukui/A1801/A180101/18000496/</TabelogMobileUrl>
+	<TotalScore>3.45</TotalScore>
+	<TasteScore>3.45</TasteScore>
+	<ServiceScore>3.53</ServiceScore>
+	<MoodScore>3.51</MoodScore>
+	<Situation>友人・同僚と、一人で</Situation>
+	<DinnerPrice> ～￥999</DinnerPrice>
+	<LunchPrice> ～￥999</LunchPrice>
+	<Category>ラーメン、つけ麺</Category>
+	<Station>福大前西福井、日華化学前、市役所前</Station>
+	<Address>福井市光陽2-10-15 </Address>
+	<Tel>0776-21-4667</Tel>
+	<BusinessHours>11:00～24:00</BusinessHours>
+	<Holiday>不定休</Holiday>
+	<Latitude>36.0671277108183</Latitude>
+	<Longitude>136.197919292143</Longitude>
+
+</Item>
+<Item>
+	<Rcd>18000587</Rcd>
+	<RestaurantName>そば蔵 谷川</RestaurantName>
+	<TabelogUrl>http://tabelog.com/fukui/A1802/A180202/18000587/</TabelogUrl>
+<TabelogMobileUrl>http://m.tabelog.com/fukui/A1802/A180202/18000587/</TabelogMobileUrl>
+	<TotalScore>3.45</TotalScore>
+	<TasteScore>3.36</TasteScore>
+	<ServiceScore>3.22</ServiceScore>
+	<MoodScore>3.38</MoodScore>
+	<Situation>友人・同僚と、一人で</Situation>
+	<DinnerPrice>￥1,000～￥1,999</DinnerPrice>
+	<LunchPrice>￥1,000～￥1,999</LunchPrice>
+	<Category>そば</Category>
+	<Station>北府、越前武生、武生</Station>
+	<Address>越前市深草2-9-28 </Address>
+	<Tel>0778-23-5001</Tel>
+	<BusinessHours>[火～日]
+11:30～14:00</BusinessHours>
+	<Holiday>月曜、第3日曜</Holiday>
+	<Latitude>35.907152637424</Latitude>
+	<Longitude>136.159988889195</Longitude>
+
+</Item>
+<Item>
+	<Rcd>18000220</Rcd>
+	<RestaurantName>MARE</RestaurantName>
+	<TabelogUrl>http://tabelog.com/fukui/A1801/A180101/18000220/</TabelogUrl>
+<TabelogMobileUrl>http://m.tabelog.com/fukui/A1801/A180101/18000220/</TabelogMobileUrl>
+	<TotalScore>3.45</TotalScore>
+	<TasteScore>3.31</TasteScore>
+	<ServiceScore>3.28</ServiceScore>
+	<MoodScore>3.52</MoodScore>
+	<Situation>デート</Situation>
+	<DinnerPrice></DinnerPrice>
+	<LunchPrice> ～￥999</LunchPrice>
+	<Category>カフェ</Category>
+	<Station>福井市その他</Station>
+	<Address>福井市大丹生町70-3 </Address>
+	<Tel>0776-88-2323</Tel>
+	<BusinessHours>10:00～日没まで 季節によって変わります</BusinessHours>
+	<Holiday>年中無休</Holiday>
+	<Latitude>36.0763534319268</Latitude>
+	<Longitude>136.025349865909</Longitude>
+
+</Item>
+<Item>
+	<Rcd>18000613</Rcd>
+	<RestaurantName>ベーカリー マルキ</RestaurantName>
+	<TabelogUrl>http://tabelog.com/fukui/A1801/A180101/18000613/</TabelogUrl>
+<TabelogMobileUrl>http://m.tabelog.com/fukui/A1801/A180101/18000613/</TabelogMobileUrl>
+	<TotalScore>3.45</TotalScore>
+	<TasteScore>3.45</TasteScore>
+	<ServiceScore>3.17</ServiceScore>
+	<MoodScore>3.19</MoodScore>
+	<Situation>家族・子供と、一人で</Situation>
+	<DinnerPrice> ～￥999</DinnerPrice>
+	<LunchPrice> ～￥999</LunchPrice>
+	<Category>パン、サンドイッチ</Category>
+	<Station>田原町、福大前西福井、西別院</Station>
+	<Address>福井市文京2-7-16 </Address>
+	<Tel>0776-22-5316</Tel>
+	<BusinessHours>7:30～19:00
+土曜～18:00
+祝日～16:00</BusinessHours>
+	<Holiday>日曜日</Holiday>
+	<Latitude>36.0773176373338</Latitude>
+	<Longitude>136.216063890874</Longitude>
+
+</Item>
+<Item>
+	<Rcd>18000516</Rcd>
+	<RestaurantName>蕎麦処 おおくぼ</RestaurantName>
+	<TabelogUrl>http://tabelog.com/fukui/A1801/A180101/18000516/</TabelogUrl>
+<TabelogMobileUrl>http://m.tabelog.com/fukui/A1801/A180101/18000516/</TabelogMobileUrl>
+	<TotalScore>3.45</TotalScore>
+	<TasteScore>3.53</TasteScore>
+	<ServiceScore>3.17</ServiceScore>
+	<MoodScore>2.7</MoodScore>
+	<Situation>一人で</Situation>
+	<DinnerPrice></DinnerPrice>
+	<LunchPrice>￥1,000～￥1,999</LunchPrice>
+	<Category>そば</Category>
+	<Station>花堂</Station>
+	<Address>福井市西谷町22-11 </Address>
+	<Tel>0776-35-7676</Tel>
+	<BusinessHours>[月・水～日]
+11:00～20:00
+</BusinessHours>
+	<Holiday>火曜日（祝日の場合は営業）</Holiday>
+	<Latitude>36.0419397194913</Latitude>
+	<Longitude>136.206808874803</Longitude>
+
+</Item>
+<Item>
+	<Rcd>18000976</Rcd>
+	<RestaurantName>吉野寿司</RestaurantName>
+	<TabelogUrl>http://tabelog.com/fukui/A1801/A180101/18000976/</TabelogUrl>
+<TabelogMobileUrl>http://m.tabelog.com/fukui/A1801/A180101/18000976/</TabelogMobileUrl>
+	<TotalScore>3.45</TotalScore>
+	<TasteScore>3.5</TasteScore>
+	<ServiceScore>3.26</ServiceScore>
+	<MoodScore>3.31</MoodScore>
+	<Situation>友人・同僚と、宴会、一人で</Situation>
+	<DinnerPrice>￥3,000～￥3,999</DinnerPrice>
+	<LunchPrice></LunchPrice>
+	<Category>寿司</Category>
+	<Station>福井駅前、公園口、福井</Station>
+	<Address>福井市中央2-6-4 </Address>
+	<Tel>0776-22-1810</Tel>
+	<BusinessHours>[月～土]
+18:00～23:30</BusinessHours>
+	<Holiday>日曜日</Holiday>
+	<Latitude>36.0590301617477</Latitude>
+	<Longitude>136.218988786103</Longitude>
+
+</Item>
+<Item>
+	<Rcd>18000876</Rcd>
+	<RestaurantName>釜めし　王将</RestaurantName>
+	<TabelogUrl>http://tabelog.com/fukui/A1801/A180101/18000876/</TabelogUrl>
+<TabelogMobileUrl>http://m.tabelog.com/fukui/A1801/A180101/18000876/</TabelogMobileUrl>
+	<TotalScore>3.45</TotalScore>
+	<TasteScore>3.52</TasteScore>
+	<ServiceScore>3.38</ServiceScore>
+	<MoodScore>3.51</MoodScore>
+	<Situation>友人・同僚と、家族・子供と</Situation>
+	<DinnerPrice>￥1,000～￥1,999</DinnerPrice>
+	<LunchPrice></LunchPrice>
+	<Category>釜飯、うどん、和食（その他）</Category>
+	<Station>市役所前、福井駅前、仁愛女子高校</Station>
+	<Address>福井市順化1-12-9 </Address>
+	<Tel>0776-22-3739</Tel>
+	<BusinessHours>16：30～22：00（L.O.22：00）</BusinessHours>
+	<Holiday>日、祝</Holiday>
+	<Latitude>36.0645526373421</Latitude>
+	<Longitude>136.216763390744</Longitude>
+
+</Item>
+<Item>
+	<Rcd>18004591</Rcd>
+	<RestaurantName>プリンセス＆プリンス</RestaurantName>
+	<TabelogUrl>http://tabelog.com/fukui/A1802/A180201/18004591/</TabelogUrl>
+<TabelogMobileUrl>http://m.tabelog.com/fukui/A1802/A180201/18004591/</TabelogMobileUrl>
+	<TotalScore>3.45</TotalScore>
+	<TasteScore>3.36</TasteScore>
+	<ServiceScore>3.17</ServiceScore>
+	<MoodScore>3.0</MoodScore>
+	<Situation>一人で</Situation>
+	<DinnerPrice></DinnerPrice>
+	<LunchPrice>￥1,000～￥1,999</LunchPrice>
+	<Category>洋菓子（その他）</Category>
+	<Station>西鯖江、西山公園、鯖江</Station>
+	<Address>鯖江市桜町3丁目3-3 サバエ・シティーホテル1F</Address>
+	<Tel>0778-53-1122</Tel>
+	<BusinessHours>11:00～19:30</BusinessHours>
+	<Holiday>火曜日</Holiday>
+	<Latitude>35.9473096374053</Latitude>
+	<Longitude>136.181271889585</Longitude>
+
+</Item>
+<Item>
+	<Rcd>18000745</Rcd>
+	<RestaurantName>福井源</RestaurantName>
+	<TabelogUrl>http://tabelog.com/fukui/A1801/A180101/18000745/</TabelogUrl>
+<TabelogMobileUrl>http://m.tabelog.com/fukui/A1801/A180101/18000745/</TabelogMobileUrl>
+	<TotalScore>3.43</TotalScore>
+	<TasteScore>3.41</TasteScore>
+	<ServiceScore>3.34</ServiceScore>
+	<MoodScore>3.21</MoodScore>
+	<Situation>友人・同僚と、一人で</Situation>
+	<DinnerPrice>￥1,000～￥1,999</DinnerPrice>
+	<LunchPrice> ～￥999</LunchPrice>
+	<Category>中華料理、ラーメン</Category>
+	<Station>市役所前、福井駅前、仁愛女子高校</Station>
+	<Address>福井市順化1-10-3 </Address>
+	<Tel>0776-27-3435</Tel>
+	<BusinessHours>11:00～14:30
+18:00～翌朝4:00
+＊日によって早く閉店する場合あり</BusinessHours>
+	<Holiday>日曜日</Holiday>
+	<Latitude>36.0637056373427</Latitude>
+	<Longitude>136.216693890736</Longitude>
+
+</Item>
+<Item>
+	<Rcd>18001610</Rcd>
+	<RestaurantName>昌冨ずし</RestaurantName>
+	<TabelogUrl>http://tabelog.com/fukui/A1801/A180101/18001610/</TabelogUrl>
+<TabelogMobileUrl>http://m.tabelog.com/fukui/A1801/A180101/18001610/</TabelogMobileUrl>
+	<TotalScore>3.43</TotalScore>
+	<TasteScore>3.43</TasteScore>
+	<ServiceScore>3.1</ServiceScore>
+	<MoodScore>3.0</MoodScore>
+	<Situation>友人・同僚と、デート、家族・子供と、一人で</Situation>
+	<DinnerPrice>￥8,000～￥9,999</DinnerPrice>
+	<LunchPrice></LunchPrice>
+	<Category>寿司</Category>
+	<Station>福井駅前、福井、公園口</Station>
+	<Address>福井市中央2-1-41 </Address>
+	<Tel>0776-23-7995</Tel>
+	<BusinessHours>夕方5時から</BusinessHours>
+	<Holiday>水曜日</Holiday>
+	<Latitude>36.0592800597851</Latitude>
+	<Longitude>136.220731370033</Longitude>
+
+</Item>
+<Item>
+	<Rcd>18003251</Rcd>
+	<RestaurantName>秋吉 鯖江店</RestaurantName>
+	<TabelogUrl>http://tabelog.com/fukui/A1802/A180201/18003251/</TabelogUrl>
+<TabelogMobileUrl>http://m.tabelog.com/fukui/A1802/A180201/18003251/</TabelogMobileUrl>
+	<TotalScore>3.43</TotalScore>
+	<TasteScore>3.31</TasteScore>
+	<ServiceScore>3.31</ServiceScore>
+	<MoodScore>3.24</MoodScore>
+	<Situation>友人・同僚と、家族・子供と、一人で</Situation>
+	<DinnerPrice>￥2,000～￥2,999</DinnerPrice>
+	<LunchPrice></LunchPrice>
+	<Category>焼鳥、串揚げ・串かつ、居酒屋・ダイニングバー（その他）</Category>
+	<Station>鯖江、西鯖江</Station>
+	<Address>鯖江市横江町2-302 </Address>
+	<Tel>0778-51-7000</Tel>
+	<BusinessHours>[月・水～土]
+17:00～23:30
+[日・祝]
+16:00～22:30</BusinessHours>
+	<Holiday>火曜日</Holiday>
+	<Latitude>35.9427281558685</Latitude>
+	<Longitude>136.192975152557</Longitude>
+
+</Item>
+</RestaurantInfo>

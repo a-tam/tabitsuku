@@ -1,0 +1,481 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RestaurantInfo>
+<NumOfResult>8972</NumOfResult> 
+<Item>
+	<Rcd>4010995</Rcd>
+	<RestaurantName>中華そば　坂内製麺</RestaurantName>
+	<TabelogUrl>http://tabelog.com/miyagi/A0401/A040103/4010995/</TabelogUrl>
+<TabelogMobileUrl>http://m.tabelog.com/miyagi/A0401/A040103/4010995/</TabelogMobileUrl>
+	<TotalScore>3.51</TotalScore>
+	<TasteScore>3.45</TasteScore>
+	<ServiceScore>3.24</ServiceScore>
+	<MoodScore>3.34</MoodScore>
+	<Situation>友人・同僚と、一人で</Situation>
+	<DinnerPrice> ～￥999</DinnerPrice>
+	<LunchPrice> ～￥999</LunchPrice>
+	<Category>ラーメン</Category>
+	<Station>長町一丁目、長町、河原町（仙台）</Station>
+	<Address>仙台市若林区若林6-1-10 </Address>
+	<Tel>022-285-1411</Tel>
+	<BusinessHours>11：00～14：30
+17：00～20：30
+</BusinessHours>
+	<Holiday>年中無休</Holiday>
+	<Latitude>38.2299452904693</Latitude>
+	<Longitude>140.906674483778</Longitude>
+
+</Item>
+<Item>
+	<Rcd>4010929</Rcd>
+	<RestaurantName>濃つけ麺専門店 はっちゃけ</RestaurantName>
+	<TabelogUrl>http://tabelog.com/miyagi/A0401/A040102/4010929/</TabelogUrl>
+<TabelogMobileUrl>http://m.tabelog.com/miyagi/A0401/A040102/4010929/</TabelogMobileUrl>
+	<TotalScore>3.51</TotalScore>
+	<TasteScore>3.53</TasteScore>
+	<ServiceScore>3.48</ServiceScore>
+	<MoodScore>3.19</MoodScore>
+	<Situation>友人・同僚と、家族・子供と、一人で</Situation>
+	<DinnerPrice> ～￥999</DinnerPrice>
+	<LunchPrice> ～￥999</LunchPrice>
+	<Category>つけ麺、ラーメン</Category>
+	<Station>岩切、新利府</Station>
+	<Address>宮城郡利府町神谷沢塚元8-10 </Address>
+	<Tel>非公開</Tel>
+	<BusinessHours>[木]
+11:00～15:00
+17:00～20:00
+※なくなり次第終了
+[金]
+17:00～なくなり次第終了</BusinessHours>
+	<Holiday>月～水・土・日</Holiday>
+	<Latitude>38.3138755023289</Latitude>
+	<Longitude>140.955666272937</Longitude>
+
+</Item>
+<Item>
+	<Rcd>4009511</Rcd>
+	<RestaurantName>鳥安</RestaurantName>
+	<TabelogUrl>http://tabelog.com/miyagi/A0401/A040101/4009511/</TabelogUrl>
+<TabelogMobileUrl>http://m.tabelog.com/miyagi/A0401/A040101/4009511/</TabelogMobileUrl>
+	<TotalScore>3.51</TotalScore>
+	<TasteScore>3.54</TasteScore>
+	<ServiceScore>3.51</ServiceScore>
+	<MoodScore>3.48</MoodScore>
+	<Situation>友人・同僚と、一人で</Situation>
+	<DinnerPrice>￥3,000～￥3,999</DinnerPrice>
+	<LunchPrice></LunchPrice>
+	<Category>焼鳥、居酒屋、鳥料理</Category>
+	<Station>あおば通、広瀬通、勾当台公園</Station>
+	<Address>仙台市青葉区一番町2-4-17 ブルーリボンビルB1F</Address>
+	<Tel>022-262-0693</Tel>
+	<BusinessHours></BusinessHours>
+	<Holiday></Holiday>
+	<Latitude>38.2591184374311</Latitude>
+	<Longitude>140.872827909648</Longitude>
+
+</Item>
+<Item>
+	<Rcd>4002275</Rcd>
+	<RestaurantName>BORIS BAR</RestaurantName>
+	<TabelogUrl>http://tabelog.com/miyagi/A0401/A040101/4002275/</TabelogUrl>
+<TabelogMobileUrl>http://m.tabelog.com/miyagi/A0401/A040101/4002275/</TabelogMobileUrl>
+	<TotalScore>3.51</TotalScore>
+	<TasteScore>3.28</TasteScore>
+	<ServiceScore>3.51</ServiceScore>
+	<MoodScore>3.41</MoodScore>
+	<Situation>一人で</Situation>
+	<DinnerPrice>￥4,000～￥4,999</DinnerPrice>
+	<LunchPrice></LunchPrice>
+	<Category>バー</Category>
+	<Station>勾当台公園、広瀬通、あおば通</Station>
+	<Address>仙台市青葉区一番町4-3-22 スマイルホテル仙台国分町　Ｂ１Ｆ</Address>
+	<Tel>022-712-0480</Tel>
+	<BusinessHours>[月～土・祝]
+19:00くらい～翌1:00(L.O.24:30)
+</BusinessHours>
+	<Holiday>日曜日</Holiday>
+	<Latitude>38.2633516440037</Latitude>
+	<Longitude>140.870672602308</Longitude>
+
+</Item>
+<Item>
+	<Rcd>4002726</Rcd>
+	<RestaurantName>松島 一の坊</RestaurantName>
+	<TabelogUrl>http://tabelog.com/miyagi/A0404/A040404/4002726/</TabelogUrl>
+<TabelogMobileUrl>http://m.tabelog.com/miyagi/A0404/A040404/4002726/</TabelogMobileUrl>
+	<TotalScore>3.51</TotalScore>
+	<TasteScore>3.43</TasteScore>
+	<ServiceScore>3.51</ServiceScore>
+	<MoodScore>3.55</MoodScore>
+	<Situation>友人・同僚と、デート、接待、家族・子供と</Situation>
+	<DinnerPrice>￥10,000～￥14,999</DinnerPrice>
+	<LunchPrice>￥1,000～￥1,999</LunchPrice>
+	<Category>旅館・オーベルジュ（その他）</Category>
+	<Station>松島、高城町</Station>
+	<Address>宮城郡松島町高城字浜1-4 松島　一の坊</Address>
+	<Tel>022-353-3333</Tel>
+	<BusinessHours></BusinessHours>
+	<Holiday></Holiday>
+	<Latitude>38.3769582875666</Latitude>
+	<Longitude>141.072032870924</Longitude>
+
+</Item>
+<Item>
+	<Rcd>4005524</Rcd>
+	<RestaurantName>北の峯</RestaurantName>
+	<TabelogUrl>http://tabelog.com/miyagi/A0401/A040101/4005524/</TabelogUrl>
+<TabelogMobileUrl>http://m.tabelog.com/miyagi/A0401/A040101/4005524/</TabelogMobileUrl>
+	<TotalScore>3.51</TotalScore>
+	<TasteScore>3.51</TasteScore>
+	<ServiceScore>3.51</ServiceScore>
+	<MoodScore>3.31</MoodScore>
+	<Situation>友人・同僚と</Situation>
+	<DinnerPrice>￥4,000～￥4,999</DinnerPrice>
+	<LunchPrice></LunchPrice>
+	<Category>和食（その他）</Category>
+	<Station>広瀬通、勾当台公園、あおば通</Station>
+	<Address>仙台市青葉区本町2-14-26 </Address>
+	<Tel>022-265-7257</Tel>
+	<BusinessHours></BusinessHours>
+	<Holiday></Holiday>
+	<Latitude>38.2644976904323</Latitude>
+	<Longitude>140.873860107042</Longitude>
+
+</Item>
+<Item>
+	<Rcd>4000958</Rcd>
+	<RestaurantName>魚貝料理 松平</RestaurantName>
+	<TabelogUrl>http://tabelog.com/miyagi/A0401/A040101/4000958/</TabelogUrl>
+<TabelogMobileUrl>http://m.tabelog.com/miyagi/A0401/A040101/4000958/</TabelogMobileUrl>
+	<TotalScore>3.51</TotalScore>
+	<TasteScore>3.51</TasteScore>
+	<ServiceScore>3.21</ServiceScore>
+	<MoodScore>3.21</MoodScore>
+	<Situation>友人・同僚と、接待</Situation>
+	<DinnerPrice>￥5,000～￥5,999</DinnerPrice>
+	<LunchPrice></LunchPrice>
+	<Category>魚介料理・海鮮料理、郷土料理（その他）</Category>
+	<Station>勾当台公園、広瀬通、北四番丁</Station>
+	<Address>仙台市青葉区国分町2-12-16 マークビル　２Ｆ</Address>
+	<Tel>022-262-6440</Tel>
+	<BusinessHours>月～土 17:00～24:00</BusinessHours>
+	<Holiday>日曜・祝日</Holiday>
+	<Latitude>38.2644003721353</Latitude>
+	<Longitude>140.867891118357</Longitude>
+
+</Item>
+<Item>
+	<Rcd>4003141</Rcd>
+	<RestaurantName>くるまやラーメン 迫町店</RestaurantName>
+	<TabelogUrl>http://tabelog.com/miyagi/A0403/A040303/4003141/</TabelogUrl>
+<TabelogMobileUrl>http://m.tabelog.com/miyagi/A0403/A040303/4003141/</TabelogMobileUrl>
+	<TotalScore>3.51</TotalScore>
+	<TasteScore>3.51</TasteScore>
+	<ServiceScore>3.5</ServiceScore>
+	<MoodScore>2.97</MoodScore>
+	<Situation>友人・同僚と、家族・子供と、一人で</Situation>
+	<DinnerPrice> ～￥999</DinnerPrice>
+	<LunchPrice> ～￥999</LunchPrice>
+	<Category>ラーメン</Category>
+	<Station>登米市その他</Station>
+	<Address>登米市迫町佐沼字末広50 </Address>
+	<Tel>0220-22-9363</Tel>
+	<BusinessHours>午前11：30～翌1：30
+
+土祝午前11：00～翌1：30
+
+日曜午前11：00～翌1：00</BusinessHours>
+	<Holiday></Holiday>
+	<Latitude>38.690714637263</Latitude>
+	<Longitude>141.205779913774</Longitude>
+
+</Item>
+<Item>
+	<Rcd>4007957</Rcd>
+	<RestaurantName>L'essentiel Bar</RestaurantName>
+	<TabelogUrl>http://tabelog.com/miyagi/A0401/A040101/4007957/</TabelogUrl>
+<TabelogMobileUrl>http://m.tabelog.com/miyagi/A0401/A040101/4007957/</TabelogMobileUrl>
+	<TotalScore>3.51</TotalScore>
+	<TasteScore>3.47</TasteScore>
+	<ServiceScore>3.41</ServiceScore>
+	<MoodScore>3.26</MoodScore>
+	<Situation>友人・同僚と、デート、一人で</Situation>
+	<DinnerPrice>￥4,000～￥4,999</DinnerPrice>
+	<LunchPrice></LunchPrice>
+	<Category>バー、バー・お酒（その他）</Category>
+	<Station>勾当台公園、広瀬通、あおば通</Station>
+	<Address>仙台市青葉区国分町2-9-1 大信ビル1F</Address>
+	<Tel>022-715-6288</Tel>
+	<BusinessHours>19：00～翌03：00</BusinessHours>
+	<Holiday>不定休</Holiday>
+	<Latitude>38.2638746166462</Latitude>
+	<Longitude>140.869255478144</Longitude>
+
+</Item>
+<Item>
+	<Rcd>4003831</Rcd>
+	<RestaurantName>ごくう</RestaurantName>
+	<TabelogUrl>http://tabelog.com/miyagi/A0404/A040403/4003831/</TabelogUrl>
+<TabelogMobileUrl>http://m.tabelog.com/miyagi/A0404/A040403/4003831/</TabelogMobileUrl>
+	<TotalScore>3.51</TotalScore>
+	<TasteScore>3.29</TasteScore>
+	<ServiceScore>3.51</ServiceScore>
+	<MoodScore>3.55</MoodScore>
+	<Situation>友人・同僚と、デート、宴会、家族・子供と、一人で</Situation>
+	<DinnerPrice>￥4,000～￥4,999</DinnerPrice>
+	<LunchPrice></LunchPrice>
+	<Category>居酒屋、魚介料理・海鮮料理</Category>
+	<Station>石巻</Station>
+	<Address>石巻市立町2-5-41 </Address>
+	<Tel>0225-23-5821</Tel>
+	<BusinessHours>17:00〜24:00</BusinessHours>
+	<Holiday>無休</Holiday>
+	<Latitude>38.4331955360722</Latitude>
+	<Longitude>141.306585802062</Longitude>
+
+</Item>
+<Item>
+	<Rcd>4012935</Rcd>
+	<RestaurantName>手作りパン工房　パオ</RestaurantName>
+	<TabelogUrl>http://tabelog.com/miyagi/A0404/A040403/4012935/</TabelogUrl>
+<TabelogMobileUrl>http://m.tabelog.com/miyagi/A0404/A040403/4012935/</TabelogMobileUrl>
+	<TotalScore>3.51</TotalScore>
+	<TasteScore>3.51</TasteScore>
+	<ServiceScore>3.28</ServiceScore>
+	<MoodScore>3.28</MoodScore>
+	<Situation>友人・同僚と、家族・子供と、一人で</Situation>
+	<DinnerPrice></DinnerPrice>
+	<LunchPrice>￥1,000～￥1,999</LunchPrice>
+	<Category>パン</Category>
+	<Station>石巻</Station>
+	<Address>石巻市立町2-6-23 石巻復興ふれあい市場ＮＯ11</Address>
+	<Tel>0225-96-4770</Tel>
+	<BusinessHours>[日曜日以外]9:30～17:00
+[日曜日]10:00～17:00</BusinessHours>
+	<Holiday>不定休</Holiday>
+	<Latitude>38.4327629749162</Latitude>
+	<Longitude>141.303927622199</Longitude>
+
+</Item>
+<Item>
+	<Rcd>4010920</Rcd>
+	<RestaurantName>仙台大勝軒</RestaurantName>
+	<TabelogUrl>http://tabelog.com/miyagi/A0401/A040104/4010920/</TabelogUrl>
+<TabelogMobileUrl>http://m.tabelog.com/miyagi/A0401/A040104/4010920/</TabelogMobileUrl>
+	<TotalScore>3.5</TotalScore>
+	<TasteScore>3.33</TasteScore>
+	<ServiceScore>3.21</ServiceScore>
+	<MoodScore>3.22</MoodScore>
+	<Situation>友人・同僚と、一人で</Situation>
+	<DinnerPrice> ～￥999</DinnerPrice>
+	<LunchPrice> ～￥999</LunchPrice>
+	<Category>つけ麺、ラーメン</Category>
+	<Station>八乙女、泉中央、黒松（仙台）</Station>
+	<Address>仙台市泉区市名坂字楢町174-5 </Address>
+	<Tel>022-371-8313</Tel>
+	<BusinessHours>11:00～23:00
+（スープがなくなり次第終了）</BusinessHours>
+	<Holiday>無休</Holiday>
+	<Latitude>38.3173317748058</Latitude>
+	<Longitude>140.900313120434</Longitude>
+
+</Item>
+<Item>
+	<Rcd>4000339</Rcd>
+	<RestaurantName>らーめん くろく</RestaurantName>
+	<TabelogUrl>http://tabelog.com/miyagi/A0401/A040102/4000339/</TabelogUrl>
+<TabelogMobileUrl>http://m.tabelog.com/miyagi/A0401/A040102/4000339/</TabelogMobileUrl>
+	<TotalScore>3.5</TotalScore>
+	<TasteScore>3.5</TasteScore>
+	<ServiceScore>3.5</ServiceScore>
+	<MoodScore>3.53</MoodScore>
+	<Situation>友人・同僚と、一人で</Situation>
+	<DinnerPrice> ～￥999</DinnerPrice>
+	<LunchPrice> ～￥999</LunchPrice>
+	<Category>ラーメン</Category>
+	<Station>仙台、あおば通、広瀬通</Station>
+	<Address>仙台市宮城野区榴岡2-2-12 アーバンライフ橋本　１Ｆ</Address>
+	<Tel>022-298-7969</Tel>
+	<BusinessHours>[月・木・金]
+11:30～14:30
+17:30～23:30
+[火・水]
+11:30～14:30
+[土・日・祝]
+11:30～21:00</BusinessHours>
+	<Holiday></Holiday>
+	<Latitude>38.2613084905341</Latitude>
+	<Longitude>140.884361281758</Longitude>
+
+</Item>
+<Item>
+	<Rcd>4000217</Rcd>
+	<RestaurantName>石井屋</RestaurantName>
+	<TabelogUrl>http://tabelog.com/miyagi/A0401/A040101/4000217/</TabelogUrl>
+<TabelogMobileUrl>http://m.tabelog.com/miyagi/A0401/A040101/4000217/</TabelogMobileUrl>
+	<TotalScore>3.5</TotalScore>
+	<TasteScore>3.43</TasteScore>
+	<ServiceScore>3.14</ServiceScore>
+	<MoodScore>3.51</MoodScore>
+	<Situation>家族・子供と、一人で</Situation>
+	<DinnerPrice> ～￥999</DinnerPrice>
+	<LunchPrice> ～￥999</LunchPrice>
+	<Category>パン、ケーキ</Category>
+	<Station>北四番丁、勾当台公園</Station>
+	<Address>仙台市青葉区上杉1-13-31 </Address>
+	<Tel>022-223-2997</Tel>
+	<BusinessHours>１階店舗　8：00～20：00
+２階カフェ 8：00〜19：00（L.O.18：00）
+</BusinessHours>
+	<Holiday>日曜日</Holiday>
+	<Latitude>38.2727748520427</Latitude>
+	<Longitude>140.873494156339</Longitude>
+
+</Item>
+<Item>
+	<Rcd>4000279</Rcd>
+	<RestaurantName>さっぽろ純連 仙台店</RestaurantName>
+	<TabelogUrl>http://tabelog.com/miyagi/A0401/A040101/4000279/</TabelogUrl>
+<TabelogMobileUrl>http://m.tabelog.com/miyagi/A0401/A040101/4000279/</TabelogMobileUrl>
+	<TotalScore>3.5</TotalScore>
+	<TasteScore>3.52</TasteScore>
+	<ServiceScore>3.33</ServiceScore>
+	<MoodScore>3.43</MoodScore>
+	<Situation>友人・同僚と、一人で</Situation>
+	<DinnerPrice> ～￥999</DinnerPrice>
+	<LunchPrice> ～￥999</LunchPrice>
+	<Category>ラーメン</Category>
+	<Station>北四番丁、北仙台、勾当台公園</Station>
+	<Address>仙台市青葉区上杉2-9-21 宝プロシ-ド上杉1F 　</Address>
+	<Tel>022-215-4001</Tel>
+	<BusinessHours>［月～日］
+11:00～22:00</BusinessHours>
+	<Holiday>火曜日</Holiday>
+	<Latitude>38.2749959655448</Latitude>
+	<Longitude>140.871329233872</Longitude>
+
+</Item>
+<Item>
+	<Rcd>4001630</Rcd>
+	<RestaurantName>自家製麺キリンジ</RestaurantName>
+	<TabelogUrl>http://tabelog.com/miyagi/A0401/A040101/4001630/</TabelogUrl>
+<TabelogMobileUrl>http://m.tabelog.com/miyagi/A0401/A040101/4001630/</TabelogMobileUrl>
+	<TotalScore>3.5</TotalScore>
+	<TasteScore>3.51</TasteScore>
+	<ServiceScore>3.0</ServiceScore>
+	<MoodScore>3.0</MoodScore>
+	<Situation>友人・同僚と、一人で</Situation>
+	<DinnerPrice> ～￥999</DinnerPrice>
+	<LunchPrice> ～￥999</LunchPrice>
+	<Category>ラーメン、つけ麺</Category>
+	<Station>北四番丁、勾当台公園</Station>
+	<Address>仙台市青葉区二日町15-15 第２石原ビル　１Ｆ</Address>
+	<Tel>非公開</Tel>
+	<BusinessHours>11:00～14:00頃（麺が無くなり次第終了）
+17:00～19:00頃（麺が無くなり次第終了）
+日曜祝日は昼営業のみ
+</BusinessHours>
+	<Holiday>不定休</Holiday>
+	<Latitude>38.270910475793</Latitude>
+	<Longitude>140.865981810518</Longitude>
+
+</Item>
+<Item>
+	<Rcd>4000015</Rcd>
+	<RestaurantName>ちばき屋 仙台店</RestaurantName>
+	<TabelogUrl>http://tabelog.com/miyagi/A0401/A040102/4000015/</TabelogUrl>
+<TabelogMobileUrl>http://m.tabelog.com/miyagi/A0401/A040102/4000015/</TabelogMobileUrl>
+	<TotalScore>3.5</TotalScore>
+	<TasteScore>3.52</TasteScore>
+	<ServiceScore>3.38</ServiceScore>
+	<MoodScore>3.24</MoodScore>
+	<Situation>友人・同僚と、一人で</Situation>
+	<DinnerPrice> ～￥999</DinnerPrice>
+	<LunchPrice> ～￥999</LunchPrice>
+	<Category>ラーメン</Category>
+	<Station>仙台、あおば通、榴ケ岡</Station>
+	<Address>仙台市宮城野区榴岡2-3-36 仙台蘭らんビル　１Ｆ</Address>
+	<Tel>022-297-5233</Tel>
+	<BusinessHours>[月～金]
+11:30～14:45
+17:00～23:30
+[土]
+11:30～23:30
+[日・祝]
+11:30～22:45</BusinessHours>
+	<Holiday>第２火曜日</Holiday>
+	<Latitude>38.2610402056236</Latitude>
+	<Longitude>140.88549064476</Longitude>
+
+</Item>
+<Item>
+	<Rcd>4002447</Rcd>
+	<RestaurantName>カフェ モーツアルト</RestaurantName>
+	<TabelogUrl>http://tabelog.com/miyagi/A0401/A040101/4002447/</TabelogUrl>
+<TabelogMobileUrl>http://m.tabelog.com/miyagi/A0401/A040101/4002447/</TabelogMobileUrl>
+	<TotalScore>3.5</TotalScore>
+	<TasteScore>3.5</TasteScore>
+	<ServiceScore>3.26</ServiceScore>
+	<MoodScore>3.51</MoodScore>
+	<Situation>友人・同僚と、デート、一人で</Situation>
+	<DinnerPrice> ～￥999</DinnerPrice>
+	<LunchPrice> ～￥999</LunchPrice>
+	<Category>カフェ、ケーキ</Category>
+	<Station>広瀬通、勾当台公園、あおば通</Station>
+	<Address>仙台市青葉区一番町3-11-14 丸和ビル　３Ｆ</Address>
+	<Tel>022-263-4689</Tel>
+	<BusinessHours>[月～木・日] 11:00～22:30(L.O.22:10) [金・土・祝前日] 11:00～23:00(L.O.22:40)</BusinessHours>
+	<Holiday>無休</Holiday>
+	<Latitude>38.2620306923238</Latitude>
+	<Longitude>140.871711187984</Longitude>
+
+</Item>
+<Item>
+	<Rcd>4002521</Rcd>
+	<RestaurantName>かき小屋</RestaurantName>
+	<TabelogUrl>http://tabelog.com/miyagi/A0404/A040404/4002521/</TabelogUrl>
+<TabelogMobileUrl>http://m.tabelog.com/miyagi/A0404/A040404/4002521/</TabelogMobileUrl>
+	<TotalScore>3.5</TotalScore>
+	<TasteScore>3.51</TasteScore>
+	<ServiceScore>3.28</ServiceScore>
+	<MoodScore>3.22</MoodScore>
+	<Situation>友人・同僚と、家族・子供と</Situation>
+	<DinnerPrice>￥3,000～￥3,999</DinnerPrice>
+	<LunchPrice>￥2,000～￥2,999</LunchPrice>
+	<Category>魚介料理・海鮮料理</Category>
+	<Station>松島、松島海岸</Station>
+	<Address>宮城郡松島町松島東浜12-1 </Address>
+	<Tel>022-354-2618</Tel>
+	<BusinessHours>[土曜日　日曜日、祝日のみ]
+11:00、12:00、13:00、14:00
+各時間スタートの50分間の食べ放題
+2011～2012年は完全予約制です。
+</BusinessHours>
+	<Holiday>２０１１年は１１月１９日～翌１月２９日までの土日祝祭日のみの営業。それ以外は閉店</Holiday>
+	<Latitude>38.3718989770265</Latitude>
+	<Longitude>141.070182234105</Longitude>
+
+</Item>
+<Item>
+	<Rcd>4001449</Rcd>
+	<RestaurantName>おり久</RestaurantName>
+	<TabelogUrl>http://tabelog.com/miyagi/A0401/A040101/4001449/</TabelogUrl>
+<TabelogMobileUrl>http://m.tabelog.com/miyagi/A0401/A040101/4001449/</TabelogMobileUrl>
+	<TotalScore>3.5</TotalScore>
+	<TasteScore>3.51</TasteScore>
+	<ServiceScore>3.34</ServiceScore>
+	<MoodScore>3.48</MoodScore>
+	<Situation>友人・同僚と、一人で</Situation>
+	<DinnerPrice> ～￥999</DinnerPrice>
+	<LunchPrice> ～￥999</LunchPrice>
+	<Category>ラーメン、カレー（その他）</Category>
+	<Station>葛岡、陸前落合</Station>
+	<Address>仙台市青葉区折立3-12-3 </Address>
+	<Tel>022-226-0858</Tel>
+	<BusinessHours>平日 11:00～15:00 17:00～19:20 土・日・祝 11:00～19:20</BusinessHours>
+	<Holiday>月曜日・第３日曜</Holiday>
+	<Latitude>38.265094484324</Latitude>
+	<Longitude>140.805411830857</Longitude>
+
+</Item>
+</RestaurantInfo>

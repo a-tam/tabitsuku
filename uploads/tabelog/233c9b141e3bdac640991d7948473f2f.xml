@@ -1,0 +1,459 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RestaurantInfo>
+<NumOfResult>4430</NumOfResult> 
+<Item>
+	<Rcd>2000016</Rcd>
+	<RestaurantName>まるかいラーメン</RestaurantName>
+	<TabelogUrl>http://tabelog.com/aomori/A0201/A020101/2000016/</TabelogUrl>
+<TabelogMobileUrl>http://m.tabelog.com/aomori/A0201/A020101/2000016/</TabelogMobileUrl>
+	<TotalScore>3.31</TotalScore>
+	<TasteScore>3.09</TasteScore>
+	<ServiceScore>2.86</ServiceScore>
+	<MoodScore>3.28</MoodScore>
+	<Situation>友人・同僚と、一人で</Situation>
+	<DinnerPrice> ～￥999</DinnerPrice>
+	<LunchPrice> ～￥999</LunchPrice>
+	<Category>ラーメン</Category>
+	<Station>青森</Station>
+	<Address>青森市安方2-2-16 </Address>
+	<Tel>0177-22-4104</Tel>
+	<BusinessHours>10:30～21:00</BusinessHours>
+	<Holiday>日曜日</Holiday>
+	<Latitude>40.8285952732732</Latitude>
+	<Longitude>140.740806112545</Longitude>
+
+</Item>
+<Item>
+	<Rcd>2000112</Rcd>
+	<RestaurantName>川よし</RestaurantName>
+	<TabelogUrl>http://tabelog.com/aomori/A0201/A020101/2000112/</TabelogUrl>
+<TabelogMobileUrl>http://m.tabelog.com/aomori/A0201/A020101/2000112/</TabelogMobileUrl>
+	<TotalScore>3.31</TotalScore>
+	<TasteScore>3.31</TasteScore>
+	<ServiceScore>3.03</ServiceScore>
+	<MoodScore>3.5</MoodScore>
+	<Situation>友人・同僚と、家族・子供と</Situation>
+	<DinnerPrice>￥3,000～￥3,999</DinnerPrice>
+	<LunchPrice>￥2,000～￥2,999</LunchPrice>
+	<Category>うなぎ</Category>
+	<Station>青森</Station>
+	<Address>青森市本町3-2-4 </Address>
+	<Tel>017-776-3480</Tel>
+	<BusinessHours>11:00～20:50</BusinessHours>
+	<Holiday>月曜・第４日曜</Holiday>
+	<Latitude>40.8285862082288</Latitude>
+	<Longitude>140.746568412184</Longitude>
+
+</Item>
+<Item>
+	<Rcd>2000860</Rcd>
+	<RestaurantName>ノースビレッジ</RestaurantName>
+	<TabelogUrl>http://tabelog.com/aomori/A0201/A020104/2000860/</TabelogUrl>
+<TabelogMobileUrl>http://m.tabelog.com/aomori/A0201/A020104/2000860/</TabelogMobileUrl>
+	<TotalScore>3.31</TotalScore>
+	<TasteScore>3.24</TasteScore>
+	<ServiceScore>3.21</ServiceScore>
+	<MoodScore>3.51</MoodScore>
+	<Situation>友人・同僚と、デート、家族・子供と</Situation>
+	<DinnerPrice></DinnerPrice>
+	<LunchPrice>￥1,000～￥1,999</LunchPrice>
+	<Category>カフェ、ビアガーデン</Category>
+	<Station>八甲田山</Station>
+	<Address>十和田市大字奥瀬字栃久保11-253 </Address>
+	<Tel>0176-70-5977</Tel>
+	<BusinessHours>11:00～16:00（L.O 15:30)</BusinessHours>
+	<Holiday></Holiday>
+	<Latitude>40.5758916359949</Latitude>
+	<Longitude>140.983522932972</Longitude>
+
+</Item>
+<Item>
+	<Rcd>2000048</Rcd>
+	<RestaurantName>ポルトブラン</RestaurantName>
+	<TabelogUrl>http://tabelog.com/aomori/A0202/A020201/2000048/</TabelogUrl>
+<TabelogMobileUrl>http://m.tabelog.com/aomori/A0202/A020201/2000048/</TabelogMobileUrl>
+	<TotalScore>3.31</TotalScore>
+	<TasteScore>3.5</TasteScore>
+	<ServiceScore>2.98</ServiceScore>
+	<MoodScore>3.22</MoodScore>
+	<Situation>友人・同僚と、デート</Situation>
+	<DinnerPrice>￥3,000～￥3,999</DinnerPrice>
+	<LunchPrice>￥1,000～￥1,999</LunchPrice>
+	<Category>フレンチ</Category>
+	<Station>中央弘前、弘高下</Station>
+	<Address>弘前市大字本町44-1 </Address>
+	<Tel>0172-33-5087</Tel>
+	<BusinessHours>11:30～14:30（L.O）
+17:00～21:00（L.O）</BusinessHours>
+	<Holiday>日曜日</Holiday>
+	<Latitude>40.6011531250559</Latitude>
+	<Longitude>140.465497226551</Longitude>
+
+</Item>
+<Item>
+	<Rcd>2000894</Rcd>
+	<RestaurantName>デザートショップ</RestaurantName>
+	<TabelogUrl>http://tabelog.com/aomori/A0202/A020201/2000894/</TabelogUrl>
+<TabelogMobileUrl>http://m.tabelog.com/aomori/A0202/A020201/2000894/</TabelogMobileUrl>
+	<TotalScore>3.31</TotalScore>
+	<TasteScore>3.29</TasteScore>
+	<ServiceScore>3.0</ServiceScore>
+	<MoodScore>3.19</MoodScore>
+	<Situation>友人・同僚と、デート、家族・子供と、一人で</Situation>
+	<DinnerPrice>￥1,000～￥1,999</DinnerPrice>
+	<LunchPrice> ～￥999</LunchPrice>
+	<Category>ケーキ</Category>
+	<Station>撫牛子、弘前、中央弘前</Station>
+	<Address>弘前市宮川3-17-1 </Address>
+	<Tel>0172-37-0188</Tel>
+	<BusinessHours>9:30～20:00</BusinessHours>
+	<Holiday>なし</Holiday>
+	<Latitude>40.6138304558447</Latitude>
+	<Longitude>140.485731073554</Longitude>
+
+</Item>
+<Item>
+	<Rcd>2000549</Rcd>
+	<RestaurantName>家庭料理 わが家 みろく横丁</RestaurantName>
+	<TabelogUrl>http://tabelog.com/aomori/A0203/A020301/2000549/</TabelogUrl>
+<TabelogMobileUrl>http://m.tabelog.com/aomori/A0203/A020301/2000549/</TabelogMobileUrl>
+	<TotalScore>3.31</TotalScore>
+	<TasteScore>3.29</TasteScore>
+	<ServiceScore>3.12</ServiceScore>
+	<MoodScore>3.31</MoodScore>
+	<Situation>友人・同僚と、一人で</Situation>
+	<DinnerPrice>￥3,000～￥3,999</DinnerPrice>
+	<LunchPrice></LunchPrice>
+	<Category>和食（その他）、郷土料理（その他）</Category>
+	<Station>本八戸</Station>
+	<Address>八戸市六日町10 八戸屋台村内</Address>
+	<Tel>090-7727-8676</Tel>
+	<BusinessHours></BusinessHours>
+	<Holiday>第１第３火曜日</Holiday>
+	<Latitude>40.5092883666566</Latitude>
+	<Longitude>141.491166274462</Longitude>
+
+</Item>
+<Item>
+	<Rcd>2004562</Rcd>
+	<RestaurantName>から揚げ　人生</RestaurantName>
+	<TabelogUrl>http://tabelog.com/aomori/A0203/A020303/2004562/</TabelogUrl>
+<TabelogMobileUrl>http://m.tabelog.com/aomori/A0203/A020303/2004562/</TabelogMobileUrl>
+	<TotalScore>3.31</TotalScore>
+	<TasteScore>3.31</TasteScore>
+	<ServiceScore>3.33</ServiceScore>
+	<MoodScore>3.0</MoodScore>
+	<Situation>友人・同僚と、家族・子供と、一人で</Situation>
+	<DinnerPrice> ～￥999</DinnerPrice>
+	<LunchPrice> ～￥999</LunchPrice>
+	<Category>天ぷら・揚げ物（その他）</Category>
+	<Station>三沢</Station>
+	<Address>三沢市平畑1-2-60 </Address>
+	<Tel>0176-53-5412</Tel>
+	<BusinessHours>open 15:00
+close 21:30</BusinessHours>
+	<Holiday>毎週月曜日（祝日の場合は営業し、翌日休業）１月１・２日</Holiday>
+	<Latitude>40.6875263217949</Latitude>
+	<Longitude>141.368462609034</Longitude>
+
+</Item>
+<Item>
+	<Rcd>2005948</Rcd>
+	<RestaurantName>酒菜 調製 嘉一</RestaurantName>
+	<TabelogUrl>http://tabelog.com/aomori/A0201/A020101/2005948/</TabelogUrl>
+<TabelogMobileUrl>http://m.tabelog.com/aomori/A0201/A020101/2005948/</TabelogMobileUrl>
+	<TotalScore>3.31</TotalScore>
+	<TasteScore>3.31</TasteScore>
+	<ServiceScore>3.31</ServiceScore>
+	<MoodScore>3.24</MoodScore>
+	<Situation>友人・同僚と、一人で</Situation>
+	<DinnerPrice>￥3,000～￥3,999</DinnerPrice>
+	<LunchPrice> ～￥999</LunchPrice>
+	<Category>割烹・小料理、魚介料理・海鮮料理</Category>
+	<Station>青森</Station>
+	<Address>青森市中央1-1-10 </Address>
+	<Tel>017-777-2555</Tel>
+	<BusinessHours>11:30～13:30
+17:00～22:00</BusinessHours>
+	<Holiday>日曜・祝日（不定）</Holiday>
+	<Latitude>40.8218240715259</Latitude>
+	<Longitude>140.745575871246</Longitude>
+
+</Item>
+<Item>
+	<Rcd>2002463</Rcd>
+	<RestaurantName>工藤パン 新町店</RestaurantName>
+	<TabelogUrl>http://tabelog.com/aomori/A0201/A020101/2002463/</TabelogUrl>
+<TabelogMobileUrl>http://m.tabelog.com/aomori/A0201/A020101/2002463/</TabelogMobileUrl>
+	<TotalScore>3.29</TotalScore>
+	<TasteScore>3.12</TasteScore>
+	<ServiceScore>3.09</ServiceScore>
+	<MoodScore>3.09</MoodScore>
+	<Situation>一人で</Situation>
+	<DinnerPrice> ～￥999</DinnerPrice>
+	<LunchPrice> ～￥999</LunchPrice>
+	<Category>パン、喫茶店</Category>
+	<Station>青森</Station>
+	<Address>青森市新町1丁目12番19号 </Address>
+	<Tel>017-722-3847</Tel>
+	<BusinessHours>open 7:00
+close 20:00
+（2Fフリースペースは19:30まで利用可）</BusinessHours>
+	<Holiday>年中無休</Holiday>
+	<Latitude>40.8266534405182</Latitude>
+	<Longitude>140.738446648171</Longitude>
+
+</Item>
+<Item>
+	<Rcd>2000036</Rcd>
+	<RestaurantName>よ志乃</RestaurantName>
+	<TabelogUrl>http://tabelog.com/aomori/A0203/A020301/2000036/</TabelogUrl>
+<TabelogMobileUrl>http://m.tabelog.com/aomori/A0203/A020301/2000036/</TabelogMobileUrl>
+	<TotalScore>3.29</TotalScore>
+	<TasteScore>3.24</TasteScore>
+	<ServiceScore>2.81</ServiceScore>
+	<MoodScore>3.38</MoodScore>
+	<Situation>友人・同僚と、接待</Situation>
+	<DinnerPrice>￥10,000～￥14,999</DinnerPrice>
+	<LunchPrice>￥3,000～￥3,999</LunchPrice>
+	<Category>寿司</Category>
+	<Station>本八戸</Station>
+	<Address>八戸市六日町28 </Address>
+	<Tel>0178-44-8811</Tel>
+	<BusinessHours>12:00～14:00 17:00～22:30</BusinessHours>
+	<Holiday>日曜日（月曜が祝日の場合は日曜も営業）</Holiday>
+	<Latitude>40.5088289769333</Latitude>
+	<Longitude>141.491485991283</Longitude>
+
+</Item>
+<Item>
+	<Rcd>2004561</Rcd>
+	<RestaurantName>魚菜小売市場</RestaurantName>
+	<TabelogUrl>http://tabelog.com/aomori/A0203/A020301/2004561/</TabelogUrl>
+<TabelogMobileUrl>http://m.tabelog.com/aomori/A0203/A020301/2004561/</TabelogMobileUrl>
+	<TotalScore>3.29</TotalScore>
+	<TasteScore>3.29</TasteScore>
+	<ServiceScore>3.14</ServiceScore>
+	<MoodScore>3.14</MoodScore>
+	<Situation>家族・子供と、一人で</Situation>
+	<DinnerPrice></DinnerPrice>
+	<LunchPrice> ～￥999</LunchPrice>
+	<Category>定食・食堂、魚介料理・海鮮料理</Category>
+	<Station>陸奥湊</Station>
+	<Address>八戸市大字湊町字久保38-1 </Address>
+	<Tel>0178-33-7242</Tel>
+	<BusinessHours>[月～土]05:00～13:00頃
+（刺身・鮮魚以外は17時頃まで）</BusinessHours>
+	<Holiday>毎週日曜日、毎月第２土曜日、１月１日と２日</Holiday>
+	<Latitude>40.5236354362012</Latitude>
+	<Longitude>141.527071532063</Longitude>
+
+</Item>
+<Item>
+	<Rcd>2000248</Rcd>
+	<RestaurantName>しもばしら</RestaurantName>
+	<TabelogUrl>http://tabelog.com/aomori/A0201/A020101/2000248/</TabelogUrl>
+<TabelogMobileUrl>http://m.tabelog.com/aomori/A0201/A020101/2000248/</TabelogMobileUrl>
+	<TotalScore>3.29</TotalScore>
+	<TasteScore>3.29</TasteScore>
+	<ServiceScore>3.22</ServiceScore>
+	<MoodScore>3.34</MoodScore>
+	<Situation>友人・同僚と、デート、一人で</Situation>
+	<DinnerPrice>￥4,000～￥4,999</DinnerPrice>
+	<LunchPrice>￥1,000～￥1,999</LunchPrice>
+	<Category>そば</Category>
+	<Station>東青森、青森、小柳</Station>
+	<Address>青森市浜田2-14-4 </Address>
+	<Tel>017-729-1235</Tel>
+	<BusinessHours>11:30～15:00 夜は要予約のおまかせ料理</BusinessHours>
+	<Holiday>木曜・金曜</Holiday>
+	<Latitude>40.8005089997765</Latitude>
+	<Longitude>140.750356612521</Longitude>
+
+</Item>
+<Item>
+	<Rcd>2000117</Rcd>
+	<RestaurantName>一休寿司</RestaurantName>
+	<TabelogUrl>http://tabelog.com/aomori/A0202/A020201/2000117/</TabelogUrl>
+<TabelogMobileUrl>http://m.tabelog.com/aomori/A0202/A020201/2000117/</TabelogMobileUrl>
+	<TotalScore>3.29</TotalScore>
+	<TasteScore>3.38</TasteScore>
+	<ServiceScore>3.1</ServiceScore>
+	<MoodScore>3.1</MoodScore>
+	<Situation>友人・同僚と、接待</Situation>
+	<DinnerPrice>￥3,000～￥3,999</DinnerPrice>
+	<LunchPrice>￥2,000～￥2,999</LunchPrice>
+	<Category>寿司</Category>
+	<Station>弘前、弘前東高前</Station>
+	<Address>弘前市大字城東2-1-3 </Address>
+	<Tel>0172-28-1900</Tel>
+	<BusinessHours>11:00～22:00</BusinessHours>
+	<Holiday>無休</Holiday>
+	<Latitude>40.5987977004402</Latitude>
+	<Longitude>140.490375546637</Longitude>
+
+</Item>
+<Item>
+	<Rcd>2000213</Rcd>
+	<RestaurantName>欧風居酒屋 Marco Polo</RestaurantName>
+	<TabelogUrl>http://tabelog.com/aomori/A0201/A020101/2000213/</TabelogUrl>
+<TabelogMobileUrl>http://m.tabelog.com/aomori/A0201/A020101/2000213/</TabelogMobileUrl>
+	<TotalScore>3.29</TotalScore>
+	<TasteScore>3.31</TasteScore>
+	<ServiceScore>3.28</ServiceScore>
+	<MoodScore>3.33</MoodScore>
+	<Situation>友人・同僚と、デート</Situation>
+	<DinnerPrice>￥2,000～￥2,999</DinnerPrice>
+	<LunchPrice> ～￥999</LunchPrice>
+	<Category>地中海料理、居酒屋</Category>
+	<Station>青森</Station>
+	<Address>青森市本町1-1-40 </Address>
+	<Tel>017-775-2588</Tel>
+	<BusinessHours>ランチ11:30～14:00、ディナー17:00～24:00(L.o.23:30)</BusinessHours>
+	<Holiday></Holiday>
+	<Latitude>40.8246327295613</Latitude>
+	<Longitude>140.745844487661</Longitude>
+
+</Item>
+<Item>
+	<Rcd>2005049</Rcd>
+	<RestaurantName>はしもと 藪き</RestaurantName>
+	<TabelogUrl>http://tabelog.com/aomori/A0201/A020101/2005049/</TabelogUrl>
+<TabelogMobileUrl>http://m.tabelog.com/aomori/A0201/A020101/2005049/</TabelogMobileUrl>
+	<TotalScore>3.29</TotalScore>
+	<TasteScore>3.29</TasteScore>
+	<ServiceScore>3.0</ServiceScore>
+	<MoodScore>3.0</MoodScore>
+	<Situation>友人・同僚と</Situation>
+	<DinnerPrice>￥4,000～￥4,999</DinnerPrice>
+	<LunchPrice></LunchPrice>
+	<Category>郷土料理（その他）、日本酒</Category>
+	<Station>青森</Station>
+	<Address>青森市橋本1-8-2 スカイプラザ　２F </Address>
+	<Tel>017-722-1315</Tel>
+	<BusinessHours>17:00～25:00
+</BusinessHours>
+	<Holiday>無</Holiday>
+	<Latitude>40.82549638738</Latitude>
+	<Longitude>140.753520662812</Longitude>
+
+</Item>
+<Item>
+	<Rcd>2004986</Rcd>
+	<RestaurantName>らーめん むつみ屋 イオン下田店</RestaurantName>
+	<TabelogUrl>http://tabelog.com/aomori/A0203/A020303/2004986/</TabelogUrl>
+<TabelogMobileUrl>http://m.tabelog.com/aomori/A0203/A020303/2004986/</TabelogMobileUrl>
+	<TotalScore>3.29</TotalScore>
+	<TasteScore>3.14</TasteScore>
+	<ServiceScore>3.0</ServiceScore>
+	<MoodScore>3.43</MoodScore>
+	<Situation>一人で</Situation>
+	<DinnerPrice> ～￥999</DinnerPrice>
+	<LunchPrice> ～￥999</LunchPrice>
+	<Category>ラーメン</Category>
+	<Station>下田</Station>
+	<Address>上北郡おいらせ町中野平40-1 イオンモール下田 1F</Address>
+	<Tel>0178-50-5078</Tel>
+	<BusinessHours>11:00～22：00（ＬＯ21：30）</BusinessHours>
+	<Holiday>無休</Holiday>
+	<Latitude>40.6020474478588</Latitude>
+	<Longitude>141.418172510233</Longitude>
+
+</Item>
+<Item>
+	<Rcd>2006229</Rcd>
+	<RestaurantName>小青島</RestaurantName>
+	<TabelogUrl>http://tabelog.com/aomori/A0201/A020101/2006229/</TabelogUrl>
+<TabelogMobileUrl>http://m.tabelog.com/aomori/A0201/A020101/2006229/</TabelogMobileUrl>
+	<TotalScore>3.29</TotalScore>
+	<TasteScore>3.51</TasteScore>
+	<ServiceScore>3.51</ServiceScore>
+	<MoodScore>3.0</MoodScore>
+	<Situation>友人・同僚と、家族・子供と</Situation>
+	<DinnerPrice>￥1,000～￥1,999</DinnerPrice>
+	<LunchPrice></LunchPrice>
+	<Category>中華料理</Category>
+	<Station>青森</Station>
+	<Address>青森市本町5丁目4-20 サンオービル１Ｆ</Address>
+	<Tel>017-734-1086</Tel>
+	<BusinessHours>月～木11:00～14:00
+　　　　17:00～翌1:00
+
+金　休日前　11時ｊから14時
+　　　　　　　　17時から2時
+
+土日休日　5時から12時</BusinessHours>
+	<Holiday></Holiday>
+	<Latitude>40.8256349715244</Latitude>
+	<Longitude>140.750764271314</Longitude>
+
+</Item>
+<Item>
+	<Rcd>2000170</Rcd>
+	<RestaurantName>旬洋亭</RestaurantName>
+	<TabelogUrl>http://tabelog.com/aomori/A0201/A020101/2000170/</TabelogUrl>
+<TabelogMobileUrl>http://m.tabelog.com/aomori/A0201/A020101/2000170/</TabelogMobileUrl>
+	<TotalScore>3.29</TotalScore>
+	<TasteScore>3.51</TasteScore>
+	<ServiceScore>3.0</ServiceScore>
+	<MoodScore>3.0</MoodScore>
+	<Situation>友人・同僚と、家族・子供と</Situation>
+	<DinnerPrice>￥5,000～￥5,999</DinnerPrice>
+	<LunchPrice>￥1,000～￥1,999</LunchPrice>
+	<Category>洋食</Category>
+	<Station>東青森</Station>
+	<Address>青森市筒井字八ツ橋1377-1 </Address>
+	<Tel>017-738-3884</Tel>
+	<BusinessHours>11:30～15:00 
+17:30～21:00(LO)</BusinessHours>
+	<Holiday>月曜</Holiday>
+	<Latitude>40.7992959003099</Latitude>
+	<Longitude>140.766218555087</Longitude>
+
+</Item>
+<Item>
+	<Rcd>2001056</Rcd>
+	<RestaurantName>いし乃</RestaurantName>
+	<TabelogUrl>http://tabelog.com/aomori/A0201/A020101/2001056/</TabelogUrl>
+<TabelogMobileUrl>http://m.tabelog.com/aomori/A0201/A020101/2001056/</TabelogMobileUrl>
+	<TotalScore>3.29</TotalScore>
+	<TasteScore>3.51</TasteScore>
+	<ServiceScore>3.29</ServiceScore>
+	<MoodScore>3.0</MoodScore>
+	<Situation>友人・同僚と</Situation>
+	<DinnerPrice>￥5,000～￥5,999</DinnerPrice>
+	<LunchPrice></LunchPrice>
+	<Category>割烹・小料理、魚介料理・海鮮料理、居酒屋</Category>
+	<Station>青森</Station>
+	<Address>青森市橋本1-7-1 </Address>
+	<Tel>017-775-0041</Tel>
+	<BusinessHours>17：00～24：00（L.O.）
+</BusinessHours>
+	<Holiday>無休</Holiday>
+	<Latitude>40.8253905407761</Latitude>
+	<Longitude>140.752399186183</Longitude>
+
+</Item>
+<Item>
+	<Rcd>2003301</Rcd>
+	<RestaurantName>そば処今村</RestaurantName>
+	<TabelogUrl>http://tabelog.com/aomori/A0202/A020201/2003301/</TabelogUrl>
+<TabelogMobileUrl>http://m.tabelog.com/aomori/A0202/A020201/2003301/</TabelogMobileUrl>
+	<TotalScore>3.29</TotalScore>
+	<TasteScore>3.29</TasteScore>
+	<ServiceScore>3.29</ServiceScore>
+	<MoodScore>3.43</MoodScore>
+	<Situation>友人・同僚と</Situation>
+	<DinnerPrice> ～￥999</DinnerPrice>
+	<LunchPrice></LunchPrice>
+	<Category>ラーメン、そば</Category>
+	<Station>中央弘前、弘高下</Station>
+	<Address>弘前市新鍛冶町70 </Address>
+	<Tel>0172-35-6388</Tel>
+	<BusinessHours></BusinessHours>
+	<Holiday></Holiday>
+	<Latitude>40.6004185750728</Latitude>
+	<Longitude>140.470605447243</Longitude>
+
+</Item>
+</RestaurantInfo>

@@ -1,0 +1,458 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RestaurantInfo>
+<NumOfResult>7354</NumOfResult> 
+<Item>
+	<Rcd>33006731</Rcd>
+	<RestaurantName>パティスリー エール</RestaurantName>
+	<TabelogUrl>http://tabelog.com/okayama/A3301/A330101/33006731/</TabelogUrl>
+<TabelogMobileUrl>http://m.tabelog.com/okayama/A3301/A330101/33006731/</TabelogMobileUrl>
+	<TotalScore>3.36</TotalScore>
+	<TasteScore>3.4</TasteScore>
+	<ServiceScore>3.14</ServiceScore>
+	<MoodScore>3.17</MoodScore>
+	<Situation>友人・同僚と、家族・子供と、一人で</Situation>
+	<DinnerPrice></DinnerPrice>
+	<LunchPrice> ～￥999</LunchPrice>
+	<Category>ケーキ、洋菓子（その他）</Category>
+	<Station>大元</Station>
+	<Address>岡山市北区西古松38-5 </Address>
+	<Tel>086-243-8111</Tel>
+	<BusinessHours>9:30～20:00</BusinessHours>
+	<Holiday>水曜（祝日の場合は翌日）</Holiday>
+	<Latitude>34.6504987255379</Latitude>
+	<Longitude>133.910604199829</Longitude>
+
+</Item>
+<Item>
+	<Rcd>33000748</Rcd>
+	<RestaurantName>ひがし田</RestaurantName>
+	<TabelogUrl>http://tabelog.com/okayama/A3302/A330201/33000748/</TabelogUrl>
+<TabelogMobileUrl>http://m.tabelog.com/okayama/A3302/A330201/33000748/</TabelogMobileUrl>
+	<TotalScore>3.36</TotalScore>
+	<TasteScore>3.53</TasteScore>
+	<ServiceScore>2.75</ServiceScore>
+	<MoodScore>3.52</MoodScore>
+	<Situation>友人・同僚と、デート、接待、一人で</Situation>
+	<DinnerPrice>￥5,000～￥5,999</DinnerPrice>
+	<LunchPrice>￥1,000～￥1,999</LunchPrice>
+	<Category>寿司</Category>
+	<Station>倉敷、倉敷市</Station>
+	<Address>倉敷市阿知2-2-18 </Address>
+	<Tel>086-427-2248</Tel>
+	<BusinessHours>17:00～22:00</BusinessHours>
+	<Holiday>水曜日  他に不定期休有り</Holiday>
+	<Latitude>34.6002738303314</Latitude>
+	<Longitude>133.768080015563</Longitude>
+
+</Item>
+<Item>
+	<Rcd>33001427</Rcd>
+	<RestaurantName>Repondre Haruya</RestaurantName>
+	<TabelogUrl>http://tabelog.com/okayama/A3301/A330101/33001427/</TabelogUrl>
+<TabelogMobileUrl>http://m.tabelog.com/okayama/A3301/A330101/33001427/</TabelogMobileUrl>
+	<TotalScore>3.36</TotalScore>
+	<TasteScore>3.47</TasteScore>
+	<ServiceScore>3.17</ServiceScore>
+	<MoodScore>3.22</MoodScore>
+	<Situation>友人・同僚と、デート</Situation>
+	<DinnerPrice>￥2,000～￥2,999</DinnerPrice>
+	<LunchPrice> ～￥999</LunchPrice>
+	<Category>洋食・欧風料理（その他）、ワインバー、洋食</Category>
+	<Station>西大寺</Station>
+	<Address>岡山市東区西大寺浜166-1 </Address>
+	<Tel>086-942-2783</Tel>
+	<BusinessHours>[火～日] 11:00～21:00(L.O.20:30) [第３日曜] 11:00～14:00</BusinessHours>
+	<Holiday>月曜日</Holiday>
+	<Latitude>34.649023368454</Latitude>
+	<Longitude>134.04015406421</Longitude>
+
+</Item>
+<Item>
+	<Rcd>33001232</Rcd>
+	<RestaurantName>ル・マロワール</RestaurantName>
+	<TabelogUrl>http://tabelog.com/okayama/A3301/A330101/33001232/</TabelogUrl>
+<TabelogMobileUrl>http://m.tabelog.com/okayama/A3301/A330101/33001232/</TabelogMobileUrl>
+	<TotalScore>3.36</TotalScore>
+	<TasteScore>3.4</TasteScore>
+	<ServiceScore>2.99</ServiceScore>
+	<MoodScore>3.14</MoodScore>
+	<Situation>友人・同僚と、デート、一人で</Situation>
+	<DinnerPrice>￥10,000～￥14,999</DinnerPrice>
+	<LunchPrice>￥2,000～￥2,999</LunchPrice>
+	<Category>フレンチ</Category>
+	<Station>城下、県庁通り、郵便局前</Station>
+	<Address>岡山市北区表町1-6-56 </Address>
+	<Tel>086-221-9877</Tel>
+	<BusinessHours>11:30～14:30 18:00～21:30(夜は予約制)</BusinessHours>
+	<Holiday>月曜日</Holiday>
+	<Latitude>34.6645411714392</Latitude>
+	<Longitude>133.929884729823</Longitude>
+
+</Item>
+<Item>
+	<Rcd>33002295</Rcd>
+	<RestaurantName>○家</RestaurantName>
+	<TabelogUrl>http://tabelog.com/okayama/A3301/A330101/33002295/</TabelogUrl>
+<TabelogMobileUrl>http://m.tabelog.com/okayama/A3301/A330101/33002295/</TabelogMobileUrl>
+	<TotalScore>3.36</TotalScore>
+	<TasteScore>3.22</TasteScore>
+	<ServiceScore>3.12</ServiceScore>
+	<MoodScore>3.19</MoodScore>
+	<Situation>友人・同僚と</Situation>
+	<DinnerPrice>￥2,000～￥2,999</DinnerPrice>
+	<LunchPrice></LunchPrice>
+	<Category>おでん</Category>
+	<Station>西大寺町、県庁通り、田町</Station>
+	<Address>岡山市北区表町2-4-17 </Address>
+	<Tel>086-222-9076</Tel>
+	<BusinessHours></BusinessHours>
+	<Holiday></Holiday>
+	<Latitude>34.659931237506</Latitude>
+	<Longitude>133.930275478159</Longitude>
+
+</Item>
+<Item>
+	<Rcd>33004646</Rcd>
+	<RestaurantName>むら﨏</RestaurantName>
+	<TabelogUrl>http://tabelog.com/okayama/A3301/A330101/33004646/</TabelogUrl>
+<TabelogMobileUrl>http://m.tabelog.com/okayama/A3301/A330101/33004646/</TabelogMobileUrl>
+	<TotalScore>3.36</TotalScore>
+	<TasteScore>3.4</TasteScore>
+	<ServiceScore>3.02</ServiceScore>
+	<MoodScore>3.14</MoodScore>
+	<Situation>友人・同僚と、デート、一人で</Situation>
+	<DinnerPrice></DinnerPrice>
+	<LunchPrice> ～￥999</LunchPrice>
+	<Category>割烹・小料理</Category>
+	<Station>西川原</Station>
+	<Address>岡山市中区浜3-2-23 </Address>
+	<Tel>086-271-3371</Tel>
+	<BusinessHours>11:30～14:00　（売切れ次第終了）
+17:00～22:00　（予約のみで営業）</BusinessHours>
+	<Holiday>水曜日・日曜日・祝日</Holiday>
+	<Latitude>34.6706582151659</Latitude>
+	<Longitude>133.941220728949</Longitude>
+
+</Item>
+<Item>
+	<Rcd>33000684</Rcd>
+	<RestaurantName>炭火割烹 志乃</RestaurantName>
+	<TabelogUrl>http://tabelog.com/okayama/A3302/A330201/33000684/</TabelogUrl>
+<TabelogMobileUrl>http://m.tabelog.com/okayama/A3302/A330201/33000684/</TabelogMobileUrl>
+	<TotalScore>3.36</TotalScore>
+	<TasteScore>3.36</TasteScore>
+	<ServiceScore>3.05</ServiceScore>
+	<MoodScore>3.31</MoodScore>
+	<Situation>友人・同僚と</Situation>
+	<DinnerPrice>￥3,000～￥3,999</DinnerPrice>
+	<LunchPrice></LunchPrice>
+	<Category>割烹・小料理、居酒屋、和食（その他）</Category>
+	<Station>倉敷、倉敷市</Station>
+	<Address>倉敷市阿知2-5-29 </Address>
+	<Tel>086-427-5513</Tel>
+	<BusinessHours>18:00～翌2:00</BusinessHours>
+	<Holiday>火曜日</Holiday>
+	<Latitude>34.6011681875362</Latitude>
+	<Longitude>133.768307688807</Longitude>
+
+</Item>
+<Item>
+	<Rcd>33001582</Rcd>
+	<RestaurantName>ル・ソレイユ</RestaurantName>
+	<TabelogUrl>http://tabelog.com/okayama/A3302/A330201/33001582/</TabelogUrl>
+<TabelogMobileUrl>http://m.tabelog.com/okayama/A3302/A330201/33001582/</TabelogMobileUrl>
+	<TotalScore>3.36</TotalScore>
+	<TasteScore>3.07</TasteScore>
+	<ServiceScore>3.03</ServiceScore>
+	<MoodScore>3.03</MoodScore>
+	<Situation>一人で</Situation>
+	<DinnerPrice></DinnerPrice>
+	<LunchPrice> ～￥999</LunchPrice>
+	<Category>ケーキ</Category>
+	<Station>久々原、早島、茶屋町</Station>
+	<Address>倉敷市中帯江88-3 </Address>
+	<Tel>086-441-2443</Tel>
+	<BusinessHours>10:00～19:00</BusinessHours>
+	<Holiday>火曜（祝日の場合は営業）</Holiday>
+	<Latitude>34.5964370441138</Latitude>
+	<Longitude>133.801352151187</Longitude>
+
+</Item>
+<Item>
+	<Rcd>33007524</Rcd>
+	<RestaurantName>下北屋</RestaurantName>
+	<TabelogUrl>http://tabelog.com/okayama/A3301/A330101/33007524/</TabelogUrl>
+<TabelogMobileUrl>http://m.tabelog.com/okayama/A3301/A330101/33007524/</TabelogMobileUrl>
+	<TotalScore>3.36</TotalScore>
+	<TasteScore>3.34</TasteScore>
+	<ServiceScore>3.21</ServiceScore>
+	<MoodScore>3.38</MoodScore>
+	<Situation>友人・同僚と、デート、一人で</Situation>
+	<DinnerPrice>￥1,000～￥1,999</DinnerPrice>
+	<LunchPrice> ～￥999</LunchPrice>
+	<Category>和食（その他）、韓国料理、イタリアン</Category>
+	<Station>岡山駅前、西川緑道公園、郵便局前</Station>
+	<Address>岡山市北区幸町2-21 </Address>
+	<Tel>086-221-8778</Tel>
+	<BusinessHours>11:00～15:00
+17:30～23:00
+</BusinessHours>
+	<Holiday>日曜</Holiday>
+	<Latitude>34.6622433500061</Latitude>
+	<Longitude>133.920770512758</Longitude>
+
+</Item>
+<Item>
+	<Rcd>33008056</Rcd>
+	<RestaurantName>マールブランシュ 岡山天満屋店</RestaurantName>
+	<TabelogUrl>http://tabelog.com/okayama/A3301/A330101/33008056/</TabelogUrl>
+<TabelogMobileUrl>http://m.tabelog.com/okayama/A3301/A330101/33008056/</TabelogMobileUrl>
+	<TotalScore>3.36</TotalScore>
+	<TasteScore>3.53</TasteScore>
+	<ServiceScore>3.31</ServiceScore>
+	<MoodScore>3.33</MoodScore>
+	<Situation>家族・子供と</Situation>
+	<DinnerPrice>￥1,000～￥1,999</DinnerPrice>
+	<LunchPrice>￥1,000～￥1,999</LunchPrice>
+	<Category>洋菓子（その他）</Category>
+	<Station>県庁通り、郵便局前、田町</Station>
+	<Address>岡山市北区表町2丁目1-1 </Address>
+	<Tel>086-231-7111</Tel>
+	<BusinessHours></BusinessHours>
+	<Holiday></Holiday>
+	<Latitude>34.6618670375044</Latitude>
+	<Longitude>133.92900887818</Longitude>
+
+</Item>
+<Item>
+	<Rcd>33010015</Rcd>
+	<RestaurantName>プレミアムジェラートミサオ</RestaurantName>
+	<TabelogUrl>http://tabelog.com/okayama/A3302/A330201/33010015/</TabelogUrl>
+<TabelogMobileUrl>http://m.tabelog.com/okayama/A3302/A330201/33010015/</TabelogMobileUrl>
+	<TotalScore>3.36</TotalScore>
+	<TasteScore>3.51</TasteScore>
+	<ServiceScore>3.0</ServiceScore>
+	<MoodScore>3.0</MoodScore>
+	<Situation>家族・子供と、一人で</Situation>
+	<DinnerPrice></DinnerPrice>
+	<LunchPrice> ～￥999</LunchPrice>
+	<Category>アイスクリーム、スイーツ（その他）</Category>
+	<Station>倉敷、倉敷市</Station>
+	<Address>倉敷市寿町12-1 三井アウトレットパーク倉敷1F</Address>
+	<Tel>086-441-6628</Tel>
+	<BusinessHours>10:00～20:00</BusinessHours>
+	<Holiday>年中無休（パークに準ず）</Holiday>
+	<Latitude>34.6038053341205</Latitude>
+	<Longitude>133.764477652139</Longitude>
+
+</Item>
+<Item>
+	<Rcd>33009989</Rcd>
+	<RestaurantName>プラトーマフィン</RestaurantName>
+	<TabelogUrl>http://tabelog.com/okayama/A3303/A330302/33009989/</TabelogUrl>
+<TabelogMobileUrl>http://m.tabelog.com/okayama/A3303/A330302/33009989/</TabelogMobileUrl>
+	<TotalScore>3.36</TotalScore>
+	<TasteScore>3.36</TasteScore>
+	<ServiceScore>3.21</ServiceScore>
+	<MoodScore>3.17</MoodScore>
+	<Situation>友人・同僚と、デート、家族・子供と、一人で</Situation>
+	<DinnerPrice></DinnerPrice>
+	<LunchPrice> ～￥999</LunchPrice>
+	<Category>洋菓子（その他）、スイーツ（その他）、カフェ</Category>
+	<Station>真庭市その他</Station>
+	<Address>真庭市蒜山上福田1205-197 ヒルゼン高原内</Address>
+	<Tel>0867-66-2969</Tel>
+	<BusinessHours>9:00～18:00(夏季）
+9:00～16:30(冬季）
+</BusinessHours>
+	<Holiday>ヒルゼン高原センターに準ずる。</Holiday>
+	<Latitude>35.2913120422883</Latitude>
+	<Longitude>133.635340611784</Longitude>
+
+</Item>
+<Item>
+	<Rcd>33000980</Rcd>
+	<RestaurantName>冨士屋</RestaurantName>
+	<TabelogUrl>http://tabelog.com/okayama/A3301/A330101/33000980/</TabelogUrl>
+<TabelogMobileUrl>http://m.tabelog.com/okayama/A3301/A330101/33000980/</TabelogMobileUrl>
+	<TotalScore>3.34</TotalScore>
+	<TasteScore>3.38</TasteScore>
+	<ServiceScore>3.21</ServiceScore>
+	<MoodScore>3.29</MoodScore>
+	<Situation>友人・同僚と、一人で</Situation>
+	<DinnerPrice> ～￥999</DinnerPrice>
+	<LunchPrice> ～￥999</LunchPrice>
+	<Category>ラーメン</Category>
+	<Station>岡山、岡山駅前、西川緑道公園</Station>
+	<Address>岡山市北区奉還町2-3-8 </Address>
+	<Tel>086-253-9759</Tel>
+	<BusinessHours>11:00～19:30</BusinessHours>
+	<Holiday>水曜日（祝日の場合は前後に振替）</Holiday>
+	<Latitude>34.6685385574977</Latitude>
+	<Longitude>133.916034029405</Longitude>
+
+</Item>
+<Item>
+	<Rcd>33000050</Rcd>
+	<RestaurantName>エル・グレコ</RestaurantName>
+	<TabelogUrl>http://tabelog.com/okayama/A3302/A330201/33000050/</TabelogUrl>
+<TabelogMobileUrl>http://m.tabelog.com/okayama/A3302/A330201/33000050/</TabelogMobileUrl>
+	<TotalScore>3.34</TotalScore>
+	<TasteScore>3.07</TasteScore>
+	<ServiceScore>3.26</ServiceScore>
+	<MoodScore>3.54</MoodScore>
+	<Situation>友人・同僚と、デート</Situation>
+	<DinnerPrice>￥5,000～￥5,999</DinnerPrice>
+	<LunchPrice> ～￥999</LunchPrice>
+	<Category>カフェ</Category>
+	<Station>倉敷市、倉敷</Station>
+	<Address>倉敷市中央1-1-11 </Address>
+	<Tel>086-422-0297</Tel>
+	<BusinessHours>10:00～17:00</BusinessHours>
+	<Holiday>月曜日（祝日の場合は水曜日）</Holiday>
+	<Latitude>34.5964751128792</Latitude>
+	<Longitude>133.770536097594</Longitude>
+
+</Item>
+<Item>
+	<Rcd>33000553</Rcd>
+	<RestaurantName>うどん およべ</RestaurantName>
+	<TabelogUrl>http://tabelog.com/okayama/A3301/A330101/33000553/</TabelogUrl>
+<TabelogMobileUrl>http://m.tabelog.com/okayama/A3301/A330101/33000553/</TabelogMobileUrl>
+	<TotalScore>3.34</TotalScore>
+	<TasteScore>3.29</TasteScore>
+	<ServiceScore>3.09</ServiceScore>
+	<MoodScore>3.5</MoodScore>
+	<Situation>友人・同僚と、家族・子供と、一人で</Situation>
+	<DinnerPrice> ～￥999</DinnerPrice>
+	<LunchPrice> ～￥999</LunchPrice>
+	<Category>うどん、丼もの（その他）</Category>
+	<Station>清輝橋、東中央町</Station>
+	<Address>岡山市北区岡南町1-8-26 </Address>
+	<Tel>086-239-2525</Tel>
+	<BusinessHours>[平日]
+11:00～15:00(L.O.15:00)、 
+18:00～22:00（L.O.22:00）
+
+[土日祝]
+11:00～15:30(L.O.15:30)、 
+19:30～22:00（L.O.22:00）</BusinessHours>
+	<Holiday>水曜日</Holiday>
+	<Latitude>34.6455560923814</Latitude>
+	<Longitude>133.925274753669</Longitude>
+
+</Item>
+<Item>
+	<Rcd>33005671</Rcd>
+	<RestaurantName>中島ブロイラー</RestaurantName>
+	<TabelogUrl>http://tabelog.com/okayama/A3304/A330401/33005671/</TabelogUrl>
+<TabelogMobileUrl>http://m.tabelog.com/okayama/A3304/A330401/33005671/</TabelogMobileUrl>
+	<TotalScore>3.34</TotalScore>
+	<TasteScore>3.19</TasteScore>
+	<ServiceScore>2.9</ServiceScore>
+	<MoodScore>3.03</MoodScore>
+	<Situation>家族・子供と</Situation>
+	<DinnerPrice>￥1,000～￥1,999</DinnerPrice>
+	<LunchPrice> ～￥999</LunchPrice>
+	<Category>焼鳥</Category>
+	<Station>小原、誕生寺</Station>
+	<Address>久米郡久米南町里方544 </Address>
+	<Tel>0867-28-2334</Tel>
+	<BusinessHours>9：00～18：00</BusinessHours>
+	<Holiday>無休</Holiday>
+	<Latitude>34.9605033373241</Latitude>
+	<Longitude>133.958502881175</Longitude>
+
+</Item>
+<Item>
+	<Rcd>33000108</Rcd>
+	<RestaurantName>とんぺい</RestaurantName>
+	<TabelogUrl>http://tabelog.com/okayama/A3302/A330204/33000108/</TabelogUrl>
+<TabelogMobileUrl>http://m.tabelog.com/okayama/A3302/A330204/33000108/</TabelogMobileUrl>
+	<TotalScore>3.34</TotalScore>
+	<TasteScore>3.34</TasteScore>
+	<ServiceScore>2.97</ServiceScore>
+	<MoodScore>3.03</MoodScore>
+	<Situation>友人・同僚と、家族・子供と、一人で</Situation>
+	<DinnerPrice> ～￥999</DinnerPrice>
+	<LunchPrice> ～￥999</LunchPrice>
+	<Category>ラーメン、餃子</Category>
+	<Station>笠岡</Station>
+	<Address>笠岡市小平井2215-1 </Address>
+	<Tel>0865-62-4129</Tel>
+	<BusinessHours>[月～土] 11:00～21:00
+[日・祝] 11:00～20:00</BusinessHours>
+	<Holiday>木曜日（祝日は営業）</Holiday>
+	<Latitude>34.5372548578892</Latitude>
+	<Longitude>133.504623408224</Longitude>
+
+</Item>
+<Item>
+	<Rcd>33000705</Rcd>
+	<RestaurantName>中華園 岡山本店</RestaurantName>
+	<TabelogUrl>http://tabelog.com/okayama/A3301/A330101/33000705/</TabelogUrl>
+<TabelogMobileUrl>http://m.tabelog.com/okayama/A3301/A330101/33000705/</TabelogMobileUrl>
+	<TotalScore>3.34</TotalScore>
+	<TasteScore>3.28</TasteScore>
+	<ServiceScore>3.17</ServiceScore>
+	<MoodScore>3.26</MoodScore>
+	<Situation>友人・同僚と、家族・子供と</Situation>
+	<DinnerPrice>￥2,000～￥2,999</DinnerPrice>
+	<LunchPrice> ～￥999</LunchPrice>
+	<Category>四川料理</Category>
+	<Station>備前三門、大安寺</Station>
+	<Address>岡山市北区西崎1-8-30 </Address>
+	<Tel>086-201-6040</Tel>
+	<BusinessHours>11:30～14:00、17:00～22:00(L.O.21:30)</BusinessHours>
+	<Holiday>無休</Holiday>
+	<Latitude>34.6641870468521</Latitude>
+	<Longitude>133.898319867586</Longitude>
+
+</Item>
+<Item>
+	<Rcd>33001116</Rcd>
+	<RestaurantName>イタリアンスローフード カリーノ</RestaurantName>
+	<TabelogUrl>http://tabelog.com/okayama/A3301/A330101/33001116/</TabelogUrl>
+<TabelogMobileUrl>http://m.tabelog.com/okayama/A3301/A330101/33001116/</TabelogMobileUrl>
+	<TotalScore>3.34</TotalScore>
+	<TasteScore>3.38</TasteScore>
+	<ServiceScore>3.29</ServiceScore>
+	<MoodScore>3.33</MoodScore>
+	<Situation>友人・同僚と</Situation>
+	<DinnerPrice> ～￥999</DinnerPrice>
+	<LunchPrice> ～￥999</LunchPrice>
+	<Category>イタリアン、パスタ、パン</Category>
+	<Station>岡山、備前三門</Station>
+	<Address>岡山市北区伊福町4-4-34 </Address>
+	<Tel>086-253-0315</Tel>
+	<BusinessHours>平日　7:30～19:30
+</BusinessHours>
+	<Holiday>火曜日</Holiday>
+	<Latitude>34.6724366689065</Latitude>
+	<Longitude>133.911296187852</Longitude>
+
+</Item>
+<Item>
+	<Rcd>33001301</Rcd>
+	<RestaurantName>そば処 千田</RestaurantName>
+	<TabelogUrl>http://tabelog.com/okayama/A3301/A330101/33001301/</TabelogUrl>
+<TabelogMobileUrl>http://m.tabelog.com/okayama/A3301/A330101/33001301/</TabelogMobileUrl>
+	<TotalScore>3.34</TotalScore>
+	<TasteScore>3.24</TasteScore>
+	<ServiceScore>3.33</ServiceScore>
+	<MoodScore>3.5</MoodScore>
+	<Situation>友人・同僚と、一人で</Situation>
+	<DinnerPrice></DinnerPrice>
+	<LunchPrice>￥1,000～￥1,999</LunchPrice>
+	<Category>そば、懐石・会席料理</Category>
+	<Station>植松</Station>
+	<Address>岡山市南区彦崎1855 </Address>
+	<Tel>08636-2-0536</Tel>
+	<BusinessHours>11:00～15:00
+17:00～（予約のみ）</BusinessHours>
+	<Holiday>日曜日、月曜日</Holiday>
+	<Latitude>34.5427804736494</Latitude>
+	<Longitude>133.82815489567</Longitude>
+
+</Item>
+</RestaurantInfo>

@@ -1,0 +1,450 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RestaurantInfo>
+<NumOfResult>12080</NumOfResult> 
+<Item>
+	<Rcd>34003732</Rcd>
+	<RestaurantName>二代目 もんごい亭</RestaurantName>
+	<TabelogUrl>http://tabelog.com/hiroshima/A3401/A340102/34003732/</TabelogUrl>
+<TabelogMobileUrl>http://m.tabelog.com/hiroshima/A3401/A340102/34003732/</TabelogMobileUrl>
+	<TotalScore>3.51</TotalScore>
+	<TasteScore>3.51</TasteScore>
+	<ServiceScore>3.21</ServiceScore>
+	<MoodScore>3.21</MoodScore>
+	<Situation>友人・同僚と、家族・子供と、一人で</Situation>
+	<DinnerPrice>￥1,000～￥1,999</DinnerPrice>
+	<LunchPrice> ～￥999</LunchPrice>
+	<Category>ラーメン、つけ麺</Category>
+	<Station>宇品三丁目、宇品二丁目、宇品四丁目</Station>
+	<Address>広島市南区丹那町1-38 </Address>
+	<Tel>082-578-0061</Tel>
+	<BusinessHours>11:30～14:00(L.O) 17:30～22:00(L.O)</BusinessHours>
+	<Holiday>無休</Holiday>
+	<Latitude>34.3632894644667</Latitude>
+	<Longitude>132.480375093846</Longitude>
+
+</Item>
+<Item>
+	<Rcd>34007876</Rcd>
+	<RestaurantName>銀座 天一 広島SOGO店</RestaurantName>
+	<TabelogUrl>http://tabelog.com/hiroshima/A3401/A340101/34007876/</TabelogUrl>
+<TabelogMobileUrl>http://m.tabelog.com/hiroshima/A3401/A340101/34007876/</TabelogMobileUrl>
+	<TotalScore>3.51</TotalScore>
+	<TasteScore>3.48</TasteScore>
+	<ServiceScore>3.55</ServiceScore>
+	<MoodScore>3.51</MoodScore>
+	<Situation>友人・同僚と</Situation>
+	<DinnerPrice>￥8,000～￥9,999</DinnerPrice>
+	<LunchPrice>￥1,000～￥1,999</LunchPrice>
+	<Category>天ぷら</Category>
+	<Station>紙屋町西、紙屋町東、県庁前</Station>
+	<Address>広島市中区基町6-27 そごう広島店 10F</Address>
+	<Tel>082-512-7550</Tel>
+	<BusinessHours>11:00～22:00（L.O.21:00）</BusinessHours>
+	<Holiday>そごう広島店に準ずる</Holiday>
+	<Latitude>34.3957419804873</Latitude>
+	<Longitude>132.457439947768</Longitude>
+
+</Item>
+<Item>
+	<Rcd>34015490</Rcd>
+	<RestaurantName>バーカロウノ</RestaurantName>
+	<TabelogUrl>http://tabelog.com/hiroshima/A3401/A340101/34015490/</TabelogUrl>
+<TabelogMobileUrl>http://m.tabelog.com/hiroshima/A3401/A340101/34015490/</TabelogMobileUrl>
+	<TotalScore>3.51</TotalScore>
+	<TasteScore>3.29</TasteScore>
+	<ServiceScore>3.31</ServiceScore>
+	<MoodScore>3.24</MoodScore>
+	<Situation>友人・同僚と</Situation>
+	<DinnerPrice>￥2,000～￥2,999</DinnerPrice>
+	<LunchPrice></LunchPrice>
+	<Category>バー、イタリアン</Category>
+	<Station>胡町、八丁堀、銀山町</Station>
+	<Address>広島市中区流川町2-17 </Address>
+	<Tel>082-249-7889</Tel>
+	<BusinessHours>17:30～翌2:00</BusinessHours>
+	<Holiday>日曜日</Holiday>
+	<Latitude>34.3918044744187</Latitude>
+	<Longitude>132.463935952958</Longitude>
+
+</Item>
+<Item>
+	<Rcd>34002421</Rcd>
+	<RestaurantName>囲炉裏亭 味都</RestaurantName>
+	<TabelogUrl>http://tabelog.com/hiroshima/A3403/A340301/34002421/</TabelogUrl>
+<TabelogMobileUrl>http://m.tabelog.com/hiroshima/A3403/A340301/34002421/</TabelogMobileUrl>
+	<TotalScore>3.51</TotalScore>
+	<TasteScore>3.52</TasteScore>
+	<ServiceScore>3.51</ServiceScore>
+	<MoodScore>3.51</MoodScore>
+	<Situation>友人・同僚と、接待、宴会</Situation>
+	<DinnerPrice>￥5,000～￥5,999</DinnerPrice>
+	<LunchPrice>￥1,000～￥1,999</LunchPrice>
+	<Category>居酒屋、懐石・会席料理</Category>
+	<Station>福山</Station>
+	<Address>福山市延広町2-8 堤ビル1Ｆ</Address>
+	<Tel>084-928-3244</Tel>
+	<BusinessHours>11:30～14:30
+17:00～00:00</BusinessHours>
+	<Holiday>日曜日（連休の場合は、月曜とかあるので確認してください）</Holiday>
+	<Latitude>34.486605639998</Latitude>
+	<Longitude>133.364626889124</Longitude>
+
+</Item>
+<Item>
+	<Rcd>34001172</Rcd>
+	<RestaurantName>中国料理 李芳</RestaurantName>
+	<TabelogUrl>http://tabelog.com/hiroshima/A3401/A340102/34001172/</TabelogUrl>
+<TabelogMobileUrl>http://m.tabelog.com/hiroshima/A3401/A340102/34001172/</TabelogMobileUrl>
+	<TotalScore>3.51</TotalScore>
+	<TasteScore>3.29</TasteScore>
+	<ServiceScore>3.48</ServiceScore>
+	<MoodScore>3.51</MoodScore>
+	<Situation>友人・同僚と、家族・子供と</Situation>
+	<DinnerPrice>￥5,000～￥5,999</DinnerPrice>
+	<LunchPrice>￥2,000～￥2,999</LunchPrice>
+	<Category>広東料理</Category>
+	<Station>元宇品口、広島港（宇品）、海岸通</Station>
+	<Address>広島市南区元宇品町23-1 グランドプリンスホテル広島 21F</Address>
+	<Tel>082-256-1111</Tel>
+	<BusinessHours>[火～金] 12:00～14:30(L.O) 17:30～21:00(L.O) [土・日・祝] 11:30～21:00(L.O)</BusinessHours>
+	<Holiday>月曜日（休日を除く）</Holiday>
+	<Latitude>34.3431135576182</Latitude>
+	<Longitude>132.464002381423</Longitude>
+
+</Item>
+<Item>
+	<Rcd>34001431</Rcd>
+	<RestaurantName>風月</RestaurantName>
+	<TabelogUrl>http://tabelog.com/hiroshima/A3403/A340302/34001431/</TabelogUrl>
+<TabelogMobileUrl>http://m.tabelog.com/hiroshima/A3403/A340302/34001431/</TabelogMobileUrl>
+	<TotalScore>3.51</TotalScore>
+	<TasteScore>3.54</TasteScore>
+	<ServiceScore>3.5</ServiceScore>
+	<MoodScore>3.51</MoodScore>
+	<Situation>友人・同僚と、一人で</Situation>
+	<DinnerPrice> ～￥999</DinnerPrice>
+	<LunchPrice></LunchPrice>
+	<Category>そば・うどん・麺類（その他）</Category>
+	<Station>尾道</Station>
+	<Address>尾道市久保2-14-7 </Address>
+	<Tel>0848-37-1561</Tel>
+	<BusinessHours>夕方から深夜(25時頃まで）</BusinessHours>
+	<Holiday>日曜日・祝日</Holiday>
+	<Latitude>34.4110602754653</Latitude>
+	<Longitude>133.205912791356</Longitude>
+
+</Item>
+<Item>
+	<Rcd>34007184</Rcd>
+	<RestaurantName>ゴールデンガーデン</RestaurantName>
+	<TabelogUrl>http://tabelog.com/hiroshima/A3401/A340101/34007184/</TabelogUrl>
+<TabelogMobileUrl>http://m.tabelog.com/hiroshima/A3401/A340101/34007184/</TabelogMobileUrl>
+	<TotalScore>3.51</TotalScore>
+	<TasteScore></TasteScore>
+	<ServiceScore>3.33</ServiceScore>
+	<MoodScore>3.51</MoodScore>
+	<Situation>友人・同僚と、一人で</Situation>
+	<DinnerPrice>￥2,000～￥2,999</DinnerPrice>
+	<LunchPrice></LunchPrice>
+	<Category>ビアバー、ビアホール・ビアレストラン、ダイニングバー</Category>
+	<Station>八丁堀、胡町、立町</Station>
+	<Address>広島市中区新天地2-12 西豊ビル　2F</Address>
+	<Tel>082-248-2657</Tel>
+	<BusinessHours>[火～木]16:00～翌1:00
+[金・土]16:00～翌2:00</BusinessHours>
+	<Holiday>日曜、祝日</Holiday>
+	<Latitude>34.3914839121013</Latitude>
+	<Longitude>132.462436673284</Longitude>
+
+</Item>
+<Item>
+	<Rcd>34009680</Rcd>
+	<RestaurantName>ごちそう芭菜</RestaurantName>
+	<TabelogUrl>http://tabelog.com/hiroshima/A3404/A340403/34009680/</TabelogUrl>
+<TabelogMobileUrl>http://m.tabelog.com/hiroshima/A3404/A340403/34009680/</TabelogMobileUrl>
+	<TotalScore>3.51</TotalScore>
+	<TasteScore>3.51</TasteScore>
+	<ServiceScore>3.51</ServiceScore>
+	<MoodScore>3.51</MoodScore>
+	<Situation>友人・同僚と、デート</Situation>
+	<DinnerPrice>￥5,000～￥5,999</DinnerPrice>
+	<LunchPrice></LunchPrice>
+	<Category>居酒屋</Category>
+	<Station>西条</Station>
+	<Address>東広島市西条昭和町4-21 </Address>
+	<Tel>082-421-2087</Tel>
+	<BusinessHours>18：00～22：30(LO)</BusinessHours>
+	<Holiday>月曜日　不定休有</Holiday>
+	<Latitude>34.4240136241937</Latitude>
+	<Longitude>132.740565099242</Longitude>
+
+</Item>
+<Item>
+	<Rcd>34013641</Rcd>
+	<RestaurantName>ワイン食堂　つれづれ</RestaurantName>
+	<TabelogUrl>http://tabelog.com/hiroshima/A3401/A340103/34013641/</TabelogUrl>
+<TabelogMobileUrl>http://m.tabelog.com/hiroshima/A3401/A340103/34013641/</TabelogMobileUrl>
+	<TotalScore>3.51</TotalScore>
+	<TasteScore>3.43</TasteScore>
+	<ServiceScore>3.51</ServiceScore>
+	<MoodScore>3.54</MoodScore>
+	<Situation>友人・同僚と、デート、一人で</Situation>
+	<DinnerPrice>￥2,000～￥2,999</DinnerPrice>
+	<LunchPrice></LunchPrice>
+	<Category>居酒屋・ダイニングバー（その他）、ワインバー、居酒屋</Category>
+	<Station>横川一丁目、横川駅、横川</Station>
+	<Address>広島市西区横川町2-10-4 栗川Yビル１F</Address>
+	<Tel>082-295-2456</Tel>
+	<BusinessHours>17：30～23：00</BusinessHours>
+	<Holiday>日、祝</Holiday>
+	<Latitude>34.407797737195</Latitude>
+	<Longitude>132.45062517665</Longitude>
+
+</Item>
+<Item>
+	<Rcd>34015395</Rcd>
+	<RestaurantName>チンクエチェント</RestaurantName>
+	<TabelogUrl>http://tabelog.com/hiroshima/A3401/A340102/34015395/</TabelogUrl>
+<TabelogMobileUrl>http://m.tabelog.com/hiroshima/A3401/A340102/34015395/</TabelogMobileUrl>
+	<TotalScore>3.51</TotalScore>
+	<TasteScore>2.74</TasteScore>
+	<ServiceScore>3.26</ServiceScore>
+	<MoodScore>3.55</MoodScore>
+	<Situation>友人・同僚と、デート、一人で</Situation>
+	<DinnerPrice>￥1,000～￥1,999</DinnerPrice>
+	<LunchPrice></LunchPrice>
+	<Category>バー・お酒（その他）、ワインバー</Category>
+	<Station>広島、広島駅、猿猴橋町</Station>
+	<Address>広島市南区大須賀町12-10 </Address>
+	<Tel>050-3488-8346</Tel>
+	<BusinessHours>19:00～翌04:00</BusinessHours>
+	<Holiday>日・祝</Holiday>
+	<Latitude>34.3985505529009</Latitude>
+	<Longitude>132.472422740804</Longitude>
+
+</Item>
+<Item>
+	<Rcd>34008764</Rcd>
+	<RestaurantName>小波</RestaurantName>
+	<TabelogUrl>http://tabelog.com/hiroshima/A3401/A340103/34008764/</TabelogUrl>
+<TabelogMobileUrl>http://m.tabelog.com/hiroshima/A3401/A340103/34008764/</TabelogMobileUrl>
+	<TotalScore>3.51</TotalScore>
+	<TasteScore>3.51</TasteScore>
+	<ServiceScore>3.29</ServiceScore>
+	<MoodScore>3.16</MoodScore>
+	<Situation>友人・同僚と</Situation>
+	<DinnerPrice>￥4,000～￥4,999</DinnerPrice>
+	<LunchPrice></LunchPrice>
+	<Category>魚介料理・海鮮料理、居酒屋、和食（その他）</Category>
+	<Station>横川一丁目、横川駅、横川</Station>
+	<Address>広島市西区横川町2-8-28 </Address>
+	<Tel>082-233-3833</Tel>
+	<BusinessHours>17:00～23:00
+</BusinessHours>
+	<Holiday>日曜・祝日</Holiday>
+	<Latitude>34.4083102141052</Latitude>
+	<Longitude>132.449178921848</Longitude>
+
+</Item>
+<Item>
+	<Rcd>34010240</Rcd>
+	<RestaurantName>とうふ工房　ちだち 世羅本店</RestaurantName>
+	<TabelogUrl>http://tabelog.com/hiroshima/A3405/A340504/34010240/</TabelogUrl>
+<TabelogMobileUrl>http://m.tabelog.com/hiroshima/A3405/A340504/34010240/</TabelogMobileUrl>
+	<TotalScore>3.51</TotalScore>
+	<TasteScore>3.51</TasteScore>
+	<ServiceScore>3.51</ServiceScore>
+	<MoodScore>3.26</MoodScore>
+	<Situation>友人・同僚と、家族・子供と、一人で</Situation>
+	<DinnerPrice></DinnerPrice>
+	<LunchPrice> ～￥999</LunchPrice>
+	<Category>アイスクリーム</Category>
+	<Station>世羅町その他</Station>
+	<Address>世羅郡世羅町本郷657-3 </Address>
+	<Tel>0847-22-1028</Tel>
+	<BusinessHours>10:30～18:00</BusinessHours>
+	<Holiday>月曜</Holiday>
+	<Latitude>34.5862327609805</Latitude>
+	<Longitude>133.04838209954</Longitude>
+
+</Item>
+<Item>
+	<Rcd>34012095</Rcd>
+	<RestaurantName>ラ・タスカ</RestaurantName>
+	<TabelogUrl>http://tabelog.com/hiroshima/A3401/A340101/34012095/</TabelogUrl>
+<TabelogMobileUrl>http://m.tabelog.com/hiroshima/A3401/A340101/34012095/</TabelogMobileUrl>
+	<TotalScore>3.51</TotalScore>
+	<TasteScore>3.52</TasteScore>
+	<ServiceScore>3.28</ServiceScore>
+	<MoodScore>3.33</MoodScore>
+	<Situation>友人・同僚と、デート</Situation>
+	<DinnerPrice>￥4,000～￥4,999</DinnerPrice>
+	<LunchPrice></LunchPrice>
+	<Category>スペイン料理</Category>
+	<Station>胡町、銀山町、八丁堀</Station>
+	<Address>広島市中区薬研堀3-6 薬研堀ビル３Ｆ</Address>
+	<Tel>082-249-1733</Tel>
+	<BusinessHours>[月～土]
+18:00～翌0:30(L.O.24:00)
+</BusinessHours>
+	<Holiday>日曜・祝日</Holiday>
+	<Latitude>34.3908438372104</Latitude>
+	<Longitude>132.465116476468</Longitude>
+
+</Item>
+<Item>
+	<Rcd>34014255</Rcd>
+	<RestaurantName>カドナ</RestaurantName>
+	<TabelogUrl>http://tabelog.com/hiroshima/A3401/A340107/34014255/</TabelogUrl>
+<TabelogMobileUrl>http://m.tabelog.com/hiroshima/A3401/A340107/34014255/</TabelogMobileUrl>
+	<TotalScore>3.51</TotalScore>
+	<TasteScore>3.53</TasteScore>
+	<ServiceScore>3.07</ServiceScore>
+	<MoodScore>3.53</MoodScore>
+	<Situation>家族・子供と、一人で</Situation>
+	<DinnerPrice></DinnerPrice>
+	<LunchPrice> ～￥999</LunchPrice>
+	<Category>パン</Category>
+	<Station>広島市安佐南区その他</Station>
+	<Address>広島市安佐南区沼田町吉山3149-1 </Address>
+	<Tel>082-839-3006</Tel>
+	<BusinessHours>7:00～15:00</BusinessHours>
+	<Holiday>月・火曜日（祝日は営業）</Holiday>
+	<Latitude>34.4779096423596</Latitude>
+	<Longitude>132.349652616346</Longitude>
+
+</Item>
+<Item>
+	<Rcd>34007879</Rcd>
+	<RestaurantName>たぬき</RestaurantName>
+	<TabelogUrl>http://tabelog.com/hiroshima/A3401/A340101/34007879/</TabelogUrl>
+<TabelogMobileUrl>http://m.tabelog.com/hiroshima/A3401/A340101/34007879/</TabelogMobileUrl>
+	<TotalScore>3.51</TotalScore>
+	<TasteScore>3.51</TasteScore>
+	<ServiceScore>3.51</ServiceScore>
+	<MoodScore>3.71</MoodScore>
+	<Situation>友人・同僚と</Situation>
+	<DinnerPrice>￥4,000～￥4,999</DinnerPrice>
+	<LunchPrice></LunchPrice>
+	<Category>おでん</Category>
+	<Station>袋町、立町、八丁堀</Station>
+	<Address>広島市中区中町1-7 </Address>
+	<Tel>082-247-3617</Tel>
+	<BusinessHours>17.00-23.00(土祝-22.30)</BusinessHours>
+	<Holiday>日休(12月は無休)</Holiday>
+	<Latitude>34.3904739892631</Latitude>
+	<Longitude>132.460479104581</Longitude>
+
+</Item>
+<Item>
+	<Rcd>34010042</Rcd>
+	<RestaurantName>田舎</RestaurantName>
+	<TabelogUrl>http://tabelog.com/hiroshima/A3401/A340101/34010042/</TabelogUrl>
+<TabelogMobileUrl>http://m.tabelog.com/hiroshima/A3401/A340101/34010042/</TabelogMobileUrl>
+	<TotalScore>3.51</TotalScore>
+	<TasteScore>3.51</TasteScore>
+	<ServiceScore>3.51</ServiceScore>
+	<MoodScore>3.29</MoodScore>
+	<Situation>友人・同僚と、宴会、一人で</Situation>
+	<DinnerPrice>￥2,000～￥2,999</DinnerPrice>
+	<LunchPrice></LunchPrice>
+	<Category>おでん、居酒屋、居酒屋・ダイニングバー（その他）</Category>
+	<Station>中電前、袋町、市役所前</Station>
+	<Address>広島市中区大手町3-2-5 </Address>
+	<Tel>082-244-7003</Tel>
+	<BusinessHours>[月曜～土曜日]　17:00 ～00:00</BusinessHours>
+	<Holiday>日・祝</Holiday>
+	<Latitude>34.3892512385002</Latitude>
+	<Longitude>132.454665443703</Longitude>
+
+</Item>
+<Item>
+	<Rcd>34002926</Rcd>
+	<RestaurantName>デンスケ</RestaurantName>
+	<TabelogUrl>http://tabelog.com/hiroshima/A3401/A340101/34002926/</TabelogUrl>
+<TabelogMobileUrl>http://m.tabelog.com/hiroshima/A3401/A340101/34002926/</TabelogMobileUrl>
+	<TotalScore>3.51</TotalScore>
+	<TasteScore>3.51</TasteScore>
+	<ServiceScore>3.55</ServiceScore>
+	<MoodScore>3.48</MoodScore>
+	<Situation>友人・同僚と</Situation>
+	<DinnerPrice>￥2,000～￥2,999</DinnerPrice>
+	<LunchPrice></LunchPrice>
+	<Category>串焼き、居酒屋、ろばた焼き</Category>
+	<Station>袋町、中電前、八丁堀</Station>
+	<Address>広島市中区三川町10-18 下井ビル３階</Address>
+	<Tel>082-247-3566</Tel>
+	<BusinessHours>[月～土]16:00～22:00(L.O.21:30)</BusinessHours>
+	<Holiday>日曜日</Holiday>
+	<Latitude>34.3891902744201</Latitude>
+	<Longitude>132.460849752909</Longitude>
+
+</Item>
+<Item>
+	<Rcd>34010089</Rcd>
+	<RestaurantName>にしき堂 福山南蔵王店</RestaurantName>
+	<TabelogUrl>http://tabelog.com/hiroshima/A3403/A340301/34010089/</TabelogUrl>
+<TabelogMobileUrl>http://m.tabelog.com/hiroshima/A3403/A340301/34010089/</TabelogMobileUrl>
+	<TotalScore>3.51</TotalScore>
+	<TasteScore>3.4</TasteScore>
+	<ServiceScore>3.51</ServiceScore>
+	<MoodScore>3.5</MoodScore>
+	<Situation>家族・子供と、一人で</Situation>
+	<DinnerPrice> ～￥999</DinnerPrice>
+	<LunchPrice>￥1,000～￥1,999</LunchPrice>
+	<Category>和菓子</Category>
+	<Station>東福山</Station>
+	<Address>福山市南蔵王町2-72-22 </Address>
+	<Tel>084-932-7780</Tel>
+	<BusinessHours>8:00～20:00</BusinessHours>
+	<Holiday>無休</Holiday>
+	<Latitude>34.5020824820514</Latitude>
+	<Longitude>133.398077364884</Longitude>
+
+</Item>
+<Item>
+	<Rcd>34010227</Rcd>
+	<RestaurantName>和創作 悠生</RestaurantName>
+	<TabelogUrl>http://tabelog.com/hiroshima/A3401/A340103/34010227/</TabelogUrl>
+<TabelogMobileUrl>http://m.tabelog.com/hiroshima/A3401/A340103/34010227/</TabelogMobileUrl>
+	<TotalScore>3.51</TotalScore>
+	<TasteScore>3.51</TasteScore>
+	<ServiceScore>3.29</ServiceScore>
+	<MoodScore>3.29</MoodScore>
+	<Situation>友人・同僚と、デート、一人で</Situation>
+	<DinnerPrice>￥3,000～￥3,999</DinnerPrice>
+	<LunchPrice></LunchPrice>
+	<Category>和食（その他）</Category>
+	<Station>横川駅、横川、横川一丁目</Station>
+	<Address>広島市西区横川町3-5-20 あすなろビル　２F</Address>
+	<Tel>082-233-6177</Tel>
+	<BusinessHours>11:00～13:30(L.O)
+17:00～22:00(L.O)</BusinessHours>
+	<Holiday>月曜日＊ただし月曜日の貸切は応相談</Holiday>
+	<Latitude>34.4097263241226</Latitude>
+	<Longitude>132.451480205705</Longitude>
+
+</Item>
+<Item>
+	<Rcd>34014352</Rcd>
+	<RestaurantName>自彩菜酒処 渓</RestaurantName>
+	<TabelogUrl>http://tabelog.com/hiroshima/A3401/A340101/34014352/</TabelogUrl>
+<TabelogMobileUrl>http://m.tabelog.com/hiroshima/A3401/A340101/34014352/</TabelogMobileUrl>
+	<TotalScore>3.51</TotalScore>
+	<TasteScore>3.51</TasteScore>
+	<ServiceScore>3.51</ServiceScore>
+	<MoodScore>3.51</MoodScore>
+	<Situation>友人・同僚と</Situation>
+	<DinnerPrice>￥4,000～￥4,999</DinnerPrice>
+	<LunchPrice></LunchPrice>
+	<Category>居酒屋、日本酒</Category>
+	<Station>胡町、八丁堀、立町</Station>
+	<Address>広島市中区堀川町4-4 右近ビル2F</Address>
+	<Tel>082-249-0285</Tel>
+	<BusinessHours>17:00～24:00 (L.O.23:30)</BusinessHours>
+	<Holiday>日曜日・祝日の月曜日</Holiday>
+	<Latitude>34.3923996114762</Latitude>
+	<Longitude>132.463745823832</Longitude>
+
+</Item>
+</RestaurantInfo>

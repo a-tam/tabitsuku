@@ -1,0 +1,459 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RestaurantInfo>
+<NumOfResult>4423</NumOfResult> 
+<Item>
+	<Rcd>19003775</Rcd>
+	<RestaurantName>ガキ大将ラーメン 匠 富士吉田店</RestaurantName>
+	<TabelogUrl>http://tabelog.com/yamanashi/A1903/A190301/19003775/</TabelogUrl>
+<TabelogMobileUrl>http://m.tabelog.com/yamanashi/A1903/A190301/19003775/</TabelogMobileUrl>
+	<TotalScore>3.24</TotalScore>
+	<TasteScore>3.26</TasteScore>
+	<ServiceScore>3.29</ServiceScore>
+	<MoodScore>3.45</MoodScore>
+	<Situation>友人・同僚と、家族・子供と、一人で</Situation>
+	<DinnerPrice>￥1,000～￥1,999</DinnerPrice>
+	<LunchPrice> ～￥999</LunchPrice>
+	<Category>ラーメン、つけ麺</Category>
+	<Station>富士山</Station>
+	<Address>富士吉田市上吉田3925-1 </Address>
+	<Tel>0555-20-0055</Tel>
+	<BusinessHours>11:00～26:00</BusinessHours>
+	<Holiday>無休</Holiday>
+	<Latitude>35.4837295770661</Latitude>
+	<Longitude>138.798063266136</Longitude>
+
+</Item>
+<Item>
+	<Rcd>19003997</Rcd>
+	<RestaurantName>ハーブ庭園　旅日記　ソフトクリーム売店</RestaurantName>
+	<TabelogUrl>http://tabelog.com/yamanashi/A1901/A190104/19003997/</TabelogUrl>
+<TabelogMobileUrl>http://m.tabelog.com/yamanashi/A1901/A190104/19003997/</TabelogMobileUrl>
+	<TotalScore>3.24</TotalScore>
+	<TasteScore>3.34</TasteScore>
+	<ServiceScore>3.0</ServiceScore>
+	<MoodScore>3.1</MoodScore>
+	<Situation>デート、家族・子供と</Situation>
+	<DinnerPrice></DinnerPrice>
+	<LunchPrice> ～￥999</LunchPrice>
+	<Category>アイスクリーム</Category>
+	<Station>勝沼ぶどう郷、東山梨、山梨市</Station>
+	<Address>甲州市勝沼町等々力1736 </Address>
+	<Tel>0553-44-3715</Tel>
+	<BusinessHours>9:00～17:30</BusinessHours>
+	<Holiday>無休</Holiday>
+	<Latitude>35.673016138387</Latitude>
+	<Longitude>138.716894985037</Longitude>
+
+</Item>
+<Item>
+	<Rcd>19004106</Rcd>
+	<RestaurantName>えのきや 山梨店</RestaurantName>
+	<TabelogUrl>http://tabelog.com/yamanashi/A1901/A190102/19004106/</TabelogUrl>
+<TabelogMobileUrl>http://m.tabelog.com/yamanashi/A1901/A190102/19004106/</TabelogMobileUrl>
+	<TotalScore>3.24</TotalScore>
+	<TasteScore>3.29</TasteScore>
+	<ServiceScore>2.89</ServiceScore>
+	<MoodScore>2.92</MoodScore>
+	<Situation>家族・子供と、一人で</Situation>
+	<DinnerPrice> ～￥999</DinnerPrice>
+	<LunchPrice>￥1,000～￥1,999</LunchPrice>
+	<Category>中華麺（その他）、ホルモン</Category>
+	<Station>山梨市、東山梨</Station>
+	<Address>山梨市南228-1 </Address>
+	<Tel>0553-22-4533</Tel>
+	<BusinessHours>11:00～(LO)22:30
+(月、月が祝日の時の翌火)11:00～14:00
+</BusinessHours>
+	<Holiday>なし</Holiday>
+	<Latitude>35.6988759383608</Latitude>
+	<Longitude>138.685944185321</Longitude>
+
+</Item>
+<Item>
+	<Rcd>19000304</Rcd>
+	<RestaurantName>うさぎや</RestaurantName>
+	<TabelogUrl>http://tabelog.com/yamanashi/A1902/A190201/19000304/</TabelogUrl>
+<TabelogMobileUrl>http://m.tabelog.com/yamanashi/A1902/A190201/19000304/</TabelogMobileUrl>
+	<TotalScore>3.24</TotalScore>
+	<TasteScore>3.24</TasteScore>
+	<ServiceScore>3.02</ServiceScore>
+	<MoodScore>3.02</MoodScore>
+	<Situation>一人で</Situation>
+	<DinnerPrice>￥1,000～￥1,999</DinnerPrice>
+	<LunchPrice> ～￥999</LunchPrice>
+	<Category>和菓子</Category>
+	<Station>韮崎</Station>
+	<Address>韮崎市本町1-11-4 </Address>
+	<Tel>0120-27-0273</Tel>
+	<BusinessHours>8時半～19時</BusinessHours>
+	<Holiday>日曜日</Holiday>
+	<Latitude>35.7159457595365</Latitude>
+	<Longitude>138.445840487289</Longitude>
+
+</Item>
+<Item>
+	<Rcd>19000626</Rcd>
+	<RestaurantName>鶏割烹 鳥兆 重よし</RestaurantName>
+	<TabelogUrl>http://tabelog.com/yamanashi/A1901/A190101/19000626/</TabelogUrl>
+<TabelogMobileUrl>http://m.tabelog.com/yamanashi/A1901/A190101/19000626/</TabelogMobileUrl>
+	<TotalScore>3.24</TotalScore>
+	<TasteScore>3.1</TasteScore>
+	<ServiceScore>3.21</ServiceScore>
+	<MoodScore>3.28</MoodScore>
+	<Situation>友人・同僚と、デート、接待、宴会、家族・子供と</Situation>
+	<DinnerPrice>￥5,000～￥5,999</DinnerPrice>
+	<LunchPrice>￥1,000～￥1,999</LunchPrice>
+	<Category>鳥料理</Category>
+	<Station>竜王、塩崎</Station>
+	<Address>甲斐市赤坂台2108 </Address>
+	<Tel>055-276-1133</Tel>
+	<BusinessHours>11:00～14:00
+17:00～22:00</BusinessHours>
+	<Holiday></Holiday>
+	<Latitude>35.6772152766356</Latitude>
+	<Longitude>138.508039770452</Longitude>
+
+</Item>
+<Item>
+	<Rcd>19003587</Rcd>
+	<RestaurantName>ごはん亭まえふじ</RestaurantName>
+	<TabelogUrl>http://tabelog.com/yamanashi/A1903/A190303/19003587/</TabelogUrl>
+<TabelogMobileUrl>http://m.tabelog.com/yamanashi/A1903/A190303/19003587/</TabelogMobileUrl>
+	<TotalScore>3.24</TotalScore>
+	<TasteScore>3.28</TasteScore>
+	<ServiceScore>3.21</ServiceScore>
+	<MoodScore>3.14</MoodScore>
+	<Situation>友人・同僚と、家族・子供と、一人で</Situation>
+	<DinnerPrice>￥1,000～￥1,999</DinnerPrice>
+	<LunchPrice> ～￥999</LunchPrice>
+	<Category>洋食、ステーキ、喫茶店</Category>
+	<Station>河口湖、富士急ハイランド</Station>
+	<Address>南都留郡富士河口湖町船津4960 </Address>
+	<Tel>0555-72-0678</Tel>
+	<BusinessHours>11：00～22：00</BusinessHours>
+	<Holiday>火曜日</Holiday>
+	<Latitude>35.4960571605141</Latitude>
+	<Longitude>138.775995098565</Longitude>
+
+</Item>
+<Item>
+	<Rcd>19004380</Rcd>
+	<RestaurantName>パティスリー ザ･エレン</RestaurantName>
+	<TabelogUrl>http://tabelog.com/yamanashi/A1901/A190101/19004380/</TabelogUrl>
+<TabelogMobileUrl>http://m.tabelog.com/yamanashi/A1901/A190101/19004380/</TabelogMobileUrl>
+	<TotalScore>3.24</TotalScore>
+	<TasteScore>3.24</TasteScore>
+	<ServiceScore>3.41</ServiceScore>
+	<MoodScore>3.54</MoodScore>
+	<Situation>友人・同僚と、デート、一人で</Situation>
+	<DinnerPrice></DinnerPrice>
+	<LunchPrice>￥1,000～￥1,999</LunchPrice>
+	<Category>ケーキ、カフェ</Category>
+	<Station>常永</Station>
+	<Address>中巨摩郡昭和町飯喰457-4 </Address>
+	<Tel>055-268-1663</Tel>
+	<BusinessHours>10:00～20:00
+</BusinessHours>
+	<Holiday>水曜日</Holiday>
+	<Latitude>35.6252833767134</Latitude>
+	<Longitude>138.526637169376</Longitude>
+
+</Item>
+<Item>
+	<Rcd>19000545</Rcd>
+	<RestaurantName>ウォルナットグローブ</RestaurantName>
+	<TabelogUrl>http://tabelog.com/yamanashi/A1902/A190201/19000545/</TabelogUrl>
+<TabelogMobileUrl>http://m.tabelog.com/yamanashi/A1902/A190201/19000545/</TabelogMobileUrl>
+	<TotalScore>3.24</TotalScore>
+	<TasteScore>3.4</TasteScore>
+	<ServiceScore>3.03</ServiceScore>
+	<MoodScore>3.12</MoodScore>
+	<Situation>デート、家族・子供と</Situation>
+	<DinnerPrice></DinnerPrice>
+	<LunchPrice> ～￥999</LunchPrice>
+	<Category>洋菓子（その他）</Category>
+	<Station>清里</Station>
+	<Address>北杜市高根町清里3545 </Address>
+	<Tel>0551-48-3641</Tel>
+	<BusinessHours>10:00～18:00 (冬季は17時まで)</BusinessHours>
+	<Holiday>火曜日</Holiday>
+	<Latitude>35.9145129761219</Latitude>
+	<Longitude>138.443215958259</Longitude>
+
+</Item>
+<Item>
+	<Rcd>19000769</Rcd>
+	<RestaurantName>支那そば 成屋</RestaurantName>
+	<TabelogUrl>http://tabelog.com/yamanashi/A1903/A190303/19000769/</TabelogUrl>
+<TabelogMobileUrl>http://m.tabelog.com/yamanashi/A1903/A190303/19000769/</TabelogMobileUrl>
+	<TotalScore>3.24</TotalScore>
+	<TasteScore>3.24</TasteScore>
+	<ServiceScore>3.43</ServiceScore>
+	<MoodScore>2.99</MoodScore>
+	<Situation>友人・同僚と、家族・子供と、一人で</Situation>
+	<DinnerPrice> ～￥999</DinnerPrice>
+	<LunchPrice> ～￥999</LunchPrice>
+	<Category>ラーメン、つけ麺</Category>
+	<Station>河口湖</Station>
+	<Address>南都留郡富士河口湖町船津4035 </Address>
+	<Tel>0555-73-3190</Tel>
+	<BusinessHours></BusinessHours>
+	<Holiday></Holiday>
+	<Latitude>35.5032466385116</Latitude>
+	<Longitude>138.769642883285</Longitude>
+
+</Item>
+<Item>
+	<Rcd>19003867</Rcd>
+	<RestaurantName>うなぎ串焼き ういち</RestaurantName>
+	<TabelogUrl>http://tabelog.com/yamanashi/A1901/A190101/19003867/</TabelogUrl>
+<TabelogMobileUrl>http://m.tabelog.com/yamanashi/A1901/A190101/19003867/</TabelogMobileUrl>
+	<TotalScore>3.24</TotalScore>
+	<TasteScore>3.24</TasteScore>
+	<ServiceScore>3.1</ServiceScore>
+	<MoodScore>3.24</MoodScore>
+	<Situation>友人・同僚と、一人で</Situation>
+	<DinnerPrice>￥3,000～￥3,999</DinnerPrice>
+	<LunchPrice></LunchPrice>
+	<Category>うなぎ、焼鳥</Category>
+	<Station>甲府</Station>
+	<Address>甲府市丸の内2-4-7 丸二ビル　１Ｆ</Address>
+	<Tel>055-223-4185</Tel>
+	<BusinessHours>11:00～13:30 17:00～23:00（L.O)
+</BusinessHours>
+	<Holiday>祝日の場合の月曜日</Holiday>
+	<Latitude>35.6657402383439</Latitude>
+	<Longitude>138.567173485069</Longitude>
+
+</Item>
+<Item>
+	<Rcd>19004101</Rcd>
+	<RestaurantName>ザッカ＋カフェ キャビン</RestaurantName>
+	<TabelogUrl>http://tabelog.com/yamanashi/A1902/A190201/19004101/</TabelogUrl>
+<TabelogMobileUrl>http://m.tabelog.com/yamanashi/A1902/A190201/19004101/</TabelogMobileUrl>
+	<TotalScore>3.24</TotalScore>
+	<TasteScore>3.19</TasteScore>
+	<ServiceScore>3.03</ServiceScore>
+	<MoodScore>3.16</MoodScore>
+	<Situation>友人・同僚と、デート、一人で</Situation>
+	<DinnerPrice></DinnerPrice>
+	<LunchPrice> ～￥999</LunchPrice>
+	<Category>カフェ</Category>
+	<Station>甲斐小泉</Station>
+	<Address>北杜市長坂町小荒間71-42 </Address>
+	<Tel>0551-32-6901</Tel>
+	<BusinessHours>10:30～18:00</BusinessHours>
+	<Holiday>第1・第3水曜日、毎週火曜日（祝日の場合は営業、7／20～8月は無休）</Holiday>
+	<Latitude>35.8687517031788</Latitude>
+	<Longitude>138.360468548466</Longitude>
+
+</Item>
+<Item>
+	<Rcd>19004893</Rcd>
+	<RestaurantName>シャトレーゼ 塩山店</RestaurantName>
+	<TabelogUrl>http://tabelog.com/yamanashi/A1901/A190104/19004893/</TabelogUrl>
+<TabelogMobileUrl>http://m.tabelog.com/yamanashi/A1901/A190104/19004893/</TabelogMobileUrl>
+	<TotalScore>3.24</TotalScore>
+	<TasteScore>3.24</TasteScore>
+	<ServiceScore>3.16</ServiceScore>
+	<MoodScore>3.31</MoodScore>
+	<Situation></Situation>
+	<DinnerPrice>￥1,000～￥1,999</DinnerPrice>
+	<LunchPrice> ～￥999</LunchPrice>
+	<Category>ケーキ、パン、洋菓子（その他）</Category>
+	<Station>塩山、東山梨</Station>
+	<Address>甲州市塩山西広門田381-1 </Address>
+	<Tel>0553-32-5131</Tel>
+	<BusinessHours>9:00～21:00</BusinessHours>
+	<Holiday>年中無休</Holiday>
+	<Latitude>35.6952410767494</Latitude>
+	<Longitude>138.722629870516</Longitude>
+
+</Item>
+<Item>
+	<Rcd>19005744</Rcd>
+	<RestaurantName>ココフラン イオンモ－ル甲府昭和店</RestaurantName>
+	<TabelogUrl>http://tabelog.com/yamanashi/A1901/A190101/19005744/</TabelogUrl>
+<TabelogMobileUrl>http://m.tabelog.com/yamanashi/A1901/A190101/19005744/</TabelogMobileUrl>
+	<TotalScore>3.24</TotalScore>
+	<TasteScore>3.24</TasteScore>
+	<ServiceScore>3.0</ServiceScore>
+	<MoodScore>3.14</MoodScore>
+	<Situation>友人・同僚と、家族・子供と</Situation>
+	<DinnerPrice></DinnerPrice>
+	<LunchPrice> ～￥999</LunchPrice>
+	<Category>洋菓子（その他）</Category>
+	<Station>常永</Station>
+	<Address>中巨摩郡昭和町常永土地区画整理地内1街区 イオンモール甲府昭和 1F</Address>
+	<Tel>055-269-5133</Tel>
+	<BusinessHours>10:00～22:00
+</BusinessHours>
+	<Holiday>無休</Holiday>
+	<Latitude>35.6229060752926</Latitude>
+	<Longitude>138.527769581074</Longitude>
+
+</Item>
+<Item>
+	<Rcd>19003796</Rcd>
+	<RestaurantName>彩量庵　たん澤</RestaurantName>
+	<TabelogUrl>http://tabelog.com/yamanashi/A1901/A190101/19003796/</TabelogUrl>
+<TabelogMobileUrl>http://m.tabelog.com/yamanashi/A1901/A190101/19003796/</TabelogMobileUrl>
+	<TotalScore>3.24</TotalScore>
+	<TasteScore>3.24</TasteScore>
+	<ServiceScore>3.16</ServiceScore>
+	<MoodScore>3.16</MoodScore>
+	<Situation>友人・同僚と、デート、接待</Situation>
+	<DinnerPrice>￥8,000～￥9,999</DinnerPrice>
+	<LunchPrice>￥6,000～￥7,999</LunchPrice>
+	<Category>懐石・会席料理、ふぐ、割烹・小料理</Category>
+	<Station>国母</Station>
+	<Address>甲府市国母8-12-18 </Address>
+	<Tel>055-225-2400</Tel>
+	<BusinessHours></BusinessHours>
+	<Holiday>日曜日</Holiday>
+	<Latitude>35.6344634877804</Latitude>
+	<Longitude>138.554512620182</Longitude>
+
+</Item>
+<Item>
+	<Rcd>19004473</Rcd>
+	<RestaurantName>竹屋あさかわ</RestaurantName>
+	<TabelogUrl>http://tabelog.com/yamanashi/A1901/A190101/19004473/</TabelogUrl>
+<TabelogMobileUrl>http://m.tabelog.com/yamanashi/A1901/A190101/19004473/</TabelogMobileUrl>
+	<TotalScore>3.24</TotalScore>
+	<TasteScore>3.4</TasteScore>
+	<ServiceScore>3.0</ServiceScore>
+	<MoodScore>3.19</MoodScore>
+	<Situation>一人で</Situation>
+	<DinnerPrice></DinnerPrice>
+	<LunchPrice> ～￥999</LunchPrice>
+	<Category>和菓子</Category>
+	<Station>南甲府</Station>
+	<Address>甲府市幸町9-25 </Address>
+	<Tel>055-235-2288</Tel>
+	<BusinessHours>〔月～土〕
+9：00～19：00
+
+〔日・祝日〕
+9：00～18：00</BusinessHours>
+	<Holiday>第2･4水曜日</Holiday>
+	<Latitude>35.6476758383562</Latitude>
+	<Longitude>138.569915984885</Longitude>
+
+</Item>
+<Item>
+	<Rcd>19003164</Rcd>
+	<RestaurantName>酒呑童子</RestaurantName>
+	<TabelogUrl>http://tabelog.com/yamanashi/A1901/A190101/19003164/</TabelogUrl>
+<TabelogMobileUrl>http://m.tabelog.com/yamanashi/A1901/A190101/19003164/</TabelogMobileUrl>
+	<TotalScore>3.24</TotalScore>
+	<TasteScore>3.16</TasteScore>
+	<ServiceScore>3.09</ServiceScore>
+	<MoodScore>3.09</MoodScore>
+	<Situation>友人・同僚と、一人で</Situation>
+	<DinnerPrice>￥4,000～￥4,999</DinnerPrice>
+	<LunchPrice></LunchPrice>
+	<Category>居酒屋</Category>
+	<Station>小井川</Station>
+	<Address>中巨摩郡昭和町河西621-1 </Address>
+	<Tel>055-275-3890</Tel>
+	<BusinessHours>18:00-23:00</BusinessHours>
+	<Holiday>日曜日</Holiday>
+	<Latitude>35.6102099537999</Latitude>
+	<Longitude>138.521985938197</Longitude>
+
+</Item>
+<Item>
+	<Rcd>19004195</Rcd>
+	<RestaurantName>不曹庵</RestaurantName>
+	<TabelogUrl>http://tabelog.com/yamanashi/A1903/A190303/19004195/</TabelogUrl>
+<TabelogMobileUrl>http://m.tabelog.com/yamanashi/A1903/A190303/19004195/</TabelogMobileUrl>
+	<TotalScore>3.24</TotalScore>
+	<TasteScore>3.14</TasteScore>
+	<ServiceScore>3.19</ServiceScore>
+	<MoodScore>3.28</MoodScore>
+	<Situation>友人・同僚と、デート、家族・子供と、一人で</Situation>
+	<DinnerPrice></DinnerPrice>
+	<LunchPrice> ～￥999</LunchPrice>
+	<Category>カフェ、ケーキ、甘味処</Category>
+	<Station>河口湖</Station>
+	<Address>南都留郡富士河口湖町小立897-1 </Address>
+	<Tel>0555-72-3499</Tel>
+	<BusinessHours>11:00～18:00</BusinessHours>
+	<Holiday>金曜日</Holiday>
+	<Latitude>35.5104565151235</Latitude>
+	<Longitude>138.751873853402</Longitude>
+
+</Item>
+<Item>
+	<Rcd>19005194</Rcd>
+	<RestaurantName>尾張屋</RestaurantName>
+	<TabelogUrl>http://tabelog.com/yamanashi/A1903/A190301/19005194/</TabelogUrl>
+<TabelogMobileUrl>http://m.tabelog.com/yamanashi/A1903/A190301/19005194/</TabelogMobileUrl>
+	<TotalScore>3.24</TotalScore>
+	<TasteScore>3.24</TasteScore>
+	<ServiceScore>3.45</ServiceScore>
+	<MoodScore>3.0</MoodScore>
+	<Situation>友人・同僚と、家族・子供と、一人で</Situation>
+	<DinnerPrice></DinnerPrice>
+	<LunchPrice> ～￥999</LunchPrice>
+	<Category>和菓子</Category>
+	<Station>月江寺、下吉田</Station>
+	<Address>富士吉田市下吉田16 </Address>
+	<Tel>0555-22-0787</Tel>
+	<BusinessHours>10:00～19:00</BusinessHours>
+	<Holiday>日曜日</Holiday>
+	<Latitude>35.4920263385296</Latitude>
+	<Longitude>138.803704383148</Longitude>
+
+</Item>
+<Item>
+	<Rcd>19000911</Rcd>
+	<RestaurantName>銀の森</RestaurantName>
+	<TabelogUrl>http://tabelog.com/yamanashi/A1902/A190201/19000911/</TabelogUrl>
+<TabelogMobileUrl>http://m.tabelog.com/yamanashi/A1902/A190201/19000911/</TabelogMobileUrl>
+	<TotalScore>3.24</TotalScore>
+	<TasteScore>3.24</TasteScore>
+	<ServiceScore>3.16</ServiceScore>
+	<MoodScore>3.16</MoodScore>
+	<Situation>友人・同僚と、デート</Situation>
+	<DinnerPrice>￥10,000～￥14,999</DinnerPrice>
+	<LunchPrice></LunchPrice>
+	<Category>イタリアン、旅館・オーベルジュ（その他）</Category>
+	<Station>甲斐大泉</Station>
+	<Address>北杜市高根町浅川724-16 ペンション銀の森</Address>
+	<Tel>0551-48-5333</Tel>
+	<BusinessHours>チェックイン
+１５：００～
+チェックアウト
+～１０：００
+
+夕食　１８：３０</BusinessHours>
+	<Holiday>不定休</Holiday>
+	<Latitude>35.8801108973302</Latitude>
+	<Longitude>138.447502463977</Longitude>
+
+</Item>
+<Item>
+	<Rcd>19004288</Rcd>
+	<RestaurantName>お茶の春木屋</RestaurantName>
+	<TabelogUrl>http://tabelog.com/yamanashi/A1903/A190301/19004288/</TabelogUrl>
+<TabelogMobileUrl>http://m.tabelog.com/yamanashi/A1903/A190301/19004288/</TabelogMobileUrl>
+	<TotalScore>3.24</TotalScore>
+	<TasteScore>3.24</TasteScore>
+	<ServiceScore>3.45</ServiceScore>
+	<MoodScore>3.24</MoodScore>
+	<Situation>友人・同僚と、一人で</Situation>
+	<DinnerPrice> ～￥999</DinnerPrice>
+	<LunchPrice></LunchPrice>
+	<Category>アイスクリーム、日本茶専門店</Category>
+	<Station>月江寺、下吉田、富士山</Station>
+	<Address>富士吉田市下吉田256 </Address>
+	<Tel>0555-24-1603</Tel>
+	<BusinessHours>9:00～19:00</BusinessHours>
+	<Holiday>年中無休</Holiday>
+	<Latitude>35.4902265385302</Latitude>
+	<Longitude>138.802190683131</Longitude>
+
+</Item>
+</RestaurantInfo>

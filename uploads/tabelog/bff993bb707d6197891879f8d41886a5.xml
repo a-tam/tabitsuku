@@ -1,0 +1,470 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RestaurantInfo>
+<NumOfResult>11522</NumOfResult> 
+<Item>
+	<Rcd>20001363</Rcd>
+	<RestaurantName>新屋</RestaurantName>
+	<TabelogUrl>http://tabelog.com/nagano/A2001/A200105/20001363/</TabelogUrl>
+<TabelogMobileUrl>http://m.tabelog.com/nagano/A2001/A200105/20001363/</TabelogMobileUrl>
+	<TotalScore>3.53</TotalScore>
+	<TasteScore>3.53</TasteScore>
+	<ServiceScore>3.47</ServiceScore>
+	<MoodScore>3.52</MoodScore>
+	<Situation>友人・同僚と、家族・子供と</Situation>
+	<DinnerPrice> ～￥999</DinnerPrice>
+	<LunchPrice> ～￥999</LunchPrice>
+	<Category>うなぎ、鳥料理</Category>
+	<Station>上境</Station>
+	<Address>下高井郡野沢温泉村豊郷8866 </Address>
+	<Tel>0269-85-2044</Tel>
+	<BusinessHours>11:00～13:30 16:00～18:00</BusinessHours>
+	<Holiday>木曜日</Holiday>
+	<Latitude>36.9251443639736</Latitude>
+	<Longitude>138.445573675579</Longitude>
+
+</Item>
+<Item>
+	<Rcd>20001090</Rcd>
+	<RestaurantName>十割そば 大善</RestaurantName>
+	<TabelogUrl>http://tabelog.com/nagano/A2001/A200101/20001090/</TabelogUrl>
+<TabelogMobileUrl>http://m.tabelog.com/nagano/A2001/A200101/20001090/</TabelogMobileUrl>
+	<TotalScore>3.53</TotalScore>
+	<TasteScore>3.53</TasteScore>
+	<ServiceScore>3.51</ServiceScore>
+	<MoodScore>3.38</MoodScore>
+	<Situation>友人・同僚と、家族・子供と、一人で</Situation>
+	<DinnerPrice> ～￥999</DinnerPrice>
+	<LunchPrice> ～￥999</LunchPrice>
+	<Category>そば、天ぷら、丼もの（その他）</Category>
+	<Station>権堂、善光寺下、市役所前</Station>
+	<Address>長野市大門町46-1 </Address>
+	<Tel>026-233-5002</Tel>
+	<BusinessHours>[月～金]
+10:30～16:00
+
+[土・日]
+10:00～16:00</BusinessHours>
+	<Holiday>無休</Holiday>
+	<Latitude>36.6550857969642</Latitude>
+	<Longitude>138.187632599933</Longitude>
+
+</Item>
+<Item>
+	<Rcd>20002796</Rcd>
+	<RestaurantName>風林火山</RestaurantName>
+	<TabelogUrl>http://tabelog.com/nagano/A2002/A200201/20002796/</TabelogUrl>
+<TabelogMobileUrl>http://m.tabelog.com/nagano/A2002/A200201/20002796/</TabelogMobileUrl>
+	<TotalScore>3.53</TotalScore>
+	<TasteScore>3.56</TasteScore>
+	<ServiceScore>3.51</ServiceScore>
+	<MoodScore>3.52</MoodScore>
+	<Situation>友人・同僚と</Situation>
+	<DinnerPrice>￥2,000～￥2,999</DinnerPrice>
+	<LunchPrice></LunchPrice>
+	<Category>居酒屋</Category>
+	<Station>松本、西松本、北松本</Station>
+	<Address>松本市中央1丁目3-1 </Address>
+	<Tel>0263-35-7872</Tel>
+	<BusinessHours>17:30～23:30</BusinessHours>
+	<Holiday>月</Holiday>
+	<Latitude>36.2313063093636</Latitude>
+	<Longitude>137.965873238001</Longitude>
+
+</Item>
+<Item>
+	<Rcd>20001968</Rcd>
+	<RestaurantName>イタリア料理 アルセーバ</RestaurantName>
+	<TabelogUrl>http://tabelog.com/nagano/A2002/A200203/20001968/</TabelogUrl>
+<TabelogMobileUrl>http://m.tabelog.com/nagano/A2002/A200203/20001968/</TabelogMobileUrl>
+	<TotalScore>3.53</TotalScore>
+	<TasteScore>3.53</TasteScore>
+	<ServiceScore>3.5</ServiceScore>
+	<MoodScore>3.53</MoodScore>
+	<Situation>友人・同僚と、デート</Situation>
+	<DinnerPrice>￥2,000～￥2,999</DinnerPrice>
+	<LunchPrice>￥1,000～￥1,999</LunchPrice>
+	<Category>イタリアン、パスタ</Category>
+	<Station>塩尻</Station>
+	<Address>塩尻市大字洗馬太田462-2 </Address>
+	<Tel>0263-87-0398</Tel>
+	<BusinessHours>11：30-14：00LO
+18：00-21：30LO
+</BusinessHours>
+	<Holiday>不定休</Holiday>
+	<Latitude>36.1080918430845</Latitude>
+	<Longitude>137.925745021442</Longitude>
+
+</Item>
+<Item>
+	<Rcd>20003244</Rcd>
+	<RestaurantName>鳥心</RestaurantName>
+	<TabelogUrl>http://tabelog.com/nagano/A2002/A200201/20003244/</TabelogUrl>
+<TabelogMobileUrl>http://m.tabelog.com/nagano/A2002/A200201/20003244/</TabelogMobileUrl>
+	<TotalScore>3.53</TotalScore>
+	<TasteScore>3.54</TasteScore>
+	<ServiceScore>3.62</ServiceScore>
+	<MoodScore>3.55</MoodScore>
+	<Situation>友人・同僚と、一人で</Situation>
+	<DinnerPrice>￥3,000～￥3,999</DinnerPrice>
+	<LunchPrice></LunchPrice>
+	<Category>焼鳥</Category>
+	<Station>松本、西松本、北松本</Station>
+	<Address>松本市中央1-2-24 </Address>
+	<Tel>0263-36-9757</Tel>
+	<BusinessHours>17:30～24:00
+</BusinessHours>
+	<Holiday>日曜日、第1・3月曜日</Holiday>
+	<Latitude>36.2318531851202</Latitude>
+	<Longitude>137.965289650178</Longitude>
+
+</Item>
+<Item>
+	<Rcd>20000452</Rcd>
+	<RestaurantName>レストラン オラホ</RestaurantName>
+	<TabelogUrl>http://tabelog.com/nagano/A2004/A200402/20000452/</TabelogUrl>
+<TabelogMobileUrl>http://m.tabelog.com/nagano/A2004/A200402/20000452/</TabelogMobileUrl>
+	<TotalScore>3.53</TotalScore>
+	<TasteScore>3.52</TasteScore>
+	<ServiceScore>3.26</ServiceScore>
+	<MoodScore>3.51</MoodScore>
+	<Situation>友人・同僚と、家族・子供と</Situation>
+	<DinnerPrice>￥2,000～￥2,999</DinnerPrice>
+	<LunchPrice>￥1,000～￥1,999</LunchPrice>
+	<Category>洋食、欧風料理、ビアホール・ビアレストラン</Category>
+	<Station>大屋、田中</Station>
+	<Address>東御市和3875 </Address>
+	<Tel>0268-64-0003</Tel>
+	<BusinessHours>11:00～22:00(L.O.21:00)
+(ランチ～L.O.15:00)
+</BusinessHours>
+	<Holiday>水曜日</Holiday>
+	<Latitude>36.3865416999983</Latitude>
+	<Longitude>138.318610684761</Longitude>
+
+</Item>
+<Item>
+	<Rcd>20000482</Rcd>
+	<RestaurantName>グリンデルワルト</RestaurantName>
+	<TabelogUrl>http://tabelog.com/nagano/A2002/A200202/20000482/</TabelogUrl>
+<TabelogMobileUrl>http://m.tabelog.com/nagano/A2002/A200202/20000482/</TabelogMobileUrl>
+	<TotalScore>3.53</TotalScore>
+	<TasteScore>3.56</TasteScore>
+	<ServiceScore>3.53</ServiceScore>
+	<MoodScore>3.54</MoodScore>
+	<Situation>友人・同僚と、デート、家族・子供と</Situation>
+	<DinnerPrice>￥1,000～￥1,999</DinnerPrice>
+	<LunchPrice>￥1,000～￥1,999</LunchPrice>
+	<Category>ラウンジ、喫茶店、ケーキ</Category>
+	<Station>上高地その他</Station>
+	<Address>松本市安曇上高地4468 上高地帝国ホテル</Address>
+	<Tel>0263-95-2001</Tel>
+	<BusinessHours>8:00～21:30</BusinessHours>
+	<Holiday>冬季休業</Holiday>
+	<Latitude>36.2427194727342</Latitude>
+	<Longitude>137.628463234383</Longitude>
+
+</Item>
+<Item>
+	<Rcd>20002139</Rcd>
+	<RestaurantName>ピノピノ</RestaurantName>
+	<TabelogUrl>http://tabelog.com/nagano/A2002/A200201/20002139/</TabelogUrl>
+<TabelogMobileUrl>http://m.tabelog.com/nagano/A2002/A200201/20002139/</TabelogMobileUrl>
+	<TotalScore>3.53</TotalScore>
+	<TasteScore>3.52</TasteScore>
+	<ServiceScore>3.52</ServiceScore>
+	<MoodScore>3.53</MoodScore>
+	<Situation>友人・同僚と、デート、一人で</Situation>
+	<DinnerPrice>￥2,000～￥2,999</DinnerPrice>
+	<LunchPrice></LunchPrice>
+	<Category>ワインバー</Category>
+	<Station>松本、北松本、西松本</Station>
+	<Address>松本市中央2-4-2 2F</Address>
+	<Tel>0263-32-1182</Tel>
+	<BusinessHours>17.30～23.00（ＬＯ22.30）
+早く終了する事もあります。</BusinessHours>
+	<Holiday>日曜・月曜(変更あり)</Holiday>
+	<Latitude>36.2338996377928</Latitude>
+	<Longitude>137.969456891227</Longitude>
+
+</Item>
+<Item>
+	<Rcd>20001700</Rcd>
+	<RestaurantName>涸沢ヒュッテ</RestaurantName>
+	<TabelogUrl>http://tabelog.com/nagano/A2002/A200202/20001700/</TabelogUrl>
+<TabelogMobileUrl>http://m.tabelog.com/nagano/A2002/A200202/20001700/</TabelogMobileUrl>
+	<TotalScore>3.53</TotalScore>
+	<TasteScore>3.17</TasteScore>
+	<ServiceScore>3.07</ServiceScore>
+	<MoodScore>3.84</MoodScore>
+	<Situation>友人・同僚と、一人で</Situation>
+	<DinnerPrice> ～￥999</DinnerPrice>
+	<LunchPrice> ～￥999</LunchPrice>
+	<Category>旅館・オーベルジュ（その他）、定食・食堂</Category>
+	<Station>上高地その他</Station>
+	<Address>松本市安曇4469-1 </Address>
+	<Tel>090-9002-2534</Tel>
+	<BusinessHours>春～秋のみ</BusinessHours>
+	<Holiday></Holiday>
+	<Latitude>36.2956513005274</Latitude>
+	<Longitude>137.660914741655</Longitude>
+
+</Item>
+<Item>
+	<Rcd>20015205</Rcd>
+	<RestaurantName>麺肴ひづき　湯きりや</RestaurantName>
+	<TabelogUrl>http://tabelog.com/nagano/A2002/A200201/20015205/</TabelogUrl>
+<TabelogMobileUrl>http://m.tabelog.com/nagano/A2002/A200201/20015205/</TabelogMobileUrl>
+	<TotalScore>3.53</TotalScore>
+	<TasteScore>3.53</TasteScore>
+	<ServiceScore>3.1</ServiceScore>
+	<MoodScore>3.52</MoodScore>
+	<Situation>友人・同僚と、デート、一人で</Situation>
+	<DinnerPrice> ～￥999</DinnerPrice>
+	<LunchPrice></LunchPrice>
+	<Category>ラーメン、つけ麺、居酒屋</Category>
+	<Station>松本、西松本、北松本</Station>
+	<Address>松本市中央1-5-20 </Address>
+	<Tel>0263-39-3005</Tel>
+	<BusinessHours>17:00～翌2:00</BusinessHours>
+	<Holiday>月曜</Holiday>
+	<Latitude>36.2319734673624</Latitude>
+	<Longitude>137.966281784465</Longitude>
+
+</Item>
+<Item>
+	<Rcd>20004581</Rcd>
+	<RestaurantName>笹屋</RestaurantName>
+	<TabelogUrl>http://tabelog.com/nagano/A2002/A200202/20004581/</TabelogUrl>
+<TabelogMobileUrl>http://m.tabelog.com/nagano/A2002/A200202/20004581/</TabelogMobileUrl>
+	<TotalScore>3.53</TotalScore>
+	<TasteScore>3.38</TasteScore>
+	<ServiceScore>3.57</ServiceScore>
+	<MoodScore>3.43</MoodScore>
+	<Situation>友人・同僚と、デート、家族・子供と</Situation>
+	<DinnerPrice>￥15,000～￥19,999</DinnerPrice>
+	<LunchPrice>￥15,000～￥19,999</LunchPrice>
+	<Category>旅館</Category>
+	<Station>上高地その他</Station>
+	<Address>松本市安曇白骨4182-1 </Address>
+	<Tel>0263-93-2132</Tel>
+	<BusinessHours></BusinessHours>
+	<Holiday></Holiday>
+	<Latitude>36.1462422416838</Latitude>
+	<Longitude>137.625582637827</Longitude>
+
+</Item>
+<Item>
+	<Rcd>20002193</Rcd>
+	<RestaurantName>奈良屋旅館</RestaurantName>
+	<TabelogUrl>http://tabelog.com/nagano/A2001/A200105/20002193/</TabelogUrl>
+<TabelogMobileUrl>http://m.tabelog.com/nagano/A2001/A200105/20002193/</TabelogMobileUrl>
+	<TotalScore>3.53</TotalScore>
+	<TasteScore>3.55</TasteScore>
+	<ServiceScore>3.38</ServiceScore>
+	<MoodScore>3.5</MoodScore>
+	<Situation>友人・同僚と、家族・子供と</Situation>
+	<DinnerPrice>￥20,000～￥29,999</DinnerPrice>
+	<LunchPrice></LunchPrice>
+	<Category>旅館</Category>
+	<Station>上境</Station>
+	<Address>下高井郡野沢温泉村大字豊郷8736 </Address>
+	<Tel>0269-85-2155</Tel>
+	<BusinessHours></BusinessHours>
+	<Holiday></Holiday>
+	<Latitude>36.9244622475475</Latitude>
+	<Longitude>138.447453550865</Longitude>
+
+</Item>
+<Item>
+	<Rcd>20000111</Rcd>
+	<RestaurantName>草笛 上田店</RestaurantName>
+	<TabelogUrl>http://tabelog.com/nagano/A2004/A200401/20000111/</TabelogUrl>
+<TabelogMobileUrl>http://m.tabelog.com/nagano/A2004/A200401/20000111/</TabelogMobileUrl>
+	<TotalScore>3.52</TotalScore>
+	<TasteScore>3.53</TasteScore>
+	<ServiceScore>3.09</ServiceScore>
+	<MoodScore>3.29</MoodScore>
+	<Situation>友人・同僚と、家族・子供と</Situation>
+	<DinnerPrice>￥1,000～￥1,999</DinnerPrice>
+	<LunchPrice> ～￥999</LunchPrice>
+	<Category>そば</Category>
+	<Station>上田、城下</Station>
+	<Address>上田市常田3-269-4 </Address>
+	<Tel>0268-24-8221</Tel>
+	<BusinessHours>営業時間：午前11時～午後3時30分
+（金・土・日・祝日のみ夜も営業、午後5時30分～午後8時）</BusinessHours>
+	<Holiday>無休</Holiday>
+	<Latitude>36.3967199058737</Latitude>
+	<Longitude>138.262320724343</Longitude>
+
+</Item>
+<Item>
+	<Rcd>20000179</Rcd>
+	<RestaurantName>ザ　カウボーイハウス</RestaurantName>
+	<TabelogUrl>http://tabelog.com/nagano/A2003/A200301/20000179/</TabelogUrl>
+<TabelogMobileUrl>http://m.tabelog.com/nagano/A2003/A200301/20000179/</TabelogMobileUrl>
+	<TotalScore>3.52</TotalScore>
+	<TasteScore>3.47</TasteScore>
+	<ServiceScore>3.43</ServiceScore>
+	<MoodScore>3.51</MoodScore>
+	<Situation>友人・同僚と、家族・子供と</Situation>
+	<DinnerPrice>￥2,000～￥2,999</DinnerPrice>
+	<LunchPrice>￥2,000～￥2,999</LunchPrice>
+	<Category>ステーキ、アメリカ料理</Category>
+	<Station>中軽井沢</Station>
+	<Address>北佐久郡軽井沢町大字長倉2144 </Address>
+	<Tel>0267-46-3984</Tel>
+	<BusinessHours>11:00～14:00 17:00～21:00</BusinessHours>
+	<Holiday>火曜日</Holiday>
+	<Latitude>36.360191077739</Latitude>
+	<Longitude>138.589154970002</Longitude>
+
+</Item>
+<Item>
+	<Rcd>20001049</Rcd>
+	<RestaurantName>とりまる プリンス店</RestaurantName>
+	<TabelogUrl>http://tabelog.com/nagano/A2003/A200301/20001049/</TabelogUrl>
+<TabelogMobileUrl>http://m.tabelog.com/nagano/A2003/A200301/20001049/</TabelogMobileUrl>
+	<TotalScore>3.52</TotalScore>
+	<TasteScore>3.52</TasteScore>
+	<ServiceScore>3.52</ServiceScore>
+	<MoodScore>3.24</MoodScore>
+	<Situation>友人・同僚と、家族・子供と</Situation>
+	<DinnerPrice> ～￥999</DinnerPrice>
+	<LunchPrice> ～￥999</LunchPrice>
+	<Category>鳥料理、焼鳥、炭火焼き</Category>
+	<Station>軽井沢</Station>
+	<Address>北佐久郡軽井沢町軽井沢1178-161 プリンスショッピングプラザ</Address>
+	<Tel>0267-42-0525</Tel>
+	<BusinessHours>11:00～21:00
+
+16:00～17:00の間はディナー準備のためクローズの可能性有り
+</BusinessHours>
+	<Holiday>水曜日(月に何日か臨時休業あり)</Holiday>
+	<Latitude>36.3422114997734</Latitude>
+	<Longitude>138.633748559517</Longitude>
+
+</Item>
+<Item>
+	<Rcd>20000131</Rcd>
+	<RestaurantName>更科</RestaurantName>
+	<TabelogUrl>http://tabelog.com/nagano/A2004/A200404/20000131/</TabelogUrl>
+<TabelogMobileUrl>http://m.tabelog.com/nagano/A2004/A200404/20000131/</TabelogMobileUrl>
+	<TotalScore>3.52</TotalScore>
+	<TasteScore>3.52</TasteScore>
+	<ServiceScore>3.4</ServiceScore>
+	<MoodScore>3.41</MoodScore>
+	<Situation>友人・同僚と、家族・子供と、一人で</Situation>
+	<DinnerPrice>￥1,000～￥1,999</DinnerPrice>
+	<LunchPrice>￥1,000～￥1,999</LunchPrice>
+	<Category>そば</Category>
+	<Station>上諏訪</Station>
+	<Address>諏訪市末広1-7 </Address>
+	<Tel>0266-52-1080</Tel>
+	<BusinessHours>[日～火・木～土]
+11:00～19:30
+（そばが売切れ次第終了）</BusinessHours>
+	<Holiday>水曜日</Holiday>
+	<Latitude>36.044280626961</Latitude>
+	<Longitude>138.117387321335</Longitude>
+
+</Item>
+<Item>
+	<Rcd>20000948</Rcd>
+	<RestaurantName>アトリエ・ド・フロマージュ ピッツエリア・カフェ店</RestaurantName>
+	<TabelogUrl>http://tabelog.com/nagano/A2003/A200301/20000948/</TabelogUrl>
+<TabelogMobileUrl>http://m.tabelog.com/nagano/A2003/A200301/20000948/</TabelogMobileUrl>
+	<TotalScore>3.52</TotalScore>
+	<TasteScore>3.53</TasteScore>
+	<ServiceScore>3.51</ServiceScore>
+	<MoodScore>3.51</MoodScore>
+	<Situation>友人・同僚と、デート、家族・子供と</Situation>
+	<DinnerPrice>￥2,000～￥2,999</DinnerPrice>
+	<LunchPrice>￥1,000～￥1,999</LunchPrice>
+	<Category>ピザ、カフェ</Category>
+	<Station>軽井沢</Station>
+	<Address>北佐久郡軽井沢町軽井沢東22-1 </Address>
+	<Tel>0267-42-0601</Tel>
+	<BusinessHours>[ランチ]
+11:00～15:00
+[カフェ]
+15:00～16:00
+[ディナー]
+17:00～21:00</BusinessHours>
+	<Holiday>無休</Holiday>
+	<Latitude>36.3470175567525</Latitude>
+	<Longitude>138.634521545938</Longitude>
+
+</Item>
+<Item>
+	<Rcd>20000125</Rcd>
+	<RestaurantName>ハルピンラーメン</RestaurantName>
+	<TabelogUrl>http://tabelog.com/nagano/A2004/A200404/20000125/</TabelogUrl>
+<TabelogMobileUrl>http://m.tabelog.com/nagano/A2004/A200404/20000125/</TabelogMobileUrl>
+	<TotalScore>3.52</TotalScore>
+	<TasteScore>3.52</TasteScore>
+	<ServiceScore>3.33</ServiceScore>
+	<MoodScore>3.33</MoodScore>
+	<Situation>友人・同僚と、一人で</Situation>
+	<DinnerPrice> ～￥999</DinnerPrice>
+	<LunchPrice> ～￥999</LunchPrice>
+	<Category>ラーメン、つけ麺</Category>
+	<Station>茅野、上諏訪</Station>
+	<Address>諏訪市大字四賀飯島2336-2 </Address>
+	<Tel>0266-53-1557</Tel>
+	<BusinessHours>11:00～24:00</BusinessHours>
+	<Holiday>年中無休</Holiday>
+	<Latitude>36.0141459664627</Latitude>
+	<Longitude>138.127224836226</Longitude>
+
+</Item>
+<Item>
+	<Rcd>20000074</Rcd>
+	<RestaurantName>マサムラ</RestaurantName>
+	<TabelogUrl>http://tabelog.com/nagano/A2002/A200201/20000074/</TabelogUrl>
+<TabelogMobileUrl>http://m.tabelog.com/nagano/A2002/A200201/20000074/</TabelogMobileUrl>
+	<TotalScore>3.52</TotalScore>
+	<TasteScore>3.54</TasteScore>
+	<ServiceScore>3.29</ServiceScore>
+	<MoodScore>3.26</MoodScore>
+	<Situation>友人・同僚と、家族・子供と</Situation>
+	<DinnerPrice> ～￥999</DinnerPrice>
+	<LunchPrice> ～￥999</LunchPrice>
+	<Category>ケーキ、喫茶店、洋菓子（その他）</Category>
+	<Station>松本、西松本、北松本</Station>
+	<Address>松本市深志2-5-24 </Address>
+	<Tel>0263-33-2544</Tel>
+	<BusinessHours>9:00～19:30</BusinessHours>
+	<Holiday>火曜不定</Holiday>
+	<Latitude>36.2302609377951</Latitude>
+	<Longitude>137.969609591189</Longitude>
+
+</Item>
+<Item>
+	<Rcd>20000455</Rcd>
+	<RestaurantName>そばきり みよ田 長野本店</RestaurantName>
+	<TabelogUrl>http://tabelog.com/nagano/A2001/A200101/20000455/</TabelogUrl>
+<TabelogMobileUrl>http://m.tabelog.com/nagano/A2001/A200101/20000455/</TabelogMobileUrl>
+	<TotalScore>3.52</TotalScore>
+	<TasteScore>3.54</TasteScore>
+	<ServiceScore>3.29</ServiceScore>
+	<MoodScore>3.52</MoodScore>
+	<Situation>友人・同僚と</Situation>
+	<DinnerPrice>￥3,000～￥3,999</DinnerPrice>
+	<LunchPrice>￥1,000～￥1,999</LunchPrice>
+	<Category>そば</Category>
+	<Station>長野（長野電鉄）、長野（ＪＲ）、市役所前</Station>
+	<Address>長野市南千歳1-16-2 長野第一ホテル　１Ｆ</Address>
+	<Tel>026-227-9161</Tel>
+	<BusinessHours>[月～金]
+11:00～22:00(L.O)
+[土]
+11:00～21:00(L.O)
+[祝]
+11:00～15:00(L.O)</BusinessHours>
+	<Holiday>日曜日</Holiday>
+	<Latitude>36.6447429459473</Latitude>
+	<Longitude>138.189925039595</Longitude>
+
+</Item>
+</RestaurantInfo>

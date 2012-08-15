@@ -1,0 +1,481 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RestaurantInfo>
+<NumOfResult>3112</NumOfResult> 
+<Item>
+	<Rcd>36003666</Rcd>
+	<RestaurantName>潮来亭</RestaurantName>
+	<TabelogUrl>http://tabelog.com/tokushima/A3601/A360101/36003666/</TabelogUrl>
+<TabelogMobileUrl>http://m.tabelog.com/tokushima/A3601/A360101/36003666/</TabelogMobileUrl>
+	<TotalScore>3.36</TotalScore>
+	<TasteScore>3.43</TasteScore>
+	<ServiceScore>3.36</ServiceScore>
+	<MoodScore>3.29</MoodScore>
+	<Situation>友人・同僚と、デート、一人で</Situation>
+	<DinnerPrice>￥5,000～￥5,999</DinnerPrice>
+	<LunchPrice></LunchPrice>
+	<Category>割烹・小料理、魚介料理・海鮮料理、懐石・会席料理</Category>
+	<Station>阿波富田</Station>
+	<Address>徳島市秋田町1-29 </Address>
+	<Tel>088-626-4822</Tel>
+	<BusinessHours></BusinessHours>
+	<Holiday></Holiday>
+	<Latitude>34.0650197249599</Latitude>
+	<Longitude>134.549231418425</Longitude>
+
+</Item>
+<Item>
+	<Rcd>36000164</Rcd>
+	<RestaurantName>アグネスカフェ</RestaurantName>
+	<TabelogUrl>http://tabelog.com/tokushima/A3601/A360101/36000164/</TabelogUrl>
+<TabelogMobileUrl>http://m.tabelog.com/tokushima/A3601/A360101/36000164/</TabelogMobileUrl>
+	<TotalScore>3.34</TotalScore>
+	<TasteScore>3.34</TasteScore>
+	<ServiceScore>3.34</ServiceScore>
+	<MoodScore>3.38</MoodScore>
+	<Situation>友人・同僚と、デート</Situation>
+	<DinnerPrice>￥2,000～￥2,999</DinnerPrice>
+	<LunchPrice>￥1,000～￥1,999</LunchPrice>
+	<Category>カフェ、バー</Category>
+	<Station>徳島</Station>
+	<Address>徳島市寺島本町西1-28 </Address>
+	<Tel>088-626-2222</Tel>
+	<BusinessHours>[月～日]
+7:00～22:00
+(L.O21:00（FOOD） L.O21:30（DRINK&amp;CAKE）)
+</BusinessHours>
+	<Holiday>無休</Holiday>
+	<Latitude>34.0746575699645</Latitude>
+	<Longitude>134.548422741841</Longitude>
+
+</Item>
+<Item>
+	<Rcd>36000531</Rcd>
+	<RestaurantName>はなや食堂</RestaurantName>
+	<TabelogUrl>http://tabelog.com/tokushima/A3601/A360101/36000531/</TabelogUrl>
+<TabelogMobileUrl>http://m.tabelog.com/tokushima/A3601/A360101/36000531/</TabelogMobileUrl>
+	<TotalScore>3.34</TotalScore>
+	<TasteScore>3.26</TasteScore>
+	<ServiceScore>3.21</ServiceScore>
+	<MoodScore>3.12</MoodScore>
+	<Situation>友人・同僚と、家族・子供と、一人で</Situation>
+	<DinnerPrice>￥1,000～￥1,999</DinnerPrice>
+	<LunchPrice> ～￥999</LunchPrice>
+	<Category>洋食</Category>
+	<Station>徳島、阿波富田</Station>
+	<Address>徳島市一番町2丁目11 </Address>
+	<Tel>088-652-7337</Tel>
+	<BusinessHours>[火～日]
+11:00～22:00(L.O21:30)
+</BusinessHours>
+	<Holiday>月曜日</Holiday>
+	<Latitude>34.0722315027011</Latitude>
+	<Longitude>134.55197978035</Longitude>
+
+</Item>
+<Item>
+	<Rcd>36003533</Rcd>
+	<RestaurantName>つけ麺 ぼうず</RestaurantName>
+	<TabelogUrl>http://tabelog.com/tokushima/A3601/A360101/36003533/</TabelogUrl>
+<TabelogMobileUrl>http://m.tabelog.com/tokushima/A3601/A360101/36003533/</TabelogMobileUrl>
+	<TotalScore>3.34</TotalScore>
+	<TasteScore>3.34</TasteScore>
+	<ServiceScore>3.0</ServiceScore>
+	<MoodScore>3.5</MoodScore>
+	<Situation>一人で</Situation>
+	<DinnerPrice> ～￥999</DinnerPrice>
+	<LunchPrice> ～￥999</LunchPrice>
+	<Category>つけ麺、ラーメン</Category>
+	<Station>徳島</Station>
+	<Address>徳島市助任橋1-1-11 </Address>
+	<Tel>088-652-7703</Tel>
+	<BusinessHours>11:00～15:00
+17:00～20:00</BusinessHours>
+	<Holiday>日曜日</Holiday>
+	<Latitude>34.0772107380759</Latitude>
+	<Longitude>134.557568271834</Longitude>
+
+</Item>
+<Item>
+	<Rcd>36000713</Rcd>
+	<RestaurantName>ギャラリー 花杏豆</RestaurantName>
+	<TabelogUrl>http://tabelog.com/tokushima/A3601/A360101/36000713/</TabelogUrl>
+<TabelogMobileUrl>http://m.tabelog.com/tokushima/A3601/A360101/36000713/</TabelogMobileUrl>
+	<TotalScore>3.34</TotalScore>
+	<TasteScore>3.22</TasteScore>
+	<ServiceScore>3.22</ServiceScore>
+	<MoodScore>3.26</MoodScore>
+	<Situation>友人・同僚と、デート、家族・子供と</Situation>
+	<DinnerPrice>￥1,000～￥1,999</DinnerPrice>
+	<LunchPrice> ～￥999</LunchPrice>
+	<Category>カフェ、ケーキ</Category>
+	<Station>鮎喰、文化の森、蔵本</Station>
+	<Address>徳島市八万町上長谷81-3 </Address>
+	<Tel>088-668-6465</Tel>
+	<BusinessHours>9:30～22:00</BusinessHours>
+	<Holiday>年中無休</Holiday>
+	<Latitude>34.0517593786419</Latitude>
+	<Longitude>134.511752674891</Longitude>
+
+</Item>
+<Item>
+	<Rcd>36000877</Rcd>
+	<RestaurantName>風待ちの丘 ルン</RestaurantName>
+	<TabelogUrl>http://tabelog.com/tokushima/A3601/A360102/36000877/</TabelogUrl>
+<TabelogMobileUrl>http://m.tabelog.com/tokushima/A3601/A360102/36000877/</TabelogMobileUrl>
+	<TotalScore>3.34</TotalScore>
+	<TasteScore>3.29</TasteScore>
+	<ServiceScore>3.26</ServiceScore>
+	<MoodScore>3.41</MoodScore>
+	<Situation>友人・同僚と、デート</Situation>
+	<DinnerPrice></DinnerPrice>
+	<LunchPrice> ～￥999</LunchPrice>
+	<Category>カフェ</Category>
+	<Station>松茂町その他</Station>
+	<Address>鳴門市北灘町折野字東地312-3 </Address>
+	<Tel>088-682-0015</Tel>
+	<BusinessHours>[月・水～日]
+9:00～17:00（売切れ次第終了、季節によって変更有り）</BusinessHours>
+	<Holiday>火曜日（祝日の場合は翌日）</Holiday>
+	<Latitude>34.2236087786659</Latitude>
+	<Longitude>134.49604273401</Longitude>
+
+</Item>
+<Item>
+	<Rcd>36000810</Rcd>
+	<RestaurantName>中華そば HIRO</RestaurantName>
+	<TabelogUrl>http://tabelog.com/tokushima/A3602/A360201/36000810/</TabelogUrl>
+<TabelogMobileUrl>http://m.tabelog.com/tokushima/A3602/A360201/36000810/</TabelogMobileUrl>
+	<TotalScore>3.34</TotalScore>
+	<TasteScore>3.34</TasteScore>
+	<ServiceScore>3.0</ServiceScore>
+	<MoodScore>3.0</MoodScore>
+	<Situation>友人・同僚と、一人で</Situation>
+	<DinnerPrice> ～￥999</DinnerPrice>
+	<LunchPrice> ～￥999</LunchPrice>
+	<Category>ラーメン</Category>
+	<Station>阿南</Station>
+	<Address>阿南市富岡町西石塚20-4 </Address>
+	<Tel>0884-23-1994</Tel>
+	<BusinessHours>11:00～21:00</BusinessHours>
+	<Holiday>毎週月曜日</Holiday>
+	<Latitude>33.9190921620603</Latitude>
+	<Longitude>134.653854481594</Longitude>
+
+</Item>
+<Item>
+	<Rcd>36003256</Rcd>
+	<RestaurantName>船本うどん 末広店</RestaurantName>
+	<TabelogUrl>http://tabelog.com/tokushima/A3601/A360101/36003256/</TabelogUrl>
+<TabelogMobileUrl>http://m.tabelog.com/tokushima/A3601/A360101/36003256/</TabelogMobileUrl>
+	<TotalScore>3.34</TotalScore>
+	<TasteScore>3.41</TasteScore>
+	<ServiceScore>3.17</ServiceScore>
+	<MoodScore>3.14</MoodScore>
+	<Situation>友人・同僚と、一人で</Situation>
+	<DinnerPrice></DinnerPrice>
+	<LunchPrice> ～￥999</LunchPrice>
+	<Category>うどん</Category>
+	<Station>阿波富田</Station>
+	<Address>徳島市末広2-1-17 西山第２ビル　１Ｆ</Address>
+	<Tel>088-654-0967</Tel>
+	<BusinessHours>10:30～15:00（売り切れ次第終了）</BusinessHours>
+	<Holiday>水曜日</Holiday>
+	<Latitude>34.0657454380883</Latitude>
+	<Longitude>134.573569771707</Longitude>
+
+</Item>
+<Item>
+	<Rcd>36003634</Rcd>
+	<RestaurantName>中華そばよねだ</RestaurantName>
+	<TabelogUrl>http://tabelog.com/tokushima/A3601/A360101/36003634/</TabelogUrl>
+<TabelogMobileUrl>http://m.tabelog.com/tokushima/A3601/A360101/36003634/</TabelogMobileUrl>
+	<TotalScore>3.34</TotalScore>
+	<TasteScore>3.31</TasteScore>
+	<ServiceScore>3.02</ServiceScore>
+	<MoodScore>3.03</MoodScore>
+	<Situation>友人・同僚と、家族・子供と、一人で</Situation>
+	<DinnerPrice> ～￥999</DinnerPrice>
+	<LunchPrice> ～￥999</LunchPrice>
+	<Category>ラーメン</Category>
+	<Station>文化の森、二軒屋</Station>
+	<Address>徳島市八万町下福万1-13 </Address>
+	<Tel>088-668-3773</Tel>
+	<BusinessHours>AM11：00～PM9：00</BusinessHours>
+	<Holiday>水曜日</Holiday>
+	<Latitude>34.0476767986244</Latitude>
+	<Longitude>134.529689439884</Longitude>
+
+</Item>
+<Item>
+	<Rcd>36000683</Rcd>
+	<RestaurantName>めん亭</RestaurantName>
+	<TabelogUrl>http://tabelog.com/tokushima/A3603/A360303/36000683/</TabelogUrl>
+<TabelogMobileUrl>http://m.tabelog.com/tokushima/A3603/A360303/36000683/</TabelogMobileUrl>
+	<TotalScore>3.34</TotalScore>
+	<TasteScore>3.34</TasteScore>
+	<ServiceScore>3.0</ServiceScore>
+	<MoodScore>3.0</MoodScore>
+	<Situation>友人・同僚と、一人で</Situation>
+	<DinnerPrice> ～￥999</DinnerPrice>
+	<LunchPrice> ～￥999</LunchPrice>
+	<Category>ラーメン</Category>
+	<Station>石井</Station>
+	<Address>名西郡石井町高川原895-10 </Address>
+	<Tel>088-674-1788</Tel>
+	<BusinessHours>11:00～18:00</BusinessHours>
+	<Holiday>木曜日</Holiday>
+	<Latitude>34.0740389881802</Latitude>
+	<Longitude>134.450897536447</Longitude>
+
+</Item>
+<Item>
+	<Rcd>36002120</Rcd>
+	<RestaurantName>花んらん</RestaurantName>
+	<TabelogUrl>http://tabelog.com/tokushima/A3601/A360101/36002120/</TabelogUrl>
+<TabelogMobileUrl>http://m.tabelog.com/tokushima/A3601/A360101/36002120/</TabelogMobileUrl>
+	<TotalScore>3.34</TotalScore>
+	<TasteScore>3.5</TasteScore>
+	<ServiceScore>3.34</ServiceScore>
+	<MoodScore>3.34</MoodScore>
+	<Situation>友人・同僚と、家族・子供と、一人で</Situation>
+	<DinnerPrice> ～￥999</DinnerPrice>
+	<LunchPrice> ～￥999</LunchPrice>
+	<Category>お好み焼き、もんじゃ焼き、定食・食堂</Category>
+	<Station>鮎喰、蔵本</Station>
+	<Address>徳島市南島田町3-26-5 </Address>
+	<Tel>088-631-1178</Tel>
+	<BusinessHours>11:00～20:30(L.O)</BusinessHours>
+	<Holiday>毎週水曜日と第三日曜日</Holiday>
+	<Latitude>34.07901751052</Latitude>
+	<Longitude>134.508170284064</Longitude>
+
+</Item>
+<Item>
+	<Rcd>36003227</Rcd>
+	<RestaurantName>和田乃屋 徳島クレメントプラザ店</RestaurantName>
+	<TabelogUrl>http://tabelog.com/tokushima/A3601/A360101/36003227/</TabelogUrl>
+<TabelogMobileUrl>http://m.tabelog.com/tokushima/A3601/A360101/36003227/</TabelogMobileUrl>
+	<TotalScore>3.34</TotalScore>
+	<TasteScore>3.52</TasteScore>
+	<ServiceScore>3.34</ServiceScore>
+	<MoodScore>2.87</MoodScore>
+	<Situation>友人・同僚と、一人で</Situation>
+	<DinnerPrice> ～￥999</DinnerPrice>
+	<LunchPrice> ～￥999</LunchPrice>
+	<Category>和菓子</Category>
+	<Station>徳島</Station>
+	<Address>徳島市寺島本町西1‐61 Ｂ１Ｆ</Address>
+	<Tel>088-656-3135</Tel>
+	<BusinessHours>徳島クレメントプラザの営業時間に依存
+※イートインは午後７時前後で終了</BusinessHours>
+	<Holiday>クレメントプラザに準ずる</Holiday>
+	<Latitude>34.0749576761498</Latitude>
+	<Longitude>134.550002243633</Longitude>
+
+</Item>
+<Item>
+	<Rcd>36000875</Rcd>
+	<RestaurantName>ホテル・リッジ</RestaurantName>
+	<TabelogUrl>http://tabelog.com/tokushima/A3601/A360102/36000875/</TabelogUrl>
+<TabelogMobileUrl>http://m.tabelog.com/tokushima/A3601/A360102/36000875/</TabelogMobileUrl>
+	<TotalScore>3.34</TotalScore>
+	<TasteScore>3.34</TasteScore>
+	<ServiceScore>3.55</ServiceScore>
+	<MoodScore>3.57</MoodScore>
+	<Situation>友人・同僚と、デート</Situation>
+	<DinnerPrice>￥30,000～</DinnerPrice>
+	<LunchPrice></LunchPrice>
+	<Category>旅館</Category>
+	<Station>鳴門市その他</Station>
+	<Address>鳴門市瀬戸町大島田字中山1-1 </Address>
+	<Tel>088-688-1212</Tel>
+	<BusinessHours>チェックイン　15:00
+チェックアウト　12:00
+
+ダイニングバー＆ラウンジの営業時間
+17：00～22：00</BusinessHours>
+	<Holiday></Holiday>
+	<Latitude>34.2431331591844</Latitude>
+	<Longitude>134.611939987595</Longitude>
+
+</Item>
+<Item>
+	<Rcd>36004568</Rcd>
+	<RestaurantName>中羽長久堂</RestaurantName>
+	<TabelogUrl>http://tabelog.com/tokushima/A3603/A360303/36004568/</TabelogUrl>
+<TabelogMobileUrl>http://m.tabelog.com/tokushima/A3603/A360303/36004568/</TabelogMobileUrl>
+	<TotalScore>3.34</TotalScore>
+	<TasteScore>3.34</TasteScore>
+	<ServiceScore>3.5</ServiceScore>
+	<MoodScore>3.17</MoodScore>
+	<Situation>友人・同僚と、家族・子供と、一人で</Situation>
+	<DinnerPrice></DinnerPrice>
+	<LunchPrice> ～￥999</LunchPrice>
+	<Category>和菓子、パン</Category>
+	<Station>板野</Station>
+	<Address>板野郡板野町大寺字亀山西152-3 </Address>
+	<Tel>0886-72-0143</Tel>
+	<BusinessHours>7:30～18:30</BusinessHours>
+	<Holiday>日曜・祝日</Holiday>
+	<Latitude>34.1436877355408</Latitude>
+	<Longitude>134.464684597378</Longitude>
+
+</Item>
+<Item>
+	<Rcd>36000076</Rcd>
+	<RestaurantName>麺王 徳島駅前本店</RestaurantName>
+	<TabelogUrl>http://tabelog.com/tokushima/A3601/A360101/36000076/</TabelogUrl>
+<TabelogMobileUrl>http://m.tabelog.com/tokushima/A3601/A360101/36000076/</TabelogMobileUrl>
+	<TotalScore>3.33</TotalScore>
+	<TasteScore>3.26</TasteScore>
+	<ServiceScore>3.05</ServiceScore>
+	<MoodScore>3.17</MoodScore>
+	<Situation>友人・同僚と、一人で</Situation>
+	<DinnerPrice> ～￥999</DinnerPrice>
+	<LunchPrice> ～￥999</LunchPrice>
+	<Category>ラーメン</Category>
+	<Station>徳島</Station>
+	<Address>徳島市寺島本町東3-4 旭ビル1Ｆ</Address>
+	<Tel>088-623-4116</Tel>
+	<BusinessHours>[月～日]
+11:00～24:00
+
+</BusinessHours>
+	<Holiday>年中無休</Holiday>
+	<Latitude>34.073132509895</Latitude>
+	<Longitude>134.551547830298</Longitude>
+
+</Item>
+<Item>
+	<Rcd>36000179</Rcd>
+	<RestaurantName>中華そば専門店　阿波屋</RestaurantName>
+	<TabelogUrl>http://tabelog.com/tokushima/A3601/A360101/36000179/</TabelogUrl>
+<TabelogMobileUrl>http://m.tabelog.com/tokushima/A3601/A360101/36000179/</TabelogMobileUrl>
+	<TotalScore>3.33</TotalScore>
+	<TasteScore>3.41</TasteScore>
+	<ServiceScore>2.98</ServiceScore>
+	<MoodScore>2.95</MoodScore>
+	<Situation>友人・同僚と、一人で</Situation>
+	<DinnerPrice> ～￥999</DinnerPrice>
+	<LunchPrice> ～￥999</LunchPrice>
+	<Category>ラーメン</Category>
+	<Station>阿波富田、徳島</Station>
+	<Address>徳島市両国橋34 </Address>
+	<Tel>088-623-9596</Tel>
+	<BusinessHours>[月～木]
+11:00～翌3:00
+
+[金・土・祝前]
+11:00～翌5:00
+
+[日]
+11:00～0:00
+
+</BusinessHours>
+	<Holiday>無休</Holiday>
+	<Latitude>34.0681694021799</Latitude>
+	<Longitude>134.549975689376</Longitude>
+
+</Item>
+<Item>
+	<Rcd>36000851</Rcd>
+	<RestaurantName>スープナッツ</RestaurantName>
+	<TabelogUrl>http://tabelog.com/tokushima/A3601/A360101/36000851/</TabelogUrl>
+<TabelogMobileUrl>http://m.tabelog.com/tokushima/A3601/A360101/36000851/</TabelogMobileUrl>
+	<TotalScore>3.33</TotalScore>
+	<TasteScore>3.33</TasteScore>
+	<ServiceScore>3.12</ServiceScore>
+	<MoodScore>3.5</MoodScore>
+	<Situation>友人・同僚と、一人で</Situation>
+	<DinnerPrice> ～￥999</DinnerPrice>
+	<LunchPrice> ～￥999</LunchPrice>
+	<Category>つけ麺</Category>
+	<Station>佐古</Station>
+	<Address>徳島市南田宮1-6-25 </Address>
+	<Tel>088-677-8380</Tel>
+	<BusinessHours>[月・火・木～金]
+11:30～14:30　　
+18:00～売切れ次第終了
+
+[土・日・祝]
+11:30～15:00
+18:00～売切れ次第終了
+
+</BusinessHours>
+	<Holiday>水曜</Holiday>
+	<Latitude>34.0837495813087</Latitude>
+	<Longitude>134.544316553136</Longitude>
+
+</Item>
+<Item>
+	<Rcd>36000005</Rcd>
+	<RestaurantName>銀座一福 本店</RestaurantName>
+	<TabelogUrl>http://tabelog.com/tokushima/A3601/A360101/36000005/</TabelogUrl>
+<TabelogMobileUrl>http://m.tabelog.com/tokushima/A3601/A360101/36000005/</TabelogMobileUrl>
+	<TotalScore>3.33</TotalScore>
+	<TasteScore>3.36</TasteScore>
+	<ServiceScore>3.0</ServiceScore>
+	<MoodScore>3.0</MoodScore>
+	<Situation>友人・同僚と、一人で</Situation>
+	<DinnerPrice> ～￥999</DinnerPrice>
+	<LunchPrice> ～￥999</LunchPrice>
+	<Category>ラーメン</Category>
+	<Station>阿波富田、徳島</Station>
+	<Address>徳島市銀座10 1F</Address>
+	<Tel>088-652-2340</Tel>
+	<BusinessHours>[月～日]
+11:00～22:00（売切れ次第終了）
+
+</BusinessHours>
+	<Holiday>不定休（月曜が多い）</Holiday>
+	<Latitude>34.0685665764809</Latitude>
+	<Longitude>134.54966430806</Longitude>
+
+</Item>
+<Item>
+	<Rcd>36002888</Rcd>
+	<RestaurantName>イタリア郷土料理　オステリア　イマムラ</RestaurantName>
+	<TabelogUrl>http://tabelog.com/tokushima/A3601/A360101/36002888/</TabelogUrl>
+<TabelogMobileUrl>http://m.tabelog.com/tokushima/A3601/A360101/36002888/</TabelogMobileUrl>
+	<TotalScore>3.33</TotalScore>
+	<TasteScore>3.36</TasteScore>
+	<ServiceScore>3.22</ServiceScore>
+	<MoodScore>3.19</MoodScore>
+	<Situation>友人・同僚と、デート</Situation>
+	<DinnerPrice>￥5,000～￥5,999</DinnerPrice>
+	<LunchPrice>￥1,000～￥1,999</LunchPrice>
+	<Category>イタリアン</Category>
+	<Station>二軒屋、阿波富田</Station>
+	<Address>徳島市沖浜東1-5 第２コーポＨＡＭＡＤＡ　１Ｆ</Address>
+	<Tel>088-678-6400</Tel>
+	<BusinessHours>[火～日]
+11:30～14:30(L.O.14:00、ランチの営業は要確認）
+17:30～22:00(L.O.21:30)</BusinessHours>
+	<Holiday>月曜・第二、第四火曜</Holiday>
+	<Latitude>34.0553097761776</Latitude>
+	<Longitude>134.55437144323</Longitude>
+
+</Item>
+<Item>
+	<Rcd>36000949</Rcd>
+	<RestaurantName>よあけ 本店</RestaurantName>
+	<TabelogUrl>http://tabelog.com/tokushima/A3601/A360101/36000949/</TabelogUrl>
+<TabelogMobileUrl>http://m.tabelog.com/tokushima/A3601/A360101/36000949/</TabelogMobileUrl>
+	<TotalScore>3.33</TotalScore>
+	<TasteScore>3.31</TasteScore>
+	<ServiceScore>3.12</ServiceScore>
+	<MoodScore>3.07</MoodScore>
+	<Situation>友人・同僚と、家族・子供と、一人で</Situation>
+	<DinnerPrice> ～￥999</DinnerPrice>
+	<LunchPrice> ～￥999</LunchPrice>
+	<Category>ラーメン</Category>
+	<Station>二軒屋、阿波富田</Station>
+	<Address>徳島市二軒屋町2-46 </Address>
+	<Tel>088-652-3303</Tel>
+	<BusinessHours>11：00～22：00（L.O）</BusinessHours>
+	<Holiday>水曜日</Holiday>
+	<Latitude>34.0592058656869</Latitude>
+	<Longitude>134.547067732466</Longitude>
+
+</Item>
+</RestaurantInfo>

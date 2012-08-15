@@ -1,0 +1,460 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RestaurantInfo>
+<NumOfResult>4943</NumOfResult> 
+<Item>
+	<Rcd>35002024</Rcd>
+	<RestaurantName>でんすけ 本店</RestaurantName>
+	<TabelogUrl>http://tabelog.com/yamaguchi/A3505/A350501/35002024/</TabelogUrl>
+<TabelogMobileUrl>http://m.tabelog.com/yamaguchi/A3505/A350501/35002024/</TabelogMobileUrl>
+	<TotalScore>3.24</TotalScore>
+	<TasteScore>3.31</TasteScore>
+	<ServiceScore>3.14</ServiceScore>
+	<MoodScore>3.21</MoodScore>
+	<Situation>友人・同僚と</Situation>
+	<DinnerPrice>￥3,000～￥3,999</DinnerPrice>
+	<LunchPrice></LunchPrice>
+	<Category>居酒屋、おでん、魚介料理・海鮮料理</Category>
+	<Station>徳山</Station>
+	<Address>周南市新町2-9-5 </Address>
+	<Tel>0834-32-0877</Tel>
+	<BusinessHours>17:00～23:00</BusinessHours>
+	<Holiday>日曜 (但し12月の日曜日は営業）</Holiday>
+	<Latitude>34.0520501537098</Latitude>
+	<Longitude>131.80530118214</Longitude>
+
+</Item>
+<Item>
+	<Rcd>35006042</Rcd>
+	<RestaurantName>EXAS THE BAR</RestaurantName>
+	<TabelogUrl>http://tabelog.com/yamaguchi/A3502/A350201/35006042/</TabelogUrl>
+<TabelogMobileUrl>http://m.tabelog.com/yamaguchi/A3502/A350201/35006042/</TabelogMobileUrl>
+	<TotalScore>3.24</TotalScore>
+	<TasteScore>3.16</TasteScore>
+	<ServiceScore>3.09</ServiceScore>
+	<MoodScore>3.31</MoodScore>
+	<Situation>デート</Situation>
+	<DinnerPrice>￥2,000～￥2,999</DinnerPrice>
+	<LunchPrice></LunchPrice>
+	<Category>バー</Category>
+	<Station>下関</Station>
+	<Address>下関市豊前田町2丁目2-12 </Address>
+	<Tel>083-223-0234</Tel>
+	<BusinessHours></BusinessHours>
+	<Holiday></Holiday>
+	<Latitude>33.9517085369994</Latitude>
+	<Longitude>130.927043473111</Longitude>
+
+</Item>
+<Item>
+	<Rcd>35001618</Rcd>
+	<RestaurantName>さぬきラーメン ごんな 武久店</RestaurantName>
+	<TabelogUrl>http://tabelog.com/yamaguchi/A3502/A350201/35001618/</TabelogUrl>
+<TabelogMobileUrl>http://m.tabelog.com/yamaguchi/A3502/A350201/35001618/</TabelogMobileUrl>
+	<TotalScore>3.24</TotalScore>
+	<TasteScore>3.28</TasteScore>
+	<ServiceScore>3.21</ServiceScore>
+	<MoodScore>3.24</MoodScore>
+	<Situation>友人・同僚と、家族・子供と、一人で</Situation>
+	<DinnerPrice> ～￥999</DinnerPrice>
+	<LunchPrice> ～￥999</LunchPrice>
+	<Category>ラーメン、ちゃんぽん、餃子</Category>
+	<Station>幡生</Station>
+	<Address>下関市武久町2-81-15 </Address>
+	<Tel>083-254-1018</Tel>
+	<BusinessHours>11:00～20:00</BusinessHours>
+	<Holiday>第1・3・5日曜日</Holiday>
+	<Latitude>33.9871076985983</Latitude>
+	<Longitude>130.918648502951</Longitude>
+
+</Item>
+<Item>
+	<Rcd>35005618</Rcd>
+	<RestaurantName>鮨行天</RestaurantName>
+	<TabelogUrl>http://tabelog.com/yamaguchi/A3502/A350201/35005618/</TabelogUrl>
+<TabelogMobileUrl>http://m.tabelog.com/yamaguchi/A3502/A350201/35005618/</TabelogMobileUrl>
+	<TotalScore>3.24</TotalScore>
+	<TasteScore>3.31</TasteScore>
+	<ServiceScore>3.16</ServiceScore>
+	<MoodScore>3.16</MoodScore>
+	<Situation>接待、一人で</Situation>
+	<DinnerPrice>￥10,000～￥14,999</DinnerPrice>
+	<LunchPrice></LunchPrice>
+	<Category>寿司</Category>
+	<Station>下関</Station>
+	<Address>下関市細江町1-3-3 </Address>
+	<Tel>083-222-7000</Tel>
+	<BusinessHours>完全予約制
+
+昼11:30～13:30（入店）
+
+夜18:00～20:30（入店）</BusinessHours>
+	<Holiday>不定休</Holiday>
+	<Latitude>33.9520880487155</Latitude>
+	<Longitude>130.930731634038</Longitude>
+
+</Item>
+<Item>
+	<Rcd>35002348</Rcd>
+	<RestaurantName>メゾン・イグレック 山口店</RestaurantName>
+	<TabelogUrl>http://tabelog.com/yamaguchi/A3501/A350101/35002348/</TabelogUrl>
+<TabelogMobileUrl>http://m.tabelog.com/yamaguchi/A3501/A350101/35002348/</TabelogMobileUrl>
+	<TotalScore>3.24</TotalScore>
+	<TasteScore>3.09</TasteScore>
+	<ServiceScore>3.4</ServiceScore>
+	<MoodScore>3.24</MoodScore>
+	<Situation>友人・同僚と、家族・子供と、一人で</Situation>
+	<DinnerPrice></DinnerPrice>
+	<LunchPrice> ～￥999</LunchPrice>
+	<Category>パン、サンドイッチ、パン・サンドイッチ（その他）</Category>
+	<Station>山口、上山口</Station>
+	<Address>山口市中市町1-18 ヤマダ１１８ビル　１Ｆ</Address>
+	<Tel>083-932-1680</Tel>
+	<BusinessHours></BusinessHours>
+	<Holiday>水曜</Holiday>
+	<Latitude>34.1779698345961</Latitude>
+	<Longitude>131.478147971159</Longitude>
+
+</Item>
+<Item>
+	<Rcd>35005426</Rcd>
+	<RestaurantName>ホテル松政</RestaurantName>
+	<TabelogUrl>http://tabelog.com/yamaguchi/A3501/A350101/35005426/</TabelogUrl>
+<TabelogMobileUrl>http://m.tabelog.com/yamaguchi/A3501/A350101/35005426/</TabelogMobileUrl>
+	<TotalScore>3.24</TotalScore>
+	<TasteScore>3.12</TasteScore>
+	<ServiceScore>3.07</ServiceScore>
+	<MoodScore>3.07</MoodScore>
+	<Situation>家族・子供と</Situation>
+	<DinnerPrice>￥10,000～￥14,999</DinnerPrice>
+	<LunchPrice></LunchPrice>
+	<Category>旅館</Category>
+	<Station>湯田温泉</Station>
+	<Address>山口市湯田温泉3-5-8 </Address>
+	<Tel>083-922-2000</Tel>
+	<BusinessHours></BusinessHours>
+	<Holiday></Holiday>
+	<Latitude>34.1656657370325</Latitude>
+	<Longitude>131.4578264749</Longitude>
+
+</Item>
+<Item>
+	<Rcd>35004832</Rcd>
+	<RestaurantName>すし処豊月</RestaurantName>
+	<TabelogUrl>http://tabelog.com/yamaguchi/A3503/A350301/35004832/</TabelogUrl>
+<TabelogMobileUrl>http://m.tabelog.com/yamaguchi/A3503/A350301/35004832/</TabelogMobileUrl>
+	<TotalScore>3.24</TotalScore>
+	<TasteScore>3.24</TasteScore>
+	<ServiceScore>3.09</ServiceScore>
+	<MoodScore>3.09</MoodScore>
+	<Situation>友人・同僚と、デート、接待、一人で</Situation>
+	<DinnerPrice></DinnerPrice>
+	<LunchPrice>￥2,000～￥2,999</LunchPrice>
+	<Category>寿司</Category>
+	<Station>東萩</Station>
+	<Address>萩市江向458 </Address>
+	<Tel>0838-26-4649</Tel>
+	<BusinessHours>[昼]12:00～14:00
+[夜]18:00～21:00 </BusinessHours>
+	<Holiday>水曜日</Holiday>
+	<Latitude>34.4108721883713</Latitude>
+	<Longitude>131.400838068489</Longitude>
+
+</Item>
+<Item>
+	<Rcd>35006629</Rcd>
+	<RestaurantName>キュイジーヌ メリメロ</RestaurantName>
+	<TabelogUrl>http://tabelog.com/yamaguchi/A3504/A350401/35006629/</TabelogUrl>
+<TabelogMobileUrl>http://m.tabelog.com/yamaguchi/A3504/A350401/35006629/</TabelogMobileUrl>
+	<TotalScore>3.24</TotalScore>
+	<TasteScore>3.24</TasteScore>
+	<ServiceScore>3.16</ServiceScore>
+	<MoodScore>3.24</MoodScore>
+	<Situation>友人・同僚と、デート</Situation>
+	<DinnerPrice>￥4,000～￥4,999</DinnerPrice>
+	<LunchPrice></LunchPrice>
+	<Category>ビストロ、フレンチ</Category>
+	<Station>宇部新川、琴芝</Station>
+	<Address>宇部市相生町9-12 ジェニービル1F</Address>
+	<Tel>0836-39-7199</Tel>
+	<BusinessHours>18:00-2:00</BusinessHours>
+	<Holiday>月曜日</Holiday>
+	<Latitude>33.9544099360823</Latitude>
+	<Longitude>131.2440879807</Longitude>
+
+</Item>
+<Item>
+	<Rcd>35002176</Rcd>
+	<RestaurantName>焼肉専門店 とらじ</RestaurantName>
+	<TabelogUrl>http://tabelog.com/yamaguchi/A3506/A350602/35002176/</TabelogUrl>
+<TabelogMobileUrl>http://m.tabelog.com/yamaguchi/A3506/A350602/35002176/</TabelogMobileUrl>
+	<TotalScore>3.24</TotalScore>
+	<TasteScore>3.24</TasteScore>
+	<ServiceScore>3.16</ServiceScore>
+	<MoodScore>3.16</MoodScore>
+	<Situation>友人・同僚と、デート、接待、宴会、家族・子供と、一人で</Situation>
+	<DinnerPrice>￥4,000～￥4,999</DinnerPrice>
+	<LunchPrice></LunchPrice>
+	<Category>焼肉</Category>
+	<Station>柳井</Station>
+	<Address>柳井市中央2丁目12-18 </Address>
+	<Tel>0820-22-1990</Tel>
+	<BusinessHours>[月～土]
+11:00～21:30(L.O.21:00)
+[日・祝]
+17:00～21:00</BusinessHours>
+	<Holiday>火曜</Holiday>
+	<Latitude>33.9678876373648</Latitude>
+	<Longitude>132.106637872447</Longitude>
+
+</Item>
+<Item>
+	<Rcd>35003919</Rcd>
+	<RestaurantName>かわらや</RestaurantName>
+	<TabelogUrl>http://tabelog.com/yamaguchi/A3505/A350501/35003919/</TabelogUrl>
+<TabelogMobileUrl>http://m.tabelog.com/yamaguchi/A3505/A350501/35003919/</TabelogMobileUrl>
+	<TotalScore>3.24</TotalScore>
+	<TasteScore>3.24</TasteScore>
+	<ServiceScore>3.0</ServiceScore>
+	<MoodScore>3.09</MoodScore>
+	<Situation>友人・同僚と、接待、宴会、家族・子供と、一人で</Situation>
+	<DinnerPrice>￥5,000～￥5,999</DinnerPrice>
+	<LunchPrice></LunchPrice>
+	<Category>焼肉</Category>
+	<Station>徳山</Station>
+	<Address>周南市新宿通6-1-40 </Address>
+	<Tel>0834-21-4757</Tel>
+	<BusinessHours>[月～日]
+17:00（冬期17:30）～21:00
+
+</BusinessHours>
+	<Holiday>不定休</Holiday>
+	<Latitude>34.0642301032362</Latitude>
+	<Longitude>131.799170947019</Longitude>
+
+</Item>
+<Item>
+	<Rcd>35007074</Rcd>
+	<RestaurantName>平田旅館</RestaurantName>
+	<TabelogUrl>http://tabelog.com/yamaguchi/A3502/A350201/35007074/</TabelogUrl>
+<TabelogMobileUrl>http://m.tabelog.com/yamaguchi/A3502/A350201/35007074/</TabelogMobileUrl>
+	<TotalScore>3.24</TotalScore>
+	<TasteScore>3.24</TasteScore>
+	<ServiceScore>3.16</ServiceScore>
+	<MoodScore>3.0</MoodScore>
+	<Situation>友人・同僚と、デート、家族・子供と</Situation>
+	<DinnerPrice></DinnerPrice>
+	<LunchPrice></LunchPrice>
+	<Category>旅館</Category>
+	<Station>川棚温泉</Station>
+	<Address>下関市豊浦町宇賀5354 </Address>
+	<Tel>0837-76-0055</Tel>
+	<BusinessHours>チェックイン 15:30 （最終チェックイン:19:00） チェックアウト 10:00</BusinessHours>
+	<Holiday>不定休（月1回）</Holiday>
+	<Latitude>34.2142349368397</Latitude>
+	<Longitude>130.949107175747</Longitude>
+
+</Item>
+<Item>
+	<Rcd>35000959</Rcd>
+	<RestaurantName>とんかつ K屋</RestaurantName>
+	<TabelogUrl>http://tabelog.com/yamaguchi/A3505/A350502/35000959/</TabelogUrl>
+<TabelogMobileUrl>http://m.tabelog.com/yamaguchi/A3505/A350502/35000959/</TabelogMobileUrl>
+	<TotalScore>3.22</TotalScore>
+	<TasteScore>3.22</TasteScore>
+	<ServiceScore>3.12</ServiceScore>
+	<MoodScore>3.12</MoodScore>
+	<Situation>友人・同僚と、デート</Situation>
+	<DinnerPrice>￥1,000～￥1,999</DinnerPrice>
+	<LunchPrice>￥1,000～￥1,999</LunchPrice>
+	<Category>とんかつ</Category>
+	<Station>光</Station>
+	<Address>光市虹ケ浜3-13-3 </Address>
+	<Tel>0833-72-8600</Tel>
+	<BusinessHours>11:00～15:00
+17:00～21:00(L.O)</BusinessHours>
+	<Holiday>火曜日</Holiday>
+	<Latitude>33.9730965797214</Latitude>
+	<Longitude>131.913791779284</Longitude>
+
+</Item>
+<Item>
+	<Rcd>35001000</Rcd>
+	<RestaurantName>ラーメンばか馬</RestaurantName>
+	<TabelogUrl>http://tabelog.com/yamaguchi/A3502/A350201/35001000/</TabelogUrl>
+<TabelogMobileUrl>http://m.tabelog.com/yamaguchi/A3502/A350201/35001000/</TabelogMobileUrl>
+	<TotalScore>3.22</TotalScore>
+	<TasteScore>3.28</TasteScore>
+	<ServiceScore>3.17</ServiceScore>
+	<MoodScore>3.12</MoodScore>
+	<Situation>友人・同僚と、家族・子供と、一人で</Situation>
+	<DinnerPrice> ～￥999</DinnerPrice>
+	<LunchPrice> ～￥999</LunchPrice>
+	<Category>ラーメン</Category>
+	<Station>新下関</Station>
+	<Address>下関市一の宮町3丁目2-28 </Address>
+	<Tel>083-257-1014</Tel>
+	<BusinessHours>11:00～14:30 18:00～21:00</BusinessHours>
+	<Holiday>水曜日</Holiday>
+	<Latitude>33.9993675064408</Latitude>
+	<Longitude>130.950914703224</Longitude>
+
+</Item>
+<Item>
+	<Rcd>35000121</Rcd>
+	<RestaurantName>きらく</RestaurantName>
+	<TabelogUrl>http://tabelog.com/yamaguchi/A3503/A350302/35000121/</TabelogUrl>
+<TabelogMobileUrl>http://m.tabelog.com/yamaguchi/A3503/A350302/35000121/</TabelogMobileUrl>
+	<TotalScore>3.22</TotalScore>
+	<TasteScore>3.29</TasteScore>
+	<ServiceScore>3.0</ServiceScore>
+	<MoodScore>3.14</MoodScore>
+	<Situation>友人・同僚と、家族・子供と</Situation>
+	<DinnerPrice>￥3,000～￥3,999</DinnerPrice>
+	<LunchPrice>￥1,000～￥1,999</LunchPrice>
+	<Category>魚介料理・海鮮料理、割烹・小料理、旅館</Category>
+	<Station>仙崎</Station>
+	<Address>長門市仙崎祇園町4137-3 </Address>
+	<Tel>083-726-1235</Tel>
+	<BusinessHours>11:30～14:00
+17:00～22:00</BusinessHours>
+	<Holiday>水曜日</Holiday>
+	<Latitude>34.3888885494287</Latitude>
+	<Longitude>131.20127208792</Longitude>
+
+</Item>
+<Item>
+	<Rcd>35000107</Rcd>
+	<RestaurantName>広島風お好み焼 鉄八</RestaurantName>
+	<TabelogUrl>http://tabelog.com/yamaguchi/A3505/A350501/35000107/</TabelogUrl>
+<TabelogMobileUrl>http://m.tabelog.com/yamaguchi/A3505/A350501/35000107/</TabelogMobileUrl>
+	<TotalScore>3.22</TotalScore>
+	<TasteScore>3.22</TasteScore>
+	<ServiceScore>3.0</ServiceScore>
+	<MoodScore>3.12</MoodScore>
+	<Situation>友人・同僚と、家族・子供と、一人で</Situation>
+	<DinnerPrice> ～￥999</DinnerPrice>
+	<LunchPrice> ～￥999</LunchPrice>
+	<Category>お好み焼き、焼きそば</Category>
+	<Station>周南市その他</Station>
+	<Address>周南市秋月1-2-25 </Address>
+	<Tel>0834-28-5330</Tel>
+	<BusinessHours>11:00～21:30 [日] 11:00～21:00</BusinessHours>
+	<Holiday></Holiday>
+	<Latitude>34.0517644361699</Latitude>
+	<Longitude>131.82751837782</Longitude>
+
+</Item>
+<Item>
+	<Rcd>35001601</Rcd>
+	<RestaurantName>蕎麦舗ふじたや</RestaurantName>
+	<TabelogUrl>http://tabelog.com/yamaguchi/A3503/A350301/35001601/</TabelogUrl>
+<TabelogMobileUrl>http://m.tabelog.com/yamaguchi/A3503/A350301/35001601/</TabelogMobileUrl>
+	<TotalScore>3.22</TotalScore>
+	<TasteScore>3.22</TasteScore>
+	<ServiceScore>3.07</ServiceScore>
+	<MoodScore>3.12</MoodScore>
+	<Situation>友人・同僚と</Situation>
+	<DinnerPrice></DinnerPrice>
+	<LunchPrice>￥1,000～￥1,999</LunchPrice>
+	<Category>そば、うどん</Category>
+	<Station>東萩</Station>
+	<Address>萩市大字熊谷町59 </Address>
+	<Tel>0838-22-1086</Tel>
+	<BusinessHours>11:00～18:00</BusinessHours>
+	<Holiday>水曜・不定休</Holiday>
+	<Latitude>34.414417352059</Latitude>
+	<Longitude>131.400366877729</Longitude>
+
+</Item>
+<Item>
+	<Rcd>35000262</Rcd>
+	<RestaurantName>新日本料理 吉祥</RestaurantName>
+	<TabelogUrl>http://tabelog.com/yamaguchi/A3504/A350401/35000262/</TabelogUrl>
+<TabelogMobileUrl>http://m.tabelog.com/yamaguchi/A3504/A350401/35000262/</TabelogMobileUrl>
+	<TotalScore>3.22</TotalScore>
+	<TasteScore>3.17</TasteScore>
+	<ServiceScore>3.22</ServiceScore>
+	<MoodScore>3.22</MoodScore>
+	<Situation>デート、接待、家族・子供と</Situation>
+	<DinnerPrice>￥6,000～￥7,999</DinnerPrice>
+	<LunchPrice>￥3,000～￥3,999</LunchPrice>
+	<Category>懐石・会席料理</Category>
+	<Station>岐波</Station>
+	<Address>宇部市東岐波129-1 </Address>
+	<Tel>0836-58-4811</Tel>
+	<BusinessHours>11:00～14:00(L.O)
+17:00～22:00</BusinessHours>
+	<Holiday>年末・年始以外は無休</Holiday>
+	<Latitude>33.9886643397902</Latitude>
+	<Longitude>131.35609543469</Longitude>
+
+</Item>
+<Item>
+	<Rcd>35001540</Rcd>
+	<RestaurantName>フランス菓子 SADAO</RestaurantName>
+	<TabelogUrl>http://tabelog.com/yamaguchi/A3505/A350501/35001540/</TabelogUrl>
+<TabelogMobileUrl>http://m.tabelog.com/yamaguchi/A3505/A350501/35001540/</TabelogMobileUrl>
+	<TotalScore>3.22</TotalScore>
+	<TasteScore>3.22</TasteScore>
+	<ServiceScore>3.07</ServiceScore>
+	<MoodScore>3.03</MoodScore>
+	<Situation>家族・子供と、一人で</Situation>
+	<DinnerPrice>￥1,000～￥1,999</DinnerPrice>
+	<LunchPrice> ～￥999</LunchPrice>
+	<Category>ケーキ</Category>
+	<Station>徳山</Station>
+	<Address>周南市速玉町1-19 </Address>
+	<Tel>0834-21-0965</Tel>
+	<BusinessHours>9:00～19:00</BusinessHours>
+	<Holiday>日曜日</Holiday>
+	<Latitude>34.0467716372203</Latitude>
+	<Longitude>131.809989873452</Longitude>
+
+</Item>
+<Item>
+	<Rcd>35000793</Rcd>
+	<RestaurantName>菜々瀬</RestaurantName>
+	<TabelogUrl>http://tabelog.com/yamaguchi/A3501/A350101/35000793/</TabelogUrl>
+<TabelogMobileUrl>http://m.tabelog.com/yamaguchi/A3501/A350101/35000793/</TabelogMobileUrl>
+	<TotalScore>3.22</TotalScore>
+	<TasteScore>3.24</TasteScore>
+	<ServiceScore>3.1</ServiceScore>
+	<MoodScore>3.22</MoodScore>
+	<Situation>友人・同僚と、家族・子供と、一人で</Situation>
+	<DinnerPrice> ～￥999</DinnerPrice>
+	<LunchPrice> ～￥999</LunchPrice>
+	<Category>郷土料理（その他）、そば・うどん・麺類（その他）、ラーメン</Category>
+	<Station>湯田温泉</Station>
+	<Address>山口市湯田温泉6-8-61 </Address>
+	<Tel>083-924-4800</Tel>
+	<BusinessHours>11:00～15:00(L.O.14:30)
+17:00～21:00(L.O.20:30)</BusinessHours>
+	<Holiday>月曜日</Holiday>
+	<Latitude>34.1653996057948</Latitude>
+	<Longitude>131.451686580861</Longitude>
+
+</Item>
+<Item>
+	<Rcd>35002403</Rcd>
+	<RestaurantName>旨いもん酒場　とらっ家</RestaurantName>
+	<TabelogUrl>http://tabelog.com/yamaguchi/A3501/A350101/35002403/</TabelogUrl>
+<TabelogMobileUrl>http://m.tabelog.com/yamaguchi/A3501/A350101/35002403/</TabelogMobileUrl>
+	<TotalScore>3.22</TotalScore>
+	<TasteScore>3.16</TasteScore>
+	<ServiceScore>3.09</ServiceScore>
+	<MoodScore>3.07</MoodScore>
+	<Situation>友人・同僚と</Situation>
+	<DinnerPrice>￥3,000～￥3,999</DinnerPrice>
+	<LunchPrice></LunchPrice>
+	<Category>居酒屋、鳥料理、もつ鍋</Category>
+	<Station>新山口、周防下郷</Station>
+	<Address>山口市小郡御幸町5-24 </Address>
+	<Tel>083-972-8123</Tel>
+	<BusinessHours>（月〜金）　18：00〜24：00
+（土、日）　 18：00〜23：00</BusinessHours>
+	<Holiday>ほぼ無休</Holiday>
+	<Latitude>34.0941342910694</Latitude>
+	<Longitude>131.400292986019</Longitude>
+
+</Item>
+</RestaurantInfo>

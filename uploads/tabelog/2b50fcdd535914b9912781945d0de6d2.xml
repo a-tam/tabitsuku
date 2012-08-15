@@ -1,0 +1,467 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RestaurantInfo>
+<NumOfResult>4186</NumOfResult> 
+<Item>
+	<Rcd>3003985</Rcd>
+	<RestaurantName>喜暖家</RestaurantName>
+	<TabelogUrl>http://tabelog.com/iwate/A0301/A030101/3003985/</TabelogUrl>
+<TabelogMobileUrl>http://m.tabelog.com/iwate/A0301/A030101/3003985/</TabelogMobileUrl>
+	<TotalScore>3.51</TotalScore>
+	<TasteScore>3.51</TasteScore>
+	<ServiceScore>3.51</ServiceScore>
+	<MoodScore>3.0</MoodScore>
+	<Situation>友人・同僚と、家族・子供と、一人で</Situation>
+	<DinnerPrice>￥2,000～￥2,999</DinnerPrice>
+	<LunchPrice> ～￥999</LunchPrice>
+	<Category>中華料理、定食・食堂、居酒屋</Category>
+	<Station>仙北町</Station>
+	<Address>盛岡市中野1-22-24 </Address>
+	<Tel>019-651-7223</Tel>
+	<BusinessHours>[月、水～日]
+11:30～15:00
+18:00～23:00
+</BusinessHours>
+	<Holiday>火曜日</Holiday>
+	<Latitude>39.6920944469215</Latitude>
+	<Longitude>141.169893367499</Longitude>
+
+</Item>
+<Item>
+	<Rcd>3001242</Rcd>
+	<RestaurantName>旅染屋　山いち</RestaurantName>
+	<TabelogUrl>http://tabelog.com/iwate/A0301/A030101/3001242/</TabelogUrl>
+<TabelogMobileUrl>http://m.tabelog.com/iwate/A0301/A030101/3001242/</TabelogMobileUrl>
+	<TotalScore>3.51</TotalScore>
+	<TasteScore>3.52</TasteScore>
+	<ServiceScore>3.51</ServiceScore>
+	<MoodScore>3.51</MoodScore>
+	<Situation>友人・同僚と、家族・子供と</Situation>
+	<DinnerPrice>￥10,000～￥14,999</DinnerPrice>
+	<LunchPrice>￥3,000～￥3,999</LunchPrice>
+	<Category>旅館</Category>
+	<Station>小岩井、雫石</Station>
+	<Address>盛岡市繋字舘市83-1 </Address>
+	<Tel>019-689-2704</Tel>
+	<BusinessHours></BusinessHours>
+	<Holiday></Holiday>
+	<Latitude>39.6755590404937</Latitude>
+	<Longitude>141.020309598812</Longitude>
+
+</Item>
+<Item>
+	<Rcd>3005338</Rcd>
+	<RestaurantName>やきとん耕平</RestaurantName>
+	<TabelogUrl>http://tabelog.com/iwate/A0301/A030101/3005338/</TabelogUrl>
+<TabelogMobileUrl>http://m.tabelog.com/iwate/A0301/A030101/3005338/</TabelogMobileUrl>
+	<TotalScore>3.51</TotalScore>
+	<TasteScore>3.29</TasteScore>
+	<ServiceScore>3.29</ServiceScore>
+	<MoodScore>3.51</MoodScore>
+	<Situation>友人・同僚と、一人で</Situation>
+	<DinnerPrice>￥2,000～￥2,999</DinnerPrice>
+	<LunchPrice> ～￥999</LunchPrice>
+	<Category>焼きとん、居酒屋</Category>
+	<Station>仙北町、上盛岡、盛岡</Station>
+	<Address>盛岡市南大通1丁目6-12 </Address>
+	<Tel>019-681-6018</Tel>
+	<BusinessHours>11:30～13:30(L.O)　※火～金曜日のみ
+18:00～翌3:00</BusinessHours>
+	<Holiday>日曜日</Holiday>
+	<Latitude>39.6984276732146</Latitude>
+	<Longitude>141.156439147974</Longitude>
+
+</Item>
+<Item>
+	<Rcd>3005944</Rcd>
+	<RestaurantName>大沢温泉　菊水館</RestaurantName>
+	<TabelogUrl>http://tabelog.com/iwate/A0302/A030201/3005944/</TabelogUrl>
+<TabelogMobileUrl>http://m.tabelog.com/iwate/A0302/A030201/3005944/</TabelogMobileUrl>
+	<TotalScore>3.51</TotalScore>
+	<TasteScore>3.26</TasteScore>
+	<ServiceScore>3.51</ServiceScore>
+	<MoodScore>3.54</MoodScore>
+	<Situation>友人・同僚と、一人で</Situation>
+	<DinnerPrice>￥10,000～￥14,999</DinnerPrice>
+	<LunchPrice>￥10,000～￥14,999</LunchPrice>
+	<Category>旅館</Category>
+	<Station>花巻市その他</Station>
+	<Address>花巻市湯口字大沢181 </Address>
+	<Tel>0198-25-2233</Tel>
+	<BusinessHours>[食事のみ]
+10:30～15:00
+[宿泊者の食事]
+7:00～8:30
+18:00～21:00
+[チェックイン・チェックアウト]
+12:00～翌10:00</BusinessHours>
+	<Holiday>無休</Holiday>
+	<Latitude>39.4375929945727</Latitude>
+	<Longitude>141.015379350316</Longitude>
+
+</Item>
+<Item>
+	<Rcd>3006192</Rcd>
+	<RestaurantName>麺屋　清兵衛</RestaurantName>
+	<TabelogUrl>http://tabelog.com/iwate/A0304/A030401/3006192/</TabelogUrl>
+<TabelogMobileUrl>http://m.tabelog.com/iwate/A0304/A030401/3006192/</TabelogMobileUrl>
+	<TotalScore>3.51</TotalScore>
+	<TasteScore>3.51</TasteScore>
+	<ServiceScore>3.51</ServiceScore>
+	<MoodScore>3.51</MoodScore>
+	<Situation>一人で</Situation>
+	<DinnerPrice> ～￥999</DinnerPrice>
+	<LunchPrice> ～￥999</LunchPrice>
+	<Category>ラーメン</Category>
+	<Station>宮古</Station>
+	<Address>宮古市西町1-2-23 </Address>
+	<Tel>0193-64-1779</Tel>
+	<BusinessHours>11:00～20:00</BusinessHours>
+	<Holiday>不定休</Holiday>
+	<Latitude>39.6463364840273</Latitude>
+	<Longitude>141.945301217235</Longitude>
+
+</Item>
+<Item>
+	<Rcd>3001022</Rcd>
+	<RestaurantName>福田パン 長田町本店</RestaurantName>
+	<TabelogUrl>http://tabelog.com/iwate/A0301/A030101/3001022/</TabelogUrl>
+<TabelogMobileUrl>http://m.tabelog.com/iwate/A0301/A030101/3001022/</TabelogMobileUrl>
+	<TotalScore>3.5</TotalScore>
+	<TasteScore>3.5</TasteScore>
+	<ServiceScore>3.28</ServiceScore>
+	<MoodScore>3.0</MoodScore>
+	<Situation>友人・同僚と、家族・子供と、一人で</Situation>
+	<DinnerPrice> ～￥999</DinnerPrice>
+	<LunchPrice> ～￥999</LunchPrice>
+	<Category>パン、サンドイッチ</Category>
+	<Station>上盛岡、盛岡</Station>
+	<Address>盛岡市長田町12-11 </Address>
+	<Tel>019-622-5896</Tel>
+	<BusinessHours>7:00～17:00
+※売切れ次第終了
+</BusinessHours>
+	<Holiday>無休</Holiday>
+	<Latitude>39.7081004664987</Latitude>
+	<Longitude>141.142187423049</Longitude>
+
+</Item>
+<Item>
+	<Rcd>3000173</Rcd>
+	<RestaurantName>拉麺たいぢ</RestaurantName>
+	<TabelogUrl>http://tabelog.com/iwate/A0301/A030103/3000173/</TabelogUrl>
+<TabelogMobileUrl>http://m.tabelog.com/iwate/A0301/A030103/3000173/</TabelogMobileUrl>
+	<TotalScore>3.5</TotalScore>
+	<TasteScore>3.51</TasteScore>
+	<ServiceScore>3.34</ServiceScore>
+	<MoodScore>3.19</MoodScore>
+	<Situation>友人・同僚と、家族・子供と、一人で</Situation>
+	<DinnerPrice> ～￥999</DinnerPrice>
+	<LunchPrice> ～￥999</LunchPrice>
+	<Category>ラーメン</Category>
+	<Station>矢幅</Station>
+	<Address>紫波郡矢巾町大字又兵エ新田第5地割64-3 </Address>
+	<Tel>019-697-1261</Tel>
+	<BusinessHours>11:30～15:00</BusinessHours>
+	<Holiday>木曜日</Holiday>
+	<Latitude>39.6132065692233</Latitude>
+	<Longitude>141.149027612949</Longitude>
+
+</Item>
+<Item>
+	<Rcd>3000039</Rcd>
+	<RestaurantName>前沢牛オガタ 味心</RestaurantName>
+	<TabelogUrl>http://tabelog.com/iwate/A0303/A030302/3000039/</TabelogUrl>
+<TabelogMobileUrl>http://m.tabelog.com/iwate/A0303/A030302/3000039/</TabelogMobileUrl>
+	<TotalScore>3.5</TotalScore>
+	<TasteScore>3.51</TasteScore>
+	<ServiceScore>3.12</ServiceScore>
+	<MoodScore>3.14</MoodScore>
+	<Situation>友人・同僚と、家族・子供と</Situation>
+	<DinnerPrice>￥6,000～￥7,999</DinnerPrice>
+	<LunchPrice>￥5,000～￥5,999</LunchPrice>
+	<Category>ステーキ、焼肉、すき焼き</Category>
+	<Station>前沢</Station>
+	<Address>奥州市前沢区塔ケ崎102-4 前沢牛オガタ本店　２Ｆ</Address>
+	<Tel>0197-56-7298</Tel>
+	<BusinessHours>［平日(定休日を除く)・土・日・祝］
+昼の部 11：30～15：00(L.O14：30)
+夜の部 17：00～21：00(L.O20：30)</BusinessHours>
+	<Holiday>木曜日</Holiday>
+	<Latitude>39.0420654895049</Latitude>
+	<Longitude>141.120250188176</Longitude>
+
+</Item>
+<Item>
+	<Rcd>3001222</Rcd>
+	<RestaurantName>岩鷲</RestaurantName>
+	<TabelogUrl>http://tabelog.com/iwate/A0302/A030202/3001222/</TabelogUrl>
+<TabelogMobileUrl>http://m.tabelog.com/iwate/A0302/A030202/3001222/</TabelogMobileUrl>
+	<TotalScore>3.5</TotalScore>
+	<TasteScore>3.52</TasteScore>
+	<ServiceScore>3.45</ServiceScore>
+	<MoodScore>3.5</MoodScore>
+	<Situation>友人・同僚と、一人で</Situation>
+	<DinnerPrice> ～￥999</DinnerPrice>
+	<LunchPrice> ～￥999</LunchPrice>
+	<Category>ラーメン、つけ麺</Category>
+	<Station>柳原、北上</Station>
+	<Address>北上市新穀町1-3-20 マルイシビル1F</Address>
+	<Tel>0197-63-8020</Tel>
+	<BusinessHours>11:30～14:00
+18:00～20:30(L.O.20:00)</BusinessHours>
+	<Holiday>月曜（祝日の場合は火曜日）、 第1火曜</Holiday>
+	<Latitude>39.2886881594281</Latitude>
+	<Longitude>141.113504671211</Longitude>
+
+</Item>
+<Item>
+	<Rcd>3000653</Rcd>
+	<RestaurantName>カプチーノ詩季</RestaurantName>
+	<TabelogUrl>http://tabelog.com/iwate/A0301/A030101/3000653/</TabelogUrl>
+<TabelogMobileUrl>http://m.tabelog.com/iwate/A0301/A030101/3000653/</TabelogMobileUrl>
+	<TotalScore>3.5</TotalScore>
+	<TasteScore>3.29</TasteScore>
+	<ServiceScore>3.29</ServiceScore>
+	<MoodScore>3.5</MoodScore>
+	<Situation>友人・同僚と、一人で</Situation>
+	<DinnerPrice> ～￥999</DinnerPrice>
+	<LunchPrice> ～￥999</LunchPrice>
+	<Category>コーヒー専門店、サンドイッチ、ケーキ</Category>
+	<Station>盛岡</Station>
+	<Address>盛岡市盛岡駅前通10-6 </Address>
+	<Tel>019-625-3608</Tel>
+	<BusinessHours>[月～土] 9:00～22:00 [日・祝] 9:00～20:00</BusinessHours>
+	<Holiday>第２第４月曜日</Holiday>
+	<Latitude>39.7023690686982</Latitude>
+	<Longitude>141.138386613701</Longitude>
+
+</Item>
+<Item>
+	<Rcd>3000434</Rcd>
+	<RestaurantName>PIZZERIA Piace</RestaurantName>
+	<TabelogUrl>http://tabelog.com/iwate/A0301/A030101/3000434/</TabelogUrl>
+<TabelogMobileUrl>http://m.tabelog.com/iwate/A0301/A030101/3000434/</TabelogMobileUrl>
+	<TotalScore>3.5</TotalScore>
+	<TasteScore>3.5</TasteScore>
+	<ServiceScore>3.29</ServiceScore>
+	<MoodScore>3.5</MoodScore>
+	<Situation>友人・同僚と、デート</Situation>
+	<DinnerPrice>￥2,000～￥2,999</DinnerPrice>
+	<LunchPrice>￥1,000～￥1,999</LunchPrice>
+	<Category>ピザ、イタリアン</Category>
+	<Station>盛岡</Station>
+	<Address>盛岡市大通3-6-23 </Address>
+	<Tel>019-624-1234</Tel>
+	<BusinessHours>ランチタイム　 11:00～15:00(LO14：30) 
+ディナータイム17:00～22:00(LO21：30)</BusinessHours>
+	<Holiday>毎週日曜日　　※祝祭日は営業（日曜を除く）</Holiday>
+	<Latitude>39.7030879375957</Latitude>
+	<Longitude>141.141644087848</Longitude>
+
+</Item>
+<Item>
+	<Rcd>3001096</Rcd>
+	<RestaurantName>mountee</RestaurantName>
+	<TabelogUrl>http://tabelog.com/iwate/A0302/A030202/3001096/</TabelogUrl>
+<TabelogMobileUrl>http://m.tabelog.com/iwate/A0302/A030202/3001096/</TabelogMobileUrl>
+	<TotalScore>3.5</TotalScore>
+	<TasteScore>3.5</TasteScore>
+	<ServiceScore>3.5</ServiceScore>
+	<MoodScore>3.51</MoodScore>
+	<Situation>友人・同僚と、デート</Situation>
+	<DinnerPrice>￥3,000～￥3,999</DinnerPrice>
+	<LunchPrice>￥1,000～￥1,999</LunchPrice>
+	<Category>イタリアン、ピザ、パスタ</Category>
+	<Station>北上</Station>
+	<Address>北上市青柳町2-7-7 青柳ビル1F</Address>
+	<Tel>0197-62-3021</Tel>
+	<BusinessHours>11:30～14:00
+18:00～22:30(LO)</BusinessHours>
+	<Holiday>水曜日。</Holiday>
+	<Latitude>39.2857086368566</Latitude>
+	<Longitude>141.116106919847</Longitude>
+
+</Item>
+<Item>
+	<Rcd>3005225</Rcd>
+	<RestaurantName>グランデ ラマーノ</RestaurantName>
+	<TabelogUrl>http://tabelog.com/iwate/A0301/A030101/3005225/</TabelogUrl>
+<TabelogMobileUrl>http://m.tabelog.com/iwate/A0301/A030101/3005225/</TabelogMobileUrl>
+	<TotalScore>3.5</TotalScore>
+	<TasteScore>3.34</TasteScore>
+	<ServiceScore>3.5</ServiceScore>
+	<MoodScore>3.48</MoodScore>
+	<Situation>友人・同僚と、デート</Situation>
+	<DinnerPrice>￥3,000～￥3,999</DinnerPrice>
+	<LunchPrice> ～￥999</LunchPrice>
+	<Category>イタリアン、パスタ、ワインバー</Category>
+	<Station>盛岡</Station>
+	<Address>盛岡市開運橋通1-33 プレッティビル1F</Address>
+	<Tel>019-681-2129</Tel>
+	<BusinessHours>１１：００～１５：００　ランチタイム
+
+１５：００～１７：００　カフェタイム
+
+１７：００～２３：００(L.O)ディナータイム</BusinessHours>
+	<Holiday>月曜日　月曜日祝日のときは火曜日</Holiday>
+	<Latitude>39.70276079745</Latitude>
+	<Longitude>141.144339712372</Longitude>
+
+</Item>
+<Item>
+	<Rcd>3000187</Rcd>
+	<RestaurantName>鮨懐石 重兵衛</RestaurantName>
+	<TabelogUrl>http://tabelog.com/iwate/A0301/A030101/3000187/</TabelogUrl>
+<TabelogMobileUrl>http://m.tabelog.com/iwate/A0301/A030101/3000187/</TabelogMobileUrl>
+	<TotalScore>3.5</TotalScore>
+	<TasteScore>3.34</TasteScore>
+	<ServiceScore>3.54</ServiceScore>
+	<MoodScore>3.54</MoodScore>
+	<Situation>家族・子供と</Situation>
+	<DinnerPrice>￥8,000～￥9,999</DinnerPrice>
+	<LunchPrice>￥2,000～￥2,999</LunchPrice>
+	<Category>寿司、懐石・会席料理</Category>
+	<Station>上盛岡、盛岡</Station>
+	<Address>盛岡市長田町14-2 </Address>
+	<Tel>019-654-5235</Tel>
+	<BusinessHours>11:30～13:30
+17:00～22:00</BusinessHours>
+	<Holiday>日曜日</Holiday>
+	<Latitude>39.7084870850436</Latitude>
+	<Longitude>141.141799937432</Longitude>
+
+</Item>
+<Item>
+	<Rcd>3000363</Rcd>
+	<RestaurantName>丑舎格之進</RestaurantName>
+	<TabelogUrl>http://tabelog.com/iwate/A0303/A030301/3000363/</TabelogUrl>
+<TabelogMobileUrl>http://m.tabelog.com/iwate/A0303/A030301/3000363/</TabelogMobileUrl>
+	<TotalScore>3.5</TotalScore>
+	<TasteScore>3.51</TasteScore>
+	<ServiceScore>3.31</ServiceScore>
+	<MoodScore>3.36</MoodScore>
+	<Situation>友人・同僚と、家族・子供と</Situation>
+	<DinnerPrice>￥3,000～￥3,999</DinnerPrice>
+	<LunchPrice>￥1,000～￥1,999</LunchPrice>
+	<Category>焼肉、ステーキ</Category>
+	<Station>陸中門崎</Station>
+	<Address>一関市川崎町薄衣字法道地21-16 </Address>
+	<Tel>0191-43-4129</Tel>
+	<BusinessHours>11:00～22:00</BusinessHours>
+	<Holiday>無休</Holiday>
+	<Latitude>38.8993339552075</Latitude>
+	<Longitude>141.271589468861</Longitude>
+
+</Item>
+<Item>
+	<Rcd>3000048</Rcd>
+	<RestaurantName>アッカトーネ</RestaurantName>
+	<TabelogUrl>http://tabelog.com/iwate/A0301/A030101/3000048/</TabelogUrl>
+<TabelogMobileUrl>http://m.tabelog.com/iwate/A0301/A030101/3000048/</TabelogMobileUrl>
+	<TotalScore>3.5</TotalScore>
+	<TasteScore>3.5</TasteScore>
+	<ServiceScore>3.51</ServiceScore>
+	<MoodScore>3.5</MoodScore>
+	<Situation>友人・同僚と、デート、一人で</Situation>
+	<DinnerPrice>￥4,000～￥4,999</DinnerPrice>
+	<LunchPrice></LunchPrice>
+	<Category>ワインバー、ダイニングバー、イタリアン</Category>
+	<Station>上盛岡、仙北町、盛岡</Station>
+	<Address>盛岡市中ノ橋通1-5-12 </Address>
+	<Tel>019-624-3310</Tel>
+	<BusinessHours>18:30～翌2:00</BusinessHours>
+	<Holiday>日曜日</Holiday>
+	<Latitude>39.7001487667585</Latitude>
+	<Longitude>141.155212818513</Longitude>
+
+</Item>
+<Item>
+	<Rcd>3000414</Rcd>
+	<RestaurantName>炭火焼きとり 好古</RestaurantName>
+	<TabelogUrl>http://tabelog.com/iwate/A0301/A030101/3000414/</TabelogUrl>
+<TabelogMobileUrl>http://m.tabelog.com/iwate/A0301/A030101/3000414/</TabelogMobileUrl>
+	<TotalScore>3.5</TotalScore>
+	<TasteScore>3.5</TasteScore>
+	<ServiceScore>3.24</ServiceScore>
+	<MoodScore>3.24</MoodScore>
+	<Situation>友人・同僚と、宴会、一人で</Situation>
+	<DinnerPrice>￥3,000～￥3,999</DinnerPrice>
+	<LunchPrice></LunchPrice>
+	<Category>焼鳥、鳥料理</Category>
+	<Station>盛岡</Station>
+	<Address>盛岡市盛岡駅前通15-14 高橋ビル　２Ｆ</Address>
+	<Tel>019-604-8489</Tel>
+	<BusinessHours>17:00～0:00 ラストオーダー23:00</BusinessHours>
+	<Holiday>日曜</Holiday>
+	<Latitude>39.7031506142471</Latitude>
+	<Longitude>141.136238422791</Longitude>
+
+</Item>
+<Item>
+	<Rcd>3000481</Rcd>
+	<RestaurantName>レストラン パイオニア牧場</RestaurantName>
+	<TabelogUrl>http://tabelog.com/iwate/A0301/A030101/3000481/</TabelogUrl>
+<TabelogMobileUrl>http://m.tabelog.com/iwate/A0301/A030101/3000481/</TabelogMobileUrl>
+	<TotalScore>3.5</TotalScore>
+	<TasteScore>3.5</TasteScore>
+	<ServiceScore>3.47</ServiceScore>
+	<MoodScore>3.48</MoodScore>
+	<Situation>友人・同僚と、家族・子供と</Situation>
+	<DinnerPrice>￥3,000～￥3,999</DinnerPrice>
+	<LunchPrice>￥1,000～￥1,999</LunchPrice>
+	<Category>ステーキ、ハンバーグ、カレーライス</Category>
+	<Station>仙北町、上盛岡、盛岡</Station>
+	<Address>盛岡市中の橋通1-14-20 </Address>
+	<Tel>019-623-0464</Tel>
+	<BusinessHours>11:00～14:00
+17:00～21:30(L.O)</BusinessHours>
+	<Holiday>月曜日（月曜日祝日は火曜日休み）</Holiday>
+	<Latitude>39.6989250688843</Latitude>
+	<Longitude>141.158655088975</Longitude>
+
+</Item>
+<Item>
+	<Rcd>3001940</Rcd>
+	<RestaurantName>風光舎</RestaurantName>
+	<TabelogUrl>http://tabelog.com/iwate/A0301/A030102/3001940/</TabelogUrl>
+<TabelogMobileUrl>http://m.tabelog.com/iwate/A0301/A030102/3001940/</TabelogMobileUrl>
+	<TotalScore>3.5</TotalScore>
+	<TasteScore>3.4</TasteScore>
+	<ServiceScore>3.51</ServiceScore>
+	<MoodScore>3.52</MoodScore>
+	<Situation>友人・同僚と、デート、一人で</Situation>
+	<DinnerPrice> ～￥999</DinnerPrice>
+	<LunchPrice> ～￥999</LunchPrice>
+	<Category>カフェ、コーヒー専門店、ケーキ</Category>
+	<Station>雫石町その他</Station>
+	<Address>岩手郡雫石町長山堀切野8-7 </Address>
+	<Tel>019-693-4151</Tel>
+	<BusinessHours>10：00～18：00　（冬季期間は17：00迄）</BusinessHours>
+	<Holiday>毎週木曜日、第1,3金曜日定休</Holiday>
+	<Latitude>39.7614359074235</Latitude>
+	<Longitude>140.9692387752</Longitude>
+
+</Item>
+<Item>
+	<Rcd>3000082</Rcd>
+	<RestaurantName>三陸菓匠 さいとう</RestaurantName>
+	<TabelogUrl>http://tabelog.com/iwate/A0301/A030101/3000082/</TabelogUrl>
+<TabelogMobileUrl>http://m.tabelog.com/iwate/A0301/A030101/3000082/</TabelogMobileUrl>
+	<TotalScore>3.5</TotalScore>
+	<TasteScore>3.5</TasteScore>
+	<ServiceScore>3.0</ServiceScore>
+	<MoodScore>3.03</MoodScore>
+	<Situation>一人で</Situation>
+	<DinnerPrice> ～￥999</DinnerPrice>
+	<LunchPrice> ～￥999</LunchPrice>
+	<Category>和菓子</Category>
+	<Station>青山、厨川</Station>
+	<Address>盛岡市月が丘3-30-8 </Address>
+	<Tel>019-605-3110</Tel>
+	<BusinessHours>8:30～19:00</BusinessHours>
+	<Holiday>無休</Holiday>
+	<Latitude>39.7369712720987</Latitude>
+	<Longitude>141.110653990406</Longitude>
+
+</Item>
+</RestaurantInfo>
