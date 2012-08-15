@@ -2,9 +2,12 @@
 </div><!-- div id="layout" -->
 <footer>
 	<div id="footerInner">
-		aaa<br>
-		aaaa<br>
-		aaa<br>
+		<ul id="footerNavi">
+			<li><a href="#">このサイトについて</a></li>
+			<li><a href="#">お問合せ</a></li>
+			<li><a href="#">利用規約</a></li>
+		</ul>
+		<p id="copyright">copyright tabitsuku</p>
 	</div>
 </footer>
 </body>

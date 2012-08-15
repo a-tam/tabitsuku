@@ -141,10 +141,10 @@
 	</div>
 </div>
 <div id="tourAreaFrame" class="pane ui-layout-east">
-	<div class="ui-layout-north">
+	<div class="ui-layout-north startTimeArea">
 		開始時間：
 		<label for="start_time"></label>
-		<input type="time" name="start_time" id="start_time" size="7" value="<?php echo set_value("start_time", $data["start_time"]);?>">
+		<input type="time" name="start_time" id="start_time" size="7" value="<?php echo set_value("start_time", $data["start_time"]);?>" class="inputRounnd">
 		<input type="button" id="pg_tour_center" value="ツアーの全体を表示" />
 	</div>
 	<div id="tourAreaFrameScroll" class="ui-layout-center">
@@ -160,8 +160,8 @@ if ($data["routes"]) :
 <?php if ($ruote["id"] == 0): ?>
 						<div class="textArea">
 							<div class="timePullDown">
-								<textarea cols="20" rows="2" class="spot_info"><?php echo $ruote["info"]; ?></textarea><br />
-								滞在時間
+								<textarea cols="20" rows="2" class="spot_info inputRounnd"><?php echo $ruote["info"]; ?></textarea><br />
+								滞在時間 
 								<select name="stay_time" class="stay_time">
 <?php
 	$step = 15;
@@ -184,7 +184,7 @@ if ($data["routes"]) :
 							<p class="spotTitle"><?php echo $ruote["name"]?></p>
 							<p class="spotDescription"><?php echo $ruote["description"]?></p>
 							<div class="timePullDown">
-								滞在時間
+								滞在時間 
 								<select name="stay_time" class="stay_time">
 <?php
 	$step = 15;
@@ -225,30 +225,30 @@ if ($data["routes"]) :
 <?php endif;?>
 		</ul>
 	</div>
-	<div class="ui-layout-south">
+	<div class="ui-layout-south tourSaveFormArea">
 		<input type="hidden" name="id" id="guide-id" value="<?php echo set_value("id", $data["id"]);?>" readonly="readonly" />
 		<table class="pg_form_table">
 			<tr>
 				<td class="pg_form_table_th"><label for="textfield2">ツアー名:</label></td>
-				<td><input type="text" name="textfield2" id="guide-name" value="<?php echo set_value("name", $data["name"]);?>"></td>
+				<td><input type="text" name="textfield2" id="guide-name" value="<?php echo set_value("name", $data["name"]);?>" class="inputRounnd"></td>
 			</tr>
 			<tr>
 				<td class="pg_form_table_th"><label for="textfield2">カテゴリ:</label></td>
 				<td>
-					<input type="hidden" class="category_val" id="category" value="<?php echo set_value("category", $data["category"]);?>" />
-					<input type="text" class="category_label" size="25" value="" readonly="readonly" />
+					<input type="hidden" class="category_val inputRounnd" id="category" value="<?php echo set_value("category", $data["category"]);?>" />
+					<input type="text" class="category_label inputRounnd" size="25" value="" readonly="readonly" />
 					<!-- input type="button" class="category_clear" value="×" /><br /> -->
 					<div id="select-category" class="select-category">&nbsp;</div>
 				</td>
 			</tr>
 			<tr>
 				<td class="pg_form_table_th"><label for="textfield2">説明:</label></td>
-				<td><textarea name="textfield2" cols="35" rows="3" id="guide-description"><?php echo set_value("description", $data["description"]);?></textarea></td>
+				<td><textarea name="textfield2" id="guide-description" class="inputRounnd" style="width:190px; height:30px;"><?php echo set_value("description", $data["description"]);?></textarea></td>
 			</tr>
 			<tr>
 				<td class="pg_form_table_th"><label>タグ:</label></td>
 				<td>
-					<ul id="tags" style="margin: 0px;">
+					<ul id="tags" class="inputRounnd">
 <?php if ($data["tags"]):?>
 <?php foreach($data["tags"] as $tag):?>
 				<li><?php echo $tag;?></li>

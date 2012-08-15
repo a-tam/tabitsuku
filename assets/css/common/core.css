@@ -1,7 +1,6 @@
 @charset "utf-8";
 
 /* CSS3 Document */
-
 /*　PIEの特徴 ---------------------------------
 IE6 / IE7 / IE8にCSS3を適用する
 IE-CSSよりシャドウが綺麗
@@ -16,7 +15,6 @@ linear-gradient as background image（背景にグラデーション）
 下記の１行を各クラスに追加
 behavior: url(/_css/PIE/PIE.htc);
 ------------------------------------------------ */
-
 /*　ie-css3の特徴 ---------------------------------
 IE6 / IE7 / IE8にCSS3を適用する
 text-shadowができる
@@ -29,7 +27,6 @@ text-shadow（テキストシャドウ）
 下記の１行を各クラスに追加
 behavior: url(/_css/IE-CSS/ie-css3.htc);
 ------------------------------------------------ */
-
 html,
 body {
 	width: 100%;
@@ -37,7 +34,7 @@ body {
 	padding: 0;
 	margin: 0;
 	overflow: auto; /* when page gets too small */
-	min-height: 600px;
+min-height: 600px;
 	background: #EEE;
 	letter-spacing: 0.1em;
 }
@@ -57,11 +54,15 @@ body {
 	min-width: 600px;
 	position: absolute;
 	top: 55px;	/* margins in pixels */
-	bottom: 0;	/* could also use a percent */
-	left: 20px;
+bottom: 0;	/* could also use a percent */
+left: 20px;
 	right: 20px;
 }
 
+#containerInner {
+	width: 840px;
+	margin: 0 auto;
+}
 
 /* ----------------------------------------------------------------- 
 	ヘッダー
@@ -73,7 +74,7 @@ HEADER {
 	position: fixed;
 	top: 0;
 	left: 0;
-	background: #4f84a5;
+	background: #0089A7;
 	border-bottom: 1px solid #286083;
 	/* 5pxの影 */
 	box-shadow: 0px 2px 5px #999;
@@ -84,39 +85,38 @@ HEADER {
 }
 
 HEADER DIV#headerInner {
-	padding:5px 30px;
+	padding: 5px 30px;
 	line-height: 110%;
 }
 
-
 HEADER DIV#headerInner A {
-	color:#FFF;
+	color: #FFF;
 	text-decoration: none;
-	text-shadow: 2px 2px 5px #000; 
+	text-shadow: 2px 2px 5px #000;
 	behavior: url(/assets/_css/IE-CSS/ie-css3.htc);
 }
 
 HEADER DIV#headerInner A:hover {
-	color:#6F3;
+	color: #6F3;
 }
 
 HEADER DIV#headerInner #headerNavi {
 	float: left;
-	display:inline-block;
-	width:60%;
+	display: inline-block;
+	width: 60%;
 }
 
 HEADER DIV#headerInner #headerNavi H1 {
-	width:108px;
-	float:left;
+	width: 108px;
+	float: left;
 }
 
 HEADER DIV#headerInner #headerNavi UL {
 	float: left;
-	list-style:none;
+	list-style: none;
 	padding: 0;
 	margin: 7px 0 0 20px;
-	border-left:1px solid #0e3853;
+	border-left: 1px solid #0e3853;
 	border-right: 1px solid #79b7dd;
 }
 
@@ -125,18 +125,18 @@ HEADER DIV#headerInner #headerNavi UL LI {
 	padding: 5px 15px;
 	float: left;
 	display: inline-block;
-	border-left:1px solid #79b7dd;
+	border-left: 1px solid #79b7dd;
 	border-right: 1px solid #0e3853;
 }
 
 HEADER DIV#headerInner #personalNavi {
-	float:right;
-	display:inline-block;
+	float: right;
+	display: inline-block;
 	width: 40%;
 }
 
 HEADER DIV#headerInner #personalNavi UL {
-	list-style:none;
+	list-style: none;
 	padding: 10px 0 0 0;
 	margin: 0;
 }
@@ -153,22 +153,35 @@ HEADER DIV#headerInner #personalNavi UL LI {
 -------------------------------------------------------------------- */
 FOOTER {
 	width: 100%;
-	margin-top:50px;
-	background: #999;
-	padding:30px 0;
-	border-top:1px solid #fff;
+	margin-top: 70px;
+	background: #707C74;
+	padding: 10px 0;
+	border-top: 1px solid #fff;
+	color:#FFF;
+	line-height:110%;
 }
 
 FOOTER A {
 	text-decoration: none;
-	color:#FFF;
+	color: #FFF;
+}
+
+FOOTER A:visited {
+	color: #FFF;
+	text-decoration: underline;
 }
 
 FOOTER A:hover {
-	color:#6F0;
+	color: #6F3;
+	text-decoration: none;
+}
+
+FOOTER A:active {
+	color:#666;
 }
 
 FOOTER DIV#footerInner {
+	position: relative;
 }
 
 FOOTER DIV#footerInner UL#footerNavi {
@@ -176,6 +189,7 @@ FOOTER DIV#footerInner UL#footerNavi {
 	left: 50%;
 	float: left;
 	margin: 0;
+	padding: 0;
 	list-style: none;
 }
 
@@ -184,21 +198,111 @@ FOOTER DIV#footerInner UL#footerNavi LI {
 	position: relative;
 	left: -50%;
 	padding: 5px 10px;
+	margin: 0;
+}
+
+
+P#copyright {
+	clear: both;
+	text-align:center;
+	padding-top: 10px;
 }
 
 /* ----------------------------------------------------------------- 
+	ログインフォーム
+-------------------------------------------------------------------- */
+#loginFormArea,
+#newFormArea {
+	width: 410px;
+	height: 250px;
+	margin-top: 50px;
+	background: #FFF;
+	border: 1px solid #36780f;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	box-shadow: 0px 2px 5px #999;
+	-webkit-box-shadow: 0px 2px 5px #999;
+	-moz-box-shadow: 0px 2px 5px #999;
+}
+
+#loginFormArea {
+	float:left;
+}
+
+#newFormArea {
+	float: right;
+}
+	
+#loginFormArea H3,
+#newFormArea H3 {
+	color: #FFF;
+	text-align:center;
+	font-weight: bold;
+	font-size:130%;
+	
+	text-shadow: -2px -2px 0 #000;
+	
+	padding:5px 0;
+	
+	background-color: #33A6B8;
+	background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #33A6B8), color-stop(100%, #0089A7));
+	background-image: -webkit-linear-gradient(top, #33A6B8, #0089A7);
+	background-image: -moz-linear-gradient(top, #33A6B8, #0089A7);
+	background-image: -ms-linear-gradient(top, #33A6B8, #0089A7);
+	background-image: -o-linear-gradient(top, #33A6B8, #0089A7);
+	background-image: linear-gradient(top, #33A6B8, #0089A7);
+	
+	
+	behavior: url(/assets/_css/IE-CSS/ie-css3.htc);
+}
+
+
+#loginFormArea .innerArea,
+#newFormArea .innerArea {
+	padding: 10px 20px;
+}
+
+.btnFacebook {
+	padding:5px;
+	border: 1px solid #3A4E7E;
+	background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #687ead), color-stop(100%, #3d4c9a));
+	background-image: -webkit-linear-gradient(#687ead, #3d4c9a);
+	background-image: -moz-linear-gradient(#687ead, #3d4c9a);
+	background-image: -o-linear-gradient(#687ead, #3d4c9a);
+	background-image: -ms-linear-gradient(#687ead, #3d4c9a);
+	background-image: linear-gradient(#687ead, #3d4c9a);
+	*zoom:1;
+	filter:progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#FF687EAD', endColorstr='#FF3D4C9A');
+	
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	box-shadow: 0px 2px 5px #999;
+	-webkit-box-shadow: 0px 2px 5px #999;
+	-moz-box-shadow: 0px 2px 5px #999;
+}
+
+
+.btnFacebook span {
+	color: #FFFFFF;
+	text-shadow: 0 -1px #384b7a;
+	background-repeat: no-repeat;
+	padding:0 20px 0 50px;
+	background-position: 10px 0;
+	background-image: url(/assets/img/interface/icon/icn-btn-facebook.png);
+}
+/* ----------------------------------------------------------------- 
 	メインビジュアル
 -------------------------------------------------------------------- */
-
 #mainVisual {
-	height: 300px;
+	height: 400px;
 	background: #FF9;
 }
 
 /* ----------------------------------------------------------------- 
 	検索
 -------------------------------------------------------------------- */
-
 .searchArea {
 	background: #E1ECFB;
 	/* margin-right: 222px; */
@@ -215,26 +319,8 @@ FOOTER DIV#footerInner UL#footerNavi LI {
 }
 
 /* ----------------------------------------------------------------- 
-	保存
--------------------------------------------------------------------- */
-
-#headerSaveArea {
-	background: #396;
-	padding: 10px;
-	border-top: 1px solid #FFF;
-	border-right: 1px solid #BBB;
-	border-bottom: 1px solid #999;
-	border-left: 1px solid #DDD;
-	text-align: center;
-	color: #FFF;
-	font-weight: bold;
-	margin-bottom: 20px;
-}
-
-/* ----------------------------------------------------------------- 
 	マップエリア
 -------------------------------------------------------------------- */
-
 DIV#mapAreaFrame {
 	padding: 10px;
 	border-top: 1px solid #FFF;
@@ -256,7 +342,6 @@ DIV#mapArea {
 /* ----------------------------------------------------------------- 
 	ツアー組み立てエリア
 -------------------------------------------------------------------- */
-
 DIV#buildTourArea {
 	width: 629px;
 	height: 75%;
@@ -268,7 +353,6 @@ DIV#buildTourArea {
 /* ----------------------------------------------------------------- 
 	ポイントエリア
 -------------------------------------------------------------------- */
-
 #spotAreaFrame {
 	width: 285px;
 	height: 100%;
@@ -289,19 +373,17 @@ DIV#buildTourArea {
 #spotAreaFrameScroll {
 	height: 100%;
 	overflow-y: scroll;
-	margin-bottom:1px;
-	border:none;
+	margin-bottom: 1px;
+	border: none;
 }
 
 /* ----------------------------------------------------------------- 
 	ツアーエリア
 -------------------------------------------------------------------- */
-
 #tourAreaFrame {
 	width: 300px;
 	height: 100%;
 	float: right;
-	padding: 10px;
 	border-top: 1px solid #FFF;
 	border-right: 1px solid #BBB;
 	border-bottom: 1px solid #999;
@@ -314,84 +396,220 @@ DIV#buildTourArea {
 	background-image: linear-gradient(top, #F6F6F6, #EAEEA6);
 }
 
+.startTimeArea {
+	padding: 10px;
+}
+
 #tourAreaFrameScroll {
 	height: 100%;
 	overflow-y: scroll;
-	margin-bottom:1px;
+	margin-bottom: 1px;
 	border: none;
-	background:url(/assets/img/interface/tour/timeline.gif) repeat-y 4px 0;
+	background: url(/assets/img/interface/tour/timeline.gif) repeat-y 14px 0;
+	padding: 0 10px;
 }
 
-
-/* ----------------------------------------------------------------- 
-	ツアー詳細入力
--------------------------------------------------------------------- */
-
-#tourDetailFormArea {
+/* ツアー詳細入力
+------------------------------------- */
+.tourSaveFormArea  {
 	clear: both;
-	padding: 10px;
-	background: #FFF;
-	border-top: 1px solid #FFF;
-	border-right: 1px solid #BBB;
-	border-bottom: 1px solid #999;
-	border-left: 1px solid #DDD;
+	border-top: 1px solid #ddd;
+	padding:10px;
+	margin:10px 0 0 0;
+	background: #Fcfaf2;
 }
 
+/*  保存
+------------------------------------- */
+#headerSaveArea {
+	display:block;
+	border:1px solid #36780f;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	padding: 10px 10px 10px 10px;
+	text-shadow: -1px -1px 0 rgba(0,0,0,0.3);
+	font-weight:bold;
+	text-align: center;
+	color: #FFFFFF;
+	background-color: #33A6B8;
+	background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #33A6B8), color-stop(100%, #0089A7));
+	background-image: -webkit-linear-gradient(top, #33A6B8, #0089A7);
+	background-image: -moz-linear-gradient(top, #33A6B8, #0089A7);
+	background-image: -ms-linear-gradient(top, #33A6B8, #0089A7);
+	background-image: -o-linear-gradient(top, #33A6B8, #0089A7);
+	background-image: linear-gradient(top, #33A6B8, #0089A7);
+	filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#33A6B8, endColorstr=#0089A7);
+	cursor:pointer;
+}
+
+#headerSaveArea:hover {
+	border:1px solid #36780f; background-color: #36780f;
+ 	background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#36780f), color-stop(100%, #005900));
+ 	background-image: -webkit-linear-gradient(top, #36780f, #005900);
+ 	background-image: -moz-linear-gradient(top, #36780f, #005900);
+ 	background-image: -ms-linear-gradient(top, #36780f, #005900);
+ 	background-image: -o-linear-gradient(top, #36780f, #005900);
+ 	background-image: linear-gradient(top, #36780f, #005900);filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#36780f, endColorstr=#005900);
+}
 
 /* ----------------------------------------------------------------- 
 	フォーム
 -------------------------------------------------------------------- */
-
-
 .inputRounnd {
-    border-radius:5px;
-    -moz-border-radius:5px;
-    -webkit-border-radius:5px;
-    margin:0 3px 3px 0;
-	padding:5px 3px 3px 3px;
-	line-height:100%;
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	margin: 0 3px 3px 0;
+	padding: 5px 3px 3px 3px;
+	line-height: 100%;
+	border: 1px solid #CCC;
 }
 
 .search {
-    background: url(/assets/img/interface/icon/search.png) no-repeat 8px 6px #fff;
-    padding:8px 15px 6px 30px;
+	background: url(/assets/img/interface/icon/search.png) no-repeat 8px 6px #fff;
+	padding: 8px 15px 6px 30px;
 }
 
-form input[type=text]{
+form input[type=text] {
 	line-height: 100%;
 }
-
 
 form input[type=submit],
 form input[type=submit]:hover {
-    position:relative;
-	padding:5px 5px;
-    left:-6px;
+	position: relative;
+	padding: 5px 5px;
+	left: -6px;
 	font-weight: bold;
-	font-size:115%;
-    border:1px solid #adc5cf;
-    background: #b6e2fe; /* Old browsers */
-    background: -moz-linear-gradient(top, #b6e2fe 0%, #174b6b 100%); /* FF3.6+ */
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#e4f1f9), color-stop(100%,#174b6b)); /* Chrome,Safari4+ */
-    background: -webkit-linear-gradient(top, #b6e2fe 0%,#174b6b 100%); /* Chrome10+,Safari5.1+ */
-    background: -o-linear-gradient(top, #b6e2fe 0%,#174b6b 100%); /* Opera 11.10+ */
-    background: -ms-linear-gradient(top, #b6e2fe 0%,#174b6b 100%); /* IE10+ */
-    background: linear-gradient(top, #b6e2fe 0%,#174b6b 100%); /* W3C */
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e4f1f9', endColorstr='#d5e7f3',GradientType=0 ); /* IE6-9 */
-    cursor: pointer;
-	
-	color:#fff;
-	
-    border-radius:5px;
-    -moz-border-radius:5px;
+	font-size: 115%;
+	border: 1px solid #adc5cf;
+	background: #b6e2fe; /* Old browsers */
+	background: -moz-linear-gradient(top, #b6e2fe 0%, #174b6b 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #e4f1f9), color-stop(100%, #174b6b)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, #b6e2fe 0%, #174b6b 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top, #b6e2fe 0%, #174b6b 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top, #b6e2fe 0%, #174b6b 100%); /* IE10+ */
+	background: linear-gradient(top, #b6e2fe 0%, #174b6b 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e4f1f9', endColorstr='#d5e7f3', GradientType=0 ); /* IE6-9 */
+	cursor: pointer;
+	color: #fff;
+	border-radius: 5px;
+	-moz-border-radius: 5px;
 	line-height: 100%;
-    -webkit-border-radius:5px;
-	
-	
-	text-shadow: -1px -1px 1px #000; 
+	-webkit-border-radius: 5px;
+	text-shadow: -1px -1px 1px #000;
 	behavior: url(/assets/_css/IE-CSS/ie-css3.htc);
 }
 
+/* ----------------------------------------------------------------- 
+	ページネーション
+-------------------------------------------------------------------- */
+.jPaginate {
+	height: 34px;
+	position: relative;
+	font-size: small;
+	width: 100%;
+	line-height:100%;
+}
 
+.jPaginate a {
+	line-height: 15px;
+	cursor: pointer;
+	padding: 2px 5px;
+	margin: 2px;
+	float: left;
+}
 
+.jPag-control-back {
+	position: absolute;
+	left: 0px;
+}
 
+.jPag-control-front {
+	position: absolute;
+	top: 0px;
+}
+
+.jPaginate span {
+	cursor: pointer;
+}
+
+ul.jPag-pages {
+	float: left;
+	list-style-type: none;
+	margin: 0px 0px 0px 0px;
+	padding: 0px;
+}
+
+ul.jPag-pages li {
+	display: inline;
+	float: left;
+	padding: 0px;
+	margin: 0px;
+}
+
+ul.jPag-pages li a {
+	float: left;
+	padding: 2px 5px;
+	margin: 2px;
+}
+
+span.jPag-current {
+	cursor: default;
+	font-weight: normal;
+	padding: 2px 5px;
+	margin: 2px;
+	float: left;
+	
+	background:#FFF;
+	color: #666;
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+}
+
+ul.jPag-pages li span.jPag-previous,
+ul.jPag-pages li span.jPag-next,
+span.jPag-sprevious,
+span.jPag-snext,
+ul.jPag-pages li span.jPag-previous-img,
+ul.jPag-pages li span.jPag-next-img,
+span.jPag-sprevious-img,
+span.jPag-snext-img {
+	height: 22px;
+	margin: 2px;
+	float: left;
+	line-height: 18px;
+}
+
+ul.jPag-pages li span.jPag-previous,
+ul.jPag-pages li span.jPag-previous-img {
+	margin: 2px 0px 2px 2px;
+	font-size: 12px;
+	font-weight: bold;
+	width: 10px;
+}
+
+ul.jPag-pages li span.jPag-next,
+ul.jPag-pages li span.jPag-next-img {
+	margin: 2px 2px 2px 0px;
+	font-size: 12px;
+	font-weight: bold;
+	width: 10px;
+}
+
+span.jPag-sprevious,
+span.jPag-sprevious-img {
+	margin: 2px 0px 2px 2px;
+	font-size: 18px;
+	width: 15px;
+	text-align: right;
+}
+
+span.jPag-snext,
+span.jPag-snext-img {
+	margin: 2px 2px 2px 0px;
+	font-size: 18px;
+	width: 15px;
+	text-align: right;
+}
