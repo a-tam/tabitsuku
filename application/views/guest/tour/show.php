@@ -6,10 +6,10 @@
 <?php $this->load->view("contents_header"); ?>
 
 <h2>ツアー詳細</h2>
-<div style="float:left;">
-	<div id="pg_map" style="width:300px; height:300px;"></div>
+<div style="float:left; width:50%;">
+	<div id="pg_map" style="width:100%; height:700px; float:left;"></div>
 </div>
-<div style="float:left;" class="clearfix">
+<div style="float:left; width: 50%; height:700px; display:block;">
 	<div>
 		<?php if ($data["image"]) :?>
 		<img src="<?php echo base_url("uploads/spot/thumb/".$data["image"]["file_name"]);?>" />
@@ -68,7 +68,7 @@
 			foreach($data["routes"] as $ruote) :
 				$time += $ruote["stay_time"] * 60;
 		?>
-			<li data-spot-id="<?php echo $ruote["id"]?>" class="spot">
+			<li class="pg_spot" data-spot-id="<?php echo $ruote["id"]?>" data-lat="<?php echo $ruote["lat"];?>" data-lng="<?php echo $ruote["lng"];?>">
 				<div class="spotArea">
 					<div class="spotDetail">
 <?php if ($ruote["id"] == 0): ?>
