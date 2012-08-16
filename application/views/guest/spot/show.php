@@ -5,19 +5,19 @@
 
 <?php $this->load->view("contents_header"); ?>
 <h2>スポット詳細</h2>
-<div style="float:left;">
-	<div id="pg_map" style="width: 300px; height:300px;">aaa</div>
+<div style="float:left; width:50%;">
+	<div id="pg_map" style="width:100%; height:700px;">aaa</div>
 </div>
-<div style="float:left;" class="clearfix">
+<div style="float:left; width:50%;">
 	<div>
 		<?php if ($data["image"]) :?>
 		<img src="<?php echo base_url("uploads/spot/thumb/".$data["image"]["file_name"]);?>" />
 		<?php endif;?>
 	</div>
-	<table>
+	<table id="pg_spot_info" data-lat="<?php echo $data["lat"];?>" data-lng="<?php echo $data["lng"];?>">
 		<tr>
 			<th>名称</th>
-			<td><?php echo $data["name"];?></td>
+			<td id="pg_name"><?php echo $data["name"];?></td>
 		</tr>
 		<tr>
 			<th>滞在時間</th>
