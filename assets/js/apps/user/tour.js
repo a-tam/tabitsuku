@@ -120,7 +120,9 @@ $(document).ready(function () {
 			search();
 		});
 		google.maps.event.addListenerOnce(map, 'tilesloaded', function() {
-			//search();
+			if (!$("#guide-id").val()) {
+				search(1);
+			}
 		});
 		$("#search").click(function() {
 			search();
