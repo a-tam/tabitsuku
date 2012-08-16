@@ -7,6 +7,8 @@ var spot_current_window;
 var tour_marker_list = {};
 var tour_path_list = [];
 var tour_current_window;
+var lat_min = lat_max = lng_min = lng_max = null;
+
 $(function() {
 
 	var tabIndexs = {'pg_tabs_tour' : 0, 'pg_tabs_spot' : 1};
@@ -24,10 +26,10 @@ $(function() {
 						mapTypeId: google.maps.MapTypeId.ROADMAP
 					});
 					google.maps.event.addListener(tour_map, 'dragend', function() {
-						show_tour(1);
+//						show_tour(1);
 					});
 					google.maps.event.addListener(tour_map, 'zoom_changed', function() {
-						show_tour(1);
+//						show_tour(1);
 					});
 					google.maps.event.addListenerOnce(tour_map, 'tilesloaded', function() {
 						show_tour(1);
@@ -98,16 +100,16 @@ $(function() {
 		$.ajax({
 			url: gBaseUrl + "api/spot",
 			data: {
-				owner:		"mydata",
-				category:	$("#pg_spot_search_category").val(),
-				keyword:	$("#pg_spot_keyword").val(),
-				limit:		$("#pg_spot_limit").val(),
-				sort:		$("#pg_spot_sort").val(),
-				page:		page,
-				ne_lat:		spot_map.getBounds().getNorthEast().lat(),
-				ne_lng:		spot_map.getBounds().getNorthEast().lng(),
-				sw_lat:		spot_map.getBounds().getSouthWest().lat(),
-				sw_lng:		spot_map.getBounds().getSouthWest().lng()
+				owner		: "mydata",
+				category	: $("#pg_spot_search_category").val(),
+				keyword		: $("#pg_spot_keyword").val(),
+				limit		: $("#pg_spot_limit").val(),
+				sort		: $("#pg_spot_sort").val(),
+				page		: page,
+				ne_lat		: spot_map.getBounds().getNorthEast().lat(),
+				ne_lng		: spot_map.getBounds().getNorthEast().lng(),
+				sw_lat		: spot_map.getBounds().getSouthWest().lat(),
+				sw_lng		: spot_map.getBounds().getSouthWest().lng()
 			},
 			dataType: "json",
 			success: function(json) {
@@ -287,6 +289,19 @@ $(function() {
 						var _marker_list = {};
 						$(tour_info.routes).each(function(i, route) {
 							if (route.id) {
+								var lat = route.lat;
+								var lng = route.lng;
+								if (lat_min == null) {
+									lat_min = lat;
+									lat_max = lat;
+									lng_min = lng;
+									lng_max = lng;
+								}
+								if (lat <= lat_min) { lat_min = lat; }
+								if (lat >  lat_max) { lat_max = lat; }
+								if (lng <= lng_min) { lng_min = lng; }
+								if (lng >  lng_max) { lng_max = lng; }
+
 								var name = route.name;
 								var latlng = new google.maps.LatLng(route.lat, route.lng);
 								var marker = new google.maps.Marker({
@@ -299,6 +314,8 @@ $(function() {
 									marker.setIcon(gAssetUrl + '/img/map/icons/start.png');
 								} else if(i == tour_info.routes.length - 1) {
 									marker.setIcon(gAssetUrl + '/img/map/icons/finish.png');
+								} else {
+									marker.setIcon(gAssetUrl + '/img/map/icons/spot.png');
 								}
 								marker.setMap(tour_map);
 								google.maps.event.addListener(marker, "click", function(e) {
@@ -325,7 +342,8 @@ $(function() {
 								geodesic		: true,
 								strokeColor		: "#000099",
 								strokeOpacity	: 0.2,
-								strokeWeight	: 3
+								strokeWeight	: 6,
+								visible			: false
 							});
 							google.maps.event.addListener(linePath, "click", function(e) {
 								if (tour_current_window) {
@@ -342,27 +360,54 @@ $(function() {
 						}
 					});
 				}
+				var ne = new google.maps.LatLng(lat_max, lng_max);
+				var sw = new google.maps.LatLng(lat_min, lng_min);
+				var bounds = new google.maps.LatLngBounds(sw, ne);
+				tour_map.fitBounds(bounds);
 				
 				var current_tour_id;
+				var onmouse_tour_id;
 				
 				$("#pg_tours .pg_tour_list").bind("mouseenter", function() {
+					if (onmouse_tour_id != current_tour_id) {
+						if (onmouse_tour_id in tour_marker_list) {
+							tour_path_list[onmouse_tour_id].setVisible(false);
+						}
+					}
+					onmouse_tour_id = $(this).attr("data-tour-id");
+					if (onmouse_tour_id != current_tour_id) {
+						tour_path_list[onmouse_tour_id].setOptions({
+							visible			: true,
+							strokeOpacity	: 0.4,
+							strokeColor		: "#0000ff",
+							});
+					}
+				});
+				
+				$("#pg_tours .pg_tour_list").bind("mouseleave", function() {
+					if (onmouse_tour_id != $(this).attr("data-tour-id")) {
+						tour_path_list[current_tour_id].setVisible(false);
+					}
+				});
+
+				$("#pg_tours .pg_tour_list").bind("click", function() {
+					if (current_tour_id == $(this).attr("data-tour-id")) {
+						return;
+					}
+					if (current_tour_id in tour_marker_list) {
+						$.each(tour_marker_list[current_tour_id], function(i, marker) {
+							marker.setVisible(false);
+						});
+						tour_path_list[current_tour_id].setVisible(false);
+					}
 					current_tour_id = $(this).attr("data-tour-id");
 					$.each(tour_marker_list[current_tour_id], function(i, marker) {
 						marker.setVisible(true);
 					});
-					tour_path_list[current_tour_id].setOptions({strokeOpacity: 1});
-				});
-				
-				$("#pg_tours .pg_tour_list").bind("mouseleave", function() {
-					current_tour_id = $(this).attr("data-tour-id");
-					$.each(tour_marker_list[current_tour_id], function(i, marker) {
-						marker.setVisible(false);
-					});
-					tour_path_list[current_tour_id].setOptions({strokeOpacity: 0.2});
-				});
-
-				$("#pg_tours .pg_tour_list").bind("click", function() {
-					current_tour_id = $(this).attr("data-tour-id");
+					tour_path_list[current_tour_id].setOptions({
+						strokeOpacity	: 0.8,
+						strokeColor		: "#0000ff",
+						});
 					var lat_min = lat_max = lng_min = lng_max = null;
 					$.each(tour_marker_list[current_tour_id], function(i, marker) {
 						var lat = marker.getPosition().lat();
