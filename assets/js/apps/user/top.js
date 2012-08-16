@@ -295,6 +295,11 @@ $(function() {
 									draggable	: false,
 									visible		: false
 								});
+								if (i == 0) {
+									marker.setIcon(gAssetUrl + '/img/map/icons/start.png');
+								} else if(i == tour_info.routes.length - 1) {
+									marker.setIcon(gAssetUrl + '/img/map/icons/finish.png');
+								}
 								marker.setMap(tour_map);
 								google.maps.event.addListener(marker, "click", function(e) {
 									if (tour_current_window) {
@@ -373,10 +378,6 @@ $(function() {
 						if (lng <= lng_min) { lng_min = lng; }
 						if (lng >  lng_max) { lng_max = lng; }
 					});
-					console.log(lat_max);
-					console.log(lng_max);
-					console.log(lat_min);
-					console.log(lng_min);
 					var ne = new google.maps.LatLng(lat_max, lng_max);
 					var sw = new google.maps.LatLng(lat_min, lng_min);
 					var bounds = new google.maps.LatLngBounds(sw, ne);
