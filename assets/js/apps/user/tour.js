@@ -14,43 +14,52 @@ $(document).ready(function () {
 	function initialize() {
 		// 全体レイアウト
 		$('#container').layout({
-			east__paneSelector:	".ui-layout-east" ,
-			east__size: 310,
-			enableCursorHotkey: false,
-			closable: false,
-			resizable: false
+			east__paneSelector	: ".ui-layout-east" ,
+			east__size			: 310,
+			enableCursorHotkey	: false,
+			closable			: false,
+			resizable			: false
 		});
 		// 地図・スポットレイアウト
 		centerLayout = $('div.ui-layout-center').layout({
-			minSize: 100 ,	// ALL panes
-			center__paneSelector:	".center-center" ,
-			east__paneSelector:	".center-east" ,
-			east__size: 300,
-			enableCursorHotkey: false,
-			closable: false,
-			resizable: false
+			minSize				: 100 ,	// ALL panes
+			center__paneSelector: ".center-center" ,
+			east__paneSelector	: ".center-east" ,
+			east__size			: 300,
+			enableCursorHotkey	: false,
+			closable			: false,
+			resizable			: false
 		});
 		// スポット検索レイアウト
 		centerLayout = $('div.center-center').layout({
-			center__paneSelector:	".ui-layout-center" ,
-			north__paneSelector:	".ui-layout-north" ,
-			north__size: 45
+			center__paneSelector: ".ui-layout-center" ,
+			north__paneSelector	: ".ui-layout-north" ,
+			north__size			: 45,
+			enableCursorHotkey	: false,
+			closable			: false,
+			resizable			: false
 		});
 		// スポットレイアウト
 		spotLayout = $('div.center-east').layout({
-			center__paneSelector:	".ui-layout-center"
-			,north__paneSelector:	".ui-layout-north"
-			,north__size: 130
-			,south__paneSelector:	".ui-layout-south"
-			,south__size: 100
+			center__paneSelector: ".ui-layout-center",
+			north__paneSelector	: ".ui-layout-north",
+			north__size			: 152,
+			south__paneSelector	: ".ui-layout-south",
+			south__size			: 100,
+			enableCursorHotkey	: false,
+			closable			: false,
+			resizable			: false
 		});
 		// ツアーレイアウト
 		spotLayout = $('div.ui-layout-east').layout({
-			center__paneSelector:	".ui-layout-center"
-			,north__paneSelector:	".ui-layout-north"
-			,north__size: 30
-			,south__paneSelector:	".ui-layout-south"
-			,south__size: 250
+			center__paneSelector: ".ui-layout-center",
+			north__paneSelector	: ".ui-layout-north",
+			north__size			: 30,
+			south__paneSelector	: ".ui-layout-south",
+			south__size			: 250,
+			enableCursorHotkey	: false,
+			closable			: false,
+			resizable			: false
 		});
 		// 地図表示
 		latlng = new google.maps.LatLng(35.6894875, 139.69170639999993);
@@ -371,7 +380,7 @@ $(document).ready(function () {
 				geodesic:		true,
 				strokeColor:	"#009",
 				strokeOpacity:	0.6,
-				strokeWeight:	3
+				strokeWeight:	6
 			});
 			linePath.setMap(map);			
 		}
