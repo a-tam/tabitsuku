@@ -385,8 +385,9 @@ $(function() {
 				});
 				
 				$("#pg_tours .pg_tour_list").bind("mouseleave", function() {
-					if (onmouse_tour_id != $(this).attr("data-tour-id")) {
-						tour_path_list[current_tour_id].setVisible(false);
+					var leave_id = $(this).attr("data-tour-id");
+					if (current_tour_id != leave_id) {
+						tour_path_list[leave_id].setVisible(false);
 					}
 				});
 
