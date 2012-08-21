@@ -3,6 +3,7 @@ var map = null;
 $(document).ready(function () {
 
 	var current_window = null;
+	var current_window_id = null;
 	var marker_list = new Array();
 	var info_list = new Array();
 	var latlng = {};
@@ -433,6 +434,11 @@ $(document).ready(function () {
 			},
 			dataType: "json",
 			success: function(json) {
+				google.maps.event.addListener(map, "click", function(e) {
+					if (current_window) {
+						current_window.close();
+					}
+				});
 				$("#spotAreaFrameScroll").html("");
 				$.each(json.list, function(spot_id, spot_info) {
 					var html = '<li data-spot-id="' + spot_info.id + '" class="spot" data-spot-lat="' + spot_info.lat +'" data-spot-lng="' + spot_info.lng + '" >' +
@@ -580,6 +586,7 @@ $(document).ready(function () {
 			draggable	: false
 		});
 		google.maps.event.addListener(marker, "click", function() {
+			info_window(id)
 			if (current_window) {
 				current_window.close();
 			}
@@ -596,6 +603,43 @@ $(document).ready(function () {
 		});
 		marker_list[id] = marker;
 		return marker;
+	}
+	
+	function info_window(id) {
+		close_info_window(current_window_id);
+		var spot_target = '#spotAreaFrameScroll li[data-spot-id="' + id + '"]';
+		if ($(spot_target)[0]) {
+			$("#spotAreaFrameScroll").animate({scrollTop: $("#spotAreaFrameScroll").scrollTop() + $(spot_target).position().top}, "first");
+			$(spot_target + " .spotDetail")
+				.css({ background: "#ccc"})
+				.addClass("active");
+		}
+
+		var tour_target = '#tourAreaFrameScroll li[data-spot-id="' + id + '"]';
+		if ($(tour_target)[0]) {
+			$("#tourAreaFrameScroll ul").animate({scrollTop: $("#tourAreaFrameScroll ul").scrollTop() + $(tour_target).position().top}, "first");
+			$(tour_target + " .spotDetail")
+				.css({ background: "#ccc"})
+				.addClass("active");
+		}
+		current_window_id = id;
+	}
+	
+	function close_info_window(id) {
+		if (current_window_id) {
+			var current_target = '#spotAreaFrameScroll li[data-spot-id="' + current_window_id + '"]';
+			if ($(current_target)[0]) {
+				$(current_target + " .spotDetail")
+					.css({ background: "#fff"})
+					.removeClass("active");
+			}
+			var current_target = '#tourAreaFrameScroll li[data-spot-id="' + current_window_id + '"]';
+			if ($(current_target)[0]) {
+				$(current_target + " .spotDetail")
+					.css({ background: "#fff"})
+					.removeClass("active");
+			}
+		}
 	}
 
 	/**
