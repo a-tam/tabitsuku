@@ -2,8 +2,8 @@
 <link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/flick/jquery-ui.css">
 <link rel="stylesheet" type="text/css" href="<?php echo base_url("assets"); ?>/js/jquery/autocomplete/css/jquery.tagit.css">
 <link rel="stylesheet" type="text/css" href="<?php echo base_url("assets");?>/js/jquery/jpagenate/css/style.css">
-<link rel="stylesheet" type="text/css" href="<?php echo base_url("assets"); ?>/js/jquery/timepicker/jquery.timepicker.css"></script>
-
+<link rel="stylesheet" type="text/css" href="<?php echo base_url("assets"); ?>/js/jquery/timepicker/jquery.timepicker.css">
+<link rel="stylesheet" type="text/css" href="<?php echo base_url("assets"); ?>/js/jquery/shadow/jquery.shadow.css">
 
 <!-- javascript -->
 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=true&libraries=places"></script>
@@ -17,6 +17,7 @@
 <script type="text/javascript" src="<?php echo base_url("assets"); ?>/js/jquery/jpagenate/jquery.paginate.js"></script>
 <script type="text/javascript" src="<?php echo base_url("assets"); ?>/js/jquery/timepicker/jquery.timepicker.js"></script>
 <script type="text/javascript" src="<?php echo base_url("assets"); ?>/js/apps/user/tour.js"></script>
+<script type="text/javascript" src="<?php echo base_url("assets"); ?>/js/jquery/shadow/jquery.shadow.js"></script>
 
 <!-- Add mousewheel plugin (this is optional) -->
 <link rel="stylesheet" type="text/css" href="<?php echo base_url("assets"); ?>/js/jquery/lightbox/source/jquery.fancybox.css?v=2.0.6" media="screen" />
@@ -161,7 +162,7 @@ if ($data["routes"]) :
 						<div class="textArea">
 							<div class="timePullDown">
 								<textarea cols="20" rows="2" class="spot_info inputRounnd"><?php echo $ruote["info"]; ?></textarea><br />
-								滞在時間 
+								滞在時間
 								<select name="stay_time" class="stay_time">
 <?php
 	$step = 15;
@@ -184,7 +185,7 @@ if ($data["routes"]) :
 							<p class="spotTitle"><?php echo $ruote["name"]?></p>
 							<p class="spotDescription"><?php echo $ruote["description"]?></p>
 							<div class="timePullDown">
-								滞在時間 
+								滞在時間
 								<select name="stay_time" class="stay_time">
 <?php
 	$step = 15;
