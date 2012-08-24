@@ -7,7 +7,9 @@ class Spot extends MY_Controller {
 		$this->ns = md5(__FILE__);
 		$this->load->model("Spot_model");
 		$this->load->model("Tag_model");
+		$this->load->model("Tag_model");
 		$this->form_data = $this->Spot_model->get_structure();
+		$this->load->library('user_agent');
 	}
 
 	function form($id = "") {
@@ -25,7 +27,11 @@ class Spot extends MY_Controller {
 		
 		$this->phpsession->set("point", $data, $this->ns);
 		$this->_set_validation($this->form_data);
-		$this->render_view("user/spot/form", $data);
+		if ($smartphone = $this->agent->is_smartphone()) {
+		  $this->load->view("user/spot/smartphone", $data);
+		} else {
+		  $this->render_view("user/spot/form", $data);
+		}
 	}
 	
 	function add() {
@@ -33,7 +39,11 @@ class Spot extends MY_Controller {
 		$this->_set_validation($this->form_data);
 		$data = $this->phpsession->set_post($this->ns, "point", $this->form_data);
 		if ($this->form_validation->run() == FALSE) {
-			return $this->render_view("user/spot/form", $data);
+		  if ($smartphone = $this->agent->is_smartphone()) {
+		    return $this->render_view("user/spot/smartphone", $data);
+		  } else {
+		    return $this->render_view("user/spot/form", $data);
+		  }
 		}
 		if ($data["image"]["tmp"]) {
  			$this->load->library('image_lib');
