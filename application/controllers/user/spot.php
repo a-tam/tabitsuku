@@ -7,9 +7,8 @@ class Spot extends MY_Controller {
 		$this->ns = md5(__FILE__);
 		$this->load->model("Spot_model");
 		$this->load->model("Tag_model");
-		$this->load->model("Tag_model");
-		$this->form_data = $this->Spot_model->get_structure();
 		$this->load->library('user_agent');
+		$this->form_data = $this->Spot_model->get_structure();
 	}
 
 	function form($id = "") {
