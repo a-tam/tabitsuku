@@ -31,7 +31,9 @@ $(document).ready(function () {
 	// マーカー表示
 	marker = new google.maps.Marker({
 		map: map,
-		draggable: true
+		draggable: true,
+		icon : gAssetUrl + "img/map/marker.png",
+		shadow: gAssetUrl + "img/map/shadow.png",
 	});
 	marker.setPosition(latlng);
 	
