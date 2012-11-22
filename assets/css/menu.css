@@ -1,0 +1,81 @@
+@charset "utf-8";
+
+
+/* ==================================================================
+
+	■MENU
+	
+=================================================================== */
+
+#globalnavi{
+	width:1002px;
+	margin:0 auto;
+	background:url(../images/common/navi/bg.gif) no-repeat;
+	height:58px;
+	margin-bottom:20px;
+	clear:both;
+}
+
+#globalnavi ul{
+	padding-top:8px;
+	margin-left:0px;
+}
+#globalnavi li{
+	float:left;
+	background:url(../images/common/navi/split.gif) 0 no-repeat;
+	padding-left:6px;
+	padding-right:6px;
+}
+#globalnavi li.top{
+	background:none;
+}
+#globalnavi li a{
+	display:block;
+	width:155px;
+	height:41px;
+	overflow:hidden;
+	position:relative;
+}
+#globalnavi li a img{
+	position:relative;
+	top:0;
+	transition:top 0.15s ease-out;
+	-webkit-transition:top 0.15s ease-out;
+}
+#globalnavi li a:hover img,
+#index #globalnavi li.top a img,
+#spotsearch #globalnavi li.spotsearch a img,
+#toursearch #globalnavi li.toursearch a img,
+#spotentry #globalnavi li.spot a img,
+#tourentry #globalnavi li.tour a img,
+#user #globalnavi li.maypage a img{
+	top:-42px;
+}
+
+
+/* subpage side */
+.subpage .side li{
+	margin-bottom:20px;
+}
+.subpage .side li a{
+	display:block;
+}
+.subpage .side li.about a{
+	background:url(../images/common/side/about_over.gif) no-repeat;
+}
+.subpage .side li.howto a{
+	background:url(../images/common/side/howto_over.gif) no-repeat;
+}
+.subpage .side li.contact a{
+	background:url(../images/common/side/contact_over.gif) no-repeat;
+}
+.subpage .side li.rule a{
+	background:url(../images/common/side/rule_over.gif) no-repeat;
+}
+#about .side li.about a img,
+#howto .side li.howto a img,
+#contact .side li.contact a img,
+#rule .side li.rule a img,
+.subpage .side li a:hover img{
+	visibility:hidden;
+}
