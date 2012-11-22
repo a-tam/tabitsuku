@@ -8,7 +8,7 @@
 =================================================================== */
 
 #select_area{
-	background:url(../../images/user/top/category_bg.gif) no-repeat;
+	background:url(../../img/user/top/category_bg.gif) no-repeat;
 	width:1012px;
 	height:71px;
 	margin-bottom:20px;
@@ -37,10 +37,10 @@
 	text-decoration:none;
 }
 #select_area ul li.tour a{
-	background:url(../../images/user/top/tour_over.gif) no-repeat;
+	background:url(../../img/user/top/tour_over.gif) no-repeat;
 }
 #select_area ul li.spot a{
-	background:url(../../images/user/top/spot_over.gif) no-repeat;
+	background:url(../../img/user/top/spot_over.gif) no-repeat;
 }
 .tour #select_area ul li.tour a img,
 .spot #select_area ul li.spot a img,
@@ -58,7 +58,7 @@
 #edit_area{
 	display:none;
 	position:absolute;
-	background:url(../../images/user/top/edit_bg.png) no-repeat;
+	background:url(../../img/user/top/edit_bg.png) no-repeat;
 	width:510px;
 	height:244px;
 	overflow:hidden;

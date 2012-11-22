@@ -50,7 +50,7 @@
 	font-size:11px;
 }
 #detail_area h2{
-	background:url(../../images/common/icon/tour_s.gif) no-repeat;
+	background:url(../../img/common/icon/tour_s.gif) no-repeat;
 	padding-left:28px;
 	padding-top:3px;
 	font-size:14px;
@@ -103,7 +103,7 @@
 	margin-bottom:30px;
 }
 #route_area h3{
-	background:#83ace1 url(../../images/tour/route_bg.gif) repeat-x;
+	background:#83ace1 url(../../img/tour/route_bg.gif) repeat-x;
 	border-radius:2px;
 	float:left;
 	padding:8px;
@@ -113,7 +113,7 @@
 	position:relative;
 }
 #route_area h3 span{
-	background:url(../../images/tour/route_arrow.gif) no-repeat 0 bottom;
+	background:url(../../img/tour/route_arrow.gif) no-repeat 0 bottom;
 	width:10px;
 	height:7px;
 	position:absolute;
@@ -143,7 +143,7 @@
 	margin-bottom:10px;
 }
 #route_area .item .time{
-	background:url(../../images/tour/time.gif) no-repeat;
+	background:url(../../img/tour/time.gif) no-repeat;
 	padding-left:13px;
 	font-size:11px;
 	line-height:1;

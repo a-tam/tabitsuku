@@ -48,7 +48,7 @@
 
 #input_area{
 	float:right;
-	background:url(../../images/user/spot/bg.gif) no-repeat 0 bottom;
+	background:url(../../img/user/spot/bg.gif) no-repeat 0 bottom;
 	width:617px;
 	margin-right:-7px;
 }
@@ -96,13 +96,13 @@
 	border-bottom:1px dotted #333333;
 }
 #input_area .category .categories .category1{
-	background:url(../../images/user/spot/category1.gif) 0 2px no-repeat;
+	background:url(../../img/user/spot/category1.gif) 0 2px no-repeat;
 }
 #input_area .category .categories .category2{
-	background:url(../../images/user/spot/category2.gif) 0 2px no-repeat;
+	background:url(../../img/user/spot/category2.gif) 0 2px no-repeat;
 }
 #input_area .category .categories .category3{
-	background:url(../../images/user/spot/category3.gif) 0 2px no-repeat;
+	background:url(../../img/user/spot/category3.gif) 0 2px no-repeat;
 	border-bottom:none;
 }
 

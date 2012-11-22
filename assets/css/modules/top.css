@@ -10,7 +10,7 @@
 /* mainvisual
 ----------------------------------------*/
 #mainvisual{
-	background:url(../../images/top/main_bg.gif) no-repeat;
+	background:url(../../img/top/main_bg.gif) no-repeat;
 	height:266px;
 	width:1012px;
 	margin-left:-6px;
@@ -45,7 +45,7 @@
 
 #mainvisual .login-area{
 	float:right;
-	background:url(../../images/top/login_bg.gif) no-repeat;
+	background:url(../../img/top/login_bg.gif) no-repeat;
 	width:321px;
 	height:207px;
 	margin-top:26px;

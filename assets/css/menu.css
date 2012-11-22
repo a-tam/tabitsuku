@@ -10,7 +10,7 @@
 #globalnavi{
 	width:1002px;
 	margin:0 auto;
-	background:url(../images/common/navi/bg.gif) no-repeat;
+	background:url(../img/common/navi/bg.gif) no-repeat;
 	height:58px;
 	margin-bottom:20px;
 	clear:both;
@@ -22,7 +22,7 @@
 }
 #globalnavi li{
 	float:left;
-	background:url(../images/common/navi/split.gif) 0 no-repeat;
+	background:url(../img/common/navi/split.gif) 0 no-repeat;
 	padding-left:6px;
 	padding-right:6px;
 }
@@ -61,16 +61,16 @@
 	display:block;
 }
 .subpage .side li.about a{
-	background:url(../images/common/side/about_over.gif) no-repeat;
+	background:url(../img/common/side/about_over.gif) no-repeat;
 }
 .subpage .side li.howto a{
-	background:url(../images/common/side/howto_over.gif) no-repeat;
+	background:url(../img/common/side/howto_over.gif) no-repeat;
 }
 .subpage .side li.contact a{
-	background:url(../images/common/side/contact_over.gif) no-repeat;
+	background:url(../img/common/side/contact_over.gif) no-repeat;
 }
 .subpage .side li.rule a{
-	background:url(../images/common/side/rule_over.gif) no-repeat;
+	background:url(../img/common/side/rule_over.gif) no-repeat;
 }
 #about .side li.about a img,
 #howto .side li.howto a img,

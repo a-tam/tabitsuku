@@ -60,7 +60,7 @@
 ------------------------------------------*/
 
 #input_area{
-	background:url(../../images/user/tour/input_bg.gif) no-repeat 0 bottom;
+	background:url(../../img/user/tour/input_bg.gif) no-repeat 0 bottom;
 	width:389px;
 	margin-left:-7px;
 	margin-bottom:20px;
@@ -107,13 +107,13 @@
 	width:100%;
 }
 #input_area .category .categories .category1{
-	background:url(../../images/user/spot/category1.gif) 0 2px no-repeat;
+	background:url(../../img/user/spot/category1.gif) 0 2px no-repeat;
 }
 #input_area .category .categories .category2{
-	background:url(../../images/user/spot/category2.gif) 0 2px no-repeat;
+	background:url(../../img/user/spot/category2.gif) 0 2px no-repeat;
 }
 #input_area .category .categories .category3{
-	background:url(../../images/user/spot/category3.gif) 0 2px no-repeat;
+	background:url(../../img/user/spot/category3.gif) 0 2px no-repeat;
 	border-bottom:none;
 }
 #input_area .category .selectedCategory{
@@ -169,7 +169,7 @@
 ------------------------------------*/
 #spot_search{
 	float:left;
-	background:url(../../images/user/tour/spot_bg.gif) no-repeat 0 bottom;
+	background:url(../../img/user/tour/spot_bg.gif) no-repeat 0 bottom;
 	width:294px;
 	margin-left:5px;
 }
@@ -345,7 +345,7 @@
 #tour_make{
 	float:right;
 	width:308px;
-	background:url(../../images/user/tour/tour_bg.gif) 0 bottom no-repeat;
+	background:url(../../img/user/tour/tour_bg.gif) 0 bottom no-repeat;
 }
 #tour_make h2{
 	margin-bottom:15px;
@@ -374,7 +374,7 @@
 	position:relative;
 }
 #tour_make .tour_point .time{
-	background:url(../../images/tour/time.gif) no-repeat;
+	background:url(../../img/tour/time.gif) no-repeat;
 	line-height:1;
 	padding-left:13px;
 	color:#618DC7;

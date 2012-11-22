@@ -104,7 +104,7 @@ a:hover{
 .textlink,
 .textlink:link,
 .textlink:visited {
-	background:url(../images/common/icon/arrow/orange.gif) no-repeat 0 4px;
+	background:url(../img/common/icon/arrow/orange.gif) no-repeat 0 4px;
 	padding-left:10px;
 	font-size:12px;
 	color:#f76b1e;
@@ -155,7 +155,7 @@ header .search{
 	float:left;
 	height:64px;
 	width:440px;
-	background:url(../images/common/header/searchbg.gif) no-repeat;
+	background:url(../img/common/header/searchbg.gif) no-repeat;
 	margin-left:85px;
 	margin-top:5px;
 }
@@ -218,7 +218,7 @@ section{
 }
 
 .contents .container{
-	background:url(../images/common/split.gif) repeat-y 793px 0;
+	background:url(../img/common/split.gif) repeat-y 793px 0;
 	margin-bottom:20px;
 }
 

@@ -12,7 +12,7 @@ body{
 }
 
 .box{
-	background:url(../../images/login/box.png) no-repeat;
+	background:url(../../img/login/box.png) no-repeat;
 	width:371px;
 	height:275px;
 	float:left;
