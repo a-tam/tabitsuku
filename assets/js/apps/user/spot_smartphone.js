@@ -1,19 +1,22 @@
 var marker;
+var map;
 
 $(document).ready(function () {
 	var lat = $('#spot-lat').val();
 	var lng = $('#spot-lng').val();
 	var latlng = new google.maps.LatLng(lat, lng);
-	var zoom = 10;
+	var zoom = 17;
+	map = new google.maps.Map(document.getElementById("mapArea"), {
+		zoom		: zoom,
+		center		: latlng,
+		mapTypeId	: google.maps.MapTypeId.ROADMAP
+	});
 	if ("" != $('#spot-id').val()) {
-		zoom = 17;
+		zoom = 6;
+	} else {
+		setCurrentLocation();
 	}
-	var myOptions = {
-		zoom: zoom,
-		center: latlng,
-		mapTypeId: google.maps.MapTypeId.ROADMAP
-	};
-	var map = new google.maps.Map(document.getElementById("mapArea"), myOptions);
+	
 	// マーカー表示
 	marker = new google.maps.Marker({
 		map: map,
@@ -24,7 +27,7 @@ $(document).ready(function () {
 	// MAP検索
 	var input = document.getElementById('search-address');
 	var autocomplete = new google.maps.places.Autocomplete(input);
-	setPosition(latlng);
+//	setPosition(latlng);
 	autocomplete.bindTo('bounds', map);
 
 	$("#search-map").submit(function(){
@@ -244,4 +247,44 @@ $(document).ready(function () {
 	$("#headerSaveArea").click(function() {
 		$("#spot-form").submit();
 	});
+	
+	function setCurrentLocation() {
+		// Try W3C Geolocation (Preferred)
+		if(navigator.geolocation) {
+			browserSupportFlag = true;
+			navigator.geolocation.getCurrentPosition(function(position) {
+				latlng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+				map.setCenter(latlng);
+				marker.setPosition(latlng);
+			}, function() {
+				handleNoGeolocation(browserSupportFlag);
+			});
+			// Try Google Gears Geolocation
+		} else if (google.gears) {
+			browserSupportFlag = true;
+			var geo = google.gears.factory.create('beta.geolocation');
+			geo.getCurrentPosition(function(position) {
+				latlng = new google.maps.LatLng(position.latitude, position.longitude);
+				map.setCenter(latlng);
+				marker.setPosition(latlng);
+			}, function() {
+				handleNoGeolocation(browserSupportFlag);
+			});
+			// Browser doesn't support Geolocation
+		} else {
+			browserSupportFlag = false;
+			handleNoGeolocation(browserSupportFlag);
+		}
+	}
+
+	function handleNoGeolocation(errorFlag) {
+		if (errorFlag == true) {
+			alert("GPSが有効ではありません");
+//			initialLocation = newyork;
+		} else {
+			alert("あなたのブラウザはGPSをサポートしていません");
+//			initialLocation = siberia;
+		}
+//		map.setCenter(initialLocation);
+	}
 });

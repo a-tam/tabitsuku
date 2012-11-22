@@ -1,4 +1,6 @@
 $(function() {
+	var directionsService = new google.maps.DirectionsService();
+	var directionsDisplay = new google.maps.DirectionsRenderer({draggable: true});
 	latlng = new google.maps.LatLng(35.6894875, 139.69170639999993);
 	var myOptions = {
 		zoom: 10,
@@ -6,7 +8,8 @@ $(function() {
 		mapTypeId: google.maps.MapTypeId.ROADMAP
 	};
 	var map = new google.maps.Map($("#pg_map")[0], myOptions);
-	var path = [];
+	
+//	var path = [];
 	
 	var lat_min = lat_max = lng_min = lng_max = null;
 	$(".pg_spot").each(function(i, elm) {
@@ -19,6 +22,7 @@ $(function() {
 				lat_max = lat;
 				lng_min = lng;
 				lng_max = lng;
+				start = new google.maps.LatLng(lat, lng);
 			}
 			if (lat <= lat_min) { lat_min = lat; }
 			if (lat >  lat_max) { lat_max = lat; }
@@ -37,14 +41,14 @@ $(function() {
 			} else {
 				marker.setIcon(gAssetUrl + '/img/map/icons/spot.png');
 			}
-			path.push(marker.getPosition());
+//			path.push(marker.getPosition());
 		}
 	});
 	var ne = new google.maps.LatLng(lat_max, lng_max);
 	var sw = new google.maps.LatLng(lat_min, lng_min);
 	var bounds = new google.maps.LatLngBounds(sw, ne);
 	map.fitBounds(bounds);
-	console.log(path);
+	/*
 	if (path.length > 0) {
 		linePath = new google.maps.Polyline({
 			map				: map,
@@ -57,4 +61,41 @@ $(function() {
 			visible			: true
 		});
 	}
+	*/
+
+	//	google.maps.event.addListener(directionsDisplay, "directions_changed", function() {
+	//	calcRoute(directionsDisplay.directions);
+	//});
+	directionsDisplay.setMap(map);
+	directionsService.route({
+		origin : start,
+	//	waypoints: [ { location: "鈴鹿駅" }, { location :"名古屋駅" } ],
+		destination: latlng,
+		travelMode: google.maps.DirectionsTravelMode.DRIVING
+	}, function(response, status){
+		if (status == google.maps.DirectionsStatus.OK) {
+			directionsDisplay.setDirections(response);
+			calcRoute(response);
+		}else{
+			alert("ルート検索に失敗しました");
+		}
+	});
+	
+	function calcRoute(response){
+		var m = 0;
+		for(var i=0; i<response.routes[0].legs.length; i++){
+			m += response.routes[0].legs[i].distance.value;	// 距離(m)
+		}
+		document.getElementById("result").innerHTML = m+"メートル";
+	}
+	// 情報ウィンドウを探し出して現在時刻に書き換える
+	function changeText(){
+		var iwList = document.getElementById("gmap").getElementsByTagName("div");
+		for(var i=0; i<iwList.length; i++){
+			if (iwList[i].style.direction == "ltr"){
+				iwList[i].innerHTML = new Date();
+			}
+		}
+	}
+
 });

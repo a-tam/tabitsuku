@@ -8,6 +8,7 @@
 <h2>ツアー詳細</h2>
 <div style="float:left; width:50%;">
 	<div id="pg_map" style="width:100%; height:700px; float:left;"></div>
+	<div id="result"></div>
 </div>
 <div style="float:left; width: 50%; height:700px; display:block;">
 	<div>
