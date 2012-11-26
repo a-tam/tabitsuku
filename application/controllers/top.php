@@ -128,6 +128,22 @@ class Top extends MY_Controller {
 		$this->render_view("guest/spot/show", $data);
 	}
 	
+	function about() {
+		$this->render_view("guest/info/about");
+	}
+
+	function howto() {
+		$this->render_view("guest/info/howto");
+	}
+	
+	function contact() {
+		$this->render_view("guest/info/contact");
+	}
+	
+	function rule() {
+		$this->render_view("guest/info/rule");
+	}
+	
 	function phpinfo() {
 		phpinfo();
 	}
