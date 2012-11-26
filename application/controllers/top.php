@@ -75,11 +75,40 @@ class Top extends MY_Controller {
 	}
 	
 	function tour_search() {
-		$this->render_view('guest/tour/search');
+		$offset		= 0;
+		$limit		= 6;
+		$sort		= "created_time";
+		$sort_type	= "desc";
+
+		// ツアー一覧
+		$request["tags"] = $this->Tag_model->tag_keys(array($condition["keyword"]));
+		$tour = $this->Tour_model->search($request, $offset, $limit, null, $sort, $sort_type);
+		if ($tour["list"]) {
+			$routes = $this->Tour_model->get_routes(array_keys($tour["list"]));
+			foreach ($routes as $tour_id => $route) {
+				$tour["list"][$tour_id]["routes"] = $route;
+			}
+			$tour["relation"]["categories"] = $this->Category_model->get_names($tour["relation"]["categories"]);
+			$tour["relation"]["tags"] 		= $this->Tag_model->tag_values($tour["relation"]["tags"]);
+		}
+		$data["tours"] = $tour;
+		$this->render_view('guest/tour/search', $data);
 	}
 
 	function spot_search() {
-		$this->render_view('guest/spot/search');
+		// スポット一覧
+		$limit		= 10;
+		$sort		= "created_time";
+		$sort_type	= "desc";
+		$offset = 0;
+		$request["tags"] = $this->Tag_model->tag_keys(array($condition["keyword"]));
+		$spot = $this->Spot_model->search($request, $offset, $limit, null, $sort, $sort_type);
+		if ($spot["list"]) {
+			$spot["relation"]["categories"] = $this->Category_model->get_names($spot["relation"]["categories"]);
+			$spot["relation"]["tags"] 		= $this->Tag_model->tag_values($spot["relation"]["tags"]);
+		}
+		$data["spots"] = $spot;
+		$this->render_view('guest/spot/search', $data);
 	}
 	
 	function tour_show($id) {
