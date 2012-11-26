@@ -1,27 +1,35 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja" xmlns:fb="http://www.facebook.com/2008/fbml" xmlns:mixi="http://mixi-platform.com/ns#" xmlns:og="http://ogp.me/ns#">
+<!doctype html>
+<html lang="ja">
 <head>
-<meta charset="utf-8" />
-<title>たびつく</title>
-<link rel="shortcut icon" href="<?php echo base_url("assets"); ?>/img/favicon.ico">
-<!-- common javascript -->
-<script type="text/javascript" src="<?php echo base_url("assets"); ?>/js/jquery/jquery-1.7.2.min.js"></script>
-<script type="text/javascript" src="<?php echo base_url("assets"); ?>/js/jquery/jquery-ui-1.8.20.custom.min.js"></script>
-<script type="text/javascript" src="<?php echo base_url("assets"); ?>/js/apps/common.js"></script>
-<script type="text/javascript">
-// ベースパス
-var gBaseUrl = '<?php echo base_url(); ?>';
-var gAssetUrl = '<?php echo base_url("assets"); ?>/';
-</script>
-<!-- common css -->
-<link rel="stylesheet" type="text/css" href="<?php echo base_url("assets"); ?>/css/common/import.css">
-<link rel="stylesheet" type="text/css" href="<?php echo base_url("assets"); ?>/css/ui-lightness/jquery-ui-1.8.20.custom.css">
-<!-- IEにHTML5タグを追加する -->
-<!--[if lt IE 9]>
-<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-<![endif]-->
-<!-- IE6でも半透明のPNGを適用する -->
-<!--[if IE 6]>
-<script src="/_js/DD_belatedPNG/DD_belatedPNG_0.0.8a.js"></script>
-<script>DD_belatedPNG.fix('img, .png_bg');</script>
-<![endif]-->
+	<meta charset="UTF-8" />
+	<meta http-equiv="Content-Language" content="ja" />
+	<meta http-equiv="Content-Style-Type" content="text/css" />
+	<meta http-equiv="Content-Script-Type" content="text/javascript" />
+	<meta name="description" content="" />
+	<meta name="robots" content="ALL" />
+
+	<title>たびつく　自分だけの旅行プランを作ろう</title>
+	
+	<meta name="viewport" content="width=1010">
+	<link rel="shortcut icon" href="<?php echo base_url("assets"); ?>/img/favicon.ico">
+	<!-- common css -->
+	<link rel="stylesheet" type="text/css" media="screen,print" href="<?php echo base_url("assets"); ?>/css/import.css" />
+	<link rel="start index" href="/" title="たびつく　自分だけの旅行プランを作ろう" />
+	
+	<!-- common js -->
+	<script type="text/javascript" src="<?php echo base_url("assets"); ?>/js/jquery/jquery-1.7.2.min.js"></script>
+	<script type="text/javascript" src="<?php echo base_url("assets"); ?>/js/jquery/jquery-ui-1.8.20.custom.min.js"></script>
+	<script type="text/javascript" src="<?php echo base_url("assets"); ?>/js/jquery/jquery.easing.js"></script>
+	<script type="text/javascript" src="<?php echo base_url("assets"); ?>/js/browser.js"></script>
+	<script type="text/javascript" src="<?php echo base_url("assets"); ?>/js/common.js"></script>
+	<script type="text/javascript" src="<?php echo base_url("assets"); ?>/js/apps/common.js"></script>
+	<script type="text/javascript">
+		// ベースパス
+		var gBaseUrl = '<?php echo base_url(); ?>';
+		var gAssetUrl = '<?php echo base_url("assets"); ?>/';
+	</script>
+	
+	<!--[if lte IE 8]>
+	<meta http-equiv="X-UA-Compatible" content="chrome=1">
+	<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->

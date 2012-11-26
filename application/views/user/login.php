@@ -1,52 +1,66 @@
+<!doctype html>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="Content-Language" content="ja" />
+	<meta http-equiv="Content-Style-Type" content="text/css" />
+	<meta http-equiv="Content-Script-Type" content="text/javascript" />
+	<meta name="description" content="" />
+	<meta name="robots" content="ALL" />
 
-<?php $this->load->view("contents_header"); ?>
-<?php echo validation_errors(); ?>
+	<title>ログイン | たびつく　自分だけの旅行プランを作ろう</title>
+	
+	<meta name="viewport" content="width=1010">
 
+	<link rel="stylesheet" type="text/css" media="screen,print" href="<?php echo base_url("assets");?>/css/import.css" />
+	<link rel="stylesheet" type="text/css" media="screen,print" href="<?php echo base_url("assets");?>/css/modules/login.css" />
+	<link rel="start index" href="/" title="たびつく　自分だけの旅行プランを作ろう" />
+	
 
+	<!--[if lte IE 8]>
+	<meta http-equiv="X-UA-Compatible" content="chrome=1">
+	<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
 
-<div id="containerInner">
-			<div id="loginFormArea">
-				<h3>ログイン </h3>
-				<div class="innerArea">
-					<form action="<?php echo base_url("user/top/login")?>" method="post">
-							<p class="center" style="padding-top:10px; padding-bottom:25px; border-bottom:3px dashed #ddd;"><a href="<?php echo $data["fb_login"]; ?>" class="btnFacebook"><span>Facebookでログイン</span></a></p>
-							<p style="padding-top:5px;">
-								<label>ユーザーID</label>
-								<input type="text" name="login_id" size="40" value=""  class="inputRounnd" />
-							</p>
-							<p>
-								<label>パスワード</label>
-								<input type="password" name="password" value=""  class="inputRounnd" />
-							</p>
-							<p>
-								<input type="submit" />
-							</p>
-						</form>
-					</div>
-			</div>
-		<div id="newFormArea">
-			<h3>新規会員登録 </h3>
-			<div class="innerArea">
-<form action="<?php echo base_url("user/top/signup")?>" method="post">
-				<p>
-					<label>ユーザーID(Email)</label>
-<input type="text" name="login_id" size="40" value="<?php echo set_value('login_id'); ?>"  class="inputRounnd" />
-				</p>
-				<p>
-					<label>パスワード</label>
-<input type="password" name="password" value=""  class="inputRounnd" />
-				</p>
-				
-				<p>
-					<label>名前</label>
-<input type="text" name="name" value="<?php echo set_value('name'); ?>"  class="inputRounnd" />
-				</p>
-				
-				<p>
-					<input type="submit" />
-				</p>
-			</form>
-			</div>
-		</div>
+</head>
+<body id="login">
+
+	<div class="box" id="login_box">
+		<p class="title"><img src="<?php echo base_url("assets");?>/img/login/login.gif" alt="ログイン" /></p>
 		
-		</div>
+		<p class="facebook"><a href="<?php echo $fb_login; ?>" class="mouse_over"><img src="<?php echo base_url("assets");?>/img/common/facebook.gif" alt="Facebookアカウントでログイン" /></a></p>
+		<form>
+		<dl>
+			<dt><img src="<?php echo base_url("assets");?>/img/login/userid.gif" alt="ユーザーID" /></dt>
+			<dd><input type="text" name="userid" value="" class="text" /></dd>
+			<dt><img src="<?php echo base_url("assets");?>/img/login/password.gif" alt="パスワード" /></dt>
+			<dd><input type="text" name="password" value="" class="text" /><br /><a href="" class="textlink">パスワードを忘れた方はこちら</a></dd>
+		</dl>
+		<p class="submit mouse_over"><input type="image" src="<?php echo base_url("assets");?>/img/login/submit.gif" alt="送信" /></p>
+		</form>
+		
+	</div>
+	<!-- //login_box -->
+
+	<div class="box" id="regist_box">
+		<p class="title"><img src="<?php echo base_url("assets");?>/img/login/regist.gif" alt="新規会員登録" /></p>
+		
+		<form>
+		<dl>
+			<dt><img src="<?php echo base_url("assets");?>/img/login/useridmail.gif" alt="ユーザーID（Email）" /></dt>
+			<dd><input type="text" name="userid" value="" class="text" /></dd>
+			<dt><img src="<?php echo base_url("assets");?>/img/login/password.gif" alt="パスワード" /></dt>
+			<dd><input type="text" name="password" value="" class="text" /></dd>
+			<dt><img src="<?php echo base_url("assets");?>/img/login/name.gif" alt="お名前" /></dt>
+			<dd><input type="text" name="name" value="" class="text" /></dd>
+		</dl>
+		<p class="sub"><input type="checkbox" name="namehidden" id="namehidden" class="namehidden" /><label class="namehidden" for="namehidden">名前を非公開</label><a href="" class="textlink">利用規約はこちら</a></p>
+		<p class="submit mouse_over"><input type="image" src="<?php echo base_url("assets");?>/img/login/submit.gif" alt="送信" /></p>
+		</form>
+		
+	</div>
+	<!-- //login_box -->
+
+
+</body>
+</html>
