@@ -15,6 +15,16 @@ class Top extends MY_Controller {
 		$this->render_view("user/top");
 	}
 	
+	function spot() {
+		if (!$this->auth()) return $this->login_form();
+		$this->render_view("user/spot");
+	}
+	
+	function user_edit() {
+		if (!$this->auth()) return $this->login_form();
+		$this->load->view("user/edit", $data);
+	}
+	
 	function signup() {
 		$this->_set_validation($this->form_data);
 		if ($this->form_validation->run() == FALSE) {

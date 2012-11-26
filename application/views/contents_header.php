@@ -9,7 +9,7 @@
 
 
 <header>
-	<h1><a href="./"><img src="<?php echo base_url("assets"); ?>/img/logo.gif" alt="たびつく　自分だけの旅行プランを作ろう" /></a></h1>
+	<h1><a href="<?php echo base_url("/");?>"><img src="<?php echo base_url("assets"); ?>/img/logo.gif" alt="たびつく　自分だけの旅行プランを作ろう" /></a></h1>
 	<dl class="search">
 		<dt><img src="<?php echo base_url("assets"); ?>/img/common/header/search.gif" alt="ツアーやスポットを検索しよう" /></dt>
 		<dd>

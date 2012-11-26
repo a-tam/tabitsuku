@@ -1,10 +1,10 @@
 <footer>
 	<nav>
 		<ul>
-			<li><a href="./about/">このサイトについて</a></li>
-			<li><a href="./howto/">たびつくの使い方</a></li>
-			<li><a href="./contact/">お問い合わせ</a></li>
-			<li><a href="./rule/">利用規約</a></li>
+			<li><a href="<?php echo base_url("top/about");?>">このサイトについて</a></li>
+			<li><a href="<?php echo base_url("top/howto");?>">たびつくの使い方</a></li>
+			<li><a href="<?php echo base_url("top/contact");?>">お問い合わせ</a></li>
+			<li><a href="<?php echo base_url("top/rule");?>">利用規約</a></li>
 		</ul>
 	</nav>
 </footer>

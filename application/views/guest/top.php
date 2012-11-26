@@ -13,8 +13,8 @@
 	<div class="message-area">
 		<p><img src="<?php echo base_url("assets"); ?>/img/top/main_txt.gif" alt="たびつくは、みんなで登録したスポットをつないで自分だけの旅行プランを作れるサービスです。" /></p>
 		<ul>
-			<li><a href="./about/" class="mouse_over"><img src="<?php echo base_url("assets"); ?>/img/top/about.gif" alt="たびつくとは" /></a></li>
-			<li><a href="./howto/" class="mouse_over"><img src="<?php echo base_url("assets"); ?>/img/top/howto.gif" alt="たびつくの使い方" /></a></li>
+			<li><a href="<?php echo base_url("top/about/");?>" class="mouse_over"><img src="<?php echo base_url("assets"); ?>/img/top/about.gif" alt="たびつくとは" /></a></li>
+			<li><a href="<?php echo base_url("top/howto/");?>" class="mouse_over"><img src="<?php echo base_url("assets"); ?>/img/top/howto.gif" alt="たびつくの使い方" /></a></li>
 		</ul>
 	</div>
 	<!-- //message-area -->

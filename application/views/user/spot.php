@@ -4,12 +4,13 @@
 <!-- javascript -->
 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=true"></script>
 <script type="text/javascript" src="<?php echo base_url("assets");?>/js/user.js"></script>
-	
+
 </head>
-<body id="user" class="sec tour">
+<body id="user" class="sec spot">
 
 <?php $this->load->view("contents_header"); ?>
 <?php $this->load->view("globalnavi"); ?>
+
 
 <!-- =============== ↓ページコンテンツ↓ =============== -->
 <div class="contents">
@@ -30,6 +31,7 @@
 			<p class="close"><a href="#close"><img src="<?php echo base_url("assets");?>/img/common/btn/close.png" alt="CLOSE" /></a></p>
 		</dl>
 		<!-- //edit_area -->
+
 	</div>
 	<!-- //select_area -->
 
@@ -72,10 +74,10 @@
 		
 				<div class="list_area">
 					<div class="list_item">
-						<p class="icon"><img src="<?php echo base_url("assets");?>/img/common/icon/tour.png" alt="ツアー" /></p>
+						<p class="icon"><img src="<?php echo base_url("assets");?>/img/common/icon/spot.png" alt="スポット" /></p>
 						
 						<div class="photo_area">
-							<p><a href="../tour/"><img src="<?php echo base_url("assets");?>/img/top/sample.jpg" alt="ツアー内容ツアー内容ツアー内容" /></a></p>
+							<p><a href="../spot/"><img src="<?php echo base_url("assets");?>/img/top/sample.jpg" alt="ツアー内容ツアー内容ツアー内容" /></a></p>
 							<div class="fb-like" data-href="http://www.google.co.jp/" data-send="false" data-layout="button_count" data-width="450" data-show-faces="false"></div>
 							<dl class="category">
 								<dt><img src="<?php echo base_url("assets");?>/img/common/icon/category.gif" alt="CATEGORY" /></dt>
@@ -86,12 +88,12 @@
 			
 						<div class="info_area">
 							<dl class="maininfo">
-								<dt>ツアー名ツアー名ツアー名</dt>
+								<dt>スポット名スポット名スポット名</dt>
 								<dd>当店のメニューは、素材の持ち味を最大限引き出すことを重んじたランチ、ディナーとも「おまかせの１コース」のみ。旬の素材により、メニュー・・・</dd>
 							</dl>
 							<!-- //maininfo -->
 							
-							<p class="linkbtn"><a href="../tour/" class="mouse_over"><img src="<?php echo base_url("assets");?>/img/common/btn/tourlinkbtn.gif" alt="ツアー内容を見る"></a></p>
+							<p class="linkbtn"><a href="../spot/" class="mouse_over"><img src="<?php echo base_url("assets");?>/img/common/btn/spotlinkbtn.gif" alt="スポット詳細を見る"></a></p>
 			
 						</div>
 						<!-- //info_area -->
@@ -100,10 +102,10 @@
 					<!-- //list_item -->
 			
 					<div class="list_item">
-						<p class="icon"><img src="<?php echo base_url("assets");?>/img/common/icon/tour.png" alt="ツアー" /></p>
+						<p class="icon"><img src="<?php echo base_url("assets");?>/img/common/icon/spot.png" alt="スポット" /></p>
 						
 						<div class="photo_area">
-							<p><a href="../tour/"><img src="<?php echo base_url("assets");?>/img/common/noimage_s.jpg" alt="ツアー内容ツアー内容ツアー内容" /></a></p>
+							<p><a href="../spot/"><img src="<?php echo base_url("assets");?>/img/common/noimage_s.jpg" alt="ツアー内容ツアー内容ツアー内容" /></a></p>
 							<div class="fb-like" data-href="http://www.google.co.jp/" data-send="false" data-layout="button_count" data-width="450" data-show-faces="false"></div>
 							<dl class="category">
 								<dt><img src="<?php echo base_url("assets");?>/img/common/icon/category.gif" alt="CATEGORY" /></dt>
@@ -114,12 +116,12 @@
 			
 						<div class="info_area">
 							<dl class="maininfo">
-								<dt>ツアー名ツアー名ツアー名</dt>
+								<dt>スポット名スポット名スポット名</dt>
 								<dd>当店のメニューは、素材の持ち味を最大限引き出すことを重んじたランチ、ディナーとも「おまかせの１コース」のみ。旬の素材により、メニュー・・・</dd>
 							</dl>
 							<!-- //maininfo -->
 			
-							<p class="linkbtn"><a href="../tour/" class="mouse_over"><img src="<?php echo base_url("assets");?>/img/common/btn/tourlinkbtn.gif" alt="ツアー内容を見る"></a></p>
+							<p class="linkbtn"><a href="../spot/" class="mouse_over"><img src="<?php echo base_url("assets");?>/img/common/btn/spotlinkbtn.gif" alt="スポット詳細を見る"></a></p>
 			
 						</div>
 						<!-- //info_area -->
@@ -128,10 +130,10 @@
 					<!-- //list_item -->
 			
 					<div class="list_item">
-						<p class="icon"><img src="<?php echo base_url("assets");?>/img/common/icon/tour.png" alt="ツアー" /></p>
+						<p class="icon"><img src="<?php echo base_url("assets");?>/img/common/icon/spot.png" alt="スポット" /></p>
 						
 						<div class="photo_area">
-							<p><a href="../tour/"><img src="<?php echo base_url("assets");?>/img/top/sample.jpg" alt="ツアー内容ツアー内容ツアー内容" /></a></p>
+							<p><a href="../spot/"><img src="<?php echo base_url("assets");?>/img/top/sample.jpg" alt="ツアー内容ツアー内容ツアー内容" /></a></p>
 							<div class="fb-like" data-href="http://www.google.co.jp/" data-send="false" data-layout="button_count" data-width="450" data-show-faces="false"></div>
 							<dl class="category">
 								<dt><img src="<?php echo base_url("assets");?>/img/common/icon/category.gif" alt="CATEGORY" /></dt>
@@ -142,40 +144,12 @@
 			
 						<div class="info_area">
 							<dl class="maininfo">
-								<dt>ツアー名ツアー名ツアー名ツアー名ツアー名ツアー名ツアー名ツアー名ツアー名ツアー名ツアー名ツアー名</dt>
+								<dt>スポット名スポット名スポット名スポット名スポット名スポット名スポット名スポット名スポット名スポット名スポット名スポット名</dt>
 								<dd>当店のメニューは、素材の持ち味を最大限引き出すことを重んじたランチ、ディナーとも「おまかせの１コース」のみ。旬の素材により、メニュー・・・</dd>
 							</dl>
 							<!-- //maininfo -->
 			
-							<p class="linkbtn"><a href="../tour/" class="mouse_over"><img src="<?php echo base_url("assets");?>/img/common/btn/tourlinkbtn.gif" alt="ツアー内容を見る"></a></p>
-			
-						</div>
-						<!-- //info_area -->
-						
-					</div>
-					<!-- //list_item -->
-		
-					<div class="list_item">
-						<p class="icon"><img src="<?php echo base_url("assets");?>/img/common/icon/tour.png" alt="ツアー" /></p>
-						
-						<div class="photo_area">
-							<p><a href="../tour/"><img src="<?php echo base_url("assets");?>/img/top/sample.jpg" alt="ツアー内容ツアー内容ツアー内容" /></a></p>
-							<div class="fb-like" data-href="http://www.google.co.jp/" data-send="false" data-layout="button_count" data-width="450" data-show-faces="false"></div>
-							<dl class="category">
-								<dt><img src="<?php echo base_url("assets");?>/img/common/icon/category.gif" alt="CATEGORY" /></dt>
-								<dd>見る</dd>
-							</dl>
-						</div>
-						<!-- //photo_area -->
-			
-						<div class="info_area">
-							<dl class="maininfo">
-								<dt>ツアー名ツアー名ツアー名</dt>
-								<dd>当店のメニューは、素材の持ち味を最大限引き出すことを重んじたランチ、ディナーとも「おまかせの１コース」のみ。旬の素材により、メニュー・・・</dd>
-							</dl>
-							<!-- //maininfo -->
-			
-							<p class="linkbtn"><a href="../tour/" class="mouse_over"><img src="<?php echo base_url("assets");?>/img/common/btn/tourlinkbtn.gif" alt="ツアー内容を見る"></a></p>
+							<p class="linkbtn"><a href="../spot/" class="mouse_over"><img src="<?php echo base_url("assets");?>/img/common/btn/spotlinkbtn.gif" alt="スポット詳細を見る"></a></p>
 			
 						</div>
 						<!-- //info_area -->
@@ -184,10 +158,10 @@
 					<!-- //list_item -->
 		
 					<div class="list_item">
-						<p class="icon"><img src="<?php echo base_url("assets");?>/img/common/icon/tour.png" alt="ツアー" /></p>
+						<p class="icon"><img src="<?php echo base_url("assets");?>/img/common/icon/spot.png" alt="スポット" /></p>
 						
 						<div class="photo_area">
-							<p><a href="../tour/"><img src="<?php echo base_url("assets");?>/img/top/sample.jpg" alt="ツアー内容ツアー内容ツアー内容" /></a></p>
+							<p><a href="../spot/"><img src="<?php echo base_url("assets");?>/img/top/sample.jpg" alt="ツアー内容ツアー内容ツアー内容" /></a></p>
 							<div class="fb-like" data-href="http://www.google.co.jp/" data-send="false" data-layout="button_count" data-width="450" data-show-faces="false"></div>
 							<dl class="category">
 								<dt><img src="<?php echo base_url("assets");?>/img/common/icon/category.gif" alt="CATEGORY" /></dt>
@@ -198,12 +172,40 @@
 			
 						<div class="info_area">
 							<dl class="maininfo">
-								<dt>ツアー名ツアー名ツアー名ツアー名ツアー名ツアー名ツアー名ツアー名ツアー名ツアー名ツアー名ツアー名</dt>
+								<dt>スポット名スポット名スポット名</dt>
 								<dd>当店のメニューは、素材の持ち味を最大限引き出すことを重んじたランチ、ディナーとも「おまかせの１コース」のみ。旬の素材により、メニュー・・・</dd>
 							</dl>
 							<!-- //maininfo -->
 			
-							<p class="linkbtn"><a href="../tour/" class="mouse_over"><img src="<?php echo base_url("assets");?>/img/common/btn/tourlinkbtn.gif" alt="ツアー内容を見る"></a></p>
+							<p class="linkbtn"><a href="../spot/" class="mouse_over"><img src="<?php echo base_url("assets");?>/img/common/btn/spotlinkbtn.gif" alt="スポット詳細を見る"></a></p>
+			
+						</div>
+						<!-- //info_area -->
+						
+					</div>
+					<!-- //list_item -->
+		
+					<div class="list_item">
+						<p class="icon"><img src="<?php echo base_url("assets");?>/img/common/icon/spot.png" alt="スポット" /></p>
+						
+						<div class="photo_area">
+							<p><a href="../spot/"><img src="<?php echo base_url("assets");?>/img/top/sample.jpg" alt="ツアー内容ツアー内容ツアー内容" /></a></p>
+							<div class="fb-like" data-href="http://www.google.co.jp/" data-send="false" data-layout="button_count" data-width="450" data-show-faces="false"></div>
+							<dl class="category">
+								<dt><img src="<?php echo base_url("assets");?>/img/common/icon/category.gif" alt="CATEGORY" /></dt>
+								<dd>見る</dd>
+							</dl>
+						</div>
+						<!-- //photo_area -->
+			
+						<div class="info_area">
+							<dl class="maininfo">
+								<dt>スポット名スポット名スポット名スポット名スポット名スポット名スポット名スポット名スポット名スポット名スポット名スポット名</dt>
+								<dd>当店のメニューは、素材の持ち味を最大限引き出すことを重んじたランチ、ディナーとも「おまかせの１コース」のみ。旬の素材により、メニュー・・・</dd>
+							</dl>
+							<!-- //maininfo -->
+			
+							<p class="linkbtn"><a href="../spot/" class="mouse_over"><img src="<?php echo base_url("assets");?>/img/common/btn/spotlinkbtn.gif" alt="スポット詳細を見る"></a></p>
 			
 						</div>
 						<!-- //info_area -->
@@ -212,10 +214,10 @@
 					<!-- //list_item -->
 			
 					<div class="list_item">
-						<p class="icon"><img src="<?php echo base_url("assets");?>/img/common/icon/tour.png" alt="ツアー" /></p>
+						<p class="icon"><img src="<?php echo base_url("assets");?>/img/common/icon/spot.png" alt="スポット" /></p>
 						
 						<div class="photo_area">
-							<p><a href="../tour/"><img src="<?php echo base_url("assets");?>/img/common/noimage_s.jpg" alt="ツアー内容ツアー内容ツアー内容" /></a></p>
+							<p><a href="../spot/"><img src="<?php echo base_url("assets");?>/img/common/noimage_s.jpg" alt="ツアー内容ツアー内容ツアー内容" /></a></p>
 							<div class="fb-like" data-href="http://www.google.co.jp/" data-send="false" data-layout="button_count" data-width="450" data-show-faces="false"></div>
 							<dl class="category">
 								<dt><img src="<?php echo base_url("assets");?>/img/common/icon/category.gif" alt="CATEGORY" /></dt>
@@ -226,12 +228,12 @@
 			
 						<div class="info_area">
 							<dl class="maininfo">
-								<dt>ツアー名ツアー名ツアー名</dt>
+								<dt>スポット名スポット名スポット名</dt>
 								<dd>当店のメニューは、素材の持ち味を最大限引き出すことを重んじたランチ、ディナーとも「おまかせの１コース」のみ。旬の素材により、メニュー・・・</dd>
 							</dl>
 							<!-- //maininfo -->
 			
-							<p class="linkbtn"><a href="../tour/" class="mouse_over"><img src="<?php echo base_url("assets");?>/img/common/btn/tourlinkbtn.gif" alt="ツアー内容を見る"></a></p>
+							<p class="linkbtn"><a href="../spot/" class="mouse_over"><img src="<?php echo base_url("assets");?>/img/common/btn/spotlinkbtn.gif" alt="スポット詳細を見る"></a></p>
 			
 						</div>
 						<!-- //info_area -->
@@ -240,10 +242,10 @@
 					<!-- //list_item -->
 
 					<div class="list_item">
-						<p class="icon"><img src="<?php echo base_url("assets");?>/img/common/icon/tour.png" alt="ツアー" /></p>
+						<p class="icon"><img src="<?php echo base_url("assets");?>/img/common/icon/spot.png" alt="スポット" /></p>
 						
 						<div class="photo_area">
-							<p><a href="../tour/"><img src="<?php echo base_url("assets");?>/img/top/sample.jpg" alt="ツアー内容ツアー内容ツアー内容" /></a></p>
+							<p><a href="../spot/"><img src="<?php echo base_url("assets");?>/img/top/sample.jpg" alt="ツアー内容ツアー内容ツアー内容" /></a></p>
 							<div class="fb-like" data-href="http://www.google.co.jp/" data-send="false" data-layout="button_count" data-width="450" data-show-faces="false"></div>
 							<dl class="category">
 								<dt><img src="<?php echo base_url("assets");?>/img/common/icon/category.gif" alt="CATEGORY" /></dt>
@@ -254,12 +256,12 @@
 			
 						<div class="info_area">
 							<dl class="maininfo">
-								<dt>ツアー名ツアー名ツアー名ツアー名ツアー名ツアー名ツアー名ツアー名ツアー名ツアー名ツアー名ツアー名</dt>
+								<dt>スポット名スポット名スポット名スポット名スポット名スポット名スポット名スポット名スポット名スポット名スポット名スポット名</dt>
 								<dd>当店のメニューは、素材の持ち味を最大限引き出すことを重んじたランチ、ディナーとも「おまかせの１コース」のみ。旬の素材により、メニュー・・・</dd>
 							</dl>
 							<!-- //maininfo -->
 			
-							<p class="linkbtn"><a href="../tour/" class="mouse_over"><img src="<?php echo base_url("assets");?>/img/common/btn/tourlinkbtn.gif" alt="ツアー内容を見る"></a></p>
+							<p class="linkbtn"><a href="../spot/" class="mouse_over"><img src="<?php echo base_url("assets");?>/img/common/btn/spotlinkbtn.gif" alt="スポット詳細を見る"></a></p>
 			
 						</div>
 						<!-- //info_area -->
@@ -268,10 +270,10 @@
 					<!-- //list_item -->
 		
 					<div class="list_item">
-						<p class="icon"><img src="<?php echo base_url("assets");?>/img/common/icon/tour.png" alt="ツアー" /></p>
+						<p class="icon"><img src="<?php echo base_url("assets");?>/img/common/icon/spot.png" alt="スポット" /></p>
 						
 						<div class="photo_area">
-							<p><a href="../tour/"><img src="<?php echo base_url("assets");?>/img/top/sample.jpg" alt="ツアー内容ツアー内容ツアー内容" /></a></p>
+							<p><a href="../spot/"><img src="<?php echo base_url("assets");?>/img/top/sample.jpg" alt="ツアー内容ツアー内容ツアー内容" /></a></p>
 							<div class="fb-like" data-href="http://www.google.co.jp/" data-send="false" data-layout="button_count" data-width="450" data-show-faces="false"></div>
 							<dl class="category">
 								<dt><img src="<?php echo base_url("assets");?>/img/common/icon/category.gif" alt="CATEGORY" /></dt>
@@ -282,12 +284,12 @@
 			
 						<div class="info_area">
 							<dl class="maininfo">
-								<dt>ツアー名ツアー名ツアー名</dt>
+								<dt>スポット名スポット名スポット名</dt>
 								<dd>当店のメニューは、素材の持ち味を最大限引き出すことを重んじたランチ、ディナーとも「おまかせの１コース」のみ。旬の素材により、メニュー・・・</dd>
 							</dl>
 							<!-- //maininfo -->
 			
-							<p class="linkbtn"><a href="../tour/" class="mouse_over"><img src="<?php echo base_url("assets");?>/img/common/btn/tourlinkbtn.gif" alt="ツアー内容を見る"></a></p>
+							<p class="linkbtn"><a href="../spot/" class="mouse_over"><img src="<?php echo base_url("assets");?>/img/common/btn/spotlinkbtn.gif" alt="スポット詳細を見る"></a></p>
 			
 						</div>
 						<!-- //info_area -->
@@ -296,10 +298,10 @@
 					<!-- //list_item -->
 		
 					<div class="list_item">
-						<p class="icon"><img src="<?php echo base_url("assets");?>/img/common/icon/tour.png" alt="ツアー" /></p>
+						<p class="icon"><img src="<?php echo base_url("assets");?>/img/common/icon/spot.png" alt="スポット" /></p>
 						
 						<div class="photo_area">
-							<p><a href="../tour/"><img src="<?php echo base_url("assets");?>/img/top/sample.jpg" alt="ツアー内容ツアー内容ツアー内容" /></a></p>
+							<p><a href="../spot/"><img src="<?php echo base_url("assets");?>/img/top/sample.jpg" alt="ツアー内容ツアー内容ツアー内容" /></a></p>
 							<div class="fb-like" data-href="http://www.google.co.jp/" data-send="false" data-layout="button_count" data-width="450" data-show-faces="false"></div>
 							<dl class="category">
 								<dt><img src="<?php echo base_url("assets");?>/img/common/icon/category.gif" alt="CATEGORY" /></dt>
@@ -310,12 +312,12 @@
 			
 						<div class="info_area">
 							<dl class="maininfo">
-								<dt>ツアー名ツアー名ツアー名ツアー名ツアー名ツアー名ツアー名ツアー名ツアー名ツアー名ツアー名ツアー名</dt>
+								<dt>スポット名スポット名スポット名スポット名スポット名スポット名スポット名スポット名スポット名スポット名スポット名スポット名</dt>
 								<dd>当店のメニューは、素材の持ち味を最大限引き出すことを重んじたランチ、ディナーとも「おまかせの１コース」のみ。旬の素材により、メニュー・・・</dd>
 							</dl>
 							<!-- //maininfo -->
 			
-							<p class="linkbtn"><a href="../tour/" class="mouse_over"><img src="<?php echo base_url("assets");?>/img/common/btn/tourlinkbtn.gif" alt="ツアー内容を見る"></a></p>
+							<p class="linkbtn"><a href="../spot/" class="mouse_over"><img src="<?php echo base_url("assets");?>/img/common/btn/spotlinkbtn.gif" alt="スポット詳細を見る"></a></p>
 			
 						</div>
 						<!-- //info_area -->
@@ -324,10 +326,10 @@
 					<!-- //list_item -->
 			
 					<div class="list_item">
-						<p class="icon"><img src="<?php echo base_url("assets");?>/img/common/icon/tour.png" alt="ツアー" /></p>
+						<p class="icon"><img src="<?php echo base_url("assets");?>/img/common/icon/spot.png" alt="スポット" /></p>
 						
 						<div class="photo_area">
-							<p><a href="../tour/"><img src="<?php echo base_url("assets");?>/img/common/noimage_s.jpg" alt="ツアー内容ツアー内容ツアー内容" /></a></p>
+							<p><a href="../spot/"><img src="<?php echo base_url("assets");?>/img/common/noimage_s.jpg" alt="ツアー内容ツアー内容ツアー内容" /></a></p>
 							<div class="fb-like" data-href="http://www.google.co.jp/" data-send="false" data-layout="button_count" data-width="450" data-show-faces="false"></div>
 							<dl class="category">
 								<dt><img src="<?php echo base_url("assets");?>/img/common/icon/category.gif" alt="CATEGORY" /></dt>
@@ -338,12 +340,12 @@
 			
 						<div class="info_area">
 							<dl class="maininfo">
-								<dt>ツアー名ツアー名ツアー名</dt>
+								<dt>スポット名スポット名スポット名</dt>
 								<dd>当店のメニューは、素材の持ち味を最大限引き出すことを重んじたランチ、ディナーとも「おまかせの１コース」のみ。旬の素材により、メニュー・・・</dd>
 							</dl>
 							<!-- //maininfo -->
 			
-							<p class="linkbtn"><a href="../tour/" class="mouse_over"><img src="<?php echo base_url("assets");?>/img/common/btn/tourlinkbtn.gif" alt="ツアー内容を見る"></a></p>
+							<p class="linkbtn"><a href="../spot/" class="mouse_over"><img src="<?php echo base_url("assets");?>/img/common/btn/spotlinkbtn.gif" alt="スポット詳細を見る"></a></p>
 			
 						</div>
 						<!-- //info_area -->
@@ -392,9 +394,63 @@
 	
 	
 		<div class="side">
-		
-			<?php $this->load->view("guest/side"); ?>
-					
+			<dl class="taglist group">
+				<dt><img src="<?php echo base_url("assets");?>/img/common/side/taglist.gif" alt="タグリスト" /></dt>
+				<dd>
+					<ul>
+						<li><a href=""><em>デート</em></a><p><span>7200</span></p></li>
+						<li><a href=""><em>ランチ</em></a><p><span>54</span></p></li>
+						<li><a href=""><em>夜景</em></a><p><span>45</span></p></li>
+						<li><a href=""><em>長いタグ長いタグ長いタグ長いタグ長いタグ</em></a><p><span>45</span></p></li>
+					</ul>
+				</dd>
+			</dl>
+			<!-- //taglist -->
+	
+			<dl class="category group">
+				<dt><img src="<?php echo base_url("assets");?>/img/common/side/category.gif" alt="カテゴリ" /></dt>
+				<dd>
+					<ul>
+						<li><a href=""><em>見る</em></a><p><span>72</span></p></li>
+						<li><a href=""><em>遊ぶ</em></a><p><span>54</span></p></li>
+						<li><a href=""><em>食べる</em></a><p><span>45</span></p></li>
+						<li><a href=""><em>宿泊・温泉</em></a><p><span>45</span></p></li>
+						<li><a href=""><em>乗り物/乗り場</em></a><p><span>45</span></p></li>
+						<li><a href=""><em>買う</em></a><p><span>45</span></p></li>
+					</ul>
+				</dd>
+			</dl>
+			<!-- //category -->
+			
+			<dl class="rank" id="tourranking">
+				<dt><img src="<?php echo base_url("assets");?>/img/common/side/tourranking.gif" alt="ツアーランキング" /></dt>
+				<dd>
+					<ul>
+						<li class="rank1"><a href="">東京グルメ食べ歩きツアー</a></li>
+						<li class="rank2"><a href="">屋久島周辺観光</a></li>
+						<li class="rank3"><a href="">北海道の大自然</a></li>
+						<li class="rank4"><a href="">長いツアー長いツアー長いツアー長いツアー長いツアー</a></li>
+						<li class="rank5"><a href="">九州新幹線の旅</a></li>
+					</ul>
+				</dd>
+			</dl>
+			<!-- //tourranking -->
+	
+			<dl class="rank" id="spotranking">
+				<dt><img src="<?php echo base_url("assets");?>/img/common/side/spotranking.gif" alt="スポットランキング" /></dt>
+				<dd>
+					<ul>
+						<li class="rank1"><a href="">スカイツリー</a></li>
+						<li class="rank2"><a href="">東大寺</a></li>
+						<li class="rank3"><a href="">厳島神社</a></li>
+						<li class="rank4"><a href="">海遊館</a></li>
+						<li class="rank5"><a href="">クッチーナ　イタリアーナ</a></li>
+					</ul>
+				</dd>
+			</dl>
+			<!-- //spotranking -->
+			
+			
 		</div>
 		<!-- //side -->
 
@@ -405,99 +461,4 @@
 </div>
 <!-- //contents -->
 <!-- =============== ↑ページコンテンツ↑ =============== -->
-
-
-
-
-
-</style>
-<!-- javascript -->
-<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=true&libraries=places"></script>
-<script type="text/javascript" src="<?php echo base_url("assets"); ?>/js/jquery/layout/jquery.layout.min-1.2.0.js"></script>
-<script type="text/javascript" src="<?php echo base_url("assets"); ?>/js/jquery/autocomplete/tag-it.js"></script>
-<script type="text/javascript" src="<?php echo base_url("assets"); ?>/js/jquery/jstree/jquery.jstree.js"></script>
-<script type="text/javascript" src="<?php echo base_url("assets"); ?>/js/jquery/util/jquery.cookie.js"></script>
-<script type="text/javascript" src="<?php echo base_url("assets"); ?>/js/jquery/util/jquery.hotkeys.js"></script>
-<script type="text/javascript" src="<?php echo base_url("assets"); ?>/js/jquery/util/jquery.dateFormat-1.0.js"></script>
-<script type="text/javascript" src="<?php echo base_url("assets"); ?>/js/jquery/util/jquery.url.js"></script>
-<script type="text/javascript" src="<?php echo base_url("assets"); ?>/js/jquery/jpagenate/jquery.paginate.js"></script>
-<script type="text/javascript" src="<?php echo base_url("assets"); ?>/js/apps/user/top.js"></script>
-<h2>マイページ</h2>
-<div id="pg_tabs">
-	<ul>
-		<li><a href="#pg_tabs_tour">あなたが登録したツアー</a></li>
-		<li><a href="#pg_tabs_spot">あなたが登録したスポット</a></li>
-	</ul>
-	
-	<div id="pg_tabs_tour" class="clearfix">
-		<div class="pg_map" style="width:50%; height:600px; float:left;"></div>
-		<div style="margin-left: 50%; padding: 5px;">
-			<div class="pg_pagenation"></div>
-			<p>[<a href="<?php echo base_url("user/tour/form");?>">追加</a>]</p>
-			<ul id="pg_tours">
-				<li class="pg_tour_list pg_tour_temp" style="display: none;">
-					<div>
-						<div>
-							<img class="pg_image" src="" />
-							<div class="pg_like_count fb-like" data-href="<?php echo base_url("spot/show/".$spot["id"]);?>" data-send="false" data-layout="button_count" data-width="450" data-show-faces="false"></div>
-						</div>
-						<div>
-							<p>名称：<span class="pg_name"></span></p>
-							<p>参考滞在時間：<span class="pg_stay_time"></span>
-						</div>
-						<div>
-							<p>カテゴリ：<ul class="pg_category"></ul></p>
-							<p>タグ<ul class="pg_tags"></ul></p>
-						</div>
-						<div>
-							<p>説明：<span class="pg_description"></span></p>
-						</div>
-					</div>
-					<div class="pg_control">
-						<a class="pg_detail" href="">詳細</a>
-						<a class="pg_copy" href="">複製</a>
-						<a class="pg_edit" href="">編集</a>
-						<a class="pg_delete" href="">削除</a>
-					</div>
-				</li>
-			</ul>
-		</div>
-	</div>
-
-	<div id="pg_tabs_spot" class="clearfix">
-		<div class="pg_map" style="width:50%; height:600px; float:left;"></div>
-		<div style="margin-left: 50%; padding: 5px;">
-			<div class="pg_pagenation"></div>
-			<p>[<a href="<?php echo base_url("user/spot/form");?>">追加</a>]</p>
-			<ul id="pg_spots">
-				<li class="pg_spot_temp" style="display: none;">
-					<div>
-						<div>
-							<img class="pg_image" src="" /><br />
-							<div class="pg_like_count fb-like" data-href="" data-send="false" data-layout="button_count" data-width="450" data-show-faces="false"></div>
-						</div>
-						<div>
-							<p>名称：<span class="pg_name"></span></p>
-							<p>参考滞在時間：<ul class="pg_stay_time"></ul>
-						</div>
-						<div>
-							<p>カテゴリ：<span class="pg_category"></span></p>
-							<p>タグ<ul class="pg_tags"></ul></p>
-						</div>
-						<div>
-							<p>説明：<span class="pg_description"></span></p>
-						</div>
-					</div>
-					<div>
-						<a class="pg_detail" href="">詳細</a>
-						<a class="pg_edit" href="">編集</a>
-						<a class="pg_delete" href="">削除</a>
-					</div>
-				</li>
-			</ul>
-		</div>
-	</div>
-
-</div>
-
 
