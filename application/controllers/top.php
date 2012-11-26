@@ -14,7 +14,7 @@ class Top extends MY_Controller {
 		//
 		$request	= array();
 		$offset		= 0;
-		$limit		= 10;
+		$limit		= 6;
 		$sort		= "created_time";
 		$sort_type	= "desc";
 
@@ -32,7 +32,7 @@ class Top extends MY_Controller {
 		$data["tours"] = $tour;
 
 		// スポット一覧
-		$limit		= 20;
+		$limit		= 6;
 		$sort		= "created_time";
 		$sort_type	= "desc";
 		$offset = 0;
@@ -57,7 +57,17 @@ class Top extends MY_Controller {
 			$topics["relation"]["tags"] 		= $this->Tag_model->tag_values($topics["relation"]["tags"]);
 		}
 		$data["topics"] = $topics;
+		// FBログインURL
+		$params = array("redirect_uri" => base_url("user/top/fb_auth"));
+		$data["fb_login"] = $this->facebook->getLoginUrl($params);
 		$this->render_view('guest/top', $data);
+	}
+	
+	function login_popup() {
+		// FBログインURL
+		$params = array("redirect_uri" => base_url("user/top/fb_auth"));
+		$data["fb_login"] = $this->facebook->getLoginUrl($params);
+		$this->load->view("user/login.php", $data);
 	}
 	
 	function login() {
