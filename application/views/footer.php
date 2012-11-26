@@ -1,15 +1,20 @@
-	</div><!-- div id="container" -->
-</div><!-- div id="layout" -->
 <footer>
-	<div id="footerInner">
-		<ul id="footerNavi">
-			<li><a href="#">このサイトについて</a></li>
-			<li><a href="#">お問合せ</a></li>
-			<li><a href="#">利用規約</a></li>
+	<nav>
+		<ul>
+			<li><a href="./about/">このサイトについて</a></li>
+			<li><a href="./howto/">たびつくの使い方</a></li>
+			<li><a href="./contact/">お問い合わせ</a></li>
+			<li><a href="./rule/">利用規約</a></li>
 		</ul>
-		<p id="copyright">copyright tabitsuku</p>
-	</div>
+	</nav>
 </footer>
+
+
+<div id="loginArea">
+	<p class="cover"></p>
+	<iframe src="<?php echo base_url("top/login_popup");?>" width="780" height="300" allowtransparency="true"></iframe>
+</div>
+<!-- //loginArea -->
+
 </body>
 </html>
-<?php //$this->output->enable_profiler(TRUE);?>
