@@ -98,7 +98,7 @@
 							<img src="<?php echo base_url("assets"); ?>/img/common/noimage.jpg" width="137" height="104" alt="<?php echo $tour["name"];?>" />
 						<?php endif;?>
 					</a></p>
-					<div class="pg_like_count fb-like" data-href="<?php echo base_url("spot/show/".$tour["id"]);?>" data-send="false" data-layout="button_count" data-width="450" data-show-faces="false"></div>
+					<div class="pg_like_count fb-like" data-href="<?php echo base_url("tour/show/".$tour["id"]);?>" data-send="false" data-layout="button_count" data-width="450" data-show-faces="false"></div>
 					<dl class="category">
 <?php
 						preg_match_all("/\d+/", $tour["category"], $category);
@@ -167,7 +167,7 @@
 						<img src="<?php echo base_url("assets");?>/img/spot/sample.jpg" width="137" height="104" alt="<?php echo $data["name"];?>" />
 						<?php endif;?>
 					</a></p>
-					<div class="fb-like" data-href="http://www.google.co.jp/" data-send="false" data-layout="button_count" data-width="450" data-show-faces="false"></div>
+					<div class="pg_like_count fb-like" data-href="<?php echo base_url("spot/show/".$spot["id"]);?>" data-send="false" data-layout="button_count" data-width="450" data-show-faces="false"></div>
 					<dl class="category">
 						<?php
 						$categories = explode(",", $spot["category"]);
@@ -179,7 +179,7 @@
 							}
 						?>
 						<dt><img src="<?php echo base_url("assets"); ?>/img/common/icon/category.gif" alt="CATEGORY" /></dt>
-						<dd>見る</dd>
+						<dd><?php echo implode(" > ", $tree);?></dd>
 						<?php endforeach;?>
 					
 					</dl>
@@ -204,7 +204,7 @@
 						</dl>
 						<dl>
 							<dt><img src="<?php echo base_url("assets"); ?>/img/common/icon/time.gif" alt="時間" /></dt>
-							<dd>2時間ツアー</dd>
+							<dd><?php echo $spot["stay_time"];?>分</dd>
 						</dl>
 					</div>
 					<!-- //subinfo -->
