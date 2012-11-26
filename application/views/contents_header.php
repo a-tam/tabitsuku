@@ -1,35 +1,44 @@
-</head>
-<body id="makeTour">
-<div id="layout">
-	<header>
-		<div id="headerInner" class="clearfix">
-			<div id="headerNavi">
-				<h1><img src="/assets/img/interface/logo_s.png" alt="旅ツク" width="108" height="29"></h1>
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/ja_JP/all.js#xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+<header>
+	<h1><a href="./"><img src="<?php echo base_url("assets"); ?>/img/logo.gif" alt="たびつく　自分だけの旅行プランを作ろう" /></a></h1>
+	<dl class="search">
+		<dt><img src="<?php echo base_url("assets"); ?>/img/common/header/search.gif" alt="ツアーやスポットを検索しよう" /></dt>
+		<dd>
+			<form>
+				<p class="categoryselect">
+					<select class="category" name="category">
+						<option>全てのカテゴリ</option>
+						<option>見る</option>
+						<option>遊ぶ</option>
+						<option>食べる</option>
+						<option>宿泊・温泉</option>
+						<option>乗り物/乗り場</option>
+						<option>買う</option>
+					</select>
+				</p>
 				<ul>
-					<li><a href="<?php echo base_url("/");?>">TOP</a></li>
-					<li><a href="<?php echo base_url("tour/search");?>">ツアー検索</a></li>
-					<li><a href="<?php echo base_url("spot/search");?>">スポット検索</a></li>
-				
-				<?php if($this->user_info):?>
-					<li><a href="<?php echo base_url("user/tour/form");?>">ツアー作成</a></li>
-					<li><a href="<?php echo base_url("user/spot/form");?>">スポット作成</a></li>
-				<?php endif;?>
+					<li><input type="radio" name="type" value="ツアー" id="headersearch_tour"><label for="headersearch_tour">ツアー</label></li>
+					<li><input type="radio" name="type" value="スポット" id="headersearch_spot"><label for="headersearch_spot">スポット</label></li>
 				</ul>
-			</div>
-			<div id="personalNavi">
-				<ul>
-				<?php if(!$this->user_info):?>
-					 	<li><a href="<?php echo base_url("user/top");?>">会員登録・ログイン</a></li>
-						<li>ようこそ ゲスト さん</li>
-					
-					<?php else:?>
-						<li><a href="<?php echo base_url("user/top");?>">マイページ</a></li>
-						<li><a href="<?php echo base_url("user/top/logout");?>">ログアウト</a></li>
-						<li>ようこそ <a href="<?php echo base_url("user/profile");?>"><?php echo $this->user_info["name"];?></a> さん</li>
-					<?php endif;?>
-				</ul>
-			</div>
-			
-		</div>
-	</header>
-	<div id="container">
+				<p class="keyword"><input type="text" class="text" name="keyword" value="" /></p>
+				<p class="submit mouse_over"><input type="image" src="<?php echo base_url("assets"); ?>/img/common/header/searchbtn.gif" alt="検索" /></p>
+			</form>
+		</dd>
+	</dl>
+	<!-- //search -->
+	<?php if ($this->user_info): ?>
+	<p class="login"><a href="<?php echo base_url("user/top/logout");?>" class="mouse_over"><img src="<?php echo base_url("assets"); ?>/img/common/header/logout.gif" alt="ログアウト" /></a></p>
+	<?php else: ?>
+	<p class="login"><a href="#login" class="loginbtn mouse_over"><img src="<?php echo base_url("assets"); ?>/img/common/header/login.gif" alt="ログインはこちら" /></a></p>
+	<?php endif; ?>
+	
+</header>
