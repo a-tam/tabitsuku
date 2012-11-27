@@ -1,0 +1,22 @@
+@charset "utf-8";
+
+
+/* ==================================================================
+
+	import.css		読み込みCSS
+	font.css		文字サイズの指定CSS	
+	reset.css		基準値の指定CSS
+	component.css	各パーツCSS
+	common.css		サイト全体に共通するCSS
+	modules.css		個別指定用CSS	
+	print.css		印刷用CSS
+	
+=================================================================== */
+
+@import "./fonts.css";
+@import "./reset.css";
+@import "./component.css";
+@import "./common.css";
+@import "menu.css";
+
+
