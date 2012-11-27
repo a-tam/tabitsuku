@@ -1,0 +1,282 @@
+@charset "utf-8";
+
+/* ==================================================================
+
+	■ページ共通のパーツの指定
+
+=================================================================== */
+
+/* =================================
+   ■ 共通指定
+================================== */
+
+/* --------------------------------
+   □ body
+-------------------------------- */ 
+body{
+	font-family:  "ヒラギノ角ゴPro W3", "Hiragino Kaku Gothic Pro", Osaka, "メイリオ" , Meiryo, "ＭＳ Ｐゴシック",Verdana, Arial, Helvetica, sans-serif;
+
+	text-align: center; 	/* IE用 */
+
+	color: #333333;
+	background:#fff;
+	height:100%;
+	width:100%;
+
+}
+
+/* --------------------------------
+   □ text
+-------------------------------- */
+p { 
+	margin:0 0 0.8em 0;
+	text-align:justify;
+	text-justify:inter-ideograph;
+}
+
+p,table,ul,dl,ol,address{
+	line-height:1.5;
+}
+
+/* --------------------------------
+   □ form
+-------------------------------- */
+input.text{
+	line-height:1.2;
+}
+
+input.text,
+textarea {
+	border: 1px solid #aaa;
+	padding:2px;
+}
+
+* html input.text,
+* html textarea {
+	padding:4px 4px 0px 4px;
+}
+
+*:first-child + html input.text,
+*:first-child + html textarea {
+	padding:4px 4px 0px 4px;
+}
+
+input.text:hover,
+textarea:hover {
+	border: 1px solid #81a9dd;
+	box-shadow:0 0 3px rgba(0,0,0,0.4);
+}
+input:disabled:hover{
+	border: 1px solid #aaa;
+	box-shadow:none;
+}
+
+input.text:focus,
+textarea:focus {
+	border: 1px solid #333333;
+}
+
+input.submit{
+	line-height:100%;
+	padding-top:2px;
+}
+
+/* --------------------------------
+   □ link
+-------------------------------- */
+/* 基本 */
+a,
+a:link{
+	color:#333;
+	text-decoration:underline;
+}
+
+/* 訪問済 */
+a:visited {
+	color:#333;
+}
+
+/* ロールオーバー */
+a:hover{
+	color:#999;
+	text-decoration:none;
+}
+.textlink,
+.textlink:link,
+.textlink:visited {
+	background:url(../images/common/icon/arrow/orange.gif) no-repeat 0 4px;
+	padding-left:10px;
+	font-size:12px;
+	color:#f76b1e;
+}
+
+/* =================================
+   ■ レイアウト
+================================== */
+
+/* --------------------------------
+   □ 大枠 
+-------------------------------- */
+/*
+.page{ 
+	width:700px;
+}
+*/
+
+header,
+.contents,
+footer nav{ 
+	text-align: left;
+	margin:0 auto;
+	width:1000px;
+	position:relative;
+}
+
+/*
+body > .site,
+body > .contents,
+body > .publication{ 
+	width:700px;
+}
+* /
+
+/* --------------------------------
+   □ サイト情報 (ヘッダー)
+-------------------------------- */
+header {
+	padding-top:10px;
+}
+header h1{
+	float:left;
+	margin-bottom:3px;
+}
+
+header .search{
+	float:left;
+	height:64px;
+	width:440px;
+	background:url(../images/common/header/searchbg.gif) no-repeat;
+	margin-left:85px;
+	margin-top:5px;
+}
+header .search dt{
+	float:left;
+	padding-top:18px;
+	padding-left:50px;
+}
+header .search dd{
+	float:left;
+	margin-left:13px;
+	padding-top:3px;
+	width:280px;
+}
+header .search p{
+	margin-bottom:3px;
+}
+header .search .categoryselect{
+	float:left;
+}
+header .search ul{
+	float:left;
+}
+header .search ul li{
+	display:inline;
+	font-size:12px;
+}
+header .search .keyword{
+	clear:both;
+	float:left;
+}
+header .search .keyword input{
+	width:180px;
+	font-size:12px;
+}
+header .search .submit{
+	float:right;
+	padding-top:3px;
+	margin-right:10px;
+	/*margin-left:10px;*/
+}
+header .login{
+	float:right;
+	padding-top:5px;
+}
+
+/* --------------------------------
+   □ ページコンテンツ
+-------------------------------- */
+.contents{
+	clear:both;
+	padding-top:3px;
+}
+section{
+	position:relative;
+}
+.contents .main{
+	float:left;
+	width:772px;
+}
+
+.contents .container{
+	background:url(../images/common/split.gif) repeat-y 793px 0;
+	margin-bottom:20px;
+}
+
+.contents .side{
+	float:right;
+	width:180px;
+	padding-top:3px;
+}
+
+/* --------------------------------
+   □ サイト情報(フッター)
+------------------px;-------------- */
+footer{
+	background-color:#f0f0f0;
+	border-top:1px solid #a3a3a3;
+}
+
+footer nav ul{
+	text-align:center;
+	padding-bottom:2px;
+}
+footer nav li{
+	display:inline;
+	margin-right:30px;
+}
+footer nav li a,
+footer nav li a:link{
+	color:#000;
+	font-size:75%;
+}
+footer nav li a:hover{
+	color:#333;
+	text-decoration:underline;
+}
+
+/* --------------------------------
+   □ サブページ
+-------------------------------- */
+.subpage #breadcrumbs{
+	margin-bottom:40px;
+}
+.subpage .container{
+	margin-bottom:60px;
+}
+.subpage .search_box{
+	margin-bottom:30px;
+}
+.subpage .contents .main{
+	width:750px;
+}
+.subpage h2{
+	border-bottom:1px dotted #333333;
+	height:40px;
+	margin-bottom:30px;
+}
+.subpage h3{
+	color:#2772aa;
+	font-size:19px;
+	margin-bottom:20px;
+}
+
