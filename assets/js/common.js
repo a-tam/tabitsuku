@@ -133,7 +133,7 @@ commonCtl.registCategoryAddSet=function(){
 		//maincategory
 		target.find(".category_add").css("display","none");
 		target.append('<input type="hidden" name="category'+selectedCategoryNo+'" value="'+selectedCategoryname+'" class="maincategory" />');
-		target.append('<p class="selectedCategory"><a href="#close" class="close mouse_over"><img src="../../images/common/search/close.gif" alt="CLOSE" /></a>'+addCategoryName+'</p>');
+		target.append('<p class="selectedCategory"><a href="#close" class="close mouse_over"><img src="' + gAssetUrl + '/img/common/search/close.gif" alt="CLOSE" /></a>'+addCategoryName+'</p>');
 		target.find(".close").on('click',function(){
 			categoryRemove($(this).parent().parent().index()+1);
 			return false;

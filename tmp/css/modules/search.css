@@ -1,0 +1,126 @@
+@charset "utf-8";
+
+
+/* ==================================================================
+
+	■Search
+	
+=================================================================== */
+
+.search_box{
+	margin-bottom:20px;
+}
+
+
+.list_area{
+	clear:both;
+	padding-top:20px;
+	margin-bottom:20px;
+}
+
+.list_area .list_item{
+	clear:both;
+	border:1px solid #d7d7d7;
+	border-radius:8px;
+	position:relative;
+	margin-bottom:5px;
+	padding-bottom:10px;
+}
+.list_area .list_item .icon{
+	position:absolute;
+	top:-1px;
+	left:-1px;
+	border-top-left-radius:8px;
+	overflow:hidden;
+}
+
+.list_area .list_item .photo{
+	float:left;
+	width:137px;
+	height:104px;
+	overflow:hidden;
+	margin-top:10px;
+	margin-left:10px;
+	margin-bottom:0;
+}
+.list_area .list_item .info_area{
+	float:left;
+	width:425px;
+	margin-left:15px;
+	padding-top:10px;
+}
+.list_area .list_item .maininfo{
+	margin-bottom:15px;
+}
+
+.list_area .list_item .info_area dt{
+	font-weight:bold;
+}
+.list_area .list_item .subinfo{
+	/*position:absolute;
+	bottom:13px;*/
+}
+.list_area .list_item .subinfo dl{
+	float:left;
+	margin-right:15px;
+	width:135px;
+	margin-left:-5px;
+}
+.list_area .list_item .subinfo dl.name{
+	margin-left:0px;
+}
+.list_area .list_item .subinfo dl.time{
+	margin-right:0px;
+}
+.list_area .list_item .subinfo dl dt{
+	float:left;
+}
+.list_area .list_item .subinfo dl dd{
+	margin-left:65px;
+}
+
+.list_area .list_item .sub_box{
+	float:right;
+	position:relative;
+	width:163px;
+	margin-right:10px;
+}
+.list_area .list_item .fb-like{
+	margin-top:10px;
+	margin-bottom:10px;
+	height:20px;
+	width:163px;
+	overflow:hidden;
+}
+.list_area .list_item .sub_box .category dt{
+	height:14px;
+}
+.list_area .list_item .sub_box .category li{
+	float:left;
+	margin-right:10px;
+	margin-bottom:3px;
+	
+}
+.list_area .list_item .sub_box .linkbtn{
+	/*position:absolute;
+	bottom:0;*/
+	margin:0;
+}
+
+/*  learfix */
+.list_area .list_item:after,
+.list_area .list_item .subinfo:after,
+.list_area .list_item .sub_box .category:after{
+	content:".";
+	height:0;
+	clear:both;
+	display:block;
+	visibility:hidden;
+	line-height:0;
+	font-size:0;
+}
+.list_area .list_item,
+.list_area .list_item .subinfo,
+.list_area .list_item .sub_box .category{
+	zoom:1;
+}

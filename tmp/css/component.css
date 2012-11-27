@@ -1,0 +1,630 @@
+@charset "utf-8";
+
+
+/* ==================================================================
+	
+	■コンポーネント一覧
+
+=================================================================== */
+
+/* --------------------------------
+   □ clearfix
+-------------------------------- */
+
+.site:after,
+.contents:after,
+.main:after,
+.sub:after,
+.clearfix:after,
+.part:after,
+.chapter:after,
+.section:after,
+.subsection:after,
+.division:after,
+.article:after,
+.explain:after,
+ul.navigation:after,
+ul.items li:after,
+section:after,
+.contents .side dl dd:after,
+.contents .container:after,
+.search_box .categoryselect ul:after,
+.contents .side .group li:after,
+#input_area .category li:after,
+.search_box:after{
+	content:".";
+	height:0;
+	clear:both;
+	display:block;
+	visibility:hidden;
+	line-height:0;
+	font-size:0;
+}
+
+/* WIN用IE \*/
+.site,
+.contents,
+.main,
+.sub,
+.clearfix,
+.chapter,
+.section,
+.subsection,
+.divisio,
+.article,
+.explain,
+ul.navigation,
+ul.items li,
+section,
+.contents .side dl dd,
+.contents .container,
+.search_box .categoryselect ul,
+.contents .side .group li,
+#input_area .category li,
+.search_box{ 
+	zoom:1;
+}
+/* end */
+
+/* MAC用IE only \*//*/
+.site,
+.contents,
+.main,
+.sub,
+.clearfix,
+.chapter,
+.section,
+.subsection,
+.divisio,
+.article,
+.explain,
+ul.navigation,
+ul.items li { display: inline-block; 
+}
+/* end */
+
+
+/* --------------------------------
+   □ パンくずナビ
+-------------------------------- */
+
+#breadcrumbs {
+	margin-bottom:6px;
+ }
+#breadcrumbs li {
+	vertical-align  : middle;
+	display	: inline;
+}
+
+#breadcrumbs li a{  
+	padding-right	: 10px;
+	margin-right:0px;
+	color:#333;
+	text-decoration:underline;
+	background:url(../images/common/icon/arrow/breadcrumbs.gif) 100% 50% no-repeat;
+}
+#breadcrumbs li a:hover{  
+	color:#333;
+	text-decoration:none;
+}
+
+
+
+/* --------------------------------
+   □ side
+-------------------------------- */
+.contents .side dl{
+	clear:both;
+	margin-bottom:30px;
+	width:180px;
+}
+.contents .side dl dt{
+	margin-bottom:12px;
+}
+
+.contents .side .group li{
+	clear:both;
+	margin-bottom:5px;
+	/*float:left;*/
+}
+.contents .side .group a{
+	float:left;
+	border:1px solid #f67f00;
+	max-width:140px;
+	border-radius:4px;
+	background:#f9ede7 url(../images/common/side/groupbg.gif) repeat-x;
+	text-decoration:none;
+	display:block;
+}
+.contents .side .group em{
+	color:#f67f00;
+	padding-right:10px;
+	margin-left:6px;
+	padding-left:12px;
+	background:url(../images/common/side/tri.gif) no-repeat 0px 6px;
+	font-size:12px;
+	display:block;
+}
+.contents .side .group a:hover em{
+	color:#fabf44;
+}
+.contents .side .group p{
+	float:left;
+	margin-top:2px;
+	margin-bottom:0;
+	margin-left:2px;
+	padding-right:5px;
+	background:url(../images/common/side/numbg.gif) right 0 no-repeat; 
+	height:16px;
+}
+.contents .side .group li p span{
+	background:url(../images/common/side/numarrow.gif) no-repeat;
+	display:block;
+	padding-left:10px;
+	font-size:10px;
+	vertical-align:middle;
+	height:16px;
+}
+
+.contents .side .rank{
+	width:180px;
+}
+.contents .side .rank li{
+	padding-left:33px;
+	padding-bottom:12px;
+	padding-top:1px;
+}
+.contents .side .rank .rank1{
+	padding-top:6px;
+	background:url(../images/common/side/rank1.gif) no-repeat;
+}
+.contents .side .rank .rank2{
+	background:url(../images/common/side/rank2.gif) 4px 0 no-repeat;
+}
+.contents .side .rank .rank3{
+	background:url(../images/common/side/rank3.gif) 4px 0 no-repeat;
+}
+.contents .side .rank .rank4{
+	background:url(../images/common/side/rank4.gif) 4px 0 no-repeat;
+}
+.contents .side .rank .rank5{
+	background:url(../images/common/side/rank5.gif) 4px 0 no-repeat;
+}
+
+
+/* --------------------------------
+   □ 検索BOX
+-------------------------------- */
+.search_box{
+	background:url(../images/common/search/bg.gif) no-repeat;
+	width:781px;
+	height:149px;
+	position:relative;
+	margin-left:-4px;
+	clear:both;
+}
+.search_box .search_setting{
+	padding-top:13px;
+	margin-left:10px;
+	position:relative;
+	z-index:2;
+}
+.search_box .search_setting .setting-title{
+	margin-bottom:13px;
+}
+.search_box .search_setting dl{
+	float:left;
+	height:90px;
+}
+.search_box .search_setting input.text{
+	width:178px;
+	height:25px;
+}
+.search_box .search_setting dl dt{
+	margin-bottom:5px;
+}
+.search_box .search_setting .keyword{
+	margin-left:10px;
+}
+.search_box .search_setting .category{
+	border-left:1px dotted #666666;
+	margin-left:20px;
+	padding-left:20px;
+}
+.search_box .search_setting .category dd{
+	width:200px;
+}
+.search_box .search_setting .type{
+	border-left:1px dotted #666666;
+	margin-left:10px;
+	padding-left:10px;
+}
+.search_box .search-btn{
+	position:absolute;
+	top:13px;
+	left:590px;
+	z-index:1;
+	width:180px;
+
+}
+.search_box .search-btn dt{
+	margin-bottom:12px;
+}
+.search_box .search-btn dd ul li{
+	text-align:center;
+	margin-bottom:10px;
+}
+.search_box .search-btn dd ul li.select{
+	font-weight:bold;
+}
+.search_box .category{
+	position:relative;
+}
+.search_box .category .selectedCategory,
+#input_area .category .selectedCategory{
+	border:1px solid #b1b1b1;
+	border-radius:2px;
+	float:left;
+	line-height:1;
+	padding:3px 5px;
+	text-align:left;
+}
+#input_area .category .selectedCategory{
+	margin-bottom:0;
+}
+.search_box .category .selectedCategory .close,
+#input_area .category .selectedCategory .close{
+	margin-right:5px;
+	background:url(../images/common/search/close.gif) no-repeat;
+	height:11px;
+	width:11px;
+	display:inline-block;
+	text-decoration:none;
+}
+.search_box .categoryselect,
+#input_area .categoryselect{
+	position:absolute;
+	top:0;
+	left:175px;
+	border:3px solid #000;
+	border-radius:6px;
+	box-shadow:1px 1px 3px rgba(0,0,0,0.4);
+	background-color:#FFF;
+	width:200px;
+	display:none;
+}
+.search_box .categoryselect ul,
+#input_area .categoryselect ul{
+	padding:10px;
+}
+.search_box .categoryselect li,
+#input_area .categoryselect li{
+	float:left;
+	margin-right:8px;
+	margin-bottom:8px;
+}
+.search_box .categoryselect li a,
+#input_area .categoryselect li a{
+	display:block;
+	background:url(../images/common/search/selectbtnbg.gif) repeat-x;
+	border:1px solid #6d6d6d;
+	border-radius:6px;
+	text-decoration:none;
+	text-align:center;
+	padding-left:5px;
+	padding-right:5px;
+	white-space:nowrap;
+}
+#input_area .categoryselect li.select a{
+	border:1px solid #d40;
+	background:none;
+	background-color:#F60;
+	color:#FFF;
+}
+.search_box .categoryselect .close,
+#input_area .categoryselect .close{
+	position:absolute;
+	top:-10px;
+	right:-10px;
+}
+.search_box .categoryselect .tri,
+#input_area .categoryselect .tri{
+	position:absolute;
+	top:20px;
+	left:-22px;
+	background:url(../images/common/search/tri.png)  no-repeat;
+	width:22px;
+	height:23px;
+}
+#input_area .categoryselect input.text{
+	width:168px;
+	margin-left:10px;
+	margin-right:10px;
+	margin-bottom:10px;
+}
+#input_area .categoryselect .add{
+	text-align:right;
+	margin-right:15px;
+}
+
+/* search_box_l */
+.search_box_l{
+	background:url(../images/common/search/bg_l.gif) no-repeat;
+	width:1012px;
+	height:159px;
+}
+.search_box_l .search_setting input.text{
+	width:220px;
+}
+.search_box_l .search_setting .category dd{
+	width:250px;
+}
+.search_box_l .search-btn{
+	left:750px;
+	width:250px;
+}
+
+/* --------------------------------
+   □ search_info
+-------------------------------- */
+.search_info{
+	clear:both;
+	border-radius:8px;
+	border:1px solid #d7d7d7;
+	overflow:hidden;
+}
+.search_info .total{
+	float:left;
+	padding-top:12px;
+	margin-left:30px;
+}
+.search_info .pager{
+	float:right;
+	margin-right:15px;
+	padding-top:8px;
+}
+.search_info .pager .order{
+	float:left;
+	margin-right:20px;
+}
+.search_info .pager .prev{
+	float:left;
+	margin-right:20px;
+	padding-top:2px;
+}
+.search_info .pager ul{
+	float:left;
+	padding-top:2px;
+	margin-right:20px;
+}
+.search_info .pager ul li{
+	display:inline;
+	margin-right:5px;
+}
+.search_info .pager ul li a{
+	text-decoration:none;
+}
+.search_info .pager ul li a:hover{
+	text-decoration:underline;
+}
+.search_info .pager .next{
+	float:left;	
+	padding-top:2px;
+}
+
+/* --------------------------------
+   □ boxhover
+-------------------------------- */
+#route_area .routes .item:hover,
+.list_area .list_item:hover{
+	box-shadow:0 0 3px rgba(0,0,0,0.4);
+	border:1px solid #81a9dd;
+}
+
+/* --------------------------------
+   □ loginArea
+-------------------------------- */
+#loginArea{
+	position:absolute;
+	top:0;
+	left:0;
+	display:none;
+	z-index:1001;
+	zoom:1;
+	width:100%;
+}
+#loginArea .cover{
+	background:url(../images/common/cover.png);
+	position:absolute;
+	top:0;
+	left:0;
+	z-index:1;
+	width:100%;
+	height:100%;
+}
+#loginArea iframe{
+	border:none;
+	position:relative;
+	z-index:2;
+}
+
+/* --------------------------------
+   □ innerSpot
+-------------------------------- */
+#innerSpotDetailArea{
+	position:absolute;
+	top:0;
+	left:0;
+	display:none;
+	z-index:1001;
+	zoom:1;
+	width:100%;
+}
+#innerSpotDetailArea .cover{
+	background:url(../images/common/cover.png);
+	position:absolute;
+	top:0;
+	left:0;
+	z-index:1;
+	width:100%;
+	height:100%;
+}
+#innerSpotDetailArea #innerSpotFrame{
+	position:relative;
+	z-index:2;
+	width:550px;
+	margin:0 auto;
+}
+#innerSpotDetailArea iframe{
+	border:none;
+	position:relative;
+}
+#innerSpotDetailArea .close{
+	background:url(../images/common/btn/close.png) no-repeat;
+	width:25px;
+	height:25px;
+	cursor:pointer;
+	position:absolute;
+	top:-10px;
+	right:-10px;
+	z-index:3;
+	display:none;
+}
+
+/* =================================
+   ■ 共通指定
+================================== */
+
+/* --------------------------------
+   □ 共通クラス
+-------------------------------- */
+
+/* ◇ text
+-------------------------------- */
+/* margin0 */
+p.none{ margin-bottom:0;}
+/* 段落 */
+p.indent{ text-indent:1em;}
+/* 備考 */
+p.remarks{ text-indent:-1em; padding-left:1em;}
+
+/* 右寄せ */
+.right{float:right;}
+/* 左寄せ */
+.left{float:left;}
+
+/* text中央寄せ */
+.text-center,
+.text-center p{ text-align:center;}
+.text-center img{ margin: 0 auto;}
+
+/* text右寄せ */
+.text-right,
+.text-right p{ text-align:right;}
+/* text左寄せ */
+.text-left,
+.text-left p{ text-align:left;}
+
+/* clear */
+.clear{
+	clear:both;
+}
+
+/* 変換
+-------------------------------- */
+.ime-disabled{
+	ime-mode:disabled;
+}
+.ime-active{
+	ime-mode:active;
+}
+
+/* 文字隠
+-------------------------------- */
+.texthidden{
+	text-indent: -1000em;
+	text-decoration:none;
+	font-size:1px;
+	overflow: hidden;
+}
+
+/* MAC用IE only \*//*/
+.texthidden  {overflow: inherit;}
+/* end */
+
+/* TOPへ戻る
+-------------------------------- */
+
+p.pagetop{
+	text-align:right;
+	margin:0 10px;
+}
+
+/*
+p.pagetop a{
+	padding-left:11px;
+	background:url(../images/common/icon/pagetop.gif) 0 50% no-repeat;
+}
+*/
+
+/* ◇ 番号付きリスト
+-------------------------------- */
+
+ol.decimal li{
+	list-style-type:decimal;
+	margin-left:2em;
+}
+
+*:first-child + html ol.decimal li{
+	display:list_item;
+	vertical-align:top;
+	position:relative;
+	top:-0.3em;
+	margin-top:0.3em;
+}
+
+/* 送信フォーム
+-------------------------------- */
+.submitArea{
+	margin:15px 0;
+	text-align:center;
+}
+
+.submitArea img,
+.submitArea input{
+	vertical-align:baseline;
+}
+
+/* エラー ----------------------- */
+.warning{
+	color:#FF0000;
+	font-size:92%;
+	display:none;
+}
+
+/* バナー一覧
+-------------------------------- */
+.publicity ul li{
+	margin-bottom:5px;
+}
+
+/* 広告バナー
+-------------------------------- */
+.abs{
+	margin:0;
+}
+
+/* ◇ 簡易マウスオーバー
+-------------------------------- */
+.mouse_over a:hover img,
+.mouse_over:hover img,
+.mouse_over:hover input{
+	filter:alpha(opacity=90);  
+    -ms-filter: "alpha(opacity=90)";
+	-moz-opacity:0.9; 
+	-khtml-opacity: 0.9;
+    opacity: 0.9; 
+}
+
+
+
