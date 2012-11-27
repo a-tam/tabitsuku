@@ -3,7 +3,7 @@
 
 <!-- javascript -->
 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=true"></script>
-<script type="text/javascript" src="<?php echo base_url("assets");?>/js/user.js"></script>
+<script type="text/javascript" src="<?php echo base_url("assets");?>/js/userspot.js"></script>
 
 </head>
 <body id="user" class="sec spot">
@@ -72,14 +72,13 @@
 				<!-- //maparea -->
 				
 		
-				<div class="list_area">
-					<div class="list_item">
+				<div class="list_area" id="pg_spots">
+					<div class="list_item pg_spot_temp pg_spot_list" style="display:none;">
 						<p class="icon"><img src="<?php echo base_url("assets");?>/img/common/icon/spot.png" alt="スポット" /></p>
-						
 						<div class="photo_area">
-							<p><a href="../spot/"><img src="<?php echo base_url("assets");?>/img/top/sample.jpg" alt="ツアー内容ツアー内容ツアー内容" /></a></p>
-							<div class="fb-like" data-href="http://www.google.co.jp/" data-send="false" data-layout="button_count" data-width="450" data-show-faces="false"></div>
-							<dl class="category">
+							<p><a href="../spot/" class="pg_detail"><img class="pg_image" src="<?php echo base_url("assets");?>/img/common/noimage_s.jpg" alt="" /></a></p>
+							<div class="pg_like_count" data-href="http://www.google.co.jp/" data-send="false" data-layout="button_count" data-width="450" data-show-faces="false"></div>
+							<dl class="category pg_category">
 								<dt><img src="<?php echo base_url("assets");?>/img/common/icon/category.gif" alt="CATEGORY" /></dt>
 								<dd>見る</dd>
 							</dl>
@@ -88,12 +87,12 @@
 			
 						<div class="info_area">
 							<dl class="maininfo">
-								<dt>スポット名スポット名スポット名</dt>
-								<dd>当店のメニューは、素材の持ち味を最大限引き出すことを重んじたランチ、ディナーとも「おまかせの１コース」のみ。旬の素材により、メニュー・・・</dd>
+								<dt class="pg_name">スポット名スポット名スポット名</dt>
+								<dd class="pg_description">当店のメニューは、素材の持ち味を最大限引き出すことを重んじたランチ、ディナーとも「おまかせの１コース」のみ。旬の素材により、メニュー・・・</dd>
 							</dl>
 							<!-- //maininfo -->
 							
-							<p class="linkbtn"><a href="../spot/" class="mouse_over"><img src="<?php echo base_url("assets");?>/img/common/btn/spotlinkbtn.gif" alt="スポット詳細を見る"></a></p>
+							<p class="linkbtn"><a href="../spot/" class="mouse_over pg_detail"><img src="<?php echo base_url("assets");?>/img/common/btn/spotlinkbtn.gif" alt="スポット詳細を見る"></a></p>
 			
 						</div>
 						<!-- //info_area -->

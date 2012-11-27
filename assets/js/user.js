@@ -106,7 +106,7 @@
 									category_name.push(json["relation"]["categories"][category_id]);
 								});
 							}
-							tour_elm.find(".pg_category").append("<li>" + category_name.join(" > ") + "</li>");
+							tour_elm.find(".pg_category").append('<dt><img src="' + gAssetUrl + '/img/common/icon/category.gif" alt="CATEGORY" /></dt><dd>' + category_name.join(" > ") + '</dd>');
 							// タグ
 							tour_elm.find(".pg_tags").empty();
 							if (tour_info.tags) {

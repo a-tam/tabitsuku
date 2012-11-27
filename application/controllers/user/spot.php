@@ -38,7 +38,7 @@ class Spot extends MY_Controller {
 		$this->_set_validation($this->form_data);
 		$data = $this->phpsession->set_post($this->ns, "point", $this->form_data);
 		if ($this->form_validation->run() == FALSE) {
-		  if ($smartphone = $this->agent->is_smartphone()) {
+			if ($smartphone = $this->agent->is_smartphone()) {
 		    return $this->render_view("user/spot/smartphone", $data);
 		  } else {
 		    return $this->render_view("user/spot/form", $data);

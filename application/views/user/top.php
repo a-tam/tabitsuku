@@ -72,7 +72,7 @@
 				
 		
 				<div class="list_area" id="pg_tours">
-					<div class="list_item pg_tour_temp pg_tour_list">
+					<div class="list_item pg_tour_temp pg_tour_list" style="display:none;">
 						<p class="icon"><img src="<?php echo base_url("assets");?>/img/common/icon/tour.png" alt="ツアー" /></p>
 						
 						<div class="photo_area">
