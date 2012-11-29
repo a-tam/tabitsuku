@@ -1,10 +1,16 @@
 <!-- css -->
 <link rel="stylesheet" type="text/css" media="screen,print" href="<?php echo base_url("assets"); ?>/css/modules/tourentry.css" />
+<link rel="stylesheet" type="text/css" href="<?php echo base_url("assets"); ?>/js/jquery/autocomplete/css/jquery.tagit.css">
+<link rel="stylesheet" type="text/css" href="<?php echo base_url("assets"); ?>/js/jquery/timepicker/jquery.timepicker.css">
+<link rel="stylesheet" type="text/css" href="<?php echo base_url("assets");?>/js/jquery/jpagenate/css/style.css">
 
 <!-- javascript -->
-<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=true"></script>
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=true&libraries=places"></script>
 <script type="text/javascript" src="<?php echo base_url("assets"); ?>/js/tourentry.js"></script>
 <script type="text/javascript" src="<?php echo base_url("assets"); ?>/js/jquery/autocomplete/tag-it.js"></script>
+<script type="text/javascript" src="<?php echo base_url("assets"); ?>/js/jquery/timepicker/jquery.timepicker.js"></script>
+<script type="text/javascript" src="<?php echo base_url("assets"); ?>/js/jquery/util/jquery.dateFormat-1.0.js"></script>
+<script type="text/javascript" src="<?php echo base_url("assets"); ?>/js/jquery/jpagenate/jquery.paginate.js"></script>
 
 </head>
 <body id="tourentry" class="sec tour">
@@ -79,7 +85,7 @@
 		<div id="map_area">
 			<div id="mapsearch" class="mouse_over">
 				<h2><img src="<?php echo base_url("assets");?>/img/user/tour/map.gif" alt="地図を確認" /></h2>
-				<p class="search"><input type="text" class="text" /><input type="image" class="btn" src="<?php echo base_url("assets");?>/img/common/header/searchbtn.gif" alt="検索" /></p>
+				<p class="search"><input type="text" class="text" id="search-address" /><input type="image" class="btn" src="<?php echo base_url("assets");?>/img/common/header/searchbtn.gif" alt="検索" /></p>
 			</div>
 			<div id="map"></div>
 		</div>
@@ -94,7 +100,7 @@
 		<div class="search_box">
 			<dl class="keyword">
 				<dt><img src="<?php echo base_url("assets");?>/img/user/tour/keyword.gif" alt="キーワード" /></dt>
-				<dd><input type="text" class="text" name="keyword" /></dd>
+				<dd><input type="text" class="text" name="keyword" id="keyword" /></dd>
 			</dl>
 			<dl class="category">
 				<dt><img src="<?php echo base_url("assets");?>/img/user/tour/category.gif" alt="カテゴリ" /></dt>
@@ -128,8 +134,10 @@
 			
 			<div class="pager">
 				<p class="order">
-					<select name="order">
-						<option value="new">新着順</option>
+					<select name="order" id="sort">
+						<option value="like_count desc">表示順</option>
+						<option value="like_count desc">人気順</option>
+						<option value="name asc">スポット名</option>
 					</select>
 				</p>
 			
@@ -147,12 +155,12 @@
 		<!-- //search_info -->
 		
 		<div class="list_area">
-			<div class="list_item">
-				<p class="pic"><img src="<?php echo base_url("assets");?>/img/top/sample.jpg" alt="スポット名スポット名" /></p>
+			<div class="list_item pg_spot_temp" style="display: none;">
+				<p class="pic"><img class="pg_image" src="<?php echo base_url("assets");?>/img/common/noimage_s.jpg" width="54" height="54" alt="スポット名スポット名" /></p>
 				<dl>
-					<dt>スポット名スポット名</dt>
-					<dd class="staytime">参考滞在時間 60分</dd>
-					<dd class="detaillink"><a href="#spot" onClick="spotCtl.show('../../spot/');return false;" class="mouse_over"><img src="<?php echo base_url("assets");?>/img/common/btn/spotlink_s.gif" alt="スポット詳細を見る" /></a></dd>
+					<dt class="pg_name">スポット名スポット名</dt>
+					<dd class="staytime">参考滞在時間 <span class="pg_stay_time"></span>分</dd>
+					<dd class="detaillink"><a href="#spot" class="mouse_over"><img src="<?php echo base_url("assets");?>/img/common/btn/spotlink_s.gif" alt="スポット詳細を見る" /></a></dd>
 				</dl>
 				<p class="ctlbtn"><a href="#add"><img src="<?php echo base_url("assets");?>/img/user/tour/plus.gif" alt="ツアーに追加" /></a></p>
 			</div>
@@ -179,17 +187,18 @@
 		<p class="attention"><img src="<?php echo base_url("assets");?>/img/user/tour/attention_drag.gif" alt="ここにスポットをドラッグしてツアーを作ろう" /></p>
 		
 		<p class="starttime"><img src="<?php echo base_url("assets");?>/img/user/tour/starttime.gif" alt="スタート時間を設定" /></p>
+		<input type="text" name="starttime" id="start_time" class="text" />
 		
 		<div class="list_area">
 
-			<div class="tour_point">
-				<p class="time"><input type="time" name="starttime" class="text" /><span class="line">&nbsp;</span></p>
+			<div class="tour_point pg_spot_temp" style="display:none;">
+				<p class="time">08:00<span class="line">&nbsp;</span></p>
 				<div class="list_item">
-					<p class="pic"><img src="<?php echo base_url("assets");?>/img/top/sample.jpg" alt="スポット名スポット名" /></p>
+					<p class="pic"><img class="pg_image" src="<?php echo base_url("assets");?>/img/top/sample.jpg" width="54" height="54" alt="スポット名スポット名" /></p>
 					<dl>
-						<dt>スポット名スポット名</dt>
-						<dd class="staytime">参考滞在時間 60分</dd>
-						<dd class="detaillink"><a href="#spot" onClick="spotCtl.show('../../spot/');return false;" class="mouse_over"><img src="<?php echo base_url("assets");?>/img/common/btn/spotlink_s.gif" alt="スポット詳細を見る" /></a></dd>
+						<dt class="pg_name">スポット名スポット名</dt>
+						<dd class="staytime">参考滞在時間 <span class="pg_stay_time"></span>分</dd>
+						<dd class="detaillink"><a href="#spot" class="mouse_over"><img src="<?php echo base_url("assets");?>/img/common/btn/spotlink_s.gif" alt="スポット詳細を見る" /></a></dd>
 					</dl>
 					<div class="ctlbtn">
 						<p class="remove"><a href="#remove"><img src="<?php echo base_url("assets");?>/img/user/tour/remove.gif" alt="ツアーから外す" /></a></p>
@@ -203,37 +212,20 @@
 				<!-- /list -->
 				<p class="staytime">滞在時間
 					<select>
-						<option value="15">00:15</option>
-						<option value="30">00:30</option>
-						<option value="45">00:45</option>
-						<option value="60">01:00</option>
-						<option value="75">01:15</option>
-						<option value="90">01:30</option>
-						<option value="105">01:45</option>
-						<option value="120">02:00</option>
-						<option value="135">02:15</option>
-						<option value="150">02:30</option>
-						<option value="165">02:45</option>
-						<option value="180">03:00</option>
-						<option value="195">03:15</option>
-						<option value="210">03:30</option>
-						<option value="225">03:45</option>
-						<option value="240">03:00</option>
-						<option value="255">04:15</option>
-						<option value="270">04:30</option>
-						<option value="285">04:45</option>
-						<option value="300">05:00</option>
-						<option value="315">05:15</option>
-						<option value="330">05:30</option>
-						<option value="345">05:45</option>
-						<option value="360">06:00</option>
+<?php
+        $step = 15;
+        for ($i = 1; $i <= 24; $i++):
+                $stay_time = $i * $step;
+                $disp_stay_time = date("H:i", mktime(0, $stay_time, 0, 0, 0, 0));
+?>
+						<option value="<?php echo $stay_time;?>"><?php echo $disp_stay_time;?></option>
+<?php endfor;?>
 					</select>
 				</p>
 			</div>
 			<!-- //tour_point -->
 
-			
-			<div class="tour_point">
+			<div class="tour_point pg_memo_temp" style="display:block;">
 				<p class="time">08:00<span class="line">&nbsp;</span></p>
 				<div class="memo_item">
 					<dl>
@@ -250,11 +242,21 @@
 					
 				</div>
 				<!-- /list -->
+								<p class="staytime">滞在時間
+					<select>
+<?php
+	$step = 15;
+	for ($i = 1; $i <= 24; $i++):
+		$stay_time = $i * $step;
+		$disp_stay_time = date("H:i", mktime(0, $stay_time, 0, 0, 0, 0));
+?>
+						<option value="<?php echo $stay_time;?>"><?php echo $disp_stay_time;?></option>
+<?php endfor;?>
+					</select>
+				</p>
+				
 			</div>
 			<!-- //tour_point -->
-
-
-
 
 		</div>
 		<!-- //list_area -->

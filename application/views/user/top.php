@@ -92,7 +92,10 @@
 							</dl>
 							<!-- //maininfo -->
 							
-							<p class="linkbtn"><a href="../tour/" class="mouse_over pg_detail"><img src="<?php echo base_url("assets");?>/img/common/btn/tourlinkbtn.gif" alt="ツアー内容を見る"></a></p>
+							<p class="linkbtn">
+								<a href="../tour/" class="mouse_over pg_detail"><img src="<?php echo base_url("assets");?>/img/common/btn/tourlinkbtn.gif" alt="ツアー内容を見る"></a>
+								<br /><a href="../tour/" class="mouse_over pg_edit">編集</a>
+							</p>
 			
 						</div>
 						<!-- //info_area -->
