@@ -92,8 +92,11 @@
 							</dl>
 							<!-- //maininfo -->
 							
-							<p class="linkbtn"><a href="../spot/" class="mouse_over pg_detail"><img src="<?php echo base_url("assets");?>/img/common/btn/spotlinkbtn.gif" alt="スポット詳細を見る"></a></p>
-			
+							<p class="linkbtn">
+							<a href="../spot/" class="mouse_over pg_detail"><img src="<?php echo base_url("assets");?>/img/common/btn/spotlinkbtn.gif" alt="スポット詳細を見る"></a>
+							<a href="../spot/" class="mouse_over pg_edit">編集</a>
+							</p>
+							
 						</div>
 						<!-- //info_area -->
 						
