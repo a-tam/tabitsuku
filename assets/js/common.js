@@ -23,7 +23,7 @@ commonCtl.init=function(){
 	
 	$(window).resize(commonCtl.resize);
 	commonCtl.resize();
-}
+};
 
 
 /* resize
@@ -31,7 +31,7 @@ commonCtl.init=function(){
 commonCtl.resize=function(){
 	browser.sizeChk();
 	$("#loginArea .cover").css("height",$(document).height()+"px");
-}
+};
 
 
 /* menu for min IE 8
@@ -46,7 +46,7 @@ commonCtl.menuAct=function(){
 			});
 		}
 	});
-}
+};
 
 
 /* searchBox
@@ -60,7 +60,7 @@ commonCtl.searchBoxSet=function(){
 	$(".search_box .categoryselect .close").on('click',function(){
 		categorySelectHide();
 		return false;
-	})
+	});
 	$(".search_box .categoryselect ul a").each(function(index, element) {
 		$(this).on('click',function(){
 			categorySet($(this).text());
@@ -91,7 +91,7 @@ commonCtl.searchBoxSet=function(){
 	}
 	
 	
-}
+};
 
 
 /* regist categoryAdd
@@ -100,13 +100,15 @@ commonCtl.registCategoryAddSet=function(){
 	var selectedCategoryNo=0;
 	var selectedCategoryname="";
 	var selectedSubCategoryname="";
+	var selectedCategoryId="";
 	
 	
 	
 	function selectInit(){
 		$("#input_area .categoryselect li").removeClass("select");
-		$("#input_area .categoryselect input").val("");
+		$("#input_area .categoryselect select option").remove("");
 		selectedCategoryname="";
+		selectedCategoryId="";
 		selectedSubCategoryname="";
 		selectedCategoryNo=0;
 	}
@@ -127,13 +129,13 @@ commonCtl.registCategoryAddSet=function(){
 		//subcategory
 		if(selectedSubCategoryname!=""){
 			addCategoryName+="："+selectedSubCategoryname;
-			target.append('<input type="hidden" name="subcategory'+selectedCategoryNo+'" value="'+selectedSubCategoryname+'" class="subcategory" />');
+			//target.append('<input type="hidden" name="subcategory'+selectedCategoryNo+'" value="'+selectedSubCategoryname+'" class="subcategory" />');
 		}
 
 		//maincategory
 		target.find(".category_add").css("display","none");
 //		target.append('<input type="hidden" name="category'+selectedCategoryNo+'" value="'+selectedCategoryname+'" class="maincategory" />');
-		target.append('<input type="hidden" name="category[]" value="'+selectedCategoryname+'" class="maincategory" />');
+		target.append('<input type="hidden" name="category[]" value="'+selectedCategoryId+'" class="maincategory" />');
 		target.append('<p class="selectedCategory"><a href="#close" class="close mouse_over"><img src="' + gAssetUrl + '/img/common/search/close.gif" alt="CLOSE" /></a>'+addCategoryName+'</p>');
 		target.find(".close").on('click',function(){
 			categoryRemove($(this).parent().parent().index()+1);
@@ -188,19 +190,33 @@ commonCtl.registCategoryAddSet=function(){
 	$("#input_area .categoryselect li").on('click',function(){
 		$("#input_area .categoryselect li").removeClass("select");
 		$(this).addClass("select");
-		selectedCategoryname=$(this).find("a").text();
+		var id = $(this).attr("data-category-id");
+		$.ajax({
+			type		: "get",
+			url			: gBaseUrl + 'user/category/node/' + id,
+			dataType	: "json",
+			success		: function(json) {
+				$("#input_area .categoryselect select option").remove();
+				for (var key in json) {
+					$("#input_area .categoryselect select").append('<option value="' + key +'">' + json[key] + '</option>');
+				}
+			}
+		});
+		selectedCategoryname = $(this).find("a").text();
+		selectedCategoryId = "/"+id+"/";
 		return false;
 	});
 	$("#input_area .categoryselect .add").on('click',function(){
 		if(selectedCategoryname!=""){
-			selectedSubCategoryname=$("#input_area .categoryselect input").val();
+			selectedSubCategoryname=$("#input_area .categoryselect select option:selected").text();
+			selectedCategoryId+=$("#input_area .categoryselect select option:selected").val()+"/";
 			categoryAdd();
 			orderSet();
 		}
 		return false;
 	});
 
-}
+};
 
 
 /* login
@@ -214,16 +230,16 @@ commonCtl.loginInit=function(){
 		commonCtl.loginShow();
 		return false;
 	});
-}
+};
 commonCtl.loginShow=function(){
 	commonCtl.resize();
 	$("#loginArea iframe").css("top",Math.floor((browser.height-300)*0.5)+$(document).scrollTop()+"px");
-	$("#loginArea iframe").attr("src",$("#loginArea iframe").attr("src"))
+	$("#loginArea iframe").attr("src",$("#loginArea iframe").attr("src"));
 	$("#loginArea").fadeIn(300);
-}
+};
 commonCtl.loginClose=function(){
 	$("#loginArea").fadeOut(300);
-}
+};
 
 
 /* listitem height adjust
@@ -247,7 +263,7 @@ commonCtl.listHeightAdjust=function(){
 		});
 	});
 
-}
+};
 
 
 
@@ -270,12 +286,12 @@ spotCtl.show=function(url){
 	$("#innerSpotDetailArea .cover, #innerSpotDetailArea .close").on('click',function(){
 		spotCtl.close();
 	});
-}
+};
 spotCtl.close=function(){
 	$("#innerSpotDetailArea iframe").attr("src","");
 	$("#innerSpotDetailArea .close").css("display","none");
 	$("#innerSpotDetailArea").fadeOut(300,"easeOutSine",function(){
 		$("#innerSpotDetailArea").remove();
 	});
-}
+};
 

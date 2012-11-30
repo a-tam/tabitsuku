@@ -1,3 +1,4 @@
+<?php $category = $this->Category_model->get_list(""); ?>
 <!-- css -->
 <link rel="stylesheet" type="text/css" media="screen,print" href="<?php echo base_url("assets"); ?>/css/modules/tourentry.css" />
 <link rel="stylesheet" type="text/css" href="<?php echo base_url("assets"); ?>/js/jquery/autocomplete/css/jquery.tagit.css">
@@ -66,14 +67,12 @@
 						</ul>
 						<div class="categoryselect">
 							<ul>
-								<li><a href="">見る</a></li>
-								<li><a href="">遊ぶ</a></li>
-								<li><a href="">食べる</a></li>
-								<li><a href="">宿泊・温泉</a></li>
-								<li><a href="">乗り物/乗り場</a></li>
-								<li><a href="">買う</a></li>
+<?php foreach($category->result_array() as $row):?>
+								<li data-category-id="<?php echo $row["id"];?>"><a href=""><?php echo $row["name"];?></a></li>
+<?php endforeach;?>
 							</ul>
-							<input type="text" name="subcategory_input" maxlength="20" class="text" />
+							<select type="text" name="subcategory_input" maxlength="20" class="text">
+							</select>
 							<p class="close"><a href="#close" class="mouse_over"><img src="<?php echo base_url("assets");?>/img/common/search/close.png" alt="CLSOE" /></a></p>
 							<p class="add"><a href="#add" class="mouse_over"><img src="<?php echo base_url("assets");?>/img/common/icon/add.gif" alt="追加" /></a></p>
 							<p class="tri">&nbsp;</p>
@@ -110,15 +109,12 @@
 			<dl class="category">
 				<dt><img src="<?php echo base_url("assets");?>/img/user/tour/category.gif" alt="カテゴリ" /></dt>
 				<dd>
-					<p class="selectbtn"><a href="#categoryselect" class="mouse_over"><img src="<?php echo base_url("assets");?>/img/user/tour/category_select.gif" alt="検索カテゴリを選択" /></a></p>
+				<p class="selectbtn"><a href="#categoryselect" class="mouse_over"><img src="<?php echo base_url("assets");?>/img/user/tour/category_select.gif" alt="検索カテゴリを選択" /></a></p>
 					<div class="categoryselect">
 						<ul>
-							<li><a href="">見る</a></li>
-							<li><a href="">遊ぶ</a></li>
-							<li><a href="">食べる</a></li>
-							<li><a href="">宿泊・温泉</a></li>
-							<li><a href="">乗り物/乗り場</a></li>
-							<li><a href="">買う</a></li>
+<?php foreach($category->result_array() as $row):?>
+						<li data-category-id="<?php echo $row["id"];?>"><a href=""><?php echo $row["name"];?></a></li>
+<?php endforeach;?>
 						</ul>
 						<p class="close"><a href="#close" class="mouse_over"><img src="<?php echo base_url("assets");?>/img/common/search/close.png" alt="CLSOE" /></a></p>
 						<p class="tri">&nbsp;</p>

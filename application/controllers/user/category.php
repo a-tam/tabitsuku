@@ -42,6 +42,14 @@ class Category extends MY_Controller {
 		}
 	}
 	
-	function node() {
+	function node($id = "") {
+		$rows = array();
+		if ($id) {
+			$rs = $this->Category_model->get_list($id);
+			foreach($rs->result_array() as $row) {
+				$rows[$row["id"]] = $row["name"];
+			}
+		}
+		print json_encode($rows);
 	}
 }

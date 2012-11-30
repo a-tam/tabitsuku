@@ -8,6 +8,7 @@ class Tour extends MY_Controller {
 		$this->load->model("Tour_model");
 		$this->load->model("Route_model");
 		$this->load->model("Tag_model");
+		$this->load->model("Category_model");
 		$this->form_data = $this->Tour_model->get_structure();
 	}
 	
