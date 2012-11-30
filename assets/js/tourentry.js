@@ -78,9 +78,7 @@ tourentryCtl.init=function(){
 			search();
 		});
 		google.maps.event.addListenerOnce(map, 'tilesloaded', function() {
-			if (!$("#guide-id").val()) {
-				search(1);
-			}
+			search(1);
 		});
 		$("#search").click(function() {
 			search();
@@ -92,33 +90,33 @@ tourentryCtl.init=function(){
 		change_time();
 		// ツアーにスポット追加
 		$(".iconAdd").live("click", function() {
-			var self = $(this).closest(".spot");
-			self.clone().hide().appendTo($("#tourAreaFrameScroll .spotList")).fadeIn("slow");
+			var self = $(this).closest(".tour_point");
+			self.clone().hide().appendTo($("#tour_make .list_area")).fadeIn("slow");
 			change_time();
 			return false;
 		});
 		// ツアーにスポット解除
 		$(".iconClose").live("click", function() {
-			$(this).closest(".spot").fadeOut(300).queue(function(){ $(this).remove();});
+			$(this).closest(".tour_point").fadeOut(300).queue(function(){ $(this).remove();});
 			change_time();
 			return false;
 		});
 		// 予定のスポットを入れ替え（上）
 		$(".iconUp").live("click", function() {
-			var self = $(this).closest(".spot");
+			var self = $(this).closest(".tour_point");
 			self.insertBefore(self.prev());
 			change_time();
 			return false;
 		});
 		// 予定のスポットを入れ替え（下）
 		$(".iconDown").live("click", function() {
-			var self = $(this).closest(".spot");
+			var self = $(this).closest(".tour_point");
 			self.insertAfter(self.next());
 			change_time();
 			return false;
 		});
 		// スポットのソート、滞在時間変更で予定時刻を変更
-		$("#start_time, .stay_time").live("change", function() {
+		$("#start_time, .pg_stay_time").live("change", function() {
 			change_time();
 		});
 		// カテゴリ選択UI設定
@@ -182,9 +180,6 @@ tourentryCtl.init=function(){
 			'step': 30,
 			'timeFormat': 'H:i'
 		});
-		// timepickerのz-indexを変更しても反映されない。ツアーリストのz-indexを無理やり変更しているので後で編集する
-		$("#tourAreaFrameScroll").css("zIndex", 1);
-		$("#spotAreaFrameScroll").css("zIndex", 1);
 		// タグ入力補完
 		$("#tags").tagit({
 			itemName: "tags",
@@ -200,14 +195,14 @@ tourentryCtl.init=function(){
 			}
 		});
 		// 保存ボタン
-		$("#headerSaveArea").click(function() {
+		$("#save_button").click(function() {
 			var routes = [];
-			$("#tourAreaFrameScroll .spotList li").each(function(i, elm) {
+			$("#tour_make .list_area .tour_point").each(function(i, elm) {
 				var id = $(elm).attr("data-spot-id");
 				routes.push({
 					id: 		id,
-					stay_time:	$(elm).find(".stay_time").val(),
-					info:		$(elm).find(".spot_info").val(),
+					stay_time:	$(elm).find(".pg_stay_time").val(),
+					info:		$(elm).find(".pg_memo").val(),
 					lat:		$(elm).attr("data-spot-lat"),
 					lng:		$(elm).attr("data-spot-lng")
 				});
@@ -216,14 +211,18 @@ tourentryCtl.init=function(){
 				alert("ルートの指定がありません");
 				return false;
 			}
+			var categories = [];
+			$(".maincategory").each(function(i, elm) {
+				categories.push($(elm).val());
+			});
 			$.ajax({
 				url: gBaseUrl + 'user/tour/add',
 				type: "post",
 				data: {
-					id:				$("#guide-id").val(),
-					name:			$("#guide-name").val(),
-					description:	$("#guide-description").val(),
-					category:		$("#category").val(),
+					id:				$("#tour-id").val(),
+					name:			$("#tour-name").val(),
+					description:	$("#tour-description").val(),
+					category:		categories,
 					start_time:		$("#start_time").val(),
 					tags:			$("#tags").tagit("assignedTags"),
 					route: 			routes
@@ -255,7 +254,7 @@ tourentryCtl.init=function(){
 	function tour_center() {
 		var route = [];
 		var lat_min = lat_max = lng_min = lng_max = null;
-		$("#tourAreaFrameScroll .spotList li").each(function() {
+		$("#tour_make .list_area .tour_point").each(function() {
 			var id = $(this).attr("data-spot-id");
 			if (id) {
 				var lat = $(this).attr("data-spot-lat");
@@ -278,6 +277,7 @@ tourentryCtl.init=function(){
 			var bounds = new google.maps.LatLngBounds(sw, ne);
 			map.fitBounds(bounds);
 		}
+		event.stopPropagation();
 	}
 	
 	/**
@@ -289,8 +289,8 @@ tourentryCtl.init=function(){
 			linePath.setMap(null);
 		}
 		var marker;
-		var li_cnt = $("#tourAreaFrameScroll .spotList li").length;
-		$("#tourAreaFrameScroll .spotList li").each(function(i, elm) {
+		var li_cnt = $("#tour_make .list_area .tour_point").length;
+		$("#tour_make .list_area .tour_point").each(function(i, elm) {
 			var id = $(this).attr("data-spot-id");
 			if (id) {
 				if (id in marker_list) {
@@ -332,17 +332,25 @@ tourentryCtl.init=function(){
 	 */
 	function change_time() {
 		var start_time = $("#start_time").val();
+		var times = [];
+		if (!start_time) {
+			times = [0, 0];
+		} else {
+			times = start_time.split(":");
+		}
 		var time = new Date();
-		var times = start_time.split(":");
+		var total = 0;
 		time.setHours(times[0]);
 		time.setMinutes(times[1]);
 		time.setSeconds(0);
-		$("#tourAreaFrameScroll .timecode").text(start_time);
-		$("#tourAreaFrameScroll .spotList li").each(function(i, elm) {
-			var stay_time = $(elm).find(".stay_time").val();
+		$("#tour_make .list_area .tour_point").each(function(i, elm) {
+			$(elm).find(".pg_timecode").text($.format.date(time, "HH:mm"));
+			var stay_time = $(elm).find(".pg_stay_time").val();
+			total += Number(stay_time);
 			time.setTime(time.getTime() + (stay_time * 60 * 1000));
-			$(elm).find(".timecode").text($.format.date(time, "HH:mm"));
 		});
+		$("#pg_hour").text(Math.floor(total / 60));
+		$("#pg_minutes").text(total % 60);
 	}
 	
 	/**
@@ -377,7 +385,7 @@ tourentryCtl.init=function(){
 						current_window.close();
 					}
 				});
-				$("#spot_search .list_area .list_item:not(.pg_spot_temp)").remove();
+				$("#spot_search .list_area .tour_point:not(.pg_spot_temp)").remove();
 				$.each(json.list, function(spot_id, spot_info) {
 					// テンプレートのクローン作成
 					var spot_elm = $("#spot_search .pg_spot_temp")
@@ -398,7 +406,7 @@ tourentryCtl.init=function(){
 						.text(spot_info.name);
 					spot_elm.find(".pg_description")
 						.text(spot_info.description);
-					spot_elm.find(".pg_stay_time")
+					spot_elm.find(".pg_standard_time")
 						.text(spot_info.stay_time);
 					spot_elm.find(".detaillink a").bind("click", function() {
 						spotCtl.show(gBaseUrl + 'spot/show/' + spot_info.id);
@@ -415,21 +423,31 @@ tourentryCtl.init=function(){
 //				FB.XFBML.parse();
 				
 				// ドラッグ
-				$("#spot_search .list_item,#spot_search .memo_item").draggable({
-					connectToSortable: "#tour_make",
+				$("#spot_search .tour_point").draggable({
+					connectToSortable: "#tour_make .list_area",
 					containment: "document",
 					revert: "invalid",
 					helper: "clone",
 					cursor: "move",
 					scroll: false,
 					opacity: 0.6,
+					zIndex: 999,
 					start: function(event, ui) {
-						$("#spot_search .list_area").css("overflow-y", "visible");
+						$("#spot_search .list_area").css("overflow", "hidden");
 					},
 					stop: function(event, ui) {
-						$("#spot_search .list_area").css("overflow-y", "auto");
+						$("#spot_search .list_area").css("overflow", "auto");
 					}
 				});
+
+				$( "#toolSpot li" ).draggable({});
+				/*
+				$( "#tour_make .list_area" ).droppable({
+					activeClass: "pg_jqui_state_highlight",
+					hoverClass: "pg_jqui_state_hover"
+				});
+				*/
+				/*
 				// ドロップ＆ソート
 				$( "#tour_make .list_area" ).droppable({
 					accept: ":not(.ui-sortable-helper)",
@@ -461,7 +479,9 @@ tourentryCtl.init=function(){
 						add_item.appendTo("#tour_make .list_area");
 						
 					}
-				}).sortable({
+				});
+				*/
+				$( "#tour_make .list_area" ).sortable({
 					stop: function(event, ui) {
 						change_time();
 						show_route();
@@ -517,38 +537,23 @@ tourentryCtl.init=function(){
 	
 	function info_window(id) {
 		close_info_window(current_window_id);
-		var spot_target = '#spotAreaFrameScroll li[data-spot-id="' + id + '"]';
-		if ($(spot_target)[0]) {
-			$("#spotAreaFrameScroll").animate({scrollTop: $("#spotAreaFrameScroll").scrollTop() + $(spot_target).position().top}, "first");
-			$(spot_target + " .spotDetail")
-				.css({ background: "#ccc"})
-				.addClass("active");
-		}
-
-		var tour_target = '#tourAreaFrameScroll li[data-spot-id="' + id + '"]';
-		if ($(tour_target)[0]) {
-			$("#tourAreaFrameScroll ul").animate({scrollTop: $("#tourAreaFrameScroll ul").scrollTop() + $(tour_target).position().top}, "first");
-			$(tour_target + " .spotDetail")
-				.css({ background: "#ccc"})
-				.addClass("active");
-		}
+		var target = '#spot_search [data-spot-id="' + id + '"]';
+		$(target).each(function(i, spot) {
+			$("#spot_search .list_area")
+				.animate({scrollTop: $("#spot_search .list_area").scrollTop() + $(spot).position().top}, "first");
+			$(spot).addClass("active");
+//				.css("background-color", "#000");
+		});
 		current_window_id = id;
 	}
 	
 	function close_info_window(id) {
 		if (current_window_id) {
-			var current_target = '#spotAreaFrameScroll li[data-spot-id="' + current_window_id + '"]';
-			if ($(current_target)[0]) {
-				$(current_target + " .spotDetail")
-					.css({ background: "#fff"})
-					.removeClass("active");
-			}
-			var current_target = '#tourAreaFrameScroll li[data-spot-id="' + current_window_id + '"]';
-			if ($(current_target)[0]) {
-				$(current_target + " .spotDetail")
-					.css({ background: "#fff"})
-					.removeClass("active");
-			}
+			var target = '[data-spot-id="' + current_window_id + '"]';
+			$(target).each(function(i, spot) {
+				$(spot).removeClass("active");
+//					.css({ background: "#fff"});
+			});
 		}
 	}
 

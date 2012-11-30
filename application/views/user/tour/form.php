@@ -35,19 +35,24 @@
 		<div id="input_area">
 			<h2><img src="<?php echo base_url("assets");?>/img/user/tour/title.gif" alt="1：ツアー基本情報を入力する" /></h2>
 			<form class="input_form">
+				<input type="hidden" name="id" id="tour-id" value="<?php echo set_value("id", $data["id"]);?>" readonly="readonly" />
 				<dl class="name">
 					<dt><img src="<?php echo base_url("assets");?>/img/user/spot/name.gif" alt="名称" /></dt>
-					<dd><input type="text" name="name" class="text" /></dd>
+					<dd><input type="text" name="name" class="text" id="tour-name" value="<?php echo set_value("name", $data["name"]);?>" /></dd>
 				</dl>
 				<dl class="description">
 					<dt><img src="<?php echo base_url("assets");?>/img/user/spot/description.gif" alt="説明" /></dt>
-					<dd><input type="text" name="description" class="text" /></dd>
+					<dd><textarea name="description" class="text" id="tour-description"><?php echo set_value("description", $data["description"]);?></textarea></dd>
 				</dl>
 				<dl class="tag">
 					<dt><img src="<?php echo base_url("assets");?>/img/user/spot/tag.gif" alt="タグ" /></dt>
 					<dd>
 					<ul id="tags" class="inputRounnd">
-						<li>tag1</li>
+<?php if ($data["tags"]):?>
+<?php foreach($data["tags"] as $tag):?>
+						<li><?php echo $tag;?></li>
+<?php endforeach;?>
+<?php endif;?>
 					</ul>
 					</dd>
 				</dl>
@@ -155,28 +160,12 @@
 		<!-- //search_info -->
 		
 		<div class="list_area">
-			<div class="list_item pg_spot_temp" style="display: none;">
-				<p class="pic"><img class="pg_image" src="<?php echo base_url("assets");?>/img/common/noimage_s.jpg" width="54" height="54" alt="スポット名スポット名" /></p>
-				<dl>
-					<dt class="pg_name">スポット名スポット名</dt>
-					<dd class="staytime">参考滞在時間 <span class="pg_stay_time"></span>分</dd>
-					<dd class="detaillink"><a href="#spot" class="mouse_over"><img src="<?php echo base_url("assets");?>/img/common/btn/spotlink_s.gif" alt="スポット詳細を見る" /></a></dd>
-				</dl>
-				<p class="ctlbtn"><a href="#add"><img src="<?php echo base_url("assets");?>/img/user/tour/plus.gif" alt="ツアーに追加" /></a></p>
-			</div>
-			<!-- /list -->
-
+			<?php $this->load->view("user/tour/spot_item");?>
+		
 		</div>
 		<!-- //list_area -->
 		
-		<div class="memo_item">
-			<dl>
-				<dt><img src="<?php echo base_url("assets");?>/img/user/tour/memo.gif" alt="メモ" /></dt>
-				<dd>メモが必要な場合は追加してください。</dd>
-			</dl>
-			<p class="ctlbtn"><a href="#add"><img src="<?php echo base_url("assets");?>/img/user/tour/plus.gif" alt="ツアーに追加" /></a></p>
-		</div>
-		<!-- /memo_item -->
+		<?php $this->load->view("user/tour/memo_item");?>
 		
 	</div>
 	<!-- //spot_search -->
@@ -187,83 +176,26 @@
 		<p class="attention"><img src="<?php echo base_url("assets");?>/img/user/tour/attention_drag.gif" alt="ここにスポットをドラッグしてツアーを作ろう" /></p>
 		
 		<p class="starttime"><img src="<?php echo base_url("assets");?>/img/user/tour/starttime.gif" alt="スタート時間を設定" /></p>
-		<input type="text" name="starttime" id="start_time" class="text" />
+		<input type="text" name="starttime" id="start_time" class="text" value="<?php echo set_value("start_time", $data["start_time"]);?>"/>
 		
 		<div class="list_area">
-
-			<div class="tour_point pg_spot_temp" style="display:none;">
-				<p class="time">08:00<span class="line">&nbsp;</span></p>
-				<div class="list_item">
-					<p class="pic"><img class="pg_image" src="<?php echo base_url("assets");?>/img/top/sample.jpg" width="54" height="54" alt="スポット名スポット名" /></p>
-					<dl>
-						<dt class="pg_name">スポット名スポット名</dt>
-						<dd class="staytime">参考滞在時間 <span class="pg_stay_time"></span>分</dd>
-						<dd class="detaillink"><a href="#spot" class="mouse_over"><img src="<?php echo base_url("assets");?>/img/common/btn/spotlink_s.gif" alt="スポット詳細を見る" /></a></dd>
-					</dl>
-					<div class="ctlbtn">
-						<p class="remove"><a href="#remove"><img src="<?php echo base_url("assets");?>/img/user/tour/remove.gif" alt="ツアーから外す" /></a></p>
-						<ul class="ctl">
-							<li><a href=""><img src="<?php echo base_url("assets");?>/img/user/tour/arrow_up.gif" alt="上へ"></a></li>
-							<li><a href=""><img src="<?php echo base_url("assets");?>/img/user/tour/arrow_dn.gif" alt="下へ"></a></li>
-						</ul>
-					</div>
-					
-				</div>
-				<!-- /list -->
-				<p class="staytime">滞在時間
-					<select>
-<?php
-        $step = 15;
-        for ($i = 1; $i <= 24; $i++):
-                $stay_time = $i * $step;
-                $disp_stay_time = date("H:i", mktime(0, $stay_time, 0, 0, 0, 0));
-?>
-						<option value="<?php echo $stay_time;?>"><?php echo $disp_stay_time;?></option>
-<?php endfor;?>
-					</select>
-				</p>
-			</div>
-			<!-- //tour_point -->
-
-			<div class="tour_point pg_memo_temp" style="display:block;">
-				<p class="time">08:00<span class="line">&nbsp;</span></p>
-				<div class="memo_item">
-					<dl>
-						<dt><img src="<?php echo base_url("assets");?>/img/user/tour/memo.gif" alt="メモ" /></dt>
-						<dd><textarea name="memo1"></textarea></dd>
-					</dl>
-					<div class="ctlbtn">
-						<p class="remove"><a href="#remove"><img src="<?php echo base_url("assets");?>/img/user/tour/remove.gif" alt="ツアーから外す" /></a></p>
-						<ul class="ctl">
-							<li><a href=""><img src="<?php echo base_url("assets");?>/img/user/tour/arrow_up.gif" alt="上へ"></a></li>
-							<li><a href=""><img src="<?php echo base_url("assets");?>/img/user/tour/arrow_dn.gif" alt="下へ"></a></li>
-						</ul>
-					</div>
-					
-				</div>
-				<!-- /list -->
-								<p class="staytime">滞在時間
-					<select>
-<?php
-	$step = 15;
-	for ($i = 1; $i <= 24; $i++):
-		$stay_time = $i * $step;
-		$disp_stay_time = date("H:i", mktime(0, $stay_time, 0, 0, 0, 0));
-?>
-						<option value="<?php echo $stay_time;?>"><?php echo $disp_stay_time;?></option>
-<?php endfor;?>
-					</select>
-				</p>
-				
-			</div>
-			<!-- //tour_point -->
-
+<?php if ($data["routes"]) :?>
+	<?php foreach ($data["routes"] as $ruote) :?>
+		<?php if ($ruote["id"] == 0): ?>
+			<?php $this->load->view("user/tour/memo_item", array("route" => $ruote));?>
+		<?php else:?>
+			<?php $this->load->view("user/tour/spot_item", array("route" => $ruote));?>
+		<?php endif;?>
+	<?php endforeach;?>
+<?php endif;?>
+		
 		</div>
 		<!-- //list_area -->
 		
 		<p class="timeline"><img src="<?php echo base_url("assets");?>/img/user/tour/timeline.gif" alt="タイムラインを計算" /></p>
-		<p class="totaltime">所要時間：<span>2時間</span><span>45分</span></p>
-		<p class="submit mouse_over"><input type="image" src="<?php echo base_url("assets");?>/img/user/tour/savebtn.gif" alt="ツアーを保存する" /></p>
+		<p class="totaltime">所要時間：<span id="pg_hour">2</span>時間<span id="pg_minutes">45</span>分</p>
+		<a id="pg_tour_center">ルート確認</a>
+		<p class="submit mouse_over"><input type="image" id="save_button" src="<?php echo base_url("assets");?>/img/user/tour/savebtn.gif" alt="ツアーを保存する" /></p>
 		
 	</div>
 	<!-- //tour_make -->

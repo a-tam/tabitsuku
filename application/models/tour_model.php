@@ -43,7 +43,7 @@ class Tour_model extends MY_Model {
 			"name"			=> $_data["name"],
 			"description"	=> $_data["description"],
 			"start_time"	=> $_data["start_time"],
-			"category"		=> $_data["category"],
+			"category"		=> implode(",", $_data["category"]),
 			"tags"			=> implode(",", $_data["tags"]),
 			"owner"			=> $user_info["id"],
 			"like_count"	=> 0,
@@ -67,7 +67,7 @@ class Tour_model extends MY_Model {
 			"name"			=> $_data["name"],
 			"description"	=> $_data["description"],
 			"start_time"	=> $_data["start_time"],
-			"category"		=> $_data["category"],
+			"category"		=> implode(",", $_data["category"]),
 			"tags"			=> implode(",", $_data["tags"]),
 		);
 		if ($area = $this->get_route_area($_data["route"])) {

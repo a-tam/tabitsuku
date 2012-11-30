@@ -298,7 +298,7 @@
 .list_area .list_item dt{
 	font-weight:bold;
 }
-.list_area .list_item .staytime{
+.list_area .list_item .standard_time{
 	margin-bottom:5px;
 }
 .list_area .list_item .ctlbtn,
@@ -501,9 +501,31 @@
 }
 
 
+/* Add Kiyomizu */
+#spot_search .time,
+#spot_search .staytime,
+#spot_search .ctlbtn .remove,
+#spot_search .ctlbtn .ctl,
+#spot_search .memo_item .edit {
+	display: none;
+}
+
+#spot_search .active,
+#tour_make .active {
+	background-color: #000;
+}
 
 
+#tour_make .tool,
+#tour_make .ctlbtn .add {
+	display: none;
+}
 
+.pg_jqui_state_highlight,
+.pg_jqui_state_hover {
+	background-color: #efefef;
+}
 
-
-
+#spot_search .tour_point{
+	min-width: 279px;
+}
