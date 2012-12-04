@@ -379,7 +379,7 @@ ul.items li { display: inline-block;
 	margin-left:30px;
 }
 .search_info .pager{
-	float:right;
+	/*float:right;*/
 	margin-right:15px;
 	padding-top:8px;
 }

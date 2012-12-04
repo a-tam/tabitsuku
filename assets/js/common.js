@@ -51,7 +51,8 @@ commonCtl.menuAct=function(){
 
 /* searchBox
 -----------------------------------------*/
-commonCtl.searchBoxSet=function(){
+commonCtl.searchBoxSet=function(options){
+	
 	$(".search_box .selectbtn").on('click',function(){
 		categorySelectShow();
 		return false;
@@ -63,17 +64,19 @@ commonCtl.searchBoxSet=function(){
 	});
 	$(".search_box .categoryselect ul a").each(function(index, element) {
 		$(this).on('click',function(){
-			categorySet($(this).text());
+			categorySet("/"+$(this).attr("data-category-id")+"/", $(this).text());
+			commonCtl.searchBoxSet.setFunc();
 			return false;
 		});
 	});
 	
-	function categorySet(str){
+	function categorySet(id, str){
 		categoryRemove();
 		$(".search_box .category dd").append('<p class="selectedCategory"><a href="#close" class="close mouse_over">&nbsp;</a>'+str+'</p>');
-		$(".search_box .category dd").append('<input type="hidden" name="category" value="'+str+'" />');
+		$(".search_box .category dd").append('<input type="hidden" name="category" value="'+id+'" />');
 		$(".search_box .selectedCategory a").on('click',function(){
 			categoryRemove();
+			commonCtl.searchBoxSet.unsetFunc();
 			return false;
 		});
 		categorySelectHide();
@@ -92,6 +95,9 @@ commonCtl.searchBoxSet=function(){
 	
 	
 };
+
+commonCtl.searchBoxSet.setFunc = function() {return false;};
+commonCtl.searchBoxSet.unsetFunc = function() {return false;};
 
 
 /* regist categoryAdd
@@ -127,20 +133,18 @@ commonCtl.registCategoryAddSet=function(){
 		var target=$("#input_area  .categories .category"+selectedCategoryNo);
 
 		//subcategory
+		/*
 		if(selectedSubCategoryname!=""){
 			addCategoryName+="："+selectedSubCategoryname;
 			//target.append('<input type="hidden" name="subcategory'+selectedCategoryNo+'" value="'+selectedSubCategoryname+'" class="subcategory" />');
 		}
+		*/
 
 		//maincategory
 		target.find(".category_add").css("display","none");
 //		target.append('<input type="hidden" name="category'+selectedCategoryNo+'" value="'+selectedCategoryname+'" class="maincategory" />');
 		target.append('<input type="hidden" name="category[]" value="'+selectedCategoryId+'" class="maincategory" />');
-		target.append('<p class="selectedCategory"><a href="#close" class="close mouse_over"><img src="' + gAssetUrl + '/img/common/search/close.gif" alt="CLOSE" /></a>'+addCategoryName+'</p>');
-		target.find(".close").on('click',function(){
-			categoryRemove($(this).parent().parent().index()+1);
-			return false;
-		});
+		target.append('<p class="selectedCategory"><a href="#close" class="close mouse_over"><img src="' + gAssetUrl + 'img/common/search/close.gif" alt="CLOSE" /></a>'+addCategoryName+'</p>');
 		
 		categoryAddClose();
 	}
@@ -162,17 +166,17 @@ commonCtl.registCategoryAddSet=function(){
 		var target=$("#input_area .categories li").eq(copyNo-1);
 		if(setTarget.find(".selectedCategory").length==0 && target.find(".selectedCategory").length>0){
 			selectedCategoryNo=setNo;
-			selectedCategoryname=target.find(".maincategory").val();
-			if(target.find(".subcategory").length>0){
-				selectedSubCategoryname=target.find(".subcategory").val();
-			}
+			selectedCategoryname=target.find(".selectedCategory").text();
 			categoryAdd();
 			categoryRemove(copyNo);
 		}
 	}
 	
-	
-	
+	$("#input_area .selectedCategory .close").live('click',function(){
+		categoryRemove($(this).parent().parent().index()+1);
+		return false;
+	});
+
 	$("#input_area .categoryselect .close").on('click',function(){
 		categoryAddClose();
 		return false;
@@ -208,7 +212,8 @@ commonCtl.registCategoryAddSet=function(){
 	});
 	$("#input_area .categoryselect .add").on('click',function(){
 		if(selectedCategoryname!=""){
-			selectedSubCategoryname=$("#input_area .categoryselect select option:selected").text();
+			//selectedSubCategoryname=$("#input_area .categoryselect select option:selected").text();
+			selectedCategoryname = selectedCategoryname + " : " + $("#input_area .categoryselect select option:selected").text();
 			selectedCategoryId+=$("#input_area .categoryselect select option:selected").val()+"/";
 			categoryAdd();
 			orderSet();

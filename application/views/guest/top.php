@@ -23,14 +23,14 @@
 		<h3><img src="<?php echo base_url("assets"); ?>/img/top/login.gif" alt="ログインはこちらから" /></h3>
 		<p class="facebook"><a href="<?php echo $data["fb_login"]; ?>" class="mouse_over"><img src="<?php echo base_url("assets"); ?>/img/common/facebook.gif" alt="Facebookアカウントでログイン"></a></p>
 		
-		<form>
+		<form action="<?php echo base_url("user/top/login"); ?>" method="post">
 		<dl>
 			<dt><img src="<?php echo base_url("assets"); ?>/img/top/userid.gif" alt="ユーザーID" /></dt>
-			<dd><input type="text" class="text" name="userid" /></dd>
+			<dd><input type="text" class="text" name="login_id" /></dd>
 		</dl>
 		<dl>
 			<dt><img src="<?php echo base_url("assets"); ?>/img/top/password.gif" alt="パスワード" /></dt>
-			<dd><input type="text" class="text" name="password" /></dd>
+			<dd><input type="password" class="text" name="password" /></dd>
 		</dl>
 		<p class="login mouse_over"><input type="image" src="<?php echo base_url("assets"); ?>/img/top/loginbtn.gif" alt="ログイン"/></p>
 		<p class="regist"><a href="" class="mouse_over"><img src="<?php echo base_url("assets"); ?>/img/top/registbtn.gif" alt="新規登録" /></a></p>
@@ -51,10 +51,10 @@
 		<dl class="area">
 			<dt><img src="<?php echo base_url("assets"); ?>/img/top/areasearch.gif" alt="エリアで探す" /></dt>
 			<dd>
-				<form>
+				<form method="post">
 					<p><input type="text" class="text" name="area" /></p>
 					<ul>
-						<li><input type="radio" name="type" value="ツアー" id="areasearch-tour"><label for="areasearch-tour">ツアー</label></li>
+						<li><input type="radio" name="type" value="ツアー" id="areasearch-tour" checked="checked"><label for="areasearch-tour">ツアー</label></li>
 						<li><input type="radio" name="type" value="スポット" id="areasearch-spot"><label for="areasearch-spot">スポット</label></li>
 					</ul>
 					<p class="submit mouse_over"><input type="image" src="<?php echo base_url("assets"); ?>/img/common/header/searchbtn.gif" alt="検索" /></p>
@@ -66,10 +66,10 @@
 		<dl class="keyword">
 			<dt><img src="<?php echo base_url("assets"); ?>/img/top/keywordsearch.gif" alt="キーワードで探す" /></dt>
 			<dd>
-				<form>
+				<form method="post">
 					<p><input type="text" class="text" name="area" /></p>
 					<ul>
-						<li><input type="radio" name="type" value="ツアー" id="keywordsearch_tour"><label for="keywordsearch_tour">ツアー</label></li>
+						<li><input type="radio" name="type" value="ツアー" id="keywordsearch_tour" checked="checked"><label for="keywordsearch_tour">ツアー</label></li>
 						<li><input type="radio" name="type" value="スポット" id="keywordsearch_spot"><label for="keywordsearch_spot">スポット</label></li>
 					</ul>
 					<p class="submit mouse_over"><input type="image" src="<?php echo base_url("assets"); ?>/img/common/header/searchbtn.gif" alt="検索" /></p>
@@ -164,7 +164,7 @@
 						<?php if ($spot["image"]) :?>
 						<img src="<?php echo base_url("uploads/spot/thumb/".$spot["image"]["file_name"]);?>" width="137" height="104" alt="<?php echo $data["name"];?>" />
 						<?php else: ?>
-						<img src="<?php echo base_url("assets");?>/img/spot/sample.jpg" width="137" height="104" alt="<?php echo $data["name"];?>" />
+						<img src="<?php echo base_url("assets");?>/img/common/noimage.jpg" width="137" height="104" alt="<?php echo $data["name"];?>" />
 						<?php endif;?>
 					</a></p>
 					<div class="pg_like_count fb-like" data-href="<?php echo base_url("spot/show/".$spot["id"]);?>" data-send="false" data-layout="button_count" data-width="450" data-show-faces="false"></div>
@@ -230,29 +230,64 @@
 		<div class="list_area">
 			<?php foreach($data["topics"]["list"] as $tour) :?>
 			<div class="list_item">
+				<p class="icon"><img src="<?php echo base_url("assets"); ?>/img/common/icon/tour.png" alt="ツアー" /></p>
 				
 				<div class="photo_area">
-					<p><a href="<?php echo base_url("tour/show/".$tour["id"]);?>">
-					<?php if ($tour["img"]): ?>
-					<img src="<?php echo base_url("assets"); ?>/img/top/sample.jpg" alt="<?php echo $tour["name"];?>" />
-					<?php else:?>
-					<img src="<?php echo base_url("assets"); ?>/img/top/sample.jpg" alt="<?php echo $tour["name"];?>" />
-					<?php endif;?>
+					<p>
+					<a href="<?php echo base_url("tour/show/".$tour["id"]);?>">
+						<?php if ($tour["image"]):?>
+							<img src="<?php echo base_url("uploads/tour/thumb/".$tour["image"]["file_name"]);?>" width="137" height="104" alt="" /></div>
+						<?php else:?>
+							<img src="<?php echo base_url("assets"); ?>/img/common/noimage.jpg" width="137" height="104" alt="<?php echo $tour["name"];?>" />
+						<?php endif;?>
 					</a></p>
+					<div class="pg_like_count fb-like" data-href="<?php echo base_url("tour/show/".$tour["id"]);?>" data-send="false" data-layout="button_count" data-width="450" data-show-faces="false"></div>
+					<dl class="category">
+<?php
+						preg_match_all("/\d+/", $tour["category"], $category);
+						$tree = array();
+						foreach($category[0] as $category_id):
+							$tree[] = $data["tours"]["relation"]["categories"][$category_id];
+						endforeach;
+?>
+								
+						<dt><img src="<?php echo base_url("assets"); ?>/img/common/icon/category.gif" alt="CATEGORY" /></dt>
+						<dd><?php echo implode(" > ", $tree);?></dd>
+					</dl>
 				</div>
 				<!-- //photo_area -->
 	
 				<div class="info_area">
 					<dl class="maininfo">
 						<dt><?php echo $tour["name"];?></dt>
-						<dd><?php echo $tour["description"];?></dd>
+						<dd><?php echo mb_substr($tour["description"], 0, 100);?></dd>
 					</dl>
 					<!-- //maininfo -->
+					
+					<div class="subinfo">
+						<dl>
+							<dt><img src="<?php echo base_url("assets"); ?>/img/common/icon/name.gif" alt="作成者" /></dt>
+							<dd><?php echo $tour["owner"];?></dd>
+						</dl>
+						<dl>
+							<dt><img src="<?php echo base_url("assets"); ?>/img/common/icon/departure.gif" alt="出発地" /></dt>
+							<dd><?php $tour["prefecture"];?></dd>
+						</dl>
+						<dl>
+							<dt><img src="<?php echo base_url("assets"); ?>/img/common/icon/time.gif" alt="時間" /></dt>
+							<dd>---</dd>
+						</dl>
+					</div>
+					<!-- //subinfo -->
+	
+					<p class="linkbtn"><a href="<?php echo base_url("tour/show/".$tour["id"]);?>" class="mouse_over"><img src="<?php echo base_url("assets"); ?>/img/common/btn/tourlinkbtn.gif" alt="ツアー内容を見る"></a></p>
+	
 				</div>
 				<!-- //info_area -->
 				
 			</div>
 			<!-- //list_item -->
+			
 			<?php endforeach;?>
 
 		</div>

@@ -113,9 +113,8 @@ class Top extends MY_Controller {
 	
 	function tour_show($id) {
 		$data = $this->Tour_model->row($id);
-		preg_match_all("/\d+/", $data["category"], $cateogry);
-		$data["category_names"]	= $this->Category_model->get_names($cateogry[0]);
-		$data["tag_names"]		= $this->Tag_model->tag_values(explode(",", $data["tags"]));
+		$data["category_names"]	= $this->Category_model->get_names($data["category_keys"]);
+		$data["tag_names"]		= $this->Tag_model->tag_values($data["tags"]);
 		$data["routes"] = $this->Spot_model->get_route($id);
 		$this->render_view("guest/tour/show", $data);
 	}
@@ -142,6 +141,10 @@ class Top extends MY_Controller {
 	
 	function rule() {
 		$this->render_view("guest/info/rule");
+	}
+	
+	function notfound() {
+		$this->render_view("guest/info/notfound");
 	}
 	
 	function phpinfo() {

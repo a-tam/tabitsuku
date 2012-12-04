@@ -20,7 +20,7 @@
 
 	<ul id="breadcrumbs">
 		<li><a href="../">トップページ</a></li>
-		<li>スポット名スポット名スポット名スポット名</li>
+		<li><?php echo $data["name"];?></li>
 	</ul>
 
 
@@ -34,7 +34,7 @@
 			<?php if ($data["image"]) :?>
 				<img src="<?php echo base_url("uploads/spot/thumb/".$data["image"]["file_name"]);?>" alt="<?php echo $data["name"];?>" />
 			<?php else :?>
-				<img src="<?php echo base_url("assets");?>/img/spot/sample.jpg" alt="<?php echo $data["name"];?>" />
+				<img src="<?php echo base_url("assets");?>/img/common/noimage.jpg" alt="<?php echo $data["name"];?>" />
 			<?php endif;?>
 		</p>
 		<div class="info">
@@ -43,11 +43,11 @@
 			<div class="subinfo">
 				<dl>
 					<dt><img src="<?php echo base_url("assets");?>/img/common/icon/name.gif" alt="作成者" /></dt>
-					<dd>田中一郎</dd>
+					<dd><?php echo $data["owner"];?></dd>
 				</dl>
 				<dl>
 					<dt><img src="<?php echo base_url("assets");?>/img/common/icon/location.gif" alt="場所" /></dt>
-					<dd>東京駅</dd>
+					<dd><?php echo $data["prefecture"];?></dd>
 				</dl>
 				<dl>
 					<dt><img src="<?php echo base_url("assets");?>/img/common/icon/time.gif" alt="時間" /></dt>

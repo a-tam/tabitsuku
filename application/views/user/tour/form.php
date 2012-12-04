@@ -1,4 +1,3 @@
-<?php $category = $this->Category_model->get_list(""); ?>
 <!-- css -->
 <link rel="stylesheet" type="text/css" media="screen,print" href="<?php echo base_url("assets"); ?>/css/modules/tourentry.css" />
 <link rel="stylesheet" type="text/css" href="<?php echo base_url("assets"); ?>/js/jquery/autocomplete/css/jquery.tagit.css">
@@ -61,9 +60,27 @@
 					<dt><img src="<?php echo base_url("assets");?>/img/user/spot/category.gif" alt="カテゴリ" /></dt>
 					<dd>
 						<ul class="categories">
-							<li class="category1"><a href="#add" class="mouse_over category_add"><img src="<?php echo base_url("assets");?>/img/user/spot/addbtn.gif" alt="カテゴリを追加" /></a></li>
-							<li class="category2"><a href="#add" class="mouse_over category_add"><img src="<?php echo base_url("assets");?>/img/user/spot/addbtn.gif" alt="カテゴリを追加" /></a></li>
-							<li class="category3"><a href="#add" class="mouse_over category_add"><img src="<?php echo base_url("assets");?>/img/user/spot/addbtn.gif" alt="カテゴリを追加" /></a></li>
+<?php
+$category = $this->Category_model->get_list("");
+for($i = 0; $i < 3; $i++):?>
+							<li class="category<?php echo $i+1;?>">
+<?php
+	$category_names = array();
+	if ($data["category"][$i]):
+		preg_match_all("/\d+/", $data["category"][$i], $cateogry);
+		foreach ($cateogry[0] as $key) {
+			$category_names[] = $data["category_names"][$key];
+		}
+?>
+								<a href="#add" class="mouse_over category_add" style="display:none;"><img src="<?php echo base_url("assets");?>/img/user/spot/addbtn.gif" alt="カテゴリを追加" /></a>
+								<input type="hidden" name="category[]" value="<?php echo $data["category"][$i];?>" class="maincategory" />
+								<p class="selectedCategory">
+									<a href="#close" class="close mouse_over"><img src="<?php echo base_url("assets");?>/img/common/search/close.gif" alt="CLOSE" /></a><?php echo implode(" : ", $category_names);?></p>
+	<?php else:?>
+								<a href="#add" class="mouse_over category_add"><img src="<?php echo base_url("assets");?>/img/user/spot/addbtn.gif" alt="カテゴリを追加" /></a>
+	<?php endif;?>
+							</li>
+<?php endfor;?>
 						</ul>
 						<div class="categoryselect">
 							<ul>
@@ -71,8 +88,7 @@
 								<li data-category-id="<?php echo $row["id"];?>"><a href=""><?php echo $row["name"];?></a></li>
 <?php endforeach;?>
 							</ul>
-							<select type="text" name="subcategory_input" maxlength="20" class="text">
-							</select>
+							<select type="text" name="subcategory_input" maxlength="20" class="text"></select>
 							<p class="close"><a href="#close" class="mouse_over"><img src="<?php echo base_url("assets");?>/img/common/search/close.png" alt="CLSOE" /></a></p>
 							<p class="add"><a href="#add" class="mouse_over"><img src="<?php echo base_url("assets");?>/img/common/icon/add.gif" alt="追加" /></a></p>
 							<p class="tri">&nbsp;</p>
@@ -102,6 +118,7 @@
 		<h2><img src="<?php echo base_url("assets");?>/img/user/tour/search_title.gif" alt="2：スポットを検索して追加する" /></h2>
 		
 		<div class="search_box">
+			<input type="hidden" id="limit" value="20" />
 			<dl class="keyword">
 				<dt><img src="<?php echo base_url("assets");?>/img/user/tour/keyword.gif" alt="キーワード" /></dt>
 				<dd><input type="text" class="text" name="keyword" id="keyword" /></dd>
@@ -113,7 +130,7 @@
 					<div class="categoryselect">
 						<ul>
 <?php foreach($category->result_array() as $row):?>
-						<li data-category-id="<?php echo $row["id"];?>"><a href=""><?php echo $row["name"];?></a></li>
+						<li><a href="" data-category-id="<?php echo $row["id"];?>"><?php echo $row["name"];?></a></li>
 <?php endforeach;?>
 						</ul>
 						<p class="close"><a href="#close" class="mouse_over"><img src="<?php echo base_url("assets");?>/img/common/search/close.png" alt="CLSOE" /></a></p>
@@ -131,7 +148,7 @@
 		<p class="attention"><img src="<?php echo base_url("assets");?>/img/user/tour/attention_routeadd.gif" alt="スポットをドラッグしてルートに追加しよう" /></p>
 		
 		<div class="search_info">
-			<p class="total">検索結果：<em>67件</em></p>
+			<p class="total">検索結果：<em><span id="search-count"></span>件</em></p>
 			
 			<div class="pager">
 				<p class="order">
@@ -141,7 +158,9 @@
 						<option value="name asc">スポット名</option>
 					</select>
 				</p>
-			
+
+				<div id="pagenation" style="clear: both;"></div>
+				<!--
 				<p class="prev"><a href="">前へ</a></p>
 				<ul>
 					<li class="select">1</li>
@@ -149,6 +168,7 @@
 					<li><a href="">3</a></li>
 				</ul>
 				<p class="next"><a href="">次へ</a></p>
+				 -->
 			</div>
 			<!-- //pager -->
 			

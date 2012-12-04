@@ -8,6 +8,7 @@ class Spot extends MY_Controller {
 		$this->load->model("Spot_model");
 		$this->load->model("Tag_model");
 		$this->load->library('user_agent');
+		$this->load->model("Category_model");
 		$this->form_data = $this->Spot_model->get_structure();
 	}
 
@@ -22,6 +23,7 @@ class Spot extends MY_Controller {
 		} else {
 			$data = $this->Spot_model->row($id);
 		}
+		$data["category_names"] = $this->Category_model->get_names($data["category_keys"]);
 		$data["tags"] = $this->Tag_model->tag_values($data["tags"]);
 		
 		$this->phpsession->set("point", $data, $this->ns);
@@ -76,7 +78,7 @@ class Spot extends MY_Controller {
 			$this->Spot_model->insert($data, $this->user_info["id"]);
 		}
 		$this->phpsession->clear($this->ns, "point");
-		redirect("user/top");
+		redirect("user/spot");
 	}
 	
 	function update() {

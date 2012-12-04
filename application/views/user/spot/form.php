@@ -60,26 +60,47 @@
 			</dl>
 			<dl class="tag">
 				<dt><img src="<?php echo base_url("assets");?>/img/user/spot/tag.gif" alt="タグ" /></dt>
-				<dd><ul id="tags"></ul></dd>
+				<dd><ul id="tags">
+				<?php if ($data["tags"]):?>
+<?php foreach($data["tags"] as $tag):?>
+						<li><?php echo $tag;?></li>
+<?php endforeach;?>
+<?php endif;?>
+				</ul></dd>
 			</dl>
 			<dl class="category">
 				<dt><img src="<?php echo base_url("assets");?>/img/user/spot/category.gif" alt="カテゴリ" /></dt>
 				<dd>
 					<ul class="categories">
-						<li class="category1"><a href="#add" class="mouse_over category_add"><img src="<?php echo base_url("assets");?>/img/user/spot/addbtn.gif" alt="カテゴリを追加" /></a></li>
-						<li class="category2"><a href="#add" class="mouse_over category_add"><img src="<?php echo base_url("assets");?>/img/user/spot/addbtn.gif" alt="カテゴリを追加" /></a></li>
-						<li class="category3"><a href="#add" class="mouse_over category_add"><img src="<?php echo base_url("assets");?>/img/user/spot/addbtn.gif" alt="カテゴリを追加" /></a></li>
+<?php
+$category = $this->Category_model->get_list("");
+for($i = 0; $i < 3; $i++):?>
+							<li class="category<?php echo $i+1;?>">
+<?php
+	$category_names = array();
+	if ($data["category"][$i]):
+		preg_match_all("/\d+/", $data["category"][$i], $cateogry);
+		foreach ($cateogry[0] as $key) {
+			$category_names[] = $data["category_names"][$key];
+		}
+?>
+								<a href="#add" class="mouse_over category_add" style="display:none;"><img src="<?php echo base_url("assets");?>/img/user/spot/addbtn.gif" alt="カテゴリを追加" /></a>
+								<input type="hidden" name="category[]" value="<?php echo $data["category"][$i];?>" class="maincategory" />
+								<p class="selectedCategory">
+									<a href="#close" class="close mouse_over"><img src="<?php echo base_url("assets");?>/img/common/search/close.gif" alt="CLOSE" /></a><?php echo implode(" : ", $category_names);?></p>
+	<?php else:?>
+								<a href="#add" class="mouse_over category_add"><img src="<?php echo base_url("assets");?>/img/user/spot/addbtn.gif" alt="カテゴリを追加" /></a>
+	<?php endif;?>
+							</li>
+<?php endfor;?>
 					</ul>
 					<div class="categoryselect">
 						<ul>
-							<li><a href="">見る</a></li>
-							<li><a href="">遊ぶ</a></li>
-							<li><a href="">食べる</a></li>
-							<li><a href="">宿泊・温泉</a></li>
-							<li><a href="">乗り物/乗り場</a></li>
-							<li><a href="">買う</a></li>
+<?php foreach($category->result_array() as $row):?>
+							<li data-category-id="<?php echo $row["id"];?>"><a href=""><?php echo $row["name"];?></a></li>
+<?php endforeach;?>
 						</ul>
-						<input type="text" class="text" maxlength="20" name="subcategory_input" />
+						<select type="text" name="subcategory_input" maxlength="20" class="text"></select>
 						<p class="close"><a href="#close" class="mouse_over"><img src="<?php echo base_url("assets");?>/img/common/search/close.png" alt="CLSOE" /></a></p>
 						<p class="add"><a href="#add" class="mouse_over"><img src="<?php echo base_url("assets");?>/img/common/icon/add.gif" alt="追加" /></a></p>
 						<p class="tri">&nbsp;</p>

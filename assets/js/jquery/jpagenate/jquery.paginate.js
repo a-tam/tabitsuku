@@ -57,7 +57,7 @@
 		_divwrapleft.append(_first).append(_rotleft);
 		
 		var _ulwrapdiv	= $(document.createElement('div')).css('overflow','hidden');
-		var _ul			= $(document.createElement('ul')).addClass('jPag-pages')
+		var _ul			= $(document.createElement('ul')).addClass('jPag-pages');
 		var c = (o.display - 1) / 2;
 		var first = selectedpage - c;
 		var selobj;

@@ -33,7 +33,10 @@ class MY_Controller extends CI_Controller {
 		$params = array("redirect_uri" => base_url("user/top/fb_auth"));
 		$data["fb_login"] = $this->facebook->getLoginUrl($params);
 		$this->load->library("form_validation");
-		$this->render_view('user/login', $data);
+		redirect("/");
+		exit();
+//		$this->render_view('top/', $data);
+//		$this->render_view('user/login', $data);
 	}
 	
 	function admin_login_form() {

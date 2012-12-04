@@ -1,7 +1,4 @@
-(function() {
-
 var tourentryCtl={};
-
 
 $(document).ready(function(){
 	tourentryCtl.init();
@@ -17,6 +14,15 @@ tourentryCtl.init=function(){
 	var latlng = {};
 	var myOptions = {};
 	var linePath = null;
+	
+	commonCtl.searchBoxSet.setFunc = function() {
+		search();
+		return false;
+	};
+	commonCtl.searchBoxSet.unsetFunc = function() {
+		search();
+		return false;
+	};
 	
 	function mapInit() {
 		var latlng = new google.maps.LatLng(35.6815,139.786);
@@ -71,6 +77,7 @@ tourentryCtl.init=function(){
 		$("#category,#keyword,#season,#limit,#sort").change(function() {
 			search();
 		});
+		
 		google.maps.event.addListener(map, 'dragend', function() {
 			search();
 		});
@@ -84,6 +91,12 @@ tourentryCtl.init=function(){
 			search();
 		});
 		$("#spotFilterButton").click(function() {
+			search();
+		});
+		$(".search_box .search-btn").click(function() {
+			search();
+		});
+		$("#userspot").change(function() {
 			search();
 		});
 		// 予定時刻を反映
@@ -368,8 +381,9 @@ tourentryCtl.init=function(){
 			url: gBaseUrl + "user/tour/query",
 			async: false,
 			data: {
-//				category:	$("#search-category").val(),
+				category:	$(".search_box .category dd input").val(),
 				keyword:	$("#keyword").val(),
+				userspot:	$("#userspot:checked").length,
 //				limit:		$("#limit").val(),
 				sort:		$("#sort").val(),
 				page:		page,
@@ -516,7 +530,7 @@ tourentryCtl.init=function(){
 			draggable	: false
 		});
 		google.maps.event.addListener(marker, "click", function() {
-			info_window(id)
+			info_window(id);
 			if (current_window) {
 				current_window.close();
 			}
@@ -561,23 +575,28 @@ tourentryCtl.init=function(){
 	 * スポット一覧のページネーション
 	 */
 	function pager(page_count, now) {
-		$("#pagenation").paginate({
-			count					: page_count,
-			start					: now,
-			display					: 5,
-			border					: true,
-			border_color			: false,
-			text_color  			: false,
-			background_color    	: false,
-			border_hover_color		: false,
-			text_hover_color  		: false,
-			background_hover_color	: false,
-			images					: false,
-			mouse					: 'press',
-			onChange				: function(page) {
-				search(page);
-			}
-		});
+		if (page_count > 0) {
+			$("#pagenation").show();
+			$("#pagenation").paginate({
+				count					: page_count,
+				start					: now,
+				display					: 5,
+				border					: true,
+				border_color			: false,
+				text_color  			: false,
+				background_color    	: false,
+				border_hover_color		: false,
+				text_hover_color  		: false,
+				background_hover_color	: false,
+				images					: false,
+				mouse					: 'press',
+				onChange				: function(page) {
+					search(page);
+				}
+			});
+		} else {
+			$("#pagenation").hide();
+		}
 	}
 	
 	function tourListPosi(){
@@ -595,13 +614,10 @@ tourentryCtl.init=function(){
 		setInterval(heightAdjust,200);
 		function heightAdjust(){
 			var targetHeight=$("#basic_area").height();
-			spotSearch.find(".list_area").css("height",targetHeight-spotSearch.find(".search_box").height()-spotSearch.find(".search_info").height()-spotSearch.find(".memo_item").height()-150+"px")
-			tourMake.find(".list_area").css("height",targetHeight-283+"px")
+			spotSearch.find(".list_area").css("height",targetHeight-spotSearch.find(".search_box").height()-spotSearch.find(".search_info").height()-spotSearch.find(".memo_item").height()-150+"px");
+			tourMake.find(".list_area").css("height",targetHeight-283+"px");
 			$("#joint span").css("height",spotSearch.find(".search_box").height()+39+"px");
 		}
 	}
 	blockHeightAdjust();
-}
-
-
-})();
+};
