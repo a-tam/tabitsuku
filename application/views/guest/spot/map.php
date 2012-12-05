@@ -4,6 +4,7 @@
 <!-- javascript -->
 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=true"></script>
 <script type="text/javascript" src="<?php echo base_url("assets");?>/js/userspot.js"></script>
+<script type="text/javascript" src="<?php echo base_url("assets");?>/js/apps/guest/spot/map.js"></script>
 
 </head>
 <body id="user" class="sec spot">

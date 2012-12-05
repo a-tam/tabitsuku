@@ -8,15 +8,15 @@ $(document).ready(function(){
 commonCtl.init=function(){
 	
 	
-	//searchBox
+	// searchBox
 	if($(".search_box").length>0){
 		commonCtl.searchBoxSet();
 	}
 	
-	//login
+	// login
 	commonCtl.loginInit();
 	
-	//menu
+	// menu
 	if(browser.IEChk()<=9){
 		commonCtl.menuAct();
 	}
@@ -70,15 +70,32 @@ commonCtl.searchBoxSet=function(options){
 		});
 	});
 	
+	$(".search_box .pg_search_list_btn").on("click", function() {
+		if ($(".search_box [name='type']:checked").val() == "spot") {
+			$(".search_box form").attr("action", gBaseUrl + "spot/search");
+		} else {
+			$(".search_box form").attr("action", gBaseUrl + "tour/search");
+		}
+	});
+	
+	$(".search_box .pg_search_map_btn").on("click", function() {
+		if ($(".search_box [name='type']:checked").val() == "spot") {
+			$(".search_box form").attr("action", gBaseUrl + "guest/spot/map");
+		} else {
+			$(".search_box form").attr("action", gBaseUrl + "guest/tour/map");
+		}
+	});
+
+	$(".search_box .selectedCategory a").live('click',function(){
+		categoryRemove();
+		commonCtl.searchBoxSet.unsetFunc();
+		return false;
+	});
+
 	function categorySet(id, str){
 		categoryRemove();
 		$(".search_box .category dd").append('<p class="selectedCategory"><a href="#close" class="close mouse_over">&nbsp;</a>'+str+'</p>');
 		$(".search_box .category dd").append('<input type="hidden" name="category" value="'+id+'" />');
-		$(".search_box .selectedCategory a").on('click',function(){
-			categoryRemove();
-			commonCtl.searchBoxSet.unsetFunc();
-			return false;
-		});
 		categorySelectHide();
 	}
 	function categoryRemove(){
@@ -92,8 +109,6 @@ commonCtl.searchBoxSet=function(options){
 	function categorySelectHide(){
 		$(".search_box .categoryselect").css("display","none");
 	}
-	
-	
 };
 
 commonCtl.searchBoxSet.setFunc = function() {return false;};
@@ -107,8 +122,6 @@ commonCtl.registCategoryAddSet=function(){
 	var selectedCategoryname="";
 	var selectedSubCategoryname="";
 	var selectedCategoryId="";
-	
-	
 	
 	function selectInit(){
 		$("#input_area .categoryselect li").removeClass("select");
@@ -132,17 +145,8 @@ commonCtl.registCategoryAddSet=function(){
 		var addCategoryName=selectedCategoryname;
 		var target=$("#input_area  .categories .category"+selectedCategoryNo);
 
-		//subcategory
-		/*
-		if(selectedSubCategoryname!=""){
-			addCategoryName+="："+selectedSubCategoryname;
-			//target.append('<input type="hidden" name="subcategory'+selectedCategoryNo+'" value="'+selectedSubCategoryname+'" class="subcategory" />');
-		}
-		*/
-
 		//maincategory
 		target.find(".category_add").css("display","none");
-//		target.append('<input type="hidden" name="category'+selectedCategoryNo+'" value="'+selectedCategoryname+'" class="maincategory" />');
 		target.append('<input type="hidden" name="category[]" value="'+selectedCategoryId+'" class="maincategory" />');
 		target.append('<p class="selectedCategory"><a href="#close" class="close mouse_over"><img src="' + gAssetUrl + 'img/common/search/close.gif" alt="CLOSE" /></a>'+addCategoryName+'</p>');
 		
@@ -212,7 +216,6 @@ commonCtl.registCategoryAddSet=function(){
 	});
 	$("#input_area .categoryselect .add").on('click',function(){
 		if(selectedCategoryname!=""){
-			//selectedSubCategoryname=$("#input_area .categoryselect select option:selected").text();
 			selectedCategoryname = selectedCategoryname + " : " + $("#input_area .categoryselect select option:selected").text();
 			selectedCategoryId+=$("#input_area .categoryselect select option:selected").val()+"/";
 			categoryAdd();
@@ -269,8 +272,6 @@ commonCtl.listHeightAdjust=function(){
 	});
 
 };
-
-
 
 /* spot inner
 -----------------------------------------*/

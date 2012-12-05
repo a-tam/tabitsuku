@@ -52,10 +52,10 @@
 			<dt><img src="<?php echo base_url("assets"); ?>/img/top/areasearch.gif" alt="エリアで探す" /></dt>
 			<dd>
 				<form method="post">
-					<p><input type="text" class="text" name="area" /></p>
+					<p><input type="text" class="text" name="keyword" /></p>
 					<ul>
-						<li><input type="radio" name="type" value="ツアー" id="areasearch-tour" checked="checked"><label for="areasearch-tour">ツアー</label></li>
-						<li><input type="radio" name="type" value="スポット" id="areasearch-spot"><label for="areasearch-spot">スポット</label></li>
+						<li><input type="radio" name="type" value="tour" id="areasearch-tour" checked="checked"><label for="areasearch-tour">ツアー</label></li>
+						<li><input type="radio" name="type" value="spot" id="areasearch-spot"><label for="areasearch-spot">スポット</label></li>
 					</ul>
 					<p class="submit mouse_over"><input type="image" src="<?php echo base_url("assets"); ?>/img/common/header/searchbtn.gif" alt="検索" /></p>
 				</form>
@@ -67,10 +67,10 @@
 			<dt><img src="<?php echo base_url("assets"); ?>/img/top/keywordsearch.gif" alt="キーワードで探す" /></dt>
 			<dd>
 				<form method="post">
-					<p><input type="text" class="text" name="area" /></p>
+					<p><input type="text" class="text" name="keyword" /></p>
 					<ul>
-						<li><input type="radio" name="type" value="ツアー" id="keywordsearch_tour" checked="checked"><label for="keywordsearch_tour">ツアー</label></li>
-						<li><input type="radio" name="type" value="スポット" id="keywordsearch_spot"><label for="keywordsearch_spot">スポット</label></li>
+						<li><input type="radio" name="type" value="tour" id="keywordsearch_tour" checked="checked"><label for="keywordsearch_tour">ツアー</label></li>
+						<li><input type="radio" name="type" value="spot" id="keywordsearch_spot"><label for="keywordsearch_spot">スポット</label></li>
 					</ul>
 					<p class="submit mouse_over"><input type="image" src="<?php echo base_url("assets"); ?>/img/common/header/searchbtn.gif" alt="検索" /></p>
 				</form>

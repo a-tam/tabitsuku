@@ -172,7 +172,7 @@
 	</div>
 	<!-- //route_area -->
 
-	<?php $this->load->view("guest/search_box_l");?>
+	<?php $this->load->view("guest/search_box", array("mode" => 1));?>
 
 </div>
 <!-- //contents -->
