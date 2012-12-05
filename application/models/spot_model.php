@@ -205,8 +205,11 @@ class Spot_model extends MY_Model {
 	}
 	
 	function insert($input, $owner_id) {
+		if (!$user_info = $this->phpsession->get("user_info")) {
+			return array();
+		}
 		$data = array(
-			"owner"			=> $owner,
+			"owner"			=> $user_info["id"],
 			"name"			=> $input["name"],
 			"description"	=> $input["description"],
 			"stay_time"		=> $input["stay_time"],
