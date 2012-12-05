@@ -7,11 +7,12 @@ $(function() {
 		center: latlng,
 		mapTypeId: google.maps.MapTypeId.ROADMAP
 	};
-	var map = new google.maps.Map($("#pg_map")[0], myOptions);
+	var map = new google.maps.Map($("#map")[0], myOptions);
 	
 //	var path = [];
 	
 	var lat_min = lat_max = lng_min = lng_max = null;
+	var waypoints = [];
 	$(".pg_spot").each(function(i, elm) {
 		var id = $(elm).attr("data-spot-id");
 		if (id) {
@@ -23,6 +24,8 @@ $(function() {
 				lng_min = lng;
 				lng_max = lng;
 				start = new google.maps.LatLng(lat, lng);
+			} else {
+				waypoints.push({location: new google.maps.LatLng(lat, lng)});
 			}
 			if (lat <= lat_min) { lat_min = lat; }
 			if (lat >  lat_max) { lat_max = lat; }
@@ -33,7 +36,6 @@ $(function() {
 				map			: map,
 				position	: latlng
 			});
-			
 			if (i == 0) {
 				marker.setIcon(gAssetUrl + '/img/map/icons/start.png');
 			} else if(i == $(".pg_spot").length - 1) {
@@ -41,7 +43,6 @@ $(function() {
 			} else {
 				marker.setIcon(gAssetUrl + '/img/map/icons/spot.png');
 			}
-//			path.push(marker.getPosition());
 		}
 	});
 	var ne = new google.maps.LatLng(lat_max, lng_max);
@@ -66,10 +67,15 @@ $(function() {
 	//	google.maps.event.addListener(directionsDisplay, "directions_changed", function() {
 	//	calcRoute(directionsDisplay.directions);
 	//});
+	
+	if (waypoints.length > 1) {
+		waypoints.pop();
+	}
 	directionsDisplay.setMap(map);
 	directionsService.route({
 		origin : start,
-	//	waypoints: [ { location: "鈴鹿駅" }, { location :"名古屋駅" } ],
+		//waypoints: [ { location: "鈴鹿駅" }, { location :"名古屋駅" } ],
+		waypoints: waypoints,
 		destination: latlng,
 		travelMode: google.maps.DirectionsTravelMode.DRIVING
 	}, function(response, status){

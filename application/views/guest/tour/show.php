@@ -4,6 +4,7 @@
 <!-- javascript -->
 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=true"></script>
 <script type="text/javascript" src="<?php echo base_url("assets"); ?>/js/tour.js"></script>
+<script type="text/javascript" src="<?php echo base_url("assets"); ?>/js/apps/guest/tour/show.js"></script>
 
 </head>
 <body id="spot" class="sec">

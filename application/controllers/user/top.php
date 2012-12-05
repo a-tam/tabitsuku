@@ -6,6 +6,7 @@ class Top extends MY_Controller {
 		parent::__construct();
 		$this->ns = md5(__FILE__);
 		$this->load->model("User_model");
+		$this->load->model("Category_model");
 		$this->form_data = $this->User_model->get_structure();
 	}
 	
