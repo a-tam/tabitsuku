@@ -13,6 +13,10 @@ commonCtl.init=function(){
 		commonCtl.searchBoxSet();
 	}
 	
+	if($("header .search").length>0){
+		commonCtl.simpleSearch();
+	}
+	
 	// login
 	commonCtl.loginInit();
 	
@@ -48,6 +52,15 @@ commonCtl.menuAct=function(){
 	});
 };
 
+commonCtl.simpleSearch = function() {
+	$("header form").on("submit", function() {
+		if ($("header form [name='type']:checked").val() == "spot") {
+			$("header form").attr("action", gBaseUrl + "spot/search");
+		} else {
+			$("header form").attr("action", gBaseUrl + "tour/search");
+		}
+	});
+};
 
 /* searchBox
 -----------------------------------------*/

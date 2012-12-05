@@ -1,4 +1,6 @@
-<div id="fb-root"></div>
+<?php
+$category = $this->Category_model->get_list("");
+?><div id="fb-root"></div>
 <script>(function(d, s, id) {
   var js, fjs = d.getElementsByTagName(s)[0];
   if (d.getElementById(id)) return;
@@ -13,21 +15,18 @@
 	<dl class="search">
 		<dt><img src="<?php echo base_url("assets"); ?>/img/common/header/search.gif" alt="ツアーやスポットを検索しよう" /></dt>
 		<dd>
-			<form>
+			<form method="post">
 				<p class="categoryselect">
 					<select class="category" name="category">
-						<option>全てのカテゴリ</option>
-						<option>見る</option>
-						<option>遊ぶ</option>
-						<option>食べる</option>
-						<option>宿泊・温泉</option>
-						<option>乗り物/乗り場</option>
-						<option>買う</option>
+						<option value="">全てのカテゴリ</option>
+<?php foreach($category->result_array() as $row):?>
+						<option value="/<?php echo $row["id"];?>/"><?php echo $row["name"];?></option>
+<?php endforeach;?>
 					</select>
 				</p>
 				<ul>
-					<li><input type="radio" name="type" value="ツアー" id="headersearch_tour"><label for="headersearch_tour">ツアー</label></li>
-					<li><input type="radio" name="type" value="スポット" id="headersearch_spot"><label for="headersearch_spot">スポット</label></li>
+					<li><input type="radio" name="type" value="tour" id="headersearch_tour" checked="checked"><label for="headersearch_tour">ツアー</label></li>
+					<li><input type="radio" name="type" value="spot" id="headersearch_spot"><label for="headersearch_spot">スポット</label></li>
 				</ul>
 				<p class="keyword"><input type="text" class="text" name="keyword" value="" /></p>
 				<p class="submit mouse_over"><input type="image" src="<?php echo base_url("assets"); ?>/img/common/header/searchbtn.gif" alt="検索" /></p>
