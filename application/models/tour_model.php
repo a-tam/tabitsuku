@@ -135,7 +135,8 @@ class Tour_model extends MY_Model {
 		// from
 		$this->db->from($this->table);
 		// where
-		$wheres = array();
+		//$wheres = array();
+		$wheres[] =  "status = ".SCHEDULE_STATUS_ENABLED;
 		// 地図検索
 		if ($condition["ne_lng"] && $condition["sw_lng"] && $condition["ne_lat"] && $condition["sw_lat"]) {
 			$wheres[] = "lng_max > ".$condition["sw_lng"];
@@ -210,6 +211,13 @@ class Tour_model extends MY_Model {
 				"list"			=> $list
 				)
 			);
+	}
+	
+	function delete($id) {
+		$data = array(
+				"status"		=> SCHEDULE_STATUS_DISABLED
+		);
+		return $this->updates($data, array("id" => $id));
 	}
 	
 	function get_routes($tour_ids) {
