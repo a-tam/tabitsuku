@@ -130,13 +130,14 @@ class Spot_model extends MY_Model {
 		$this->db->from($this->table);
 		
 		// where
-		$wheres = array();
+		$wheres[] =  "status = ".POINT_STATUS_ENABLED;
 		if ($condition["ne_lat"] && $condition["sw_lat"] && $condition["ne_lng"] && $condition["sw_lng"]) {
 			$wheres[] = "lat < ".$condition["ne_lat"];
 			$wheres[] = "lat > ".$condition["sw_lat"];
 			$wheres[] = "lng < ".$condition["ne_lng"];
 			$wheres[] = "lng > ".$condition["sw_lng"];
 		}
+		
 		if ($condition["owner"]) {
 			$wheres[] = "owner = '".mysql_real_escape_string($condition["owner"])."'";
 		}
@@ -251,6 +252,13 @@ class Spot_model extends MY_Model {
 			unset($input["image"]["tmp"]["full_path"]);
 			$data["image"] = serialize($input["image"]["tmp"]);
 		}
+		return $this->updates($data, array("id" => $id));
+	}
+	
+	function delete($id) {
+		$data = array(
+				"status"		=> POINT_STATUS_DISABLED
+		);
 		return $this->updates($data, array("id" => $id));
 	}
 	

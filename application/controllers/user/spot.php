@@ -89,8 +89,10 @@ class Spot extends MY_Controller {
 		$this->render_view("user/spot/form");
 	}
 	
-	function delete() {
+	function delete($id) {
 		if (!$this->auth()) return $this->login_form();
+		$this->Spot_model->delete($id);
+		redirect("spot/search");
 	}
 	
 	function like_plus() {

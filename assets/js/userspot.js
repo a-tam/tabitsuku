@@ -124,13 +124,10 @@
 							// リンク
 							spot_elm.find(".pg_detail")
 								.attr("href", gBaseUrl + "spot/show/" + spot_info.id);
-							if (spot_info.owner == "mydata") {
-								spot_elm.find(".pg_edit")
-									.attr("href", gBaseUrl + "user/spot/form/" + spot_info.id);
-								spot_elm.find(".pg_delete")
-									.attr("href", gBaseUrl + "user/spot/delete/" + spot_info.id);
-							} else {
-							}
+							spot_elm.find(".pg_edit")
+								.attr("href", gBaseUrl + "user/spot/form/" + spot_info.id);
+							spot_elm.find(".pg_delete")
+								.attr("href", gBaseUrl + "user/spot/delete/" + spot_info.id);
 							spot_elm.appendTo("#pg_spots");
 							// 地図にマーカー表示
 							var latlng = new google.maps.LatLng(spot_info.lat, spot_info.lng);
