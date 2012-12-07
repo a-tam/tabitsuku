@@ -32,12 +32,12 @@
 				<p class="total">検索結果：<em class="search_count">67</em></p>
 
 				<div class="pager">
+					<!--
 					<p class="order">
 						<select name="order">
 							<option value="new">新着順</option>
 						</select>
 					</p>
-					<!--
 					<p class="prev"><a href="">前へ</a></p>
 					<ul>
 						<li class="select">1</li>

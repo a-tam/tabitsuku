@@ -111,6 +111,13 @@ spotentryCtl.init=function(){
 			e.stopPropagation();
 		});
 
+		$('#pg_stay_time').timepicker({
+			'minTime': '00:00am',
+			'maxTime': '11:45pm',
+			'step': 15,
+			'timeFormat': 'H:i'
+		});
+
 		/*
 		$(".select-category").each(function() {
 			var path = $(this).parent().find(".category_val").val();
@@ -154,9 +161,10 @@ spotentryCtl.init=function(){
 				map.setZoom(17);
 			}
 			$.ajax({
-				url: gBaseUrl + "user/tour/query",
+				url: gBaseUrl + "api/spot",
 				async: false,
 				data: {
+					owner	: "mydata",
 					limit	: 999,
 					ne_lat	: map.getBounds().getNorthEast().lat(),
 					ne_lng	: map.getBounds().getNorthEast().lng(),
@@ -265,7 +273,5 @@ spotentryCtl.init=function(){
 
 	mapInit();
 	commonCtl.registCategoryAddSet();
-}
-
-
+};
 })();

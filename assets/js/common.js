@@ -83,7 +83,7 @@ commonCtl.searchBoxSet=function(options){
 		});
 	});
 	
-	$(".search_box .pg_search_list_btn").on("click", function() {
+	$(".search_box .pg_search_map_btn").on("click", function() {
 		if ($(".search_box [name='type']:checked").val() == "spot") {
 			$(".search_box form").attr("action", gBaseUrl + "spot/search");
 		} else {
@@ -91,6 +91,7 @@ commonCtl.searchBoxSet=function(options){
 		}
 	});
 	
+	/*
 	$(".search_box .pg_search_map_btn").on("click", function() {
 		if ($(".search_box [name='type']:checked").val() == "spot") {
 			$(".search_box form").attr("action", gBaseUrl + "guest/spot/map");
@@ -98,6 +99,7 @@ commonCtl.searchBoxSet=function(options){
 			$(".search_box form").attr("action", gBaseUrl + "guest/tour/map");
 		}
 	});
+	*/
 
 	$(".search_box .selectedCategory a").live('click',function(){
 		categoryRemove();

@@ -34,6 +34,7 @@ class Spot extends MY_Controller {
 		
 		if (!$limit) $limit = 20;
 		if (!$page) $page = 1;
+		if (!in_array($sort, array("created_time", "like_count", "name"))) $sort = "created_time";
 		$offset = ($page - 1) * $limit;
 		$request["tags"] = $this->Tag_model->tag_keys(array($condition["keyword"]));
 		$spot = $this->Spot_model->search($request, $offset, $limit, null, $sort, $sort_type);

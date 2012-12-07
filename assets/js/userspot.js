@@ -23,14 +23,19 @@
 			};
 			map = new google.maps.Map(document.getElementById("map"),myOptions);
 			google.maps.event.addListener(map, 'dragend', function() {
-				show_spot(1);
+				if ($("#pg_search_map_select").val() == "1") {
+					show_spot(1);
+				}
 			});
 			google.maps.event.addListener(map, 'zoom_changed', function() {
-				show_spot(1);
+				if ($("#pg_search_map_select").val() == "1") {
+					show_spot(1);
+				}
 			});
 			google.maps.event.addListenerOnce(map, 'tilesloaded', function() {
 				show_spot(1);
 			});
+
 		}
 
 	
@@ -38,28 +43,40 @@
 		 * ツアー一覧表示
 		 */
 		function show_spot(page) {
+			var limit = $("#pg_search_page_number").val();
+			if (!limit) limit = 10;
+			var request = {
+					owner		: $("#pg_search_owner").val(),
+					category	: $("#pg_search_category").val(),
+					keyword		: $("#pg_search_keyword").val(),
+					limit		: limit,
+					sort		: $("#pg_search_order").val(),
+					page		: page
+			};
+			
+			if ($("#pg_search_map_select").val() == "1") {
+				request.ne_lat = map.getBounds().getNorthEast().lat();
+				request.ne_lng = map.getBounds().getNorthEast().lng();
+				request.sw_lat = map.getBounds().getSouthWest().lat();
+				request.sw_lng = map.getBounds().getSouthWest().lng();
+			}
+			//return false;
 			$.ajax({
 				url: gBaseUrl + "api/spot",
-				data: {
-					owner:		"mydata",
-					//category	: $("#pg_spot_search_category").val(),
-					//keyword		: $("#pg_spot_keyword").val(),
-					//limit		: $("#pg_spot_limit").val(),
-					//sort		: $("#pg_spot_sort").val(),
-					//page:		page,
-					ne_lat:		map.getBounds().getNorthEast().lat(),
-					ne_lng:		map.getBounds().getNorthEast().lng(),
-					sw_lat:		map.getBounds().getSouthWest().lat(),
-					sw_lng:		map.getBounds().getSouthWest().lng()
-				},
+				data: request,
 				dataType: "json",
 				success: function(json) {
+//					console.log(json);
+//					return false;
 					// テンプレートを除くリストクリア
 					$("#pg_spots .list_item:not(.pg_spot_temp)").remove();
 					$.each(spot_marker_list, function(spot_id, marker) {
 						marker.setMap(null);
 					});
 					if (json["count"] > 0) {
+						$(".search_count").text(json["count"]);
+						page_count = Math.ceil(json["count"] / limit);
+						pager(page_count, page);
 						// 
 						google.maps.event.addListener(map, "click", function(e) {
 							if (spot_current_window) {
@@ -107,14 +124,19 @@
 							// リンク
 							spot_elm.find(".pg_detail")
 								.attr("href", gBaseUrl + "spot/show/" + spot_info.id);
-							spot_elm.find(".pg_edit")
-								.attr("href", gBaseUrl + "user/spot/form/" + spot_info.id);
-							spot_elm.find(".pg_delete")
-								.attr("href", gBaseUrl + "user/spot/delete/" + spot_info.id);
+							if (spot_info.owner == "mydata") {
+								spot_elm.find(".pg_edit")
+									.attr("href", gBaseUrl + "user/spot/form/" + spot_info.id);
+								spot_elm.find(".pg_delete")
+									.attr("href", gBaseUrl + "user/spot/delete/" + spot_info.id);
+							} else {
+							}
 							spot_elm.appendTo("#pg_spots");
 							// 地図にマーカー表示
 							var latlng = new google.maps.LatLng(spot_info.lat, spot_info.lng);
 							var marker = new google.maps.Marker({
+								icon : gAssetUrl + "img/map/marker.png",
+								shadow: gAssetUrl + "img/map/shadow.png",
 								map			: map,
 								position	: latlng,
 								title		: spot_info.name,
@@ -140,6 +162,26 @@
 							spot_marker_list[spot_info.id] = marker;
 						});
 					}
+				}
+			});
+		}
+		
+		function pager(page_count, now) {
+			$(".pagenation").paginate({
+				count					: page_count,
+				start					: now,
+				display					: 10,
+				border					: true,
+				border_color			: '#fff',
+				text_color  			: '#fff',
+				background_color    	: 'black',
+				border_hover_color		: '#ccc',
+				text_hover_color  		: '#000',
+				background_hover_color	: '#fff',
+				images					: false,
+				mouse					: 'press',
+				onChange				: function(page) {
+					show_spot(page);
 				}
 			});
 		}

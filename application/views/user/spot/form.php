@@ -1,11 +1,13 @@
 <!-- css -->
 <link rel="stylesheet" type="text/css" media="screen,print" href="<?php echo base_url("assets"); ?>/css/modules/spotentry.css" />
 <link rel="stylesheet" type="text/css" href="<?php echo base_url("assets"); ?>/js/jquery/autocomplete/css/jquery.tagit.css">
+<link rel="stylesheet" type="text/css" href="<?php echo base_url("assets"); ?>/js/jquery/timepicker/jquery.timepicker.css">
 
 <!-- javascript -->
 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=true&libraries=places"></script>
 <script type="text/javascript" src="<?php echo base_url("assets"); ?>/js/jquery/autocomplete/tag-it.js"></script>
 <script type="text/javascript" src="<?php echo base_url("assets"); ?>/js/spotentry.js"></script>
+<script type="text/javascript" src="<?php echo base_url("assets"); ?>/js/jquery/timepicker/jquery.timepicker.js"></script>
 
 </head>
 <body id="spotentry" class="sec tour">
@@ -45,18 +47,18 @@
 			</dl>
 			<dl class="location">
 				<dt><img src="<?php echo base_url("assets");?>/img/user/spot/location.gif" alt="場所" /></dt>
-				<dd><input type="text" name="address" class="text" id="spot-address" value="<?php echo set_value("address");?>" readonly="readonly" /></dd>
+				<dd><input type="text" name="address" class="text" id="spot-address" value="<?php echo set_value("address");?>" readonly="readonly" /><?php echo form_error('address'); ?></dd>
 			</dl>
 			<dl class="latlng">
 				<dt><img src="<?php echo base_url("assets");?>/img/user/spot/latlng.gif" alt="緯度・経度" /></dt>
 				<dd><ul>
-					<li>緯度<input type="text" name="lat" class="text" id="spot-lat" value="<?php echo set_value("lat", $data["lat"]);?>" readonly="readonly" /></li>
-					<li>経度<input type="text" name="lng" class="text" id="spot-lng" value="<?php echo set_value("lng", $data["lng"]);?>" readonly="readonly" /></li>
+					<li>緯度<input type="text" name="lat" class="text" id="spot-lat" value="<?php echo set_value("lat", $data["lat"]);?>" readonly="readonly" /><?php echo form_error('lat'); ?></li>
+					<li>経度<input type="text" name="lng" class="text" id="spot-lng" value="<?php echo set_value("lng", $data["lng"]);?>" readonly="readonly" /><?php echo form_error('lng'); ?></li>
 				</ul></dd>
 			</dl>
 			<dl class="stay_time">
 				<dt>滞在時間</dt>
-				<dd><input type="text" name="stay_time" class="text" value="<?php echo set_value("stay_time", $data["stay_time"]);?>" /></dd>
+				<dd><input type="text" name="stay_time" id="pg_stay_time" class="text" value="<?php echo set_value("stay_time", $data["stay_time"]);?>" /><?php echo form_error('stay_time'); ?></dd>
 			</dl>
 			<dl class="tag">
 				<dt><img src="<?php echo base_url("assets");?>/img/user/spot/tag.gif" alt="タグ" /></dt>
@@ -66,7 +68,7 @@
 						<li><?php echo $tag;?></li>
 <?php endforeach;?>
 <?php endif;?>
-				</ul></dd>
+				</ul><?php echo form_error('tags'); ?></dd>
 			</dl>
 			<dl class="category">
 				<dt><img src="<?php echo base_url("assets");?>/img/user/spot/category.gif" alt="カテゴリ" /></dt>
@@ -93,7 +95,7 @@ for($i = 0; $i < 3; $i++):?>
 	<?php endif;?>
 							</li>
 <?php endfor;?>
-					</ul>
+					</ul><?php echo form_error('category'); ?>
 					<div class="categoryselect">
 						<ul>
 <?php foreach($category->result_array() as $row):?>

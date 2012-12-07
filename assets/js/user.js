@@ -23,10 +23,14 @@
 			};
 			map = new google.maps.Map(document.getElementById("map"),myOptions);
 			google.maps.event.addListener(map, 'dragend', function() {
-				// show_tour(1);
+				if ($("#pg_search_map_select").val() == "1") {
+					show_tour(1);
+				}
 			});
 			google.maps.event.addListener(map, 'zoom_changed', function() {
-				// show_tour(1);
+				if ($("#pg_search_map_select").val() == "1") {
+					show_tour(1);
+				}
 			});
 			google.maps.event.addListenerOnce(map, 'tilesloaded', function() {
 				show_tour(1);
@@ -38,32 +42,43 @@
 		 * ツアー一覧表示
 		 */
 		function show_tour(page) {
+			var limit = $("#pg_search_page_number").val();
+			if (!limit) limit = 10;
+			var request = {
+					owner		: $("#pg_search_owner").val(),
+					category	: $("#pg_search_category").val(),
+					keyword		: $("#pg_search_keyword").val(),
+					limit		: 10,
+					sort		: $("#pg_search_order").val(),
+					page		: page
+			};
+			
+			if ($("#pg_search_map_select").val() == "1") {
+				request.ne_lat = map.getBounds().getNorthEast().lat();
+				request.ne_lng = map.getBounds().getNorthEast().lng();
+				request.sw_lat = map.getBounds().getSouthWest().lat();
+				request.sw_lng = map.getBounds().getSouthWest().lng();
+			}
 			$.ajax({
 				url: gBaseUrl + "api/tour",
-				data: {
-					owner:		"mydata",
-					//category:	$("#pg_tour_search_category").val(),
-					//keyword:	$("#pg_tour_keyword").val(),
-					//limit:		$("#pg_tour_limit").val(),
-					//sort:		$("#pg_tour_sort").val(),
-					//page:		page,
-					ne_lat:		map.getBounds().getNorthEast().lat(),
-					ne_lng:		map.getBounds().getNorthEast().lng(),
-					sw_lat:		map.getBounds().getSouthWest().lat(),
-					sw_lng:		map.getBounds().getSouthWest().lng()
-				},
+				data: request,
 				dataType: "json",
 				success: function(json) {
-					console.log(json);
-					$.each(tour_marker_list, function(marker, idx) {
-						marker.setMap(null);
+					$.each(tour_marker_list, function(idx, markers) {
+						$.each(markers, function(marker_id, marker){
+							marker.setMap(null);
+						});
 					});
-					$.each(tour_path_list, function(path, idx) {
+					$.each(tour_path_list, function(idx, path) {
 						path.setMap(null);
 					});
 					// テンプレートを除くリストクリア
-					$("#pg_tours .list_item:not(.pg_tour_temp)").html("");
+					$("#pg_tours .list_item:not(.pg_tour_temp)").remove();
 					if (json["count"] > 0) {
+						$(".search_count").text(json["count"]);
+						page_count = Math.ceil(json["count"] / limit);
+						pager(page_count, page);
+						
 						google.maps.event.addListener(map, "click", function(e) {
 							if (tour_current_window) {
 								tour_current_window.close();
@@ -145,11 +160,14 @@
 									var name = route.name;
 									var latlng = new google.maps.LatLng(route.lat, route.lng);
 									var marker = new google.maps.Marker({
+										icon : gAssetUrl + "img/map/marker.png",
+										shadow: gAssetUrl + "img/map/shadow.png",
 										position	: latlng,
 										title		: name,
 										draggable	: false,
 										visible		: false
 									});
+									/*
 									if (i == 0) {
 										marker.setIcon(gAssetUrl + '/img/map/icons/start.png');
 									} else if(i == tour_info.routes.length - 1) {
@@ -157,6 +175,7 @@
 									} else {
 										marker.setIcon(gAssetUrl + '/img/map/icons/spot.png');
 									}
+									*/
 									marker.setMap(map);
 									google.maps.event.addListener(marker, "click", function(e) {
 										if (tour_current_window) {
@@ -200,10 +219,12 @@
 							}
 						});
 					}
+					/*
 					var ne = new google.maps.LatLng(lat_max, lng_max);
 					var sw = new google.maps.LatLng(lat_min, lng_min);
 					var bounds = new google.maps.LatLngBounds(sw, ne);
 					map.fitBounds(bounds);
+					*/
 					
 					var current_tour_id;
 					var onmouse_tour_id;
@@ -224,14 +245,15 @@
 						}
 					});
 					
-					$("#pg_tours .pg_tour_list").bind("mouseleave", function() {
+					$("#pg_tours .pg_tour_list").bind("mouseleave", function(event) {
 						var leave_id = $(this).attr("data-tour-id");
 						if (current_tour_id != leave_id) {
 							tour_path_list[leave_id].setVisible(false);
 						}
+						event.stopPropagation();
 					});
 	
-					$("#pg_tours .pg_tour_list").bind("click", function() {
+					$("#pg_tours .pg_tour_list").bind("click", function(event) {
 						if (current_tour_id == $(this).attr("data-tour-id")) {
 							return;
 						}
@@ -268,7 +290,28 @@
 						var sw = new google.maps.LatLng(lat_min, lng_min);
 						var bounds = new google.maps.LatLngBounds(sw, ne);
 						map.fitBounds(bounds);
+						event.stopPropagation();
 					});
+				}
+			});
+		}
+
+		function pager(page_count, now) {
+			$(".pagenation").paginate({
+				count					: page_count,
+				start					: now,
+				display					: 10,
+				border					: true,
+				border_color			: '#fff',
+				text_color  			: '#fff',
+				background_color    	: 'black',
+				border_hover_color		: '#ccc',
+				text_hover_color  		: '#000',
+				background_hover_color	: '#fff',
+				images					: false,
+				mouse					: 'press',
+				onChange				: function(page) {
+					show_tour(page);
 				}
 			});
 		}

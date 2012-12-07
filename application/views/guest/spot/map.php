@@ -1,13 +1,16 @@
 <!-- css -->
 <link rel="stylesheet" type="text/css" media="screen,print" href="<?php echo base_url("assets");?>/css/modules/user.css" />
+<link rel="stylesheet" type="text/css" href="<?php echo base_url("assets");?>/js/jquery/jpagenate/css/style.css">
 
 <!-- javascript -->
 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=true"></script>
 <script type="text/javascript" src="<?php echo base_url("assets");?>/js/userspot.js"></script>
 <script type="text/javascript" src="<?php echo base_url("assets");?>/js/apps/guest/spot/map.js"></script>
+<script type="text/javascript" src="<?php echo base_url("assets");?>/js/jquery/jpagenate/jquery.paginate.js"></script>
+
 
 </head>
-<body id="user" class="sec spot">
+<body id="spotsearch" class="search sec">
 
 <?php $this->load->view("contents_header"); ?>
 <?php $this->load->view("globalnavi"); ?>
@@ -27,14 +30,9 @@
 			<?php $this->load->view("guest/search_box"); ?>
 		
 			<div class="search_info">
-				<p class="total">検索結果：<em>67</em></p>
-				
+				<p class="total">検索結果：<em class="search_count">0</em></p>
+				<!--
 				<div class="pager">
-					<p class="order">
-						<select name="order">
-							<option value="new">新着順</option>
-						</select>
-					</p>
 				
 					<p class="prev"><a href="">前へ</a></p>
 					<ul>
@@ -48,13 +46,17 @@
 					<p class="next"><a href="">次へ</a></p>
 				</div>
 				<!-- //pager -->
+				<div class="pagenation" style="clear:both;"></div>
 				
 			</div>
 			<!-- //search_info -->
 
 			<div class="entries">
-
 				<div id="map_area">
+					<div id="mapsearch" class="mouse_over">
+						<h2><img src="<?php echo base_url("assets");?>/img/user/tour/map.gif" alt="地図を確認" /></h2>
+						<p class="search"><input type="text" class="text" id="search-address" /><input type="image" class="btn" src="<?php echo base_url("assets");?>/img/common/header/searchbtn.gif" alt="検索" /></p>
+					</div>
 					<div id="map"></div>
 				</div>
 				<!-- //maparea -->
@@ -83,6 +85,7 @@
 							<p class="linkbtn">
 							<a href="../spot/" class="mouse_over pg_detail"><img src="<?php echo base_url("assets");?>/img/common/btn/spotlinkbtn.gif" alt="スポット詳細を見る"></a>
 							<a href="../spot/" class="mouse_over pg_edit">編集</a>
+							<a href="../spot/" class="mouse_over pg_delete">削除</a>
 							</p>
 							
 						</div>
@@ -99,8 +102,8 @@
 
 
 			<div class="search_info">
-				<p class="total">検索結果：<em>67</em></p>
-				
+				<p class="total">検索結果：<em class="search_count">67</em></p>
+				<!--
 				<div class="pager">
 					<p class="order">
 						<select name="order">
@@ -120,6 +123,7 @@
 					<p class="next"><a href="">次へ</a></p>
 				</div>
 				<!-- //pager -->
+				<div class="pagenation" style="clear:both;"></div>
 				
 			</div>
 			<!-- //search_info -->

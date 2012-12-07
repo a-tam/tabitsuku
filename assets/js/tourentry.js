@@ -524,6 +524,8 @@ tourentryCtl.init=function(){
 	function add_marker(id, lat, lng, name, description, image, icon) {
 		var latlng = new google.maps.LatLng(lat, lng);
 		var marker = new google.maps.Marker({
+			icon : gAssetUrl + "img/map/marker.png",
+			shadow: gAssetUrl + "img/map/shadow.png",
 			map			: map,
 			position	: latlng,
 			title		: name,

@@ -28,11 +28,14 @@ class Spot extends MY_Controller {
 		
 		$this->phpsession->set("point", $data, $this->ns);
 		$this->_set_validation($this->form_data);
+		/*
 		if ($smartphone = $this->agent->is_smartphone()) {
 		  $this->load->view("user/spot/smartphone", $data);
 		} else {
 		  $this->render_view("user/spot/form", $data);
 		}
+		*/
+		$this->render_view("user/spot/form", $data);
 	}
 	
 	function add() {

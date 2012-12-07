@@ -75,6 +75,7 @@ class Top extends MY_Controller {
 	}
 	
 	function tour_search() {
+		/*
 		$offset		= 0;
 		$limit		= 6;
 		$sort		= "created_time";
@@ -93,10 +94,13 @@ class Top extends MY_Controller {
 		}
 		$data["tours"] = $tour;
 		$this->render_view('guest/tour/search', $data);
+		*/
+		$this->render_view('guest/tour/map', $data);
 	}
 
 	function spot_search() {
 		// スポット一覧
+		/*
 		$limit		= 10;
 		$sort		= "created_time";
 		$sort_type	= "desc";
@@ -108,7 +112,9 @@ class Top extends MY_Controller {
 			$spot["relation"]["tags"] 		= $this->Tag_model->tag_values($spot["relation"]["tags"]);
 		}
 		$data["spots"] = $spot;
-		$this->render_view('guest/spot/search', $data);
+		*/
+		$this->render_view('guest/spot/map', $data);
+		//$this->render_view('guest/spot/search', $data);
 	}
 	
 	function tour_show($id) {
