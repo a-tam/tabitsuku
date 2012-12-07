@@ -55,7 +55,7 @@ class Top extends MY_Controller {
 	 * facebook ログイン
 	 *
 	 */
-	function fb_auth() {
+	function fb_auth($redirect = "") {
 		$user = $this->facebook->getUser();
 		if ($user) {
 			try {
@@ -63,7 +63,22 @@ class Top extends MY_Controller {
 				if (isset($user_profile["id"])) {
 					$user_info = $this->User_model->oauth_login("facebook", $user_profile);
 					$this->phpsession->set("user_info", $user_info);
-					redirect("top");
+					switch ($redirect) {
+						case "tour":
+							redirect("user/tour/form");
+							break;
+							
+						case "spot":
+							redirect("user/spot/form");
+							break;
+							
+						case "mypage":
+							redirect("user/top");
+							break;
+							
+						default:
+							redirect("top");
+					}
 				}
 			} catch (FacebookApiException $e) {
 				$user = null;

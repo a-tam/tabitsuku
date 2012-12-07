@@ -19,6 +19,7 @@
 	</div>
 	<!-- //message-area -->
 	
+	<!--
 	<div class="login-area">
 		<h3><img src="<?php echo base_url("assets"); ?>/img/top/login.gif" alt="ログインはこちらから" /></h3>
 		<p class="facebook"><a href="<?php echo $data["fb_login"]; ?>" class="mouse_over"><img src="<?php echo base_url("assets"); ?>/img/common/facebook.gif" alt="Facebookアカウントでログイン"></a></p>
@@ -35,9 +36,9 @@
 		<p class="login mouse_over"><input type="image" src="<?php echo base_url("assets"); ?>/img/top/loginbtn.gif" alt="ログイン"/></p>
 		<p class="regist"><a href="" class="mouse_over"><img src="<?php echo base_url("assets"); ?>/img/top/registbtn.gif" alt="新規登録" /></a></p>
 		</form>
-		
 	</div>
 	<!-- //login-area -->
+	
 </div>
 <!-- //mainvisual -->
 
@@ -47,39 +48,6 @@
 <!-- =============== ↓ページコンテンツ↓ =============== -->
 <div class="contents">
 
-	<div class="search_area">
-		<dl class="area">
-			<dt><img src="<?php echo base_url("assets"); ?>/img/top/areasearch.gif" alt="エリアで探す" /></dt>
-			<dd>
-				<form method="post">
-					<p><input type="text" class="text" name="keyword" /></p>
-					<ul>
-						<li><input type="radio" name="type" value="tour" id="areasearch-tour" checked="checked"><label for="areasearch-tour">ツアー</label></li>
-						<li><input type="radio" name="type" value="spot" id="areasearch-spot"><label for="areasearch-spot">スポット</label></li>
-					</ul>
-					<p class="submit mouse_over"><input type="image" src="<?php echo base_url("assets"); ?>/img/common/header/searchbtn.gif" alt="検索" /></p>
-				</form>
-			</dd>
-		</dl>
-		<!-- //area -->
-
-		<dl class="keyword">
-			<dt><img src="<?php echo base_url("assets"); ?>/img/top/keywordsearch.gif" alt="キーワードで探す" /></dt>
-			<dd>
-				<form method="post">
-					<p><input type="text" class="text" name="keyword" /></p>
-					<ul>
-						<li><input type="radio" name="type" value="tour" id="keywordsearch_tour" checked="checked"><label for="keywordsearch_tour">ツアー</label></li>
-						<li><input type="radio" name="type" value="spot" id="keywordsearch_spot"><label for="keywordsearch_spot">スポット</label></li>
-					</ul>
-					<p class="submit mouse_over"><input type="image" src="<?php echo base_url("assets"); ?>/img/common/header/searchbtn.gif" alt="検索" /></p>
-				</form>
-			</dd>
-		</dl>
-		<!-- //area -->
-
-	</div>
-	<!-- //search_area -->
 	
 	<section class="tour">
 		<h3><img src="<?php echo base_url("assets"); ?>/img/top/newtour.gif" alt="ツアー新着" /></h3>

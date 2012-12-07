@@ -65,7 +65,8 @@ class Top extends MY_Controller {
 	
 	function login_popup() {
 		// FBログインURL
-		$params = array("redirect_uri" => base_url("user/top/fb_auth"));
+		$redirect_url = $this->input->get("redirect");
+		$params = array("redirect_uri" => base_url("user/top/fb_auth/".$redirect_url));
 		$data["fb_login"] = $this->facebook->getLoginUrl($params);
 		$this->load->view("user/login.php", $data);
 	}

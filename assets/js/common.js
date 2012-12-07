@@ -250,14 +250,14 @@ commonCtl.loginInit=function(){
 		commonCtl.loginClose();
 	});
 	$(".loginbtn").on('click',function(){
-		commonCtl.loginShow();
+		commonCtl.loginShow($(this).attr("data-redirect"));
 		return false;
 	});
 };
-commonCtl.loginShow=function(){
+commonCtl.loginShow=function(url){
 	commonCtl.resize();
 	$("#loginArea iframe").css("top",Math.floor((browser.height-300)*0.5)+$(document).scrollTop()+"px");
-	$("#loginArea iframe").attr("src",$("#loginArea iframe").attr("src"));
+	$("#loginArea iframe").attr("src",$("#loginArea iframe").attr("src")+"?redirect="+url);
 	$("#loginArea").fadeIn(300);
 };
 commonCtl.loginClose=function(){
