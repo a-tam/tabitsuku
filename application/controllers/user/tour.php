@@ -176,7 +176,8 @@ class Tour extends MY_Controller {
 	 * 削除
 	 *
 	 */
-	function delete() {
+	function delete($id) {
 		if (!$this->auth()) return $this->login_form();
+		$this->Tour_model->delete($id);
 	}
 }

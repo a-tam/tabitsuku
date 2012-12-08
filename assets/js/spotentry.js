@@ -111,13 +111,6 @@ spotentryCtl.init=function(){
 			e.stopPropagation();
 		});
 
-		$('#pg_stay_time').timepicker({
-			'minTime': '00:00am',
-			'maxTime': '11:45pm',
-			'step': 15,
-			'timeFormat': 'H:i'
-		});
-
 		/*
 		$(".select-category").each(function() {
 			var path = $(this).parent().find(".category_val").val();
@@ -269,6 +262,12 @@ spotentryCtl.init=function(){
 		});
 		$("#spot-lat").val(location.lat());
 		$("#spot-lng").val(location.lng());
+	}
+	
+	if ($(".pg_notification")) {
+		setTimeout(function(){
+			$(".pg_notification").slideUp("slow");
+		}, parseInt(2 * 1000));
 	}
 
 	mapInit();

@@ -112,7 +112,7 @@ var $_flash = array();
      * @parammixedValue to save
      */
     function flashsave($var, $val) {
-        $this->save($var, $val, 'flash');
+        $this->set($var, $val, 'flash');
     }
     
     /* Gets the value of a flash variable. These are only saved for one page load, so the variable must
@@ -134,7 +134,7 @@ var $_flash = array();
         if ($var != null) {
             $this->flashsave($var, $this->flashget($var));
         } else {
-            $this->save(null, $this->_flash, 'flash');
+            $this->set(null, $this->_flash, 'flash');
         }
     }
 }

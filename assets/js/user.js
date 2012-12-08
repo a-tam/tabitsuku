@@ -134,10 +134,15 @@
 								.attr("href", gBaseUrl + "tour/show/" + tour_info.id);
 							tour_elm.find(".pg_copy")
 								.attr("href", gBaseUrl + 'user/tour/copy/' + tour_info.id);
-							tour_elm.find(".pg_edit")
-								.attr("href", gBaseUrl + "user/tour/form/" + tour_info.id);
-							tour_elm.find(".pg_delete")
-								.attr("href", gBaseUrl + "user/tour/delete/" + tour_info.id);
+							if (tour_info.mydata) {
+								tour_elm.find(".pg_edit")
+									.attr("href", gBaseUrl + "user/tour/form/" + tour_info.id);
+								tour_elm.find(".pg_delete")
+									.attr("href", gBaseUrl + "user/tour/delete/" + tour_info.id);
+							} else {
+								tour_elm.find(".pg_edit").remove();
+								tour_elm.find(".pg_delete").remove();
+							}
 							tour_elm.appendTo("#pg_tours");
 							// 
 							path = [];
@@ -250,7 +255,7 @@
 						if (current_tour_id != leave_id) {
 							tour_path_list[leave_id].setVisible(false);
 						}
-						event.stopPropagation();
+//						event.stopPropagation();
 					});
 	
 					$("#pg_tours .pg_tour_list").bind("click", function(event) {
@@ -290,7 +295,7 @@
 						var sw = new google.maps.LatLng(lat_min, lng_min);
 						var bounds = new google.maps.LatLngBounds(sw, ne);
 						map.fitBounds(bounds);
-						event.stopPropagation();
+						//event.stopPropagation();
 					});
 				}
 			});
@@ -330,6 +335,20 @@
 		});
 		$("#select_area .close").on('click',function(){
 			editClose();
+			return false;
+		});
+
+		$(".pg_delete").live('click',function(event){
+			if (confirm("本当に削除しますか？")) {
+				if ($(".jPag-current")) {
+					page = $.text($(".jPag-current")[0]);
+				} else {
+					page = 1;
+				}
+				$.get($(this).attr("href"));
+				show_tour(page);
+			}
+			event.stopPropagation();
 			return false;
 		});
 		

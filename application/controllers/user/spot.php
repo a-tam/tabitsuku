@@ -24,7 +24,7 @@ class Spot extends MY_Controller {
 			$data = $this->Spot_model->row($id);
 		}
 		$data["category_names"] = $this->Category_model->get_names($data["category_keys"]);
-		$data["tags"] = $this->Tag_model->tag_values($data["tags"]);
+		$data["tags"]["name"] = $this->Tag_model->tag_values($data["tags"]);
 		
 		$this->phpsession->set("point", $data, $this->ns);
 		$this->_set_validation($this->form_data);
@@ -43,11 +43,15 @@ class Spot extends MY_Controller {
 		$this->_set_validation($this->form_data);
 		$data = $this->phpsession->set_post($this->ns, "point", $this->form_data);
 		if ($this->form_validation->run() == FALSE) {
-			if ($smartphone = $this->agent->is_smartphone()) {
-		    return $this->render_view("user/spot/smartphone", $data);
-		  } else {
-		    return $this->render_view("user/spot/form", $data);
-		  }
+			if ($data["category"]) {
+				$category_keys = array();
+				foreach ($data["category"] as $category_path) {
+					preg_match_all("/\d+/", $category_path, $cateogry);
+					$category_keys = array_merge($category_keys, $cateogry[0]);
+				}
+				$data["category_names"] = $this->Category_model->get_names($category_keys);
+			}
+			return $this->render_view("user/spot/form", $data);
 		}
 		if ($data["image"]["tmp"]) {
  			$this->load->library('image_lib');
@@ -80,8 +84,11 @@ class Spot extends MY_Controller {
 		} else {
 			$this->Spot_model->insert($data, $this->user_info["id"]);
 		}
+
 		$this->phpsession->clear($this->ns, "point");
-		redirect("user/spot");
+		$this->phpsession->flashsave("saved", $data["name"]);
+		redirect("user/spot/form");
+		//redirect("user/spot");
 	}
 	
 	function update() {
@@ -92,7 +99,6 @@ class Spot extends MY_Controller {
 	function delete($id) {
 		if (!$this->auth()) return $this->login_form();
 		$this->Spot_model->delete($id);
-		redirect("spot/search");
 	}
 	
 	function like_plus() {

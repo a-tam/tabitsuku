@@ -14,6 +14,7 @@
 
 <?php $this->load->view("contents_header"); ?>
 <?php $this->load->view("globalnavi"); ?>
+<?php if ($this->phpsession->flashget("saved")):?><div class="pg_notification">[ <?php echo $this->phpsession->flashget("saved");?> ] を保存しました。</div><?php endif;?>
 
 
 <!-- =============== ↓ページコンテンツ↓ =============== -->
@@ -58,13 +59,20 @@
 			</dl>
 			<dl class="stay_time">
 				<dt>滞在時間</dt>
-				<dd><input type="text" name="stay_time" id="pg_stay_time" class="text" value="<?php echo set_value("stay_time", $data["stay_time"]);?>" /><?php echo form_error('stay_time'); ?></dd>
+				<dd>
+					<select name="stay_time" class="text">
+<?php for($t=0; $t<24*4; $t++):?>
+						<option value="<?php echo $t*15;?>"<?php if ($t * 15 == set_value("stay_time", $data["stay_time"])):?> selected="selected"<?php endif;?>"><?php echo sprintf("%1$02s:%2$02s", floor($t * 15 / 60), floor(($t % 4) * 15));?></option>
+<?php endfor;?>
+					</select>
+				<?php echo form_error('stay_time'); ?>
+				</dd>
 			</dl>
 			<dl class="tag">
 				<dt><img src="<?php echo base_url("assets");?>/img/user/spot/tag.gif" alt="タグ" /></dt>
 				<dd><ul id="tags">
 				<?php if ($data["tags"]):?>
-<?php foreach($data["tags"] as $tag):?>
+<?php foreach($data["tags"]["name"] as $tag):?>
 						<li><?php echo $tag;?></li>
 <?php endforeach;?>
 <?php endif;?>

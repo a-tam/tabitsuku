@@ -184,11 +184,13 @@ class Tour_model extends MY_Model {
 			$this->db->limit($limit, $offset);
 		}
 		$query = $this->db->get();
+		$user_info = $this->phpsession->get("user_info");
 		foreach($query->result_array() as $row) {
 			preg_match_all("/\d+/", $row["category"], $cateogry);
 			$category_keys = array_merge($category_keys, $cateogry[0]);
 			preg_match_all("/\d+/", $row["tags"], $tags);
 			$tag_keys = array_merge($tag_keys, $tags[0]);
+			$row["mydata"] = ($user_info["id"] == $row["owner"]) ? 1 : 0;
 			$list[$row["id"]] = $row;
 		}
 		
