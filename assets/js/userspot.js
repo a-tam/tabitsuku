@@ -66,8 +66,6 @@
 				data: request,
 				dataType: "json",
 				success: function(json) {
-//					console.log(json);
-//					return false;
 					// テンプレートを除くリストクリア
 					$("#pg_spots .list_item:not(.pg_spot_temp)").remove();
 					$.each(spot_marker_list, function(spot_id, marker) {

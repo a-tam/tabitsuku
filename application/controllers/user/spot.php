@@ -16,8 +16,8 @@ class Spot extends MY_Controller {
 		if (!$this->auth()) return $this->login_form();
 		if (!$id) {
 			$data = array(
-				"lat"	=> 35.6894875,
-				"lng"	=> 139.69170639999993,
+// 				"lat"	=> 35.6894875,
+// 				"lng"	=> 139.69170639999993,
 				"tags"	=> array()
 			);
 		} else {
