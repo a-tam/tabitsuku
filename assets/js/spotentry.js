@@ -10,18 +10,34 @@ $(document).ready(function(){
 spotentryCtl.init=function(){
 	
 	var map;
+	var marker_list = new Array();
+	var info_list = new Array();
+	var around_list = new Array();
+	var current_window = null;
+	var marker;
 	
-	function mapInit(lat, lng) {
+	function mapInit() {
 		var lat = $('#spot-lat').val();
 		var lng = $('#spot-lng').val();
-		if (!lat) lat = 35.6894875;
-		if (!lng) lng = 139.69170639999993;
-		var latlng = new google.maps.LatLng(lat, lng);
-		var zoom = 10;
-		if ("" != $('#spot-id').val()) {
-			zoom = 17;
+		var myOptions;
+		var latlng;
+		var zoom;
+		if (!lat) {
+			if (!(lat = $.getUrlVars()["_lat"]) || !(lng = $.getUrlVars()["_lng"])) {
+				lat = 35.6894875;
+				lng = 139.69170639999993;
+			}
 		}
-		var myOptions = {
+		zoom = $('#spot-zoom').val();
+		if (!zoom) {
+			if (!(zoom = $.getUrlVars()["_zoom"])) {
+				zoom = 10;
+			}
+			$('#spot-zoom').val(zoom);
+		}
+		zoom = parseInt(zoom);
+		latlng = new google.maps.LatLng(lat, lng);
+		myOptions = {
 			zoom: zoom,
 			center: latlng,
 			mapTypeId: google.maps.MapTypeId.ROADMAP
@@ -34,14 +50,10 @@ spotentryCtl.init=function(){
 			icon : gAssetUrl + "img/map/marker.png",
 			shadow: gAssetUrl + "img/map/shadow.png",
 		});
-		/*
-		marker.setPosition(latlng);
-		*/
 		
 		// MAP検索
 		var input = document.getElementById('search-address');
 		var autocomplete = new google.maps.places.Autocomplete(input);
-//		setPosition(latlng);
 		autocomplete.bindTo('bounds', map);
 
 		$("#search-map").submit(function(){
@@ -60,45 +72,50 @@ spotentryCtl.init=function(){
 			return false;
 		});
 		
-		google.maps.event.addListener(map, 'tilesloaded' ,function () {
+		google.maps.event.addListener(map, 'projection_changed', function() {
+			if ($('#spot-lat').val() && $('#spot-lng').val()) {
+				marker.setPosition(latlng);
+				setPosition(latlng);
+			}
 			search_spot(1);
 		});
-
 		google.maps.event.addListener(map, 'dragend', function() {
 			search_spot(1);
 		});
-		
+		google.maps.event.addListener(map, 'zoom_changed', function() {
+			$('#spot-zoom').val(map.getZoom());
+			search_spot(1);
+		});
+
 		function search_spot(mydata) {
-			if (mydata == 1) {
-				mydata = "mydata";
-			} 
+			if (marker_list) {
+				marker_list.forEach(function(marker, idx) {
+					marker.setMap(null);
+				});
+			}
+			var request = {
+					limit: 100,
+					owner: "mydata",
+					ne_lat: map.getBounds().getNorthEast().lat(),
+					ne_lng: map.getBounds().getNorthEast().lng(),
+					sw_lat: map.getBounds().getSouthWest().lat(),
+					sw_lng: map.getBounds().getSouthWest().lng()
+			};
 			$.ajax({
 				url: gBaseUrl + "api/spot",
 				async: false,
-				data: {
-					owner	: mydata,
-					limit	: 999,
-					ne_lat	: map.getBounds().getNorthEast().lat(),
-					ne_lng	: map.getBounds().getNorthEast().lng(),
-					sw_lat	: map.getBounds().getSouthWest().lat(),
-					sw_lng	: map.getBounds().getSouthWest().lng()
-				},
+				data: request,
 				dataType: "json",
 				success: function(json) {
-					if (marker_list) {
-						marker_list.forEach(function(marker, idx) {
-							marker.setMap(null);
-						});
-					}
 					$.each(json.list, function(id, spot) {
-//						console.log(spot);
+//							console.log(spot);
 						if (spot.id != $('#spot-id').val()) {
 							var latlng = new google.maps.LatLng(spot.lat, spot.lng);
 							var marker = new google.maps.Marker({
 								map: map,
 								position: latlng,
-//								icon : gAssetUrl + "img/map/icons/myMarker.png",
-//								shadow: gAssetUrl + "img/map/icons/myShadow.png",
+//									icon : gAssetUrl + "img/map/icons/myMarker.png",
+//									shadow: gAssetUrl + "img/map/icons/myShadow.png",
 								title: spot.name,
 								draggable: false
 							});
@@ -127,7 +144,7 @@ spotentryCtl.init=function(){
 		google.maps.event.addListener(marker, 'dragend', function() {
 			setPosition(this.getPosition());
 		});
-			
+
 		google.maps.event.addListener(autocomplete, 'place_changed', function() {
 			var place = autocomplete.getPlace();
 			if (place.geometry.viewport) {
@@ -152,9 +169,16 @@ spotentryCtl.init=function(){
 			setPosition(place.geometry.location);
 		});
 
+		var update_timeout = null;
 		google.maps.event.addListener(map, 'click', function(event){
-			marker.setPosition(event.latLng);
-			setPosition(event.latLng);
+			update_timeout = setTimeout(function(){
+				marker.setPosition(event.latLng);
+				setPosition(event.latLng);
+			}, 300);
+		});
+
+		google.maps.event.addListener(map, 'dblclick', function(event){
+			clearTimeout(update_timeout);
 		});
 
 		$(document).click(function(e) {
@@ -213,15 +237,13 @@ spotentryCtl.init=function(){
 		});
 		*/
 
-		var marker_list = new Array();
-		var info_list = new Array();
-		var current_window = null;
 		$("#point_confirm").click(function(e) {
-			map.setCenter(marker.getPosition());
-			if (map.getZoom() < 17) {
-				map.setZoom(17);
+			if ($('#spot-lat').val() && $('#spot-lng').val()) {
+				map.setCenter(marker.getPosition());
+				search_spot();
+			} else {
+				alert("スポットの位置が指定されていません");
 			}
-			search_spot();
 			return false;
 		});
 		
@@ -244,7 +266,6 @@ spotentryCtl.init=function(){
 			$("#spot-form").submit();
 			return false;
 		});
-	
 	}
 
 	function callback(results, status) {
@@ -274,6 +295,11 @@ spotentryCtl.init=function(){
 			if(status == google.maps.GeocoderStatus.OK){
 			// 正常に処理ができた場合
 				$("#spot-address").val(results[0].formatted_address);
+				$.each(results, function() {
+					if (this.types[0] == "administrative_area_level_1") {
+						$("#spot-prefecture").val(this.address_components[0].long_name);
+					}
+				});
 			} else {
 			// エラーの場合
 				$("#spot-address").val("");
@@ -281,12 +307,79 @@ spotentryCtl.init=function(){
 		});
 		$("#spot-lat").val(location.lat());
 		$("#spot-lng").val(location.lng());
+
+		if (around_list) {
+			around_list.forEach(function(marker, idx) {
+				marker.setMap(null);
+			});
+		}
+		if (map.getZoom() < 15) {
+			var request = {
+					limit: 999,
+					owner: "",
+					ne_lat: location.lat() + 0.01,
+					ne_lng: location.lng() + 0.01,
+					sw_lat: location.lat() - 0.01,
+					sw_lng: location.lng() - 0.01
+			};
+			
+		} else {
+			var request = {
+					limit: 999,
+					owner: "",
+					ne_lat: map.getBounds().getNorthEast().lat(),
+					ne_lng: map.getBounds().getNorthEast().lng(),
+					sw_lat: map.getBounds().getSouthWest().lat(),
+					sw_lng: map.getBounds().getSouthWest().lng()
+			};
+			
+		} 
+		$.ajax({
+			url: gBaseUrl + "api/spot",
+			async: false,
+			data: request,
+			dataType: "json",
+			success: function(json) {
+				$.each(json.list, function(id, spot) {
+//						console.log(spot);
+					if (spot.mydata != 1) {
+						var latlng = new google.maps.LatLng(spot.lat, spot.lng);
+						var marker = new google.maps.Marker({
+							map: map,
+							position: latlng,
+								icon : gAssetUrl + "img/map/icons/myMarker.png",
+								shadow: gAssetUrl + "img/map/icons/myShadow.png",
+							title: spot.name,
+							draggable: false
+						});
+						google.maps.event.addListener(marker, "click", function() {
+							if (current_window) {
+								current_window.close();
+							}
+							var content = "";
+							if (spot.image) {
+								content += '<img style="float:left;" src="' + gBaseUrl + 'uploads/spot/thumb/' + spot.image.file_name+'" width="60" height="60" alt="" />';
+							}
+							content += "<b>"+spot.name + "</b><br />" + spot.description;
+							var infowindow = new google.maps.InfoWindow({
+								content: content
+							});
+							infowindow.open(map, marker);
+							current_window = infowindow;
+						});
+						around_list[this.id] = marker;
+					}
+				});
+			}
+		});
+
+	
 	}
 	
 	if ($(".pg_notification")) {
 		setTimeout(function(){
 			$(".pg_notification").slideUp("slow");
-		}, parseInt(2 * 1000));
+		}, parseInt(4 * 1000));
 	}
 
 	mapInit();

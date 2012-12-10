@@ -23,7 +23,7 @@
 	<ul id="breadcrumbs">
 		<li><a href="<?php echo base_url("");?>">トップページ</a></li>
 		<li><a href="<?php echo base_url("user/top");?>">マイページ</a></li>
-		<li>スポット登録</li>
+		<li><?php if ($data["id"]):?>スポット更新<?php else:?>スポット登録<?php endif;?></li>
 	</ul>
 	
 	<div id="map_area">
@@ -38,6 +38,8 @@
 		<h2><img src="<?php echo base_url("assets");?>/img/user/spot/title.gif" alt="スポット登録：基本情報入力" /></h2>
 		<form class="input_form" action="<?php echo base_url("user/spot/add");?>" enctype="multipart/form-data" method="post" id="spot-form">
 			<input type="hidden" name="id" id="spot-id" value="<?php echo set_value("id", $data["id"]);?>" />
+			<input type="hidden" name="zoom" id="spot-zoom" value="<?php echo set_value("zoom", $data["zoom"]);?>" />
+			<input type="hidden" name="prefecture" id="spot-prefecture" value="<?php echo set_value("prefecture", $data["prefecture"]);?>" />
 			<dl class="name">
 				<dt><img src="<?php echo base_url("assets");?>/img/user/spot/name.gif" alt="名称" /></dt>
 				<dd><input type="text" name="name" class="text" value="<?php echo set_value("name", $data["name"]);?>" /><?php echo form_error('name'); ?></dd>

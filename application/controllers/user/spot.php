@@ -16,8 +16,6 @@ class Spot extends MY_Controller {
 		if (!$this->auth()) return $this->login_form();
 		if (!$id) {
 			$data = array(
-// 				"lat"	=> 35.6894875,
-// 				"lng"	=> 139.69170639999993,
 				"tags"	=> array()
 			);
 		} else {
@@ -87,8 +85,14 @@ class Spot extends MY_Controller {
 
 		$this->phpsession->clear($this->ns, "point");
 		$this->phpsession->flashsave("saved", $data["name"]);
-		redirect("user/spot/form");
-		//redirect("user/spot");
+		
+// 		if ($data["id"]) {
+// 			redirect("user/spot/form/".$data["id"]);
+
+// 		} else {
+			redirect("user/spot/form?_lat=".$data["lat"]."&_lng=".$data["lng"]."&_zoom=".$data["zoom"]);
+				
+// 		}
 	}
 	
 	function update() {
