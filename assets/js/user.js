@@ -35,6 +35,30 @@
 			google.maps.event.addListenerOnce(map, 'tilesloaded', function() {
 				show_tour(1);
 			});
+
+			commonCtl.searchBoxSet.setFunc = function() {
+				show_tour(1);
+			};
+			commonCtl.searchBoxSet.unsetFunc = function() {
+				show_tour(1);
+			};
+
+			$.each(["#pg_search_keyword",
+			        ".search_box input[name='category']", 
+			        "#pg_search_page_number", 
+			        "#pg_search_order", 
+			        "#pg_search_owner",
+			        "#pg_search_map_select"], function(i, elm_id) {
+				console.log(elm_id);
+				$(elm_id).change(function() {
+					show_tour(1);
+				});
+			});
+			
+			$(".search_box .pg_search_map_btn").on("click", function() {
+				show_tour(1);
+				return false;
+			});
 		}
 
 	
@@ -45,15 +69,15 @@
 			var limit = $("#pg_search_page_number").val();
 			if (!limit) limit = 10;
 			var request = {
-					owner		: $("#pg_search_owner").val(),
-					category	: $("#pg_search_category").val(),
+					owner		: $("#pg_search_owner:checked").val(),
+					category	: $(".search_box input[name='category']").val(),
 					keyword		: $("#pg_search_keyword").val(),
-					limit		: 10,
+					limit		: limit,
 					sort		: $("#pg_search_order").val(),
 					page		: page
 			};
 			
-			if ($("#pg_search_map_select").val() == "1") {
+			if ($("#pg_search_map_select:checked").val() == "1") {
 				request.ne_lat = map.getBounds().getNorthEast().lat();
 				request.ne_lng = map.getBounds().getNorthEast().lng();
 				request.sw_lat = map.getBounds().getSouthWest().lat();
@@ -89,7 +113,6 @@
 							var tour_elm = $(".pg_tour_temp")
 								.clone(true)
 								.removeClass("pg_tour_temp")
-								.css("display", "block")
 								.attr("data-tour-id", tour_id);
 							// ツアー名 
 							tour_elm.find(".pg_name")
@@ -143,7 +166,7 @@
 								tour_elm.find(".pg_edit").remove();
 								tour_elm.find(".pg_delete").remove();
 							}
-							tour_elm.appendTo("#pg_tours");
+							tour_elm.appendTo("#pg_tours").fadeIn("slow");
 							// 
 							path = [];
 							var _marker_list = {};

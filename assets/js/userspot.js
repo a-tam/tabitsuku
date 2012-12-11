@@ -35,6 +35,30 @@
 			google.maps.event.addListenerOnce(map, 'tilesloaded', function() {
 				show_spot(1);
 			});
+			
+			commonCtl.searchBoxSet.setFunc = function() {
+				show_spot(1);
+			};
+			commonCtl.searchBoxSet.unsetFunc = function() {
+				show_spot(1);
+			};
+			
+			$.each(["#pg_search_keyword",
+			        ".search_box input[name='category']", 
+			        "#pg_search_page_number", 
+			        "#pg_search_order", 
+			        "#pg_search_owner",
+			        "#pg_search_map_select"], function(i, elm_id) {
+				console.log(elm_id);
+				$(elm_id).change(function() {
+					show_spot(1);
+				});
+			});
+			
+			$(".search_box .pg_search_map_btn").on("click", function() {
+				show_spot(1);
+				return false;
+			});
 
 		}
 
@@ -46,15 +70,15 @@
 			var limit = $("#pg_search_page_number").val();
 			if (!limit) limit = 10;
 			var request = {
-					owner		: $("#pg_search_owner").val(),
-					category	: $("#pg_search_category").val(),
+					owner		: $("#pg_search_owner:checked").val(),
+					category	: $(".search_box input[name='category']").val(),
 					keyword		: $("#pg_search_keyword").val(),
 					limit		: limit,
 					sort		: $("#pg_search_order").val(),
 					page		: page
 			};
 			
-			if ($("#pg_search_map_select").val() == "1") {
+			if ($("#pg_search_map_select:checked").val() == "1") {
 				request.ne_lat = map.getBounds().getNorthEast().lat();
 				request.ne_lng = map.getBounds().getNorthEast().lng();
 				request.sw_lat = map.getBounds().getSouthWest().lat();
@@ -86,7 +110,6 @@
 							var spot_elm = $(".pg_spot_temp")
 								.clone(true)
 								.removeClass("pg_spot_temp")
-								.css("display", "block")
 								.attr("data-spot-id", spot_id);
 							// スポット名
 							spot_elm.find(".pg_name")
@@ -131,7 +154,7 @@
 								spot_elm.find(".pg_edit").remove();
 								spot_elm.find(".pg_delete").remove();
 							}
-							spot_elm.appendTo("#pg_spots");
+							spot_elm.appendTo("#pg_spots").fadeIn("slow");
 							// 地図にマーカー表示
 							var latlng = new google.maps.LatLng(spot_info.lat, spot_info.lng);
 							var marker = new google.maps.Marker({

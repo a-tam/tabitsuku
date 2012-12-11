@@ -1,24 +1,17 @@
 		<div class="search_box<?php if ($mode == "1"): ?> search_box_l<?php endif;?>">
 			<form action="<?php echo base_url("spot/search");?>" method="post">
-				<input type="hidden" id="pg_search_keyword" value="<?php echo $this->input->get_post("keyword");?>" />
-				<input type="hidden" id="pg_search_order" value="<?php echo $this->input->get_post("order") ?: "created_time";?>" />
-				<input type="hidden" id="pg_search_page_number" value="<?php echo $this->input->get_post("page_number") ?: 10;?>" />
-				<input type="hidden" id="pg_search_category" value="<?php echo $this->input->get_post("category");?>" />
-				<input type="hidden" id="pg_search_owner" value="<?php echo $this->input->get_post("owner");?>" />
-				<input type="hidden" id="pg_search_map_select" value="<?php echo $this->input->get_post("map_select");?>" />
-				
 				<div class="search_setting">
 					<p class="setting-title"><img src="<?php echo base_url("assets");?><?php if ($mode == "1"): ?>/img/common/search/title_l.gif<?php else:?>/img/common/search/title.gif<?php endif;?>" alt="検索設定" /></p>
 					<dl class="keyword">
 						<dt><img src="<?php echo base_url("assets");?>/img/common/search/keyword.gif" alt="キーワード" /></dt>
-						<dd><input type="text" class="text" name="keyword" value="<?php echo $this->input->get_post("keyword");?>" />
+						<dd><input type="text" class="text" name="keyword" id="pg_search_keyword" value="<?php echo $this->input->get_post("keyword");?>" />
 							<p>
-							<select name="order">
+							<select name="order" id="pg_search_order">
 								<option value="created_time"<?php if($this->input->get_post("order") == "created_time"):?> selected="selected"<?php endif;?>>新着順</option>
 								<option value="like_count"<?php if($this->input->get_post("order") == "like_count"):?> selected="selected"<?php endif;?>>人気順</option>
 								<option value="name"<?php if($this->input->get_post("order") == "name"):?> selected="selected"<?php endif;?>>名前順</option>
 							</select>
-							<select name="page_number">
+							<select name="page_number" id="pg_search_page_number">
 								<option value="10"<?php if($this->input->get_post("page_number") == 10):?> selected="selected"<?php endif;?>>10</option>
 								<option value="25"<?php if($this->input->get_post("page_number") == 25):?> selected="selected"<?php endif;?>>25</option>
 								<option value="50"<?php if($this->input->get_post("page_number") == 50):?> selected="selected"<?php endif;?>>50</option>
@@ -60,21 +53,20 @@ if ($selected_category) :
 							<p class="selectedCategory"><a href="#close" class="close mouse_over">&nbsp;</a><?php echo implode(":", $category_names);?></p>
 							<input type="hidden" name="category" value="<?php echo $this->input->get_post("category");?>">
 <?php endif;?>
-<?php if ($this->user_info): ?>
-							<input type="checkbox" name="owner" id="owner" value="mydata"<?php if($this->input->get_post("owner") == "mydata"):?> checked="checked"<?php endif;?> /><label for="owner">自分で登録したデータ</label>
-<?php endif;?>
 						</dd>
 					</dl>
 					<!-- //category -->
+					<?php if ($mode == 1):?>
 					<dl class="type">
 						<dt><img src="<?php echo base_url("assets");?>/img/common/search/type.gif" alt="タイプ" /></dt>
 						<dd>
 							<ul>
-								<li><input type="radio" name="type" value="tour" id="searchbox-tour"<?php if ($this->input->get_post("type") == "tour"):?> checked="checked"<?php endif;?> /><label for="searchbox-tour">ツアー</label></li>
-								<li><input type="radio" name="type" value="spot" id="searchbox-spot"<?php if ($this->input->get_post("type") != "tour"):?> checked="checked"<?php endif;?> /><label for="searchbox-spot">スポット</label></li>
+								<li><input type="radio" name="type" value="tour" checked="checked" /><label for="searchbox-tour">ツアー</label></li>
+								<li><input type="radio" name="type" value="spot" /><label for="searchbox-spot">スポット</label></li>
 							</ul>
 						</dd>
 					</dl>
+					<?php endif;?>
 					<!-- //type -->
 				</div>
 				<!-- //search_setting -->
@@ -84,7 +76,12 @@ if ($selected_category) :
 						<ul>
 							<li class="mouse_over pg_search_map_btn"><input type="image" src="<?php echo base_url("assets");?>/img/common/search/listsearch.gif" alt="地図で探す" /></li>
 						</ul>
-						<input type="checkbox" name="map_select" id="map_select" value="1"<?php if ($this->input->get_post("map_select") == "1"):?> checked="checked"<?php endif;?> /><label for="map_select">範囲内検索</label>
+<?php if ($this->user_info): ?>
+							<input type="checkbox" name="owner" id="pg_search_owner" value="mydata"<?php if($this->input->get_post("owner") == "mydata"):?> checked="checked"<?php endif;?> /><label for="pg_search_owner">自分で登録したデータ</label><br />
+<?php endif;?>
+<?php if ($mode != "1"): ?>
+							<input type="checkbox" name="map_select" id="pg_search_map_select" value="1"<?php if ($this->input->get_post("map_select") == "1"):?> checked="checked"<?php endif;?> /><label for="pg_search_map_select">範囲内検索</label>
+<?php endif;?>
 					</dd>
 				</dl>
 			</form>
