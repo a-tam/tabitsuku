@@ -1,132 +1,210 @@
 var page_count = 1;
 $(document).ready(function () {
 
-	get_tour();
-	get_spot();
+	get_tour({
+		owner		: "",
+		limit		: 6,
+		page		: 1,
+		category	: $("#pg_search_category").val(),
+		keyword		: $("#pg_search_keyword").val(),
+		sort		: "created_time",
+		sort_type	: "desc",
+	}, "tour");
+
+	get_spot({
+		owner		: "",
+		limit		: 6,
+		page		: 1,
+		sort		: "created_time",
+		sort_type	: "desc"
+	}, "spot");
 	
-	function get_tour() {
+	get_special();
+	
+	// ツアー
+	function get_tour(request, class_name) {
 		$.ajax({
 			url: gBaseUrl + "api/tour",
-			data: {
-				type: "mydata",
-				limit: 3,
-				page: 1,
-				category: $("#pg_search_category").val(),
-				keyword: $("#pg_search_keyword").val(),
-			},
+			data: request,
 			dataType: "json",
 			success: function(json) {
 				if (json["count"] > 0) {
-					$(".pg_tour").not("#pg_tour_temp").fadeOut("first", function() {
-						$(this).remove();
-					});
-					show_tour(json);
+					show_tour(json, class_name);
 				}
 			}
 		});
 	}
 	
-	function show_tour(json) {
-		$.each(json["list"], function(tour_id, tour_info) {
-			var tour_elm = $("#pg_tour_temp").clone(true).attr("id", "");
-			tour_elm.css("display", "block");
-			
-			tour_elm.find(".pg_title")
-				.text(tour_info.name);
-			
-			tour_elm.find(".pg_like_count")
-				.addClass("fb-like")
-				.attr("data-href", gBaseUrl + 'user/tour/show/' + tour_info.id);
-			
-			if (tour_info.image) {
-				tour_elm.find(".pg_img img")
-					.attr("src", gBaseUrl + "uploads/tour/thumb/" + tour_info.image.file_name);
-			}
-			
-			tour_elm.find(".pg_description").text(tour_info.description);
-			
-			tour_elm.find(".pg_category").empty();
-			var category_name = [];
-			$(tour_info.category.match(/\d+/g)).each(function(i, category_id) {
-				category_name.push(json["relation"]["categories"][category_id]);
-			});
-			tour_elm.find(".pg_category").append("<li>" + category_name.join(" > ") + "</li>");
-
-			tour_elm.find(".pg_tags").empty();
-			$(tour_info.tags.match(/\d+/g)).each(function(i, tag_id) {
-				tour_elm.find(".pg_tags").append("<li>" + json["relation"]["tags"][tag_id] + "</li>");
-			});
-			
-			tour_elm.find(".pg_routes").empty();
-			$(this.routes).each(function(i, route) {
-				tour_elm.find(".pg_routes").append("<li>" + route.name + " (" + route.stay_time + "分)</li>");
-			});
-
-			tour_elm.find(".pg_copy a")
-				.attr("href", gBaseUrl + 'user/tour/copy/' + tour_info.id);
-			
-			tour_elm.appendTo("#pg_tours");
-		});
-	}
-
-	function get_spot() {
+	// スポット
+	function get_spot(request, class_name) {
 		$.ajax({
 			url: gBaseUrl + "api/spot",
-			data: {
-				type: "mydata",
-				limit: 10,
-				page: 1,
-				category: $("#pg_search_category").val(),
-				keyword: $("#pg_search_keyword").val(),
-			},
+			data: request,
 			dataType: "json",
 			success: function(json) {
 				if (json["count"] > 0) {
-					$(".pg_spot").not("#pg_spot_temp").fadeOut("fast", function() {
-						$(this).remove();
-					});
-					show_spot(json);
+					show_spot(json, class_name);
 				}
 			}
 		});
 	}
 
-	function show_spot(json) {
-		$.each(json["list"], function(spot_id, spot_info) {
-			var spot_elm = $("#pg_spot_temp").clone(true).attr("id", "");
-			spot_elm.css("display", "block");
+	// 特集
+	function get_special() {
+		get_tour({
+			owner		: "",
+			limit		: 3,
+			page		: 1,
+			keyword		: "テスト",
+			sort		: "created_time",
+			sort_type	: "desc",
+		}, "special");
+
+		get_spot({
+			owner		: "",
+			limit		: 6,
+			page		: 1,
+			keyword		: "テスト",
+			sort		: "created_time",
+			sort_type	: "desc"
+		}, "special");
+	}
+	
+	function show_tour(json, class_name) {
+		$.each(json["list"], function(id, info) {
+			var elm = $("."+class_name+" .pg_temp")
+				.clone(true)
+				.show()
+				.removeClass("pg_temp")
+				.attr("id", "");
+			elm.css("display", "block");
 			
-			if (spot_info.image) {
-				spot_elm.find(".pg_img img")
-					.attr("src", gBaseUrl + "uploads/spot/thumb/" + spot_info.image.file_name);
+			elm.find(".pg_name")
+				.text(info.name);
+			elm.find(".pg_description")
+				.text(info.description);
+			elm.find(".pg_like_count")
+				.addClass("fb-like")
+				.attr("data-href", gBaseUrl + 'user/tour/show/' + info.id);
+			
+			if (info.image) {
+				$(this.routes).each(function(i, route) {
+					if (route.id == info.image) {
+						elm.find(".pg_img img")
+							.attr("src", gBaseUrl + "uploads/spot/thumb/" + route.image.file_name)
+							.attr("alt", route.name);
+						return;
+					}
+				});
 			}
 			
-			spot_elm.find(".pg_name")
-				.text(spot_info.name);
-			
-			spot_elm.find(".pg_like_count")
-				.addClass("fb-like")
-				.attr("data-href", gBaseUrl + 'user/tour/show/' + spot_info.id);
-		
-			spot_elm.find(".pg_stay_time")
-				.text(spot_info.stay_time + "分");
-			
-			spot_elm.find(".pg_category").empty();
-			$(spot_info.category.split(",")).each(function(i, category) {
-				var category_name = [];
-				$(category.match(/\d+/g)).each(function(i, category_id) {
-					category_name.push(json["relation"]["categories"][category_id]);
+			elm.find(".pg_category").empty();
+			if (info.category) {
+				$(info.category.split(",")).each(function(i, category_path) {
+					category_id = category_path.match(/\d+/g)[0];
+					elm.find(".pg_category").append('<dt><img src="' + gAssetUrl + '/img/common/icon/category.gif" alt="CATEGORY" /></dt><dd>' + json["relation"]["categories"][category_id] + '</dd>');
+//					var category_name = [];
+//					$(category_path.match(/\d+/g)).each(function(i, category_id) {
+//						category_name.push(json["relation"]["categories"][category_id]);
+//					});
+//					elm.find(".pg_category").append('<dt><img src="' + gAssetUrl + '/img/common/icon/category.gif" alt="CATEGORY" /></dt><dd>' + category_name.join(" > ") + '</dd>');
 				});
-				spot_elm.find(".pg_category").append("<li>" + category_name.join(" > ") + "</li>");
-			});
+			}
 
-			spot_elm.find(".pg_description").text(spot_info.description);
-
-			spot_elm.find(".pg_tags").empty();
-			$(spot_info.tags.match(/\d+/g)).each(function(i, tag_id) {
-				spot_elm.find(".pg_tags").append("<li>" + json["relation"]["tags"][tag_id] + "</li>");
+			/*
+			elm.find(".pg_tags").empty();
+			$(info.tags.match(/\d+/g)).each(function(i, tag_id) {
+				elm.find(".pg_tags").append("<li>" + json["relation"]["tags"][tag_id] + "</li>");
 			});
-			spot_elm.appendTo("#pg_spots");
+			*/
+			
+			if (info.owner_name) {
+				elm.find(".pg_owner")
+					.text(info.owner_name);
+			}
+			
+			if (info.routes[0].prefecture) {
+				elm.find(".pg_prefecture")
+					.text(this.routes[0].prefecture);
+			}
+			stay_time = 0;
+			$(this.routes).each(function(i, route) {
+				stay_time += parseInt(route.stay_time);
+			});
+			elm.find(".pg_stay_time")
+				.text(stay_time + "分");
+			
+//			elm.find(".pg_routes").empty();
+
+			/*
+			elm.find(".pg_copy a")
+				.attr("href", gBaseUrl + 'user/tour/copy/' + info.id);
+			
+			*/
+			elm.find(".pg_detail")
+				.attr("href", gBaseUrl + "tour/show/" + info.id);
+
+			elm.appendTo("."+class_name+" .list_area");
+		});
+	}
+
+	function show_spot(json, class_name) {
+		$.each(json["list"], function(id, info) {
+			var elm = $("."+class_name+" .pg_temp")
+				.clone(true)
+				.show()
+				.removeClass("pg_temp")
+				.attr("id", info.id);
+			elm.css("display", "block");
+			
+			if (info.image) {
+				elm.find(".pg_img img")
+					.attr("src", gBaseUrl + "uploads/spot/thumb/" + info.image.file_name);
+			}
+			
+			elm.find(".pg_name")
+				.text(info.name);
+			elm.find(".pg_description")
+				.text(info.description);
+			elm.find(".pg_like_count")
+				.addClass("fb-like")
+				.attr("data-href", gBaseUrl + 'user/spot/show/' + info.id);
+		
+			if (info.owner_name) {
+				elm.find(".pg_owner")
+					.text(info.owner_name);
+				
+			}
+			
+			if (info.prefecture) {
+				elm.find(".pg_prefecture")
+					.text(info.prefecture);
+				
+			} 
+				
+			elm.find(".pg_stay_time")
+				.text(info.stay_time + "分");
+			
+			elm.find(".pg_category").empty();
+			if (info.category) {
+				$(info.category.split(",")).each(function(i, category_path) {
+					category_id = category_path.match(/\d+/g)[0];
+					elm.find(".pg_category").append('<dt><img src="' + gAssetUrl + '/img/common/icon/category.gif" alt="CATEGORY" /></dt><dd>' + json["relation"]["categories"][category_id] + '</dd>');
+//					var category_name = [];
+//					$(category_path.match(/\d+/g)).each(function(i, category_id) {
+//						category_name.push(json["relation"]["categories"][category_id]);
+//					});
+//					elm.find(".pg_category").append('<dt><img src="' + gAssetUrl + '/img/common/icon/category.gif" alt="CATEGORY" /></dt><dd>' + category_name.join(" > ") + '</dd>');
+				});
+			}
+
+			elm.find(".pg_tags").empty();
+			$(info.tags.match(/\d+/g)).each(function(i, tag_id) {
+				elm.find(".pg_tags").append("<li>" + json["relation"]["tags"][tag_id] + "</li>");
+			});
+			elm.find(".pg_detail")
+				.attr("href", gBaseUrl + "spot/show/" + info.id);
+			elm.appendTo("."+class_name+" .list_area");
 		});
 	}
 

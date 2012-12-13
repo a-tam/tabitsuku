@@ -5,7 +5,7 @@
 	var spot_marker_list = {};
 	var spot_path_list = {};
 	var lat_min = lat_max = lng_min = lng_max = null;
-
+	var spot_list;
 	var userCtl={};
 
 	$(document).ready(function(){
@@ -90,6 +90,7 @@
 				data: request,
 				dataType: "json",
 				success: function(json) {
+					spot_list = {};
 					// テンプレートを除くリストクリア
 					$("#pg_spots .list_item:not(.pg_spot_temp)").remove();
 					$.each(spot_marker_list, function(spot_id, marker) {
@@ -101,23 +102,23 @@
 						pager(page_count, page);
 						// 
 						google.maps.event.addListener(map, "click", function(e) {
-							if (spot_current_window) {
-								spot_current_window.close();
-							}
+							close_info_window();
 						});
 						$.each(json["list"], function(spot_id, spot_info) {
+							spot_list[spot_id] = spot_info;
 							// テンプレートのクローン作成
 							var spot_elm = $(".pg_spot_temp")
 								.clone(true)
 								.removeClass("pg_spot_temp")
-								.attr("data-spot-id", spot_id);
+								.attr("data-spot-id", spot_id)
+								.attr("data-zoom", spot_info.zoom);
 							// スポット名
 							spot_elm.find(".pg_name")
 								.text(spot_info.name);
 							// いいねボタン
 							spot_elm.find(".pg_like_count")
 								.addClass("fb-like")
-								.attr("data-href", gBaseUrl + 'user/tour/show/' + spot_info.id);
+								.attr("data-href", gBaseUrl + 'user/spot/show/' + spot_info.id);
 							// 画像
 							if (spot_info.image) {
 								spot_elm.find(".pg_image")
@@ -167,28 +168,74 @@
 							});
 							// 情報ウィンドウ表示
 							google.maps.event.addListener(marker, "click", function() {
-								if (spot_current_window) {
-									spot_current_window.close();
-								}
-								var content = "";
-								if (spot_info.image) {
-									content += '<img style="float:left;" src="' + gBaseUrl + 'uploads/spot/thumb/' + spot_info.image.file_name+'" width="60" height="60" alt="" />';
-								}
-								content += "<b>"+spot_info.name + "</b><br />" + spot_info.description;
-								var infowindow = new google.maps.InfoWindow({
-									content		: content,
-									position	: marker.getPosition()
-								});
-								infowindow.open(map);
-								spot_current_window = infowindow;
+								open_info_window(spot_info.id);
+								var spot = $('.list_area [data-spot-id="' + spot_info.id + '"]');
+								$(".list_area")
+									.animate({scrollTop: $(".list_area").scrollTop() + $(spot).position().top}, "first");
+								spot.addClass("active");
 							});
 							spot_marker_list[spot_info.id] = marker;
 						});
+
+						var current_spot_id;
+						var onmouse_spot_id;
+						
+						$("#pg_spots .pg_spot_list").bind("mouseenter", function() {
+							if (onmouse_spot_id != current_spot_id) {
+							}
+							onmouse_spot_id = $(this).attr("data-spot-id");
+							if (onmouse_spot_id != current_spot_id) {
+							}
+						});
+						
+						$("#pg_spots .pg_spot_list").bind("mouseleave", function(event) {
+							var leave_id = $(this).attr("data-spot-id");
+							if (current_spot_id != leave_id) {
+							}
+//							event.stopPropagation();
+						});
+		
+						$("#pg_spots .pg_spot_list").bind("click", function(event) {
+							current_spot_id = $(this).attr("data-spot-id");
+							var zoom = $(this).attr("data-zoom")
+							open_info_window(current_spot_id);
+							map.setCenter(spot_marker_list[current_spot_id].getPosition());
+							if (zoom) {
+								map.setZoom(parseInt(zoom));
+							}
+							event.stopPropagation();
+						});
+						
 					}
 				}
 			});
 		}
 		
+		function open_info_window(id) {
+			var spot_info = spot_list[id];
+			close_info_window(id);
+			var content = "";
+			if (spot_info.image) {
+				content += '<img style="float:left;" src="' + gBaseUrl + 'uploads/spot/thumb/' + spot_info.image.file_name+'" width="60" height="60" alt="" />';
+			}
+			content += "<b>"+spot_info.name + "</b><br />" + spot_info.description;
+			var infowindow = new google.maps.InfoWindow({
+				content		: content,
+				position	: new google.maps.LatLng(spot_info.lat, spot_info.lng)
+			});
+			infowindow.open(map);
+			spot_current_window = infowindow;
+		}
+
+		function close_info_window(id) {
+			if (spot_current_window) {
+				spot_current_window.close();
+				$('[data-spot-id="' + id + '"]').each(function(i, spot) {
+					$(spot).removeClass("active");
+				});
+			}
+		}
+
 		function pager(page_count, now) {
 			$(".pagenation").paginate({
 				count					: page_count,

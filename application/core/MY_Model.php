@@ -258,4 +258,8 @@ class MY_Model extends CI_Model {
 		}
 		return hash("sha256", $id.$string);
 	}
+	
+	function create_id($type) {
+		return sha1(uniqid());
+	}
 }

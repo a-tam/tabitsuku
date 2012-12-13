@@ -48,71 +48,57 @@
 <!-- =============== ↓ページコンテンツ↓ =============== -->
 <div class="contents">
 
-	
+
 	<section class="tour">
 		<h3><img src="<?php echo base_url("assets"); ?>/img/top/newtour.gif" alt="ツアー新着" /></h3>
 		
 		<div class="list_area">
-			<?php foreach($data["tours"]["list"] as $tour) :?>
-			<div class="list_item">
+			<div class="list_item pg_temp" style="display:none;">
 				<p class="icon"><img src="<?php echo base_url("assets"); ?>/img/common/icon/tour.png" alt="ツアー" /></p>
-				
-				<div class="photo_area">
+				<div class="photo_area pg_img">
 					<p>
-					<a href="<?php echo base_url("tour/show/".$tour["id"]);?>">
-						<?php if ($tour["image"]):?>
-							<img src="<?php echo base_url("uploads/tour/thumb/".$tour["image"]["file_name"]);?>" width="137" height="104" alt="" /></div>
-						<?php else:?>
-							<img src="<?php echo base_url("assets"); ?>/img/common/noimage.jpg" width="137" height="104" alt="<?php echo $tour["name"];?>" />
-						<?php endif;?>
-					</a></p>
-					<div class="pg_like_count fb-like" data-href="<?php echo base_url("tour/show/".$tour["id"]);?>" data-send="false" data-layout="button_count" data-width="450" data-show-faces="false"></div>
-					<dl class="category">
-<?php
-						preg_match_all("/\d+/", $tour["category"], $category);
-						$tree = array();
-						foreach($category[0] as $category_id):
-							$tree[] = $data["tours"]["relation"]["categories"][$category_id];
-						endforeach;
-?>
-								
+						<a href="./" class="pg_detail">
+							<img src="<?php echo base_url("assets"); ?>/img/common/noimage.jpg" width="137" height="104" alt="" />
+						</a>
+					</p>
+					<div class="pg_like_count" data-href="" data-send="false" data-layout="button_count" data-width="450" data-show-faces="false"></div>
+					<dl class="category pg_category">
 						<dt><img src="<?php echo base_url("assets"); ?>/img/common/icon/category.gif" alt="CATEGORY" /></dt>
-						<dd><?php echo implode(" > ", $tree);?></dd>
+						<dd class="category_name">カテゴリ</dd>
 					</dl>
 				</div>
 				<!-- //photo_area -->
 	
 				<div class="info_area">
 					<dl class="maininfo">
-						<dt><?php echo $tour["name"];?></dt>
-						<dd><?php echo mb_substr($tour["description"], 0, 100);?></dd>
+						<dt class="pg_name">ツアー名</dt>
+						<dd class="pg_description">当店のメニューは、素材の持ち味を最大限引き出すことを重んじたランチ、ディナーとも「おまかせの１コース」のみ。旬の素材により、メニュー・・・</dd>
 					</dl>
 					<!-- //maininfo -->
 					
 					<div class="subinfo">
 						<dl>
 							<dt><img src="<?php echo base_url("assets"); ?>/img/common/icon/name.gif" alt="作成者" /></dt>
-							<dd><?php echo $tour["owner"];?></dd>
+							<dd class="pg_owner">作成者名</dd>
 						</dl>
 						<dl>
 							<dt><img src="<?php echo base_url("assets"); ?>/img/common/icon/departure.gif" alt="出発地" /></dt>
-							<dd><?php $tour["prefecture"];?></dd>
+							<dd class="pg_prefecture">--</dd>
 						</dl>
 						<dl>
 							<dt><img src="<?php echo base_url("assets"); ?>/img/common/icon/time.gif" alt="時間" /></dt>
-							<dd>---</dd>
+							<dd class="pg_stay_time">40分</dd>
 						</dl>
 					</div>
 					<!-- //subinfo -->
 	
-					<p class="linkbtn"><a href="<?php echo base_url("tour/show/".$tour["id"]);?>" class="mouse_over"><img src="<?php echo base_url("assets"); ?>/img/common/btn/tourlinkbtn.gif" alt="ツアー内容を見る"></a></p>
+					<p class="linkbtn"><a href="./" class="mouse_over pg_detail"><img src="<?php echo base_url("assets"); ?>/img/common/btn/tourlinkbtn.gif" alt="ツアー内容を見る"></a></p>
 	
 				</div>
 				<!-- //info_area -->
 				
 			</div>
 			<!-- //list_item -->
-			<?php endforeach;?>
 	
 		</div>
 		<!-- //list_area -->
@@ -123,68 +109,51 @@
 		<h3><img src="<?php echo base_url("assets"); ?>/img/top/newspot.gif" alt="スポット新着" /></h3>
 		
 		<div class="list_area">
-			<?php foreach($data["spots"]["list"] as $spot) :?>
-			<div class="list_item">
+			<div class="list_item pg_temp" style="display:none;">
 				<p class="icon"><img src="<?php echo base_url("assets"); ?>/img/common/icon/spot.png" alt="スポット" /></p>
 				
 				<div class="photo_area">
-					<p><a href="<?php echo base_url("spot/show/".$spot["id"]);?>">
-						<?php if ($spot["image"]) :?>
-						<img src="<?php echo base_url("uploads/spot/thumb/".$spot["image"]["file_name"]);?>" width="137" height="104" alt="<?php echo $data["name"];?>" />
-						<?php else: ?>
-						<img src="<?php echo base_url("assets");?>/img/common/noimage.jpg" width="137" height="104" alt="<?php echo $data["name"];?>" />
-						<?php endif;?>
+					<p><a href="./" class="pg_detail">
+						<img src="<?php echo base_url("assets");?>/img/common/noimage.jpg" width="137" height="104" alt="" />
 					</a></p>
-					<div class="pg_like_count fb-like" data-href="<?php echo base_url("spot/show/".$spot["id"]);?>" data-send="false" data-layout="button_count" data-width="450" data-show-faces="false"></div>
-					<dl class="category">
-						<?php
-						$categories = explode(",", $spot["category"]);
-						foreach($categories as $tree):
-							preg_match_all("/\d+/", $tree, $category);
-							$tree = array();
-							foreach($category[0] as $category_id) {
-								$tree[] = $data["tours"]["relation"]["categories"][$category_id];
-							}
-						?>
+					<div class="pg_like_count" data-href="" data-send="false" data-layout="button_count" data-width="450" data-show-faces="false"></div>
+					<dl class="category pg_category">
 						<dt><img src="<?php echo base_url("assets"); ?>/img/common/icon/category.gif" alt="CATEGORY" /></dt>
-						<dd><?php echo implode(" > ", $tree);?></dd>
-						<?php endforeach;?>
-					
+						<dd class="category_name">カテゴリ</dd>
 					</dl>
 				</div>
 				<!-- //photo_area -->
 	
 				<div class="info_area">
 					<dl class="maininfo">
-						<dt><?php echo $spot["name"];?></dt>
-						<dd><?php echo $spot["description"];?></dd>
+						<dt class="pg_name">スポット名</dt>
+						<dd class="pg_description">当店のメニューは、素材の持ち味を最大限引き出すことを重んじたランチ、ディナーとも「おまかせの１コース」のみ。旬の素材により、メニュー・・・</dd>
 					</dl>
 					<!-- //maininfo -->
 					
 					<div class="subinfo">
 						<dl>
 							<dt><img src="<?php echo base_url("assets"); ?>/img/common/icon/name.gif" alt="作成者" /></dt>
-							<dd><?php echo $spot["owner"];?></dd>
+							<dd class="pg_owner">--</dd>
 						</dl>
 						<dl>
 							<dt><img src="<?php echo base_url("assets"); ?>/img/common/icon/location.gif" alt="場所" /></dt>
-							<dd><?php echo $spot["prefecture"];?></dd>
+							<dd class="pg_prefecture">--</dd>
 						</dl>
 						<dl>
 							<dt><img src="<?php echo base_url("assets"); ?>/img/common/icon/time.gif" alt="時間" /></dt>
-							<dd><?php echo $spot["stay_time"];?>分</dd>
+							<dd class="pg_stay_time">30分</dd>
 						</dl>
 					</div>
 					<!-- //subinfo -->
 	
-					<p class="linkbtn"><a href="<?php echo base_url("spot/show/".$spot["id"]);?>" class="mouse_over"><img src="<?php echo base_url("assets"); ?>/img/common/btn/spotlinkbtn.gif" alt="スポット詳細を見る"></a></p>
+					<p class="linkbtn"><a href="./" class="mouse_over pg_detail"><img src="<?php echo base_url("assets"); ?>/img/common/btn/spotlinkbtn.gif" alt="スポット詳細を見る"></a></p>
 	
 				</div>
 				<!-- //info_area -->
 				
 			</div>
 			<!-- //list_item -->
-			<?php endforeach;?>
 			
 		</div>
 		<!-- //list_area -->
@@ -196,59 +165,45 @@
 		<h3><img src="<?php echo base_url("assets"); ?>/img/top/special.gif" alt="たびつく特集" /></h3>
 		
 		<div class="list_area">
-			<?php foreach($data["topics"]["list"] as $tour) :?>
-			<div class="list_item">
+			<div class="list_item pg_temp" style="display:none;">
 				<p class="icon"><img src="<?php echo base_url("assets"); ?>/img/common/icon/tour.png" alt="ツアー" /></p>
 				
 				<div class="photo_area">
-					<p>
-					<a href="<?php echo base_url("tour/show/".$tour["id"]);?>">
-						<?php if ($tour["image"]):?>
-							<img src="<?php echo base_url("uploads/tour/thumb/".$tour["image"]["file_name"]);?>" width="137" height="104" alt="" /></div>
-						<?php else:?>
-							<img src="<?php echo base_url("assets"); ?>/img/common/noimage.jpg" width="137" height="104" alt="<?php echo $tour["name"];?>" />
-						<?php endif;?>
+					<p><a href="./" class="pg_detail">
+						<img src="<?php echo base_url("assets"); ?>/img/common/noimage.jpg" width="137" height="104" alt="" />
 					</a></p>
-					<div class="pg_like_count fb-like" data-href="<?php echo base_url("tour/show/".$tour["id"]);?>" data-send="false" data-layout="button_count" data-width="450" data-show-faces="false"></div>
-					<dl class="category">
-<?php
-						preg_match_all("/\d+/", $tour["category"], $category);
-						$tree = array();
-						foreach($category[0] as $category_id):
-							$tree[] = $data["tours"]["relation"]["categories"][$category_id];
-						endforeach;
-?>
-								
+					<div class="pg_like_count" data-href="" data-send="false" data-layout="button_count" data-width="450" data-show-faces="false"></div>
+					<dl class="category pg_category">
 						<dt><img src="<?php echo base_url("assets"); ?>/img/common/icon/category.gif" alt="CATEGORY" /></dt>
-						<dd><?php echo implode(" > ", $tree);?></dd>
+						<dd class="category_name">カテゴリ</dd>
 					</dl>
 				</div>
 				<!-- //photo_area -->
 	
 				<div class="info_area">
 					<dl class="maininfo">
-						<dt><?php echo $tour["name"];?></dt>
-						<dd><?php echo mb_substr($tour["description"], 0, 100);?></dd>
+						<dt class="pg_name">ツアー名</dt>
+						<dd class="pg_description">当店のメニューは、素材の持ち味を最大限引き出すことを重んじたランチ、ディナーとも「おまかせの１コース」のみ。旬の素材により、メニュー・・・</dd>
 					</dl>
 					<!-- //maininfo -->
 					
 					<div class="subinfo">
 						<dl>
 							<dt><img src="<?php echo base_url("assets"); ?>/img/common/icon/name.gif" alt="作成者" /></dt>
-							<dd><?php echo $tour["owner"];?></dd>
+							<dd class="pg_owner">--</dd>
 						</dl>
 						<dl>
 							<dt><img src="<?php echo base_url("assets"); ?>/img/common/icon/departure.gif" alt="出発地" /></dt>
-							<dd><?php $tour["prefecture"];?></dd>
+							<dd class="pg_prefecture">--</dd>
 						</dl>
 						<dl>
 							<dt><img src="<?php echo base_url("assets"); ?>/img/common/icon/time.gif" alt="時間" /></dt>
-							<dd>---</dd>
+							<dd class="pg_stay_time">120分</dd>
 						</dl>
 					</div>
 					<!-- //subinfo -->
 	
-					<p class="linkbtn"><a href="<?php echo base_url("tour/show/".$tour["id"]);?>" class="mouse_over"><img src="<?php echo base_url("assets"); ?>/img/common/btn/tourlinkbtn.gif" alt="ツアー内容を見る"></a></p>
+					<p class="linkbtn"><a href="" class="mouse_over pg_detail"><img src="<?php echo base_url("assets"); ?>/img/common/btn/tourlinkbtn.gif" alt="ツアー内容を見る"></a></p>
 	
 				</div>
 				<!-- //info_area -->
@@ -256,14 +211,11 @@
 			</div>
 			<!-- //list_item -->
 			
-			<?php endforeach;?>
-
 		</div>
 		<!-- //list_area -->
 	</section>
 	<!-- //special -->
 
-
-</div>
+	
 <!-- //contents -->
 <!-- =============== ↑ページコンテンツ↑ =============== -->

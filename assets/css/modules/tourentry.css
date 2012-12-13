@@ -506,13 +506,15 @@
 #spot_search .staytime,
 #spot_search .ctlbtn .remove,
 #spot_search .ctlbtn .ctl,
-#spot_search .memo_item .edit {
+#spot_search .memo_item .edit,
+#spot_search .pg_select_image {
 	display: none;
 }
 
-#spot_search .active,
-#tour_make .active {
-	background-color: #000;
+#spot_search .active .list_item,
+#tour_make .active .list_item {
+	box-shadow:0 0 3px rgba(0,0,0,0.4);
+	border:1px solid #f03;
 }
 
 

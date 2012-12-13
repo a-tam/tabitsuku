@@ -72,6 +72,7 @@ class Tour extends MY_Controller {
 		$route			= $this->input->post("route");
 		$category		= $this->input->post("category");
 		$start_time		= $this->input->post("start_time");
+		$image			= $this->input->post("image");
 		$tags 			= $this->Tag_model->tag_keys($this->input->post("tags"));
 		$data = array(
 			"name"			=> $name,
@@ -79,7 +80,8 @@ class Tour extends MY_Controller {
 			"start_time"	=> $start_time,
 			"category"		=> $category,
 			"tags"			=> $tags,
-			"route"			=> $route
+			"route"			=> $route,
+			"image"			=> $image,
 		);
 		if ($tour_id) {
 			$this->Tour_model->update($data, $tour_id);

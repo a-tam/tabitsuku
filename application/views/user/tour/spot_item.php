@@ -15,7 +15,16 @@
 					<dl>
 						<dt class="pg_name"><?php echo $route["name"]?></dt>
 						<dd class="standard_time">参考滞在時間 <span class="pg_standard_time"><?php echo $route["defalut_time"]?></span>分</dd>
-						<dd class="detaillink"><a href="#spot" class="mouse_over"><img src="<?php echo base_url("assets");?>/img/common/btn/spotlink_s.gif" alt="スポット詳細を見る" /></a></dd>
+						<dd class="detaillink">
+						<a href="#spot" class="mouse_over"><img src="<?php echo base_url("assets");?>/img/common/btn/spotlink_s.gif" alt="スポット詳細を見る" /></a>
+						<?php if ($route):?>
+							<?php if ($route["image"]):?>
+							<label class="pg_select_image"><input type="radio" name="select_image" value="<?php echo $route["id"];?>"<?php if ($data["image"] == $route["id"]):?> checked="checked"<?php endif;?>>画像</label>
+							<?php endif;?>
+						<?php else:?>
+						<label class="pg_select_image"><input type="radio" name="select_image">画像</label>
+						<?php endif;?>
+						</dd>
 					</dl>
 					<div class="ctlbtn">
 						<p class="add"><a href="#add" class="iconAdd"><img src="<?php echo base_url("assets");?>/img/user/tour/plus.gif" alt="ツアーに追加" /></a></p>

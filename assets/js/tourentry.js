@@ -238,14 +238,14 @@ tourentryCtl.init=function(){
 					category:		categories,
 					start_time:		$("#start_time").val(),
 					tags:			$("#tags").tagit("assignedTags"),
+					image:			$(".list_area input:[name='select_image']:checked").val(),
 					route: 			routes
 				},
 				dataType: "json",
 				success: function(json) {
 					if (json["tour_id"]) {
-						location.href = gBaseUrl + 'user/top';
+						location.href = gBaseUrl + 'tour/search?owner=mydata'; // &_lat='+map.getCenter().lat()+'&_lng='+map.getCenter().lng();
 					}
-					alert("保存しました");
 				}
 			});
 			return false;
@@ -415,6 +415,10 @@ tourentryCtl.init=function(){
 					if (spot_info.image) {
 						spot_elm.find(".pg_image")
 							.attr("src", gBaseUrl + 'uploads/spot/thumb/' + spot_info.image.file_name);
+						spot_elm.find("input:[name='select_image']")
+							.val(spot_info.id);
+					} else {
+						spot_elm.find("input:[name='select_image']").remove();
 					}
 					spot_elm.find(".pg_name")
 						.text(spot_info.name);
@@ -553,8 +557,7 @@ tourentryCtl.init=function(){
 	
 	function info_window(id) {
 		close_info_window(current_window_id);
-		var target = '#spot_search [data-spot-id="' + id + '"]';
-		$(target).each(function(i, spot) {
+		$('#spot_search [data-spot-id="' + id + '"]').each(function(i, spot) {
 			$("#spot_search .list_area")
 				.animate({scrollTop: $("#spot_search .list_area").scrollTop() + $(spot).position().top}, "first");
 			$(spot).addClass("active");
@@ -565,8 +568,7 @@ tourentryCtl.init=function(){
 	
 	function close_info_window(id) {
 		if (current_window_id) {
-			var target = '[data-spot-id="' + current_window_id + '"]';
-			$(target).each(function(i, spot) {
+			$('[data-spot-id="' + current_window_id + '"]').each(function(i, spot) {
 				$(spot).removeClass("active");
 //					.css({ background: "#fff"});
 			});

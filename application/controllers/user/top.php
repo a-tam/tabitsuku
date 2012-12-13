@@ -60,6 +60,7 @@ class Top extends MY_Controller {
 		if ($user) {
 			try {
 				$user_profile = $this->facebook->api('/me');
+//				log_message('error',print_r($user_profile, true));
 				if (isset($user_profile["id"])) {
 					$user_info = $this->User_model->oauth_login("facebook", $user_profile);
 					$this->phpsession->set("user_info", $user_info);

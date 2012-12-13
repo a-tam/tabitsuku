@@ -92,9 +92,8 @@
 		<div class="fb-like" data-href="<?php echo base_url("tour/show/".$data["id"]);?>" data-send="false" data-layout="button_count" data-width="450" data-show-faces="false"></div>
 		
 		<p class="edit">
-			<?php if ($this->user_info && ($this->user_info["id"] == $data["owner"])):?>
+			<?php if ($this->user_info):?>
 			<a href="<?php echo base_url("user/tour/copy/".$data["id"]);?>">コピーしてツアーを作る</a>
-			<?php else:?>
 			<a href="<?php echo base_url("user/tour/form/".$data["id"]);?>"><img src="<?php echo base_url("assets");?>/img/spot/edit.gif" alt="編集する" /></a>
 			<?php endif;?>
 		</p>

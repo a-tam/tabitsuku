@@ -51,6 +51,7 @@ class Tour_model extends MY_Model {
 			"tags"			=> implode(",", $_data["tags"]),
 			"owner"			=> $user_info["id"],
 			"like_count"	=> 0,
+			"image"			=> $_data["image"],
 			"status"		=> SCHEDULE_STATUS_ENABLED
 		);
 		if ($area = $this->get_route_area($_data["route"])) {
@@ -73,6 +74,7 @@ class Tour_model extends MY_Model {
 			"start_time"	=> $_data["start_time"],
 			"category"		=> implode(",", $_data["category"]),
 			"tags"			=> implode(",", $_data["tags"]),
+			"image"			=> $_data["image"],
 		);
 		if ($area = $this->get_route_area($_data["route"])) {
 			$data["lat_min"] = $area["lat_min"];
@@ -131,38 +133,42 @@ class Tour_model extends MY_Model {
 			foreach ($columns as $field) {
 				$this->db->select($field);
 			}
+		} else {
+			$this->db->select($this->table.".*");
+			$this->db->select("users.name AS owner_name");
 		}
 		// from
 		$this->db->from($this->table);
+		$this->db->join('users', 'users.id = '.$this->table.".owner");
 		// where
 		//$wheres = array();
-		$wheres[] =  "status = ".SCHEDULE_STATUS_ENABLED;
+		$wheres[] =  $this->table.".status = ".SCHEDULE_STATUS_ENABLED;
 		// 地図検索
 		if ($condition["ne_lng"] && $condition["sw_lng"] && $condition["ne_lat"] && $condition["sw_lat"]) {
-			$wheres[] = "lng_max > ".$condition["sw_lng"];
-			$wheres[] = "lng_min < ".$condition["ne_lng"];
-			$wheres[] = "lat_max > ".$condition["sw_lat"];
-			$wheres[] = "lat_min < ".$condition["ne_lat"];
+			$wheres[] = $this->table.".lng_max > ".$condition["sw_lng"];
+			$wheres[] = $this->table.".lng_min < ".$condition["ne_lng"];
+			$wheres[] = $this->table.".lat_max > ".$condition["sw_lat"];
+			$wheres[] = $this->table.".lat_min < ".$condition["ne_lat"];
 		}
 		// カテゴリ検索
 		if ($condition["category"]) {
-			$wheres[] = "category like '%".mysql_real_escape_string($condition["category"])."%'";
+			$wheres[] = $this->table.".category like '%".mysql_real_escape_string($condition["category"])."%'";
 		}
 		// ユーザ検索
 		if ($condition["owner"]) {
-			$wheres[] = "owner = '".mysql_real_escape_string($condition["owner"])."'";
+			$wheres[] = $this->table.".owner = '".mysql_real_escape_string($condition["owner"])."'";
 		}
 		// キーワード、タグ検索
 		if (trim($condition["keyword"])) {
 			if ($condition["tags"]) {
-				$_cond[] = "tags IN (".implode(",", $condition["tag"]).")";
+				$_cond[] = $this->table.".tags IN (".implode(",", $condition["tag"]).")";
 			}
-			$_cond[] = "name LIKE '%".$condition["keyword"]."%'";
+			$_cond[] = $this->table.".name LIKE '%".$condition["keyword"]."%'";
 			$wheres[] = implode(" OR ", $_cond);
 		}
 		// 特集検索
 		if (trim($condition["topic"])) {
-			$wheres[] = "topic LIKE '".$condition["topic"]."'";
+			$wheres[] = $this->table.".topic LIKE '".$condition["topic"]."'";
 		}
 		if ($wheres) {
 			$this->db->where(implode(" AND ", $wheres));
@@ -170,6 +176,7 @@ class Tour_model extends MY_Model {
 		
 		// sort
 		switch (strtolower($sort)) {
+			case "created_time":
 			case "like_count":
 			case "name":
 				break;

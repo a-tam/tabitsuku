@@ -49,7 +49,6 @@
 			        "#pg_search_order", 
 			        "#pg_search_owner",
 			        "#pg_search_map_select"], function(i, elm_id) {
-				console.log(elm_id);
 				$(elm_id).change(function() {
 					show_tour(1);
 				});
@@ -123,9 +122,14 @@
 								.attr("data-href", gBaseUrl + 'user/tour/show/' + tour_info.id);
 							// 画像
 							if (tour_info.image) {
-								tour_elm.find(".pg_image")
-									.attr("src", gBaseUrl + "uploads/tour/thumb/" + tour_info.image.file_name)
-									.attr("alt", tour_info.name);
+								$(this.routes).each(function(i, route) {
+									if (route.id == tour_info.image) {
+										tour_elm.find(".pg_image")
+											.attr("src", gBaseUrl + "uploads/spot/thumb/" + route.image.file_name)
+											.attr("alt", route.name);
+										return;
+									}
+								});
 							}
 							// 滞在時間
 							var stay_time = 0;

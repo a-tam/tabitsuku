@@ -86,6 +86,8 @@ class Spot_model extends MY_Model {
 			", spots.stay_time AS defalut_time".
 			", spots.lat".
 			", spots.lng".
+			", spots.zoom".
+			", spots.prefecture".
 			", spots.like_count".
 			", spots.category".
 			", spots.tags".
@@ -160,6 +162,7 @@ class Spot_model extends MY_Model {
 		
 		// sort
 		switch (strtolower($sort)) {
+			case "created_time":
 			case "like_count":
 			case "name":
 				break;
@@ -183,7 +186,7 @@ class Spot_model extends MY_Model {
 			unset($row["addition"]);
 			$row["image"] = unserialize($row["image"]);
 			$row["mydata"] = ($user_info["id"] == $row["owner"]) ? 1 : 0;
-			$list[$row["id"]] = $row;
+			$list['"'.$row["id"].'"'] = $row;
 		}
 		
 		// count
@@ -213,8 +216,8 @@ class Spot_model extends MY_Model {
 		}
 		$data = array(
 			"owner"			=> $user_info["id"],
-			"name"			=> $input["name"],
-			"description"	=> $input["description"],
+			"name"			=> trim($input["name"]),
+			"description"	=> trim($input["description"]),
 			"stay_time"		=> $input["stay_time"],
 			"lat"			=> $input["lat"],
 			"lng"			=> $input["lng"],
@@ -237,8 +240,8 @@ class Spot_model extends MY_Model {
 	
 	function update($input, $id) {
 		$data = array(
-			"name"			=> $input["name"],
-			"description"	=> $input["description"],
+			"name"			=> trim($input["name"]),
+			"description"	=> trim($input["description"]),
 			"stay_time"		=> $input["stay_time"],
 			"lat"			=> $input["lat"],
 			"lng"			=> $input["lng"],
