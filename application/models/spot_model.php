@@ -186,7 +186,7 @@ class Spot_model extends MY_Model {
 			unset($row["addition"]);
 			$row["image"] = unserialize($row["image"]);
 			$row["mydata"] = ($user_info["id"] == $row["owner"]) ? 1 : 0;
-			$list['"'.$row["id"].'"'] = $row;
+			$list[(string)$row["id"]] = $row;
 		}
 		
 		// count

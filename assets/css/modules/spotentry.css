@@ -113,7 +113,7 @@
 
 #input_area .pic{
 	clear:none;
-	float:right;
+	float:left;
 	margin-bottom:25px;
 	/*width:240px;*/
 }
@@ -129,7 +129,7 @@
 
 
 #input_area .submit{
-	float:right;
+	float:left;
 }
 
 
@@ -149,10 +149,7 @@
 	zoom:1;
 }
 
-
-
-
-
-
-
-
+.pg_around_number {
+	font-size: large;
+	color: #ff0000;
+}

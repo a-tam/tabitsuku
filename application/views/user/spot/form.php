@@ -136,8 +136,10 @@ for($i = 0; $i < 3; $i++):?>
 		<?php echo form_error('image'); ?>
 				</dd>
 			</dl>
-			<input type="button" id="point_confirm" value="近くにある登録済みのスポットを確認します" />
-			<p class="submit mouse_over"><input type="image" id="headerSaveArea" src="<?php echo base_url("assets");?>/img/user/spot/regist.gif" alt="スポットを登録する" /></p>
+			<p class="submit mouse_over">
+			周辺に <span class="pg_around_number">0</span> 件のスポットが登録されています。<br />既に登録されていないか確認してください。<br />
+			<input type="image" id="headerSaveArea" src="<?php echo base_url("assets");?>/img/user/spot/regist.gif" alt="スポットを登録する" />
+			</p>
 			
 			
 		</form>

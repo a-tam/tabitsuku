@@ -342,6 +342,7 @@ spotentryCtl.init=function(){
 			success: function(json) {
 				$.each(json.list, function(id, spot) {
 //						console.log(spot);
+					$(".pg_around_number").text(json.count);
 					if (spot.mydata != 1) {
 						var latlng = new google.maps.LatLng(spot.lat, spot.lng);
 						var marker = new google.maps.Marker({
