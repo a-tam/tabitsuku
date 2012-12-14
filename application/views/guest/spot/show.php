@@ -32,9 +32,9 @@
 	<div id="detail_area" id="pg_spot_info" data-lat="<?php echo $data["lat"];?>" data-lng="<?php echo $data["lng"];?>" >
 		<p class="photo">
 			<?php if ($data["image"]) :?>
-				<img src="<?php echo base_url("uploads/spot/thumb/".$data["image"]["file_name"]);?>" alt="<?php echo $data["name"];?>" />
+				<img src="<?php echo base_url("uploads/spot/thumb/".$data["image"]["file_name"]);?>" alt="<?php echo $data["name"];?>" width="265" height="199" />
 			<?php else :?>
-				<img src="<?php echo base_url("assets");?>/img/common/noimage.jpg" alt="<?php echo $data["name"];?>" />
+				<img src="<?php echo base_url("assets");?>/img/common/noimage.jpg" alt="<?php echo $data["name"];?>" width="265" height="199" />
 			<?php endif;?>
 		</p>
 		<div class="info">

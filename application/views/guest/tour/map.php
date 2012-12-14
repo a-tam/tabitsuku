@@ -71,7 +71,7 @@
 						<p class="icon"><img src="<?php echo base_url("assets");?>/img/common/icon/tour.png" alt="ツアー" /></p>
 						
 						<div class="photo_area">
-							<p><a href="../tour/"><img class="pg_image" src="<?php echo base_url("assets");?>/img/common/noimage_s.jpg" alt="" /></a></p>
+							<p><a href="../tour/" class="pg_detail"><img class="pg_image" src="<?php echo base_url("assets");?>/img/common/noimage_s.jpg" alt="" /></a></p>
 							<div class="pg_like_count" data-href="http://www.google.co.jp/" data-send="false" data-layout="button_count" data-width="450" data-show-faces="false"></div>
 							<dl class="category pg_category">
 								<dt><img src="<?php echo base_url("assets");?>/img/common/icon/category.gif" alt="CATEGORY" /></dt>

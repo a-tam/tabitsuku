@@ -28,10 +28,15 @@
 	
 	<div id="detail_area">
 		<p class="photo">
-			<?php if ($data["image"]) :?>
-			<img src="<?php echo base_url("uploads/spot/thumb/".$data["image"]["file_name"]);?>" alt="<?php echo $data["name"];?>" />
-			<?php else: ?>
-			<img src="<?php echo base_url("assets");?>/img/spot/sample.jpg" alt="<?php echo $data["name"];?>" />
+			<?php if ($data["image"]) :
+				foreach($data["routes"] as $ruote) {
+					if ($ruote["id"] == $data["image"]) {
+						print '<img src="'.base_url("uploads/spot/thumb/".$ruote["image"]["file_name"]).'" alt="" width="265" height="199" />';
+						break;
+					}
+				}
+			else: ?>
+			<img src="<?php echo base_url("assets");?>/img/common/noimage.jpg" alt="<?php echo $data["name"];?>" width="265" height="199" />
 			<?php endif;?>
 		</p>
 		<div class="info">
