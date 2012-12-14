@@ -191,8 +191,11 @@ for($i = 0; $i < 3; $i++):?>
 		
 		<p class="attention"><img src="<?php echo base_url("assets");?>/img/user/tour/attention_drag.gif" alt="ここにスポットをドラッグしてツアーを作ろう" /></p>
 		
-		<p class="starttime"><img src="<?php echo base_url("assets");?>/img/user/tour/starttime.gif" alt="スタート時間を設定" /></p>
-		<input type="text" name="starttime" id="start_time" class="text" value="<?php echo set_value("start_time", $data["start_time"]);?>"/>
+		<p class="starttime">
+			<label>開始時間</label>
+			<input type="text" size="12" name="starttime" id="start_time" class="text" value="<?php echo set_value("start_time", $data["start_time"]);?>"/>
+		</p>
+		
 		
 		<div class="list_area">
 <?php if ($data["routes"]) :?>

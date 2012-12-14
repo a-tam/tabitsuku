@@ -12,10 +12,10 @@
 					</dl>
 					<div class="ctlbtn">
 						<p class="add"><a href="#add"><img src="<?php echo base_url("assets");?>/img/user/tour/plus.gif" alt="ツアーに追加" /></a></p>
-						<p class="remove"><a href="#remove"><img src="<?php echo base_url("assets");?>/img/user/tour/remove.gif" alt="ツアーから外す" /></a></p>
+						<p class="remove"><a href="#remove" class="iconClose"><img src="<?php echo base_url("assets");?>/img/user/tour/remove.gif" alt="ツアーから外す" /></a></p>
 							<ul class="ctl">
-								<li><a href=""><img src="<?php echo base_url("assets");?>/img/user/tour/arrow_up.gif" alt="上へ"></a></li>
-								<li><a href=""><img src="<?php echo base_url("assets");?>/img/user/tour/arrow_dn.gif" alt="下へ"></a></li>
+								<li><a href="" class="iconUp"><img src="<?php echo base_url("assets");?>/img/user/tour/arrow_up.gif" alt="上へ"></a></li>
+								<li><a href="" class="iconDown"><img src="<?php echo base_url("assets");?>/img/user/tour/arrow_dn.gif" alt="下へ"></a></li>
 							</ul>
 						</div>
 					</div>

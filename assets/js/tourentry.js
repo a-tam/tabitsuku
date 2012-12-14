@@ -189,7 +189,7 @@ tourentryCtl.init=function(){
 		// 時間選択
 		$('#start_time').timepicker({
 			'minTime': '0:00am',
-			'maxTime': '12:00pm',
+			'maxTime': '11:00pm',
 			'step': 30,
 			'timeFormat': 'H:i'
 		});
@@ -290,7 +290,6 @@ tourentryCtl.init=function(){
 
 		if ($("#tour_make .list_area .tour_point").length == 0) {
 			messages.push("ルートの指定がありません");
-			input_item.push("#tour_make .list_area");
 		}
 
 		if (messages.length > 0) {
@@ -311,7 +310,6 @@ tourentryCtl.init=function(){
 	mapInit();
 	commonCtl.registCategoryAddSet();
 	
-	$("#tour_make .list_area").scroll(tourListPosi);
 
 	/**
 	 * 地図にツアー全体を表示
@@ -436,7 +434,7 @@ tourentryCtl.init=function(){
 				category:	$(".search_box .category dd input").val(),
 				keyword:	$("#keyword").val(),
 				userspot:	$("#userspot:checked").length,
-//				limit:		$("#limit").val(),
+				limit:		20,
 				sort:		$("#sort").val(),
 				page:		page,
 				ne_lat:		map.getBounds().getNorthEast().lat(),
@@ -611,14 +609,6 @@ tourentryCtl.init=function(){
 			});
 		} else {
 			$("#pagenation").hide();
-		}
-	}
-	
-	function tourListPosi(){
-		if($("#tour_make .list_area").scrollTop()>10){
-			$("#tour_make .starttime").stop().animate({opacity:0},200);
-		}else{
-			$("#tour_make .starttime").stop().animate({opacity:1},200);
 		}
 	}
 	
