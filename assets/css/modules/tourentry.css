@@ -70,9 +70,15 @@
 	margin-right:35px;
 	padding-top:10px;
 }
-#input_area input.text{
+#input_area input.text,
+#input_area textarea{
 	width:248px;
 }
+
+#input_area .tagit {
+	width:241px;
+}
+
 #input_area dl{
 	clear:both;
 	margin-bottom:12px;

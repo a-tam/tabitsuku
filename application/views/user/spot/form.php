@@ -42,11 +42,11 @@
 			<input type="hidden" name="prefecture" id="spot-prefecture" value="<?php echo set_value("prefecture", $data["prefecture"]);?>" />
 			<dl class="name">
 				<dt><img src="<?php echo base_url("assets");?>/img/user/spot/name.gif" alt="名称" /></dt>
-				<dd><input type="text" name="name" class="text" value="<?php echo set_value("name", $data["name"]);?>" /><?php echo form_error('name'); ?></dd>
+				<dd><input type="text" name="name" id="spot-name" class="text" value="<?php echo set_value("name", $data["name"]);?>" /><?php echo form_error('name'); ?></dd>
 			</dl>
 			<dl class="description">
 				<dt><img src="<?php echo base_url("assets");?>/img/user/spot/description.gif" alt="説明" /></dt>
-				<dd><textarea type="text" name="description" class="textarea"><?php echo set_value("description", $data["description"]);?></textarea><?php echo form_error('description'); ?></dd>
+				<dd><textarea name="description" id="spot-description" class="textarea"><?php echo set_value("description", $data["description"]);?></textarea><?php echo form_error('description'); ?></dd>
 			</dl>
 			<dl class="location">
 				<dt><img src="<?php echo base_url("assets");?>/img/user/spot/location.gif" alt="場所" /></dt>
@@ -112,7 +112,7 @@ for($i = 0; $i < 3; $i++):?>
 							<li data-category-id="<?php echo $row["id"];?>"><a href=""><?php echo $row["name"];?></a></li>
 <?php endforeach;?>
 						</ul>
-						<select type="text" name="subcategory_input" maxlength="20" class="text"></select>
+						<select name="subcategory_input" class="text"></select>
 						<p class="close"><a href="#close" class="mouse_over"><img src="<?php echo base_url("assets");?>/img/common/search/close.png" alt="CLSOE" /></a></p>
 						<p class="add"><a href="#add" class="mouse_over"><img src="<?php echo base_url("assets");?>/img/common/icon/add.gif" alt="追加" /></a></p>
 						<p class="tri">&nbsp;</p>
@@ -126,11 +126,11 @@ for($i = 0; $i < 3; $i++):?>
 				<dd><input type="file" name="image" class="upload" />
 <?php if ($data["image"]): ?>
 <br />
-<?php if (isset($data["image"]["tmp"])):?>
+	<?php if (isset($data["image"]["tmp"])):?>
 		<a href="<?php echo base_url("uploads/tmp/".$data["image"]["tmp"]["file_name"]);?>" target="_blank">ファイル</a>
-<?php else:?>
+	<?php else:?>
 		<a href="<?php echo base_url("uploads/spot/origin/".$data["image"]["file_name"]);?>" target="_blank">ファイル</a>
-<?php endif;?>
+	<?php endif;?>
 		<label><input type="checkbox" name="image_delete" value="1" />&nbsp;削除</label>
 <?php endif;?>
 		<?php echo form_error('image'); ?>

@@ -203,6 +203,56 @@ spotentryCtl.init=function(){
 			e.stopPropagation();
 		});
 
+		$(".input_form").submit(function() {
+			if (form_validate() == false) {
+				return false;
+			}
+		});
+
+		function form_validate() {
+			var messages = [];
+			var input_item = [];
+			
+			if ($("#spot-name").val().replace(/(^\s+)|(\s+$)/g, "") == "") {
+				messages.push("スポット名の入力がありません");
+				input_item.push("#spot-name");
+			}
+			
+			if ($("#spot-description").val().replace(/(^\s+)|(\s+$)/g, "") == "") {
+				messages.push("スポット説明の入力がありません");
+				input_item.push("#spot-description");
+			}
+			
+			if ($("#spot-lat").val() == "" || $("#spot-lng").val() == "") {
+				messages.push("登録するスポットの位置をクリックしてください");
+				input_item.push("#spot-lat");
+				input_item.push("#spot-lng");
+			}
+
+			if ($("#tags").tagit("assignedTags").length == 0) {
+				messages.push("タグの入力がありません");
+				input_item.push("#tags");
+			}
+			
+			if ($(".maincategory").length == 0) {
+				messages.push("カテゴリの指定がありません");
+				input_item.push(".input_form .categories");
+			}
+
+			if (messages.length > 0) {
+				alert(messages.join("\n"));
+				if (input_item) {
+					$(input_item[0]).focus();
+					$(input_item.join(",")).css("background-color", "#ffc").animate({
+						backgroundColor: "#fff"
+					}, 1500 );
+				}
+				return false;
+			}
+			return true;
+
+		}
+
 		/*
 		$(".select-category").each(function() {
 			var path = $(this).parent().find(".category_val").val();
@@ -307,7 +357,10 @@ spotentryCtl.init=function(){
 		});
 		$("#spot-lat").val(location.lat());
 		$("#spot-lng").val(location.lng());
-
+		seach_around_spot(location);
+	}
+	
+	function seach_around_spot(location) {
 		if (around_list) {
 			around_list.forEach(function(marker, idx) {
 				marker.setMap(null);
@@ -372,9 +425,7 @@ spotentryCtl.init=function(){
 					}
 				});
 			}
-		});
-
-	
+		});		
 	}
 	
 	if ($(".pg_notification")) {

@@ -59,9 +59,10 @@
 				show_spot(1);
 				return false;
 			});
-
+			
 		}
 
+		
 	
 		/**
 		 * ツアー一覧表示
@@ -197,7 +198,7 @@
 		
 						$("#pg_spots .pg_spot_list").bind("click", function(event) {
 							current_spot_id = $(this).attr("data-spot-id");
-							var zoom = $(this).attr("data-zoom")
+							var zoom = $(this).attr("data-zoom");
 							open_info_window(current_spot_id);
 							map.setCenter(spot_marker_list[current_spot_id].getPosition());
 							if (zoom) {
@@ -294,6 +295,6 @@
 			editShowChk=false;
 			$("#edit_area").stop().animate({height:1},300,"easeOutQuint",function(){$("#edit_area").css("display","none")});
 		}
-	}
+	};
 
 })();
