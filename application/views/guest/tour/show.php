@@ -31,7 +31,7 @@
 			<?php if ($data["image"]) :
 				foreach($data["routes"] as $ruote) {
 					if ($ruote["id"] == $data["image"]) {
-						print '<img src="'.base_url("uploads/spot/thumb/".$ruote["image"]["file_name"]).'" alt="" width="265" height="199" />';
+						print '<img src="'.base_url("uploads/spot/middle/".$ruote["image"]["file_name"]).'" alt="" width="265" height="199" />';
 						break;
 					}
 				}

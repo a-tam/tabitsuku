@@ -129,7 +129,7 @@ for($i = 0; $i < 3; $i++):?>
 	<?php if (isset($data["image"]["tmp"])):?>
 		<a href="<?php echo base_url("uploads/tmp/".$data["image"]["tmp"]["file_name"]);?>" target="_blank">ファイル</a>
 	<?php else:?>
-		<a href="<?php echo base_url("uploads/spot/origin/".$data["image"]["file_name"]);?>" target="_blank">ファイル</a>
+		<a href="<?php echo base_url("uploads/spot/middle/".$data["image"]["file_name"]);?>" target="_blank">ファイル</a>
 	<?php endif;?>
 		<label><input type="checkbox" name="image_delete" value="1" />&nbsp;削除</label>
 <?php endif;?>
