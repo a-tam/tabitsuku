@@ -90,7 +90,7 @@ $(document).ready(function () {
 			if (info.image) {
 				$(this.routes).each(function(i, route) {
 					if (route.id == info.image) {
-						elm.find(".pg_img img")
+						elm.find(".pg_img .pg_detail img")
 							.attr("src", gBaseUrl + "uploads/spot/thumb/" + route.image.file_name)
 							.attr("alt", route.name);
 						return;
@@ -98,16 +98,32 @@ $(document).ready(function () {
 				});
 			}
 			
-			elm.find(".pg_category").empty();
+			var category_ids = [];
 			if (info.category) {
+				elm.find(".pg_category dd").empty();
+				// ルートカテゴリのみ取得
 				$(info.category.split(",")).each(function(i, category_path) {
-					category_id = category_path.match(/\d+/g)[0];
-					elm.find(".pg_category").append('<dt><img src="' + gAssetUrl + '/img/common/icon/category.gif" alt="CATEGORY" /></dt><dd>' + json["relation"]["categories"][category_id] + '</dd>');
-//					var category_name = [];
-//					$(category_path.match(/\d+/g)).each(function(i, category_id) {
-//						category_name.push(json["relation"]["categories"][category_id]);
-//					});
-//					elm.find(".pg_category").append('<dt><img src="' + gAssetUrl + '/img/common/icon/category.gif" alt="CATEGORY" /></dt><dd>' + category_name.join(" > ") + '</dd>');
+					category_ids.push(category_path.match(/\d+/g)[0]);
+				});
+				$.each($.unique(category_ids), function(i, category_id) {
+					var icon = "";
+					var category_name = json["relation"]["categories"][category_id];
+					if (category_name.indexOf("見る", 0) >= 0) {
+						icon = "see.png";
+					} else if (category_name.indexOf("食べる", 0) >= 0) {
+						icon = "food.png";
+					} else if (category_name.indexOf("遊ぶ", 0) >= 0) {
+						icon = "game.png";
+					} else if (category_name.indexOf("買う", 0) >= 0) {
+						icon = "shopping.png";
+					} else if (category_name.indexOf("宿泊", 0) >= 0) {
+						icon = "stay.png";
+					} else if (category_name.indexOf("乗り物", 0) >= 0) {
+						icon = "transit.png";
+					}
+					if (icon) {
+						elm.find(".pg_category dd").append('<img src="' + gAssetUrl + '/img/category/'+icon+'" alt="'+json["relation"]["categories"][category_id]+'" />');
+					}
 				});
 			}
 
@@ -185,17 +201,34 @@ $(document).ready(function () {
 			elm.find(".pg_stay_time")
 				.text(info.stay_time + "分");
 			
-			elm.find(".pg_category").empty();
+			elm.find(".pg_category dd").empty();
+			var category_ids = [];
 			if (info.category) {
+				// ルートカテゴリのみ取得
 				$(info.category.split(",")).each(function(i, category_path) {
-					category_id = category_path.match(/\d+/g)[0];
-					elm.find(".pg_category").append('<dt><img src="' + gAssetUrl + '/img/common/icon/category.gif" alt="CATEGORY" /></dt><dd>' + json["relation"]["categories"][category_id] + '</dd>');
-//					var category_name = [];
-//					$(category_path.match(/\d+/g)).each(function(i, category_id) {
-//						category_name.push(json["relation"]["categories"][category_id]);
-//					});
-//					elm.find(".pg_category").append('<dt><img src="' + gAssetUrl + '/img/common/icon/category.gif" alt="CATEGORY" /></dt><dd>' + category_name.join(" > ") + '</dd>');
+					category_ids.push(category_path.match(/\d+/g)[0]);
 				});
+				$.each($.unique(category_ids), function(i, category_id) {
+					var icon = "";
+					var category_name = json["relation"]["categories"][category_id];
+					if (category_name.indexOf("見る", 0) >= 0) {
+						icon = "see.png";
+					} else if (category_name.indexOf("食べる", 0) >= 0) {
+						icon = "food.png";
+					} else if (category_name.indexOf("遊ぶ", 0) >= 0) {
+						icon = "game.png";
+					} else if (category_name.indexOf("買う", 0) >= 0) {
+						icon = "shopping.png";
+					} else if (category_name.indexOf("宿泊", 0) >= 0) {
+						icon = "stay.png";
+					} else if (category_name.indexOf("乗り物", 0) >= 0) {
+						icon = "transit.png";
+					}
+					if (icon) {
+						elm.find(".pg_category dd").append('<img src="' + gAssetUrl + '/img/category/'+icon+'" alt="'+json["relation"]["categories"][category_id]+'" />');
+					}
+				});
+				
 			}
 
 			elm.find(".pg_tags").empty();
