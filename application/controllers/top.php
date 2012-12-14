@@ -11,52 +11,6 @@ class Top extends MY_Controller {
 	}
 	
 	function index() {
-		//
-		$request	= array();
-		$offset		= 0;
-		$limit		= 6;
-		$sort		= "created_time";
-		$sort_type	= "desc";
-
-		// ツアー一覧
-		$request["tags"] = $this->Tag_model->tag_keys(array($condition["keyword"]));
-		$tour = $this->Tour_model->search($request, $offset, $limit, null, $sort, $sort_type);
-		if ($tour["list"]) {
-			$routes = $this->Tour_model->get_routes(array_keys($tour["list"]));
-			foreach ($routes as $tour_id => $route) {
-				$tour["list"][$tour_id]["routes"] = $route;
-			}
-			$tour["relation"]["categories"] = $this->Category_model->get_names($tour["relation"]["categories"]);
-			$tour["relation"]["tags"] 		= $this->Tag_model->tag_values($tour["relation"]["tags"]);
-		}
-		$data["tours"] = $tour;
-
-		// スポット一覧
-		$limit		= 6;
-		$sort		= "created_time";
-		$sort_type	= "desc";
-		$offset = 0;
-		$request["tags"] = $this->Tag_model->tag_keys(array($condition["keyword"]));
-		$spot = $this->Spot_model->search($request, $offset, $limit, null, $sort, $sort_type);
-		if ($spot["list"]) {
-			$spot["relation"]["categories"] = $this->Category_model->get_names($spot["relation"]["categories"]);
-			$spot["relation"]["tags"] 		= $this->Tag_model->tag_values($spot["relation"]["tags"]);
-		}
-		$data["spots"] = $spot;
-		
-		$topics = array();
-		// ツアー一覧
-		$request["topic"] = "宮沢賢治特集";
-		$topics = $this->Tour_model->search($request, $offset, $limit, null, $sort, $sort_type);
-		if ($topics["list"]) {
-			$routes = $this->Tour_model->get_routes(array_keys($topics["list"]));
-			foreach ($routes as $tour_id => $route) {
-				$topics["list"][$tour_id]["routes"] = $route;
-			}
-			$topics["relation"]["categories"] = $this->Category_model->get_names($topics["relation"]["categories"]);
-			$topics["relation"]["tags"] 		= $this->Tag_model->tag_values($topics["relation"]["tags"]);
-		}
-		$data["topics"] = $topics;
 		// FBログインURL
 		$params = array("redirect_uri" => base_url("user/top/fb_auth"));
 		$data["fb_login"] = $this->facebook->getLoginUrl($params);
