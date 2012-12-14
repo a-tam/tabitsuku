@@ -555,6 +555,10 @@ class MY_Form_validation extends CI_Form_validation {
 		
 		return FALSE;
 	}
+	
+	function get_errors() {
+		return $this->_error_array;
+	}
 }
 
 

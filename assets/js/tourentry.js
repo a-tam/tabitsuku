@@ -209,6 +209,9 @@ tourentryCtl.init=function(){
 		});
 		// 保存ボタン
 		$("#save_button").click(function() {
+			if (form_validate() == false) {
+				return false;
+			}
 			var routes = [];
 			$("#tour_make .list_area .tour_point").each(function(i, elm) {
 				var id = $(elm).attr("data-spot-id");
@@ -220,10 +223,6 @@ tourentryCtl.init=function(){
 					lng:		$(elm).attr("data-spot-lng")
 				});
 			});
-			if (routes.length == 0) {
-				alert("ルートの指定がありません");
-				return false;
-			}
 			var categories = [];
 			$(".maincategory").each(function(i, elm) {
 				categories.push($(elm).val());
@@ -243,8 +242,13 @@ tourentryCtl.init=function(){
 				},
 				dataType: "json",
 				success: function(json) {
-					if (json["tour_id"]) {
-						location.href = gBaseUrl + 'tour/search?owner=mydata'; // &_lat='+map.getCenter().lat()+'&_lng='+map.getCenter().lng();
+					if (json["status"] == true) {
+						if (json["result"]["tour_id"]) {
+							location.href = gBaseUrl + 'tour/search?owner=mydata'; // &_lat='+map.getCenter().lat()+'&_lng='+map.getCenter().lng();
+						}
+						
+					} else {
+						alert("登録に失敗しました");
 					}
 				}
 			});
@@ -253,6 +257,54 @@ tourentryCtl.init=function(){
 		
 		$("#pg_tour_center").click(tour_center);
 		
+	}
+	
+	function form_validate() {
+		var messages = [];
+		var input_item = [];
+		
+		if ($("#tour-name").val().replace(/(^\s+)|(\s+$)/g, "") == "") {
+			messages.push("ツアー名の入力がありません");
+			input_item.push("#tour-name");
+		}
+		
+		if ($("#tour-description").val().replace(/(^\s+)|(\s+$)/g, "") == "") {
+			messages.push("ツアー説明の入力がありません");
+			input_item.push("#tour-description");
+		}
+		
+		if ($("#tags").tagit("assignedTags").length == 0) {
+			messages.push("タグの入力がありません");
+			input_item.push("#tags");
+		}
+		
+		if ($(".maincategory").length == 0) {
+			messages.push("カテゴリの指定がありません");
+			input_item.push(".input_form .categories");
+		}
+
+		if ($("#start_time").val() == "") {
+			messages.push("開始時間の入力がありません");
+			input_item.push("#start_time");
+		}
+
+		if ($("#tour_make .list_area .tour_point").length == 0) {
+			messages.push("ルートの指定がありません");
+			input_item.push("#tour_make .list_area");
+		}
+
+		if (messages.length > 0) {
+			alert(messages.join("\n"));
+			if (input_item) {
+				$(input_item[0]).focus();
+				$(input_item.join(",")).css("background-color", "#ffc").animate({
+					backgroundColor: "#fff"
+				}, 1500 );
+			}
+			return false;
+		}
+		return true;
+
 	}
 
 	
@@ -441,15 +493,15 @@ tourentryCtl.init=function(){
 //				FB.XFBML.parse();
 				
 				// ドラッグ
-				$("#spot_search .tour_point").draggable({
+				$("#spot_search .tour_point:not(.pg_spot_temp)").draggable({
 					connectToSortable: "#tour_make .list_area",
 					containment: "document",
 					revert: "invalid",
 					helper: "clone",
 					cursor: "move",
+					delay: 100,
 					scroll: false,
 					opacity: 0.6,
-					zIndex: 999,
 					start: function(event, ui) {
 						$("#spot_search .list_area").css("overflow", "hidden");
 					},
@@ -458,47 +510,6 @@ tourentryCtl.init=function(){
 					}
 				});
 
-				$( "#toolSpot li" ).draggable({});
-				/*
-				$( "#tour_make .list_area" ).droppable({
-					activeClass: "pg_jqui_state_highlight",
-					hoverClass: "pg_jqui_state_hover"
-				});
-				*/
-				/*
-				// ドロップ＆ソート
-				$( "#tour_make .list_area" ).droppable({
-					accept: ":not(.ui-sortable-helper)",
-					activeClass: "pg_jqui_state_highlight",
-					hoverClass: "pg_jqui_state-hover",
-					drop: function(event, ui) {
-						if (ui.draggable.hasClass("memo_item")) {
-							// テンプレートのクローン作成
-							var add_item = $("#tour_make .pg_memo_temp")
-								.clone(true)
-								.removeClass("pg_spot_temp")
-								.css("display", "block");
-						} else {
-							// テンプレートのクローン作成
-							var add_item = $("#tour_make .pg_spot_temp")
-								.clone(true)
-								.removeClass("pg_spot_temp")
-								.css("display", "block");
-							add_item.find(".pg_name")
-								.text(ui.draggable.find(".pg_name").text());
-							add_item.find(".pg_stay_time")
-								.text(ui.draggable.find(".pg_stay_time").text());
-							add_item.find(".pg_image")
-								.attr("src", ui.draggable.find(".pg_image").attr("src"));
-							add_item.find(".detaillink a").bind("click", function() {
-								spotCtl.show(gBaseUrl + 'spot/show/' + ui.draggable.attr("data-spot-id"));
-							});
-						}
-						add_item.appendTo("#tour_make .list_area");
-						
-					}
-				});
-				*/
 				$( "#tour_make .list_area" ).sortable({
 					stop: function(event, ui) {
 						change_time();

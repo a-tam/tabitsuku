@@ -64,7 +64,11 @@ class Tour extends MY_Controller {
 		$valid_rule = $this->Tour_model->get_structure();
 		$this->_set_validation($valid_rule);
 		if ($this->form_validation->run() == FALSE) {
-			return print json_encode(false);
+			log_message("error", print_r($this->form_validation, true));
+			$result = array("status" => false,
+					"errors" => $this->form_validation->get_errors()
+					);
+			return print json_encode($result);
 		}
 		$tour_id		= $this->input->post("id");
 		$name			= $this->input->post("name");
@@ -91,7 +95,14 @@ class Tour extends MY_Controller {
 		// ルート情報
 		$this->input->post("description");
 		$route_ids = $this->Route_model->update_all($tour_id, $route);
-		print json_encode(array("tour_id" => $tour_id, "route_ids" => $route_ids));
+		print json_encode(array(
+				"status" => true,
+				"result" => array(
+						"tour_id" => $tour_id,
+						"route_ids" => $route_ids
+						)
+				)
+		);
 	}
 	
 	function query() {

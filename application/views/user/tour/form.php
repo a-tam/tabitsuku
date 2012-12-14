@@ -88,7 +88,7 @@ for($i = 0; $i < 3; $i++):?>
 								<li data-category-id="<?php echo $row["id"];?>"><a href=""><?php echo $row["name"];?></a></li>
 <?php endforeach;?>
 							</ul>
-							<select type="text" name="subcategory_input" maxlength="20" class="text"></select>
+							<select name="subcategory_input" class="text"></select>
 							<p class="close"><a href="#close" class="mouse_over"><img src="<?php echo base_url("assets");?>/img/common/search/close.png" alt="CLSOE" /></a></p>
 							<p class="add"><a href="#add" class="mouse_over"><img src="<?php echo base_url("assets");?>/img/common/icon/add.gif" alt="追加" /></a></p>
 							<p class="tri">&nbsp;</p>
