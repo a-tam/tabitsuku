@@ -24,7 +24,7 @@
 					<dl class="category">
 						<dt><img src="<?php echo base_url("assets");?>/img/common/search/category.gif" alt="カテゴリ" /></dt>
 						<dd>
-							<p class="selectbtn"><a href="#categoryselect" class="mouse_over"><img src="<?php echo base_url("assets");?>/img/common/search/categoryselect.gif" alt="検索カテゴリを選択" /></a></p>
+							<p class="selectbtn"><a href="#categoryselect" class="selectbtn mouse_over">検索カテゴリを選択</a></p>
 							<!--<p class="selectedCategory"><a href="#close" class="close mouse_over"><img src="<?php echo base_url("assets");?>/img/common/search/close.gif" alt="CLOSE" /></a>見る</p>-->
 							<div class="categoryselect">
 								<ul>
@@ -74,7 +74,7 @@ if ($selected_category) :
 					<dt><img src="<?php echo base_url("assets");?><?php if ($mode == "1"): ?>/img/common/search/search_l.gif<?php else:?>/img/common/search/search.gif<?php endif;?>" alt="検索" /></dt>
 					<dd>
 						<ul>
-							<li class="mouse_over pg_search_map_btn"><input type="image" src="<?php echo base_url("assets");?>/img/common/search/listsearch.gif" alt="地図で探す" /></li>
+							<li class="list_search mouse_over"><input type="submit" class="submitbtn pg_search_map_btn" value="一覧で探す" /></li>
 						</ul>
 <?php if ($this->user_info): ?>
 							<input type="checkbox" name="owner" id="pg_search_owner" value="mydata"<?php if($this->input->get_post("owner") == "mydata"):?> checked="checked"<?php endif;?> /><label for="pg_search_owner">自分で登録したデータ</label><br />
