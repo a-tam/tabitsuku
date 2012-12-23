@@ -24,13 +24,11 @@
 			};
 			map = new google.maps.Map(document.getElementById("map"),myOptions);
 			google.maps.event.addListener(map, 'dragend', function() {
-				console.log('dragend');
 				if ($("#pg_search_map_select:checked").length > 0) {
 					show_tour(1);
 				}
 			});
 			google.maps.event.addListener(map, 'zoom_changed', function() {
-				console.log('zoom_changed', map.getZoom());
 				if ($("#pg_search_map_select:checked") && map_event_enable == true) {
 					show_tour(1);
 				}
