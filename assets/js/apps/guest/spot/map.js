@@ -7,6 +7,7 @@
 	var lat_min = lat_max = lng_min = lng_max = null;
 	var spot_list;
 	var userCtl={};
+	var map_event_enable = true;
 
 	$(document).ready(function(){
 		userCtl.init();
@@ -23,12 +24,12 @@
 			};
 			map = new google.maps.Map(document.getElementById("map"),myOptions);
 			google.maps.event.addListener(map, 'dragend', function() {
-				if ($("#pg_search_map_select").val() == "1") {
+				if ($("#pg_search_map_select:checked")) {
 					show_spot(1);
 				}
 			});
 			google.maps.event.addListener(map, 'zoom_changed', function() {
-				if ($("#pg_search_map_select").val() == "1") {
+				if ($("#pg_search_map_select:checked") && map_event_enable == true) {
 					show_spot(1);
 				}
 			});
@@ -49,7 +50,6 @@
 			        "#pg_search_order", 
 			        "#pg_search_owner",
 			        "#pg_search_map_select"], function(i, elm_id) {
-				console.log(elm_id);
 				$(elm_id).change(function() {
 					show_spot(1);
 				});
@@ -131,41 +131,42 @@
 							});
 							spot_marker_list[spot_info.id] = marker;
 						});
-
-						var current_spot_id;
-						var onmouse_spot_id;
-						
-						$("#pg_spots .pg_spot_list").bind("mouseenter", function() {
-							if (onmouse_spot_id != current_spot_id) {
-							}
-							onmouse_spot_id = $(this).attr("data-spot-id");
-							if (onmouse_spot_id != current_spot_id) {
-							}
-						});
-						
-						$("#pg_spots .pg_spot_list").bind("mouseleave", function(event) {
-							var leave_id = $(this).attr("data-spot-id");
-							if (current_spot_id != leave_id) {
-							}
-//							event.stopPropagation();
-						});
-		
-						$("#pg_spots .pg_spot_list").bind("click", function(event) {
-							current_spot_id = $(this).attr("data-spot-id");
-							var zoom = $(this).attr("data-zoom");
-							open_info_window(current_spot_id);
-							map.setCenter(spot_marker_list[current_spot_id].getPosition());
-							if (zoom) {
-								map.setZoom(parseInt(zoom));
-							}
-							event.stopPropagation();
-						});
-						
 					}
 				}
 			});
 		}
+
+		var current_spot_id;
+		var onmouse_spot_id;
 		
+		$("#pg_spots .pg_spot_list").bind("mouseenter", function() {
+			if (onmouse_spot_id != current_spot_id) {
+			}
+			onmouse_spot_id = $(this).attr("data-spot-id");
+			if (onmouse_spot_id != current_spot_id) {
+			}
+		});
+		
+		$("#pg_spots .pg_spot_list").bind("mouseleave", function(event) {
+			var leave_id = $(this).attr("data-spot-id");
+			if (current_spot_id != leave_id) {
+			}
+//			event.stopPropagation();
+		});
+
+		$("#pg_spots .pg_spot_list").bind("click", function(event) {
+			current_spot_id = $(this).attr("data-spot-id");
+			var zoom = $(this).attr("data-zoom");
+			open_info_window(current_spot_id);
+			map.setCenter(spot_marker_list[current_spot_id].getPosition());
+			if (zoom) {
+				map_event_enable = false;
+				map.setZoom(parseInt(zoom));
+				map_event_enable = true;
+			}
+			event.stopPropagation();
+		});
+
 		function open_info_window(id) {
 			var spot_info = spot_list[id];
 			close_info_window(id);
