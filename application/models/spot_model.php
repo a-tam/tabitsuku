@@ -148,13 +148,13 @@ class Spot_model extends MY_Model {
 		}
 		if (trim($condition["keyword"])) {
 			if ($condition["tags"]) {
-				$_cond[] = "tags IN (".implode(",", $condition["tag"]).")";
+				$_cond[] = "tags IN (".implode(",", $condition["tags"]).")";
 			}
 			$_cond[] = "name LIKE '%".$condition["keyword"]."%'";
 			$wheres[] = implode(" OR ", $_cond);
 		}
-		if (trim($category)) {
-			$wheres[] = "category like '%".$category."%'";
+		if (trim($condition["category"])) {
+			$wheres[] = "category like '%".$condition["category"]."%'";
 		}
 		if ($wheres) {
 			$this->db->where(implode(" AND ", $wheres));
@@ -179,8 +179,8 @@ class Spot_model extends MY_Model {
 		$query = $this->db->get();
 		$user_info = $this->phpsession->get("user_info");
 		foreach($query->result_array() as $row) {
-			preg_match_all("/\d+/", $row["category"], $cateogry);
-			$category_keys = array_merge($category_keys, $cateogry[0]);
+			preg_match_all("/\d+/", $row["category"], $category);
+			$category_keys = array_merge($category_keys, $category[0]);
 			preg_match_all("/\d+/", $row["tags"], $tags);
 			$tag_keys = array_merge($tag_keys, $tags[0]);
 			unset($row["addition"]);
