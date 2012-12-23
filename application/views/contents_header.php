@@ -36,6 +36,7 @@ $category = $this->Category_model->get_list("");
 	<!-- //search -->
 	<?php if ($this->user_info): ?>
 	<p class="login"><a href="<?php echo base_url("user/top/logout");?>" class="mouse_over"><img src="<?php echo base_url("assets"); ?>/img/common/header/logout.gif" alt="ログアウト" /></a></p>
+	<p class="username">ようこそ　<span><em><?php echo $this->user_info["name"];?></em>さん</span></p>
 	<?php else: ?>
 	<p class="login"><a href="#login" class="loginbtn mouse_over"><img src="<?php echo base_url("assets"); ?>/img/common/header/login.gif" alt="ログインはこちら" /></a></p>
 	<?php endif; ?>
