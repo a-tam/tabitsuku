@@ -14,6 +14,7 @@ class Tour extends MY_Controller {
 			"sw_lat"	=> $this->input->get("sw_lat"),
 			"ne_lng"	=> $this->input->get("ne_lng"),
 			"sw_lng"	=> $this->input->get("sw_lng"),
+			"spot_id"	=> $this->input->get("spot_id"),
 			"category"	=> $this->input->get("category"),
 			"keyword"	=> $this->input->get("keyword"),
 		);
