@@ -170,6 +170,9 @@ class Tour_model extends MY_Model {
 		if (trim($condition["topic"])) {
 			$wheres[] = $this->table.".topic LIKE '".$condition["topic"]."'";
 		}
+		if ($condition["spot_id"]) {
+			$wheres[] = "tours.id IN (SELECT routes.tour_id FROM routes WHERE routes.spot_id = ".$condition["spot_id"]." GROUP BY routes.tour_id)";
+		}
 		if ($wheres) {
 			$this->db->where(implode(" AND ", $wheres));
 		}
