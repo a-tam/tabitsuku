@@ -15,7 +15,10 @@ class Spot extends MY_Controller {
 			"ne_lng"	=> $this->input->get("ne_lng"),
 			"sw_lng"	=> $this->input->get("sw_lng"),
 			"category"	=> $this->input->get("category"),
+			"name"		=> $this->input->get("name"),
+			"tag"		=> $this->input->get("tag"),
 			"keyword"	=> $this->input->get("keyword"),
+			"owner"		=> "",
 		);
 		$owner		= $this->input->get("owner");
 		$page 		= $this->input->get("page");
@@ -36,13 +39,18 @@ class Spot extends MY_Controller {
 		if (!$page) $page = 1;
 		if (!in_array($sort, array("created_time", "like_count", "name"))) $sort = "created_time";
 		$offset = ($page - 1) * $limit;
-		$request["tags"] = $this->Tag_model->tag_keys(array($condition["keyword"]));
+		$request["tags"] = $this->Tag_model->tag_keys(array($request["keyword"]));
 		$spot = $this->Spot_model->search($request, $offset, $limit, null, $sort, $sort_type);
+		
 		if ($spot["list"]) {
 			$spot["relation"]["categories"] = $this->Category_model->get_names($spot["relation"]["categories"]);
 			$spot["relation"]["tags"] 		= $this->Tag_model->tag_values($spot["relation"]["tags"]);
 		}
 		print json_encode($spot);
+	}
+	
+	function get($id) {
+		
 	}
 	
 	function add() {
