@@ -6,7 +6,7 @@
 <!-- javascript -->
 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=true&libraries=places"></script>
 <script type="text/javascript" src="<?php echo base_url("assets"); ?>/js/jquery/autocomplete/tag-it.js"></script>
-<script type="text/javascript" src="<?php echo base_url("assets"); ?>/js/spotentry.js"></script>
+<script type="text/javascript" src="<?php echo base_url("assets"); ?>/js/apps/user/spot/form.js"></script>
 <script type="text/javascript" src="<?php echo base_url("assets"); ?>/js/jquery/timepicker/jquery.timepicker.js"></script>
 
 </head>

@@ -98,8 +98,7 @@
 		
 		<p class="edit">
 			<?php if ($this->user_info):?>
-			<a href="<?php echo base_url("user/tour/copy/".$data["id"]);?>">コピーしてツアーを作る</a>
-			<a href="<?php echo base_url("user/tour/form/".$data["id"]);?>"><img src="<?php echo base_url("assets");?>/img/spot/edit.gif" alt="編集する" /></a>
+			<a href="<?php echo base_url("user/tour/form/".$data["id"]);?>" class="selectbtn mouse_over">編集する</a>
 			<?php endif;?>
 		</p>
 		
@@ -136,7 +135,7 @@
 							<img src="<?php echo base_url("assets");?>/img/common/noimage.jpg" alt="スポット名スポット名スポット名" width="98" height="74" />
 						<?php endif;?>
 					</p>
-					<div class="fb-like" data-href="http://www.google.co.jp/" data-send="false" data-layout="button_count" data-width="450" data-show-faces="false"></div>
+					<div class="fb-like" data-href="<?php echo base_url("spot/show/".$ruote["id"]);?>" data-send="false" data-layout="button_count" data-width="450" data-show-faces="false"></div>
 				</div>
 				<!-- //photo_area -->
 				<div class="info_area">
@@ -150,18 +149,12 @@
 					</dl>
 					<dl class="memo">
 						<dt><img src="<?php echo base_url("assets");?>/img/tour/memo.gif" alt="一言メモ" /></dt>
-						<dd><?php echo $ruote["info"]; ?></dd>
+						<dd><?php echo $ruote["description"]; ?></dd>
 					</dl>
-					<p class="detaillink"><a href="#spot" onClick="spotCtl.show('<?php echo base_url("spot/show/".$ruote["id"]);?>');return false;" class="mouse_over"><img src="<?php echo base_url("assets");?>/img/common/btn/spotlinkbtn.gif" alt="スポット詳細をみる" /></a></p>
+					<p class="linkbtn"><a href="#spot" onClick="spotCtl.show('<?php echo base_url("spot/show/".$ruote["id"]);?>');return false;" class="mouse_over">スポット詳細をみる</a></p>
 					
 				</div>
 				<!-- //info_area -->
-				
-				<div class="subinfo">
-					<p class="staytime">滞在時間<br /><span><?php echo $ruote["stay_time"];?>分</span></p>
-					<p class="tourphoto">ツアー画像<input type="checkbox" name="tourimage" /></p>
-				</div>
-				<!-- //subinfo -->
 				
 			</div>
 			<!-- //item -->
@@ -172,7 +165,10 @@
 		</div>
 		<!-- //routes -->
 		
-		<p class="copy"><a href="../user/tour/" class="mouse_over"><img src="<?php echo base_url("assets");?>/img/tour/copy.gif" alt="コピーしてツアーを作る" /></a></p>
+			<p class="copy">
+				<a href="<?php echo base_url("user/tour/copy/".$data["id"]);?>" class="selectbtn mouse_over">コピーしてツアーを作る</a>
+				<a href="<?php echo base_url("user/tour/delete/".$data["id"]);?>" class="selectbtn mouse_over">削除する</a>
+			</p>
 		
 	</div>
 	<!-- //route_area -->

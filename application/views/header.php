@@ -22,8 +22,7 @@
 	<script type="text/javascript" src="<?php echo base_url("assets"); ?>/js/jquery/jquery-ui-1.8.20.custom.min.js"></script>
 	<script type="text/javascript" src="<?php echo base_url("assets"); ?>/js/jquery/jquery.powertip.min.js"></script>
 	<script type="text/javascript" src="<?php echo base_url("assets"); ?>/js/jquery/jquery.easing.js"></script>
-	<script type="text/javascript" src="<?php echo base_url("assets"); ?>/js/browser.js"></script>
-	<script type="text/javascript" src="<?php echo base_url("assets"); ?>/js/common.js"></script>
+	<script type="text/javascript" src="<?php echo base_url("assets"); ?>/js/apps/browser.js"></script>
 	<script type="text/javascript" src="<?php echo base_url("assets"); ?>/js/apps/common.js"></script>
 	<script type="text/javascript">
 		// ベースパス

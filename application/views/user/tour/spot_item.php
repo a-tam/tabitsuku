@@ -22,7 +22,7 @@
 							<label class="pg_select_image"><input type="radio" name="select_image" value="<?php echo $route["id"];?>"<?php if ($data["image"] == $route["id"]):?> checked="checked"<?php endif;?>>画像</label>
 							<?php endif;?>
 						<?php else:?>
-						<label class="pg_select_image"><input type="radio" name="select_image">画像</label>
+						<label class="pg_select_image"><input type="radio" name="select_image" value="<?php echo $route["id"];?>"<?php if ($data["image"] == $route["id"]):?> checked="checked"<?php endif;?>>画像</label>
 						<?php endif;?>
 						</dd>
 					</dl>

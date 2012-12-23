@@ -94,11 +94,13 @@
 }
 .list_area .list_item .sub_box .category dt{
 	height:14px;
+	margin-bottom:5px;
 }
 .list_area .list_item .sub_box .category li{
 	float:left;
-	margin-right:10px;
+	margin-right:5px;
 	margin-bottom:3px;
+	height:16px;
 	
 }
 .list_area .list_item .sub_box .linkbtn{

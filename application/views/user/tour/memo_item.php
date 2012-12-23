@@ -1,17 +1,21 @@
 		<div class="tour_point pg_memo_temp"<?php if ($route):?> style="display:none;"<?php endif;?>>
 			<p class="time"><span class="pg_timecode">08:00</span><span class="line">&nbsp;</span></p>
 			<div class="memo_item">
-				<dl class="tool">
-					<dt><img src="<?php echo base_url("assets");?>/img/user/tour/memo.gif" alt="メモ" /></dt>
-					<dd>メモが必要な場合は追加してください。</dd>
-				</dl>
+				<div class="select">
+					<dl class="tool">
+						<dt><img src="<?php echo base_url("assets");?>/img/user/tour/memo.gif" alt="メモ" /></dt>
+						<dd>移動時間やメモを追加</dd>
+					</dl>
+					<div class="ctlbtn">
+						<p class="add"><a href="#add" class="iconAdd"><img src="<?php echo base_url("assets");?>/img/user/tour/plus.gif" alt="ツアーに追加" /></a></p>
+					</div>
+				</div>
 				<div class="edit">
 					<dl>
 						<dt><img src="<?php echo base_url("assets");?>/img/user/tour/memo.gif" alt="メモ" /></dt>
 						<dd><textarea name="memo" class="pg_memo"></textarea></dd>
 					</dl>
 					<div class="ctlbtn">
-						<p class="add"><a href="#add"><img src="<?php echo base_url("assets");?>/img/user/tour/plus.gif" alt="ツアーに追加" /></a></p>
 						<p class="remove"><a href="#remove" class="iconClose"><img src="<?php echo base_url("assets");?>/img/user/tour/remove.gif" alt="ツアーから外す" /></a></p>
 							<ul class="ctl">
 								<li><a href="" class="iconUp"><img src="<?php echo base_url("assets");?>/img/user/tour/arrow_up.gif" alt="上へ"></a></li>

@@ -59,11 +59,11 @@
 }
 #input_area input.text,
 #input_area textarea {
-	width:475px;
+	width:390px;
 }
 
 #input_area .tagit {
-	width:469px;
+	width:384px;
 }
 
 #input_area dl{
@@ -82,7 +82,7 @@
 	display:inline;
 }
 #input_area .latlng input.text{
-	width:160px;
+	width:147px;
 	margin-right:30px;
 	margin-left:5px;
 }
@@ -100,6 +100,7 @@
 	padding-bottom:12px;
 	margin-bottom:12px;
 	border-bottom:1px dotted #333333;
+	width:100%;
 }
 #input_area .category .categories .category1{
 	background:url(../../img/user/spot/category1.gif) 0 2px no-repeat;
@@ -111,6 +112,9 @@
 	background:url(../../img/user/spot/category3.gif) 0 2px no-repeat;
 	border-bottom:none;
 }
+#input_area .category .categories li a{
+	width:160px;
+}
 
 #input_area .categoryselect{
 	left:210px;
@@ -119,7 +123,7 @@
 
 #input_area .pic{
 	clear:none;
-	float:left;
+	float:right;
 	margin-bottom:25px;
 	/*width:240px;*/
 }
@@ -135,7 +139,7 @@
 
 
 #input_area .submit{
-	float:left;
+	float:right;
 }
 
 

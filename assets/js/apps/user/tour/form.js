@@ -1,3 +1,5 @@
+(function() {
+
 var tourentryCtl={};
 
 $(document).ready(function(){
@@ -207,6 +209,11 @@ tourentryCtl.init=function(){
 				});
 			}
 		});
+		
+		$(".detaillink a").live("click", function() {
+			spotCtl.popup($(this).attr("href"));
+			return false;
+		});
 		// 保存ボタン
 		$("#save_button").click(function() {
 			if (form_validate() == false) {
@@ -283,15 +290,6 @@ tourentryCtl.init=function(){
 			input_item.push(".input_form .categories");
 		}
 
-		if ($("#start_time").val() == "") {
-			messages.push("開始時間の入力がありません");
-			input_item.push("#start_time");
-		}
-
-		if ($("#tour_make .list_area .tour_point").length == 0) {
-			messages.push("ルートの指定がありません");
-		}
-
 		if (messages.length > 0) {
 			alert(messages.join("\n"));
 			if (input_item) {
@@ -340,7 +338,6 @@ tourentryCtl.init=function(){
 			var bounds = new google.maps.LatLngBounds(sw, ne);
 			map.fitBounds(bounds);
 		}
-		event.stopPropagation();
 	}
 	
 	/**
@@ -468,7 +465,7 @@ tourentryCtl.init=function(){
 						spot_elm.find("input:[name='select_image']")
 							.val(spot_info.id);
 					} else {
-						spot_elm.find("input:[name='select_image']").remove();
+						spot_elm.find(".pg_select_image").remove();
 					}
 					spot_elm.find(".pg_name")
 						.text(spot_info.name);
@@ -476,9 +473,7 @@ tourentryCtl.init=function(){
 						.text(spot_info.description);
 					spot_elm.find(".pg_standard_time")
 						.text(spot_info.stay_time);
-					spot_elm.find(".detaillink a").bind("click", function() {
-						spotCtl.popup(gBaseUrl + 'spot/show/' + spot_info.id);
-					});
+					spot_elm.find(".detaillink a").attr("href", gBaseUrl + 'spot/show/' + spot_info.id);
 					spot_elm.appendTo("#spot_select .list_area");
 					
 					var img_src = "";
@@ -604,8 +599,8 @@ tourentryCtl.init=function(){
 		setInterval(heightAdjust,200);
 		function heightAdjust(){
 			var targetHeight=$("#basic_area").height();
-			spotSearch.find(".list_area").css("height",targetHeight-spotSearch.find(".search_box").height()-spotSearch.find(".search_info").height()-spotSearch.find(".memo_item").height()-150+"px");
-			tourMake.find(".list_area").css("height",targetHeight-283+"px");
+			spotSearch.find(".list_area").css("height",(targetHeight-spotSearch.find(".search_box").height()-spotSearch.find(".search_info").height()-spotSearch.find(".memo_item").height()-100)+"px");
+			tourMake.find(".list_area").css("height",targetHeight-226+"px");
 			$("#joint span").css("height",spotSearch.find(".search_box").height()+39+"px");
 		}
 	}
@@ -629,6 +624,18 @@ tourentryCtl.init=function(){
 		$("#input_box").css("left",(browser.width-500)*0.5+"px");
 	}
 	$("#tour_make .inputshowbtn").click(function(){
+		if ($("#start_time").val() == "") {
+			alert("開始時間の入力がありません");
+			$("#start_time").forcus();
+			return false;
+		}
+
+		if ($("#tour_make .list_area .tour_point").length < 2) {
+			alert("ルートの指定がありません");
+			$("#start_time").forcus();
+			return false;
+		}
+
 		inputShow();
 		return false;
 	});
@@ -647,6 +654,6 @@ tourentryCtl.init=function(){
 	
 	
 	inputResize();
+}
 
-
-};
+})();

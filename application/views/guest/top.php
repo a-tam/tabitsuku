@@ -19,6 +19,9 @@
 	</div>
 	<!-- //message-area -->
 	
+	<div class="movie-area">
+		<iframe width="300" height="200" src="http://www.youtube.com/embed/Jy9kT2AWH04" frameborder="0" allowfullscreen></iframe>
+	</div>
 	<!--
 	<div class="login-area">
 		<h3><img src="<?php echo base_url("assets"); ?>/img/top/login.gif" alt="ログインはこちらから" /></h3>
@@ -64,7 +67,16 @@
 					<div class="pg_like_count" data-href="" data-send="false" data-layout="button_count" data-width="450" data-show-faces="false"></div>
 					<dl class="category pg_category">
 						<dt><img src="<?php echo base_url("assets"); ?>/img/common/icon/category.gif" alt="CATEGORY" /></dt>
-						<dd class="category_name">カテゴリ</dd>
+						<dd>
+							<ul class="category_icon">
+								<li><a href="" title="見る"><img src="<?php echo base_url("assets"); ?>/img/common/icon/site.gif" alt="見る" /></a></li>
+								<li><a href="" title="遊ぶ"><img src="<?php echo base_url("assets"); ?>/img/common/icon/enjoy.gif" alt="遊ぶ" /></a></li>
+								<li><a href="" title="食べる"><img src="<?php echo base_url("assets"); ?>/img/common/icon/food.gif" alt="食べる" /></a></li>
+								<li><a href="" title="宿泊・温泉"><img src="<?php echo base_url("assets"); ?>/img/common/icon/stay.gif" alt="宿泊・温泉" /></a></li>
+								<li><a href="" title="乗り物/乗り場"><img src="<?php echo base_url("assets"); ?>/img/common/icon/transport.gif" alt="乗り物/乗り場" /></a></li>
+								<li><a href="" title="買う"><img src="<?php echo base_url("assets"); ?>/img/common/icon/shopping.gif" alt="買う" /></a></li>
+							</ul>
+						</dd>
 					</dl>
 				</div>
 				<!-- //photo_area -->
@@ -91,8 +103,7 @@
 						</dl>
 					</div>
 					<!-- //subinfo -->
-	
-					<p class="linkbtn"><a href="./" class="mouse_over pg_detail"><img src="<?php echo base_url("assets"); ?>/img/common/btn/tourlinkbtn.gif" alt="ツアー内容を見る"></a></p>
+					<p class="linkbtn"><a href="../tour/" class="mouse_over pg_detail">ツアー内容を見る</a></p>
 	
 				</div>
 				<!-- //info_area -->
@@ -119,7 +130,16 @@
 					<div class="pg_like_count" data-href="" data-send="false" data-layout="button_count" data-width="450" data-show-faces="false"></div>
 					<dl class="category pg_category">
 						<dt><img src="<?php echo base_url("assets"); ?>/img/common/icon/category.gif" alt="CATEGORY" /></dt>
-						<dd class="category_name">カテゴリ</dd>
+						<dd>
+							<ul class="category_icon">
+								<li><a href="" title="見る"><img src="<?php echo base_url("assets"); ?>/img/common/icon/site.gif" alt="見る" /></a></li>
+								<li><a href="" title="遊ぶ"><img src="<?php echo base_url("assets"); ?>/img/common/icon/enjoy.gif" alt="遊ぶ" /></a></li>
+								<li><a href="" title="食べる"><img src="<?php echo base_url("assets"); ?>/img/common/icon/food.gif" alt="食べる" /></a></li>
+								<li><a href="" title="宿泊・温泉"><img src="<?php echo base_url("assets"); ?>/img/common/icon/stay.gif" alt="宿泊・温泉" /></a></li>
+								<li><a href="" title="乗り物/乗り場"><img src="<?php echo base_url("assets"); ?>/img/common/icon/transport.gif" alt="乗り物/乗り場" /></a></li>
+								<li><a href="" title="買う"><img src="<?php echo base_url("assets"); ?>/img/common/icon/shopping.gif" alt="買う" /></a></li>
+							</ul>
+						</dd>
 					</dl>
 				</div>
 				<!-- //photo_area -->
@@ -147,7 +167,7 @@
 					</div>
 					<!-- //subinfo -->
 	
-					<p class="linkbtn"><a href="./" class="mouse_over pg_detail"><img src="<?php echo base_url("assets"); ?>/img/common/btn/spotlinkbtn.gif" alt="スポット詳細を見る"></a></p>
+					<p class="linkbtn"><a href="../tour/" class="mouse_over pg_detail">スポット詳細を見る</a></p>
 	
 				</div>
 				<!-- //info_area -->
@@ -175,7 +195,16 @@
 					<div class="pg_like_count" data-href="" data-send="false" data-layout="button_count" data-width="450" data-show-faces="false"></div>
 					<dl class="category pg_category">
 						<dt><img src="<?php echo base_url("assets"); ?>/img/common/icon/category.gif" alt="CATEGORY" /></dt>
-						<dd class="category_name">カテゴリ</dd>
+						<dd>
+							<ul class="category_icon">
+								<li><a href="" title="見る"><img src="<?php echo base_url("assets"); ?>/img/common/icon/site.gif" alt="見る" /></a></li>
+								<li><a href="" title="遊ぶ"><img src="<?php echo base_url("assets"); ?>/img/common/icon/enjoy.gif" alt="遊ぶ" /></a></li>
+								<li><a href="" title="食べる"><img src="<?php echo base_url("assets"); ?>/img/common/icon/food.gif" alt="食べる" /></a></li>
+								<li><a href="" title="宿泊・温泉"><img src="<?php echo base_url("assets"); ?>/img/common/icon/stay.gif" alt="宿泊・温泉" /></a></li>
+								<li><a href="" title="乗り物/乗り場"><img src="<?php echo base_url("assets"); ?>/img/common/icon/transport.gif" alt="乗り物/乗り場" /></a></li>
+								<li><a href="" title="買う"><img src="<?php echo base_url("assets"); ?>/img/common/icon/shopping.gif" alt="買う" /></a></li>
+							</ul>
+						</dd>
 					</dl>
 				</div>
 				<!-- //photo_area -->
@@ -203,7 +232,7 @@
 					</div>
 					<!-- //subinfo -->
 	
-					<p class="linkbtn"><a href="" class="mouse_over pg_detail"><img src="<?php echo base_url("assets"); ?>/img/common/btn/tourlinkbtn.gif" alt="ツアー内容を見る"></a></p>
+					<p class="linkbtn"><a href="../tour/" class="mouse_over pg_detail">ツアー内容を見る</a></p>
 	
 				</div>
 				<!-- //info_area -->

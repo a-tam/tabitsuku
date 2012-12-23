@@ -1,12 +1,9 @@
 <!-- css -->
 <link rel="stylesheet" type="text/css" media="screen,print" href="<?php echo base_url("assets");?>/css/modules/user.css" />
-<link rel="stylesheet" type="text/css" href="<?php echo base_url("assets");?>/js/jquery/jpagenate/css/style.css">
 
 <!-- javascript -->
 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=true"></script>
-<script type="text/javascript" src="<?php echo base_url("assets");?>/js/user.js"></script>
-<script type="text/javascript" src="<?php echo base_url("assets");?>/js/apps/guest/spot/map.js"></script>
-<script type="text/javascript" src="<?php echo base_url("assets"); ?>/js/jquery/jpagenate/jquery.paginate.js"></script>
+<script type="text/javascript" src="<?php echo base_url("assets");?>/js/apps/guest/tour/map.js"></script>
 
 </head>
 <body id="toursearch" class="search sec">
@@ -29,28 +26,11 @@
 		
 			<div class="search_info">
 				<p class="total">検索結果：<em class="search_count">0</em></p>
-				
-				<!--
-				<div class="pager">
-					<p class="order">
-						<select name="order">
-							<option value="new">新着順</option>
-						</select>
-					</p>
-				
-					<p class="prev"><a href="">前へ</a></p>
-					<ul>
-						<li class="select">1</li>
-						<li><a href="">2</a></li>
-						<li><a href="">3</a></li>
-						<li><a href="">4</a></li>
-						<li><a href="">5</a></li>
-						<li>...<a href="">46</a></li>
-					</ul>
-					<p class="next"><a href="">次へ</a></p>
-				</div>
+				<div class="pager"></div>
 				<!-- //pager -->
+				<!--
 				<div class="pagenation" style="clear:both;"></div>
+				-->
 			</div>
 			<!-- //search_info -->
 
@@ -65,9 +45,8 @@
 				</div>
 				<!-- //maparea -->
 				
-		
 				<div class="list_area" id="pg_tours">
-					<div class="list_item pg_tour_temp pg_tour_list" style="display:none;">
+					<div class="list_item pg_temp pg_tour_list" style="display:none;">
 						<p class="icon"><img src="<?php echo base_url("assets");?>/img/common/icon/tour.png" alt="ツアー" /></p>
 						
 						<div class="photo_area">
@@ -75,7 +54,16 @@
 							<div class="pg_like_count" data-href="http://www.google.co.jp/" data-send="false" data-layout="button_count" data-width="450" data-show-faces="false"></div>
 							<dl class="category pg_category">
 								<dt><img src="<?php echo base_url("assets");?>/img/common/icon/category.gif" alt="CATEGORY" /></dt>
-								<dd>見る</dd>
+								<dd>
+									<ul class="category_icon">
+										<li><a href="" title="見る"><img src="<?php echo base_url("assets");?>/img/common/icon/site.gif" alt="見る" /></a></li>
+										<li><a href="" title="遊ぶ"><img src="<?php echo base_url("assets");?>/img/common/icon/enjoy.gif" alt="遊ぶ" /></a></li>
+										<li><a href="" title="食べる"><img src="<?php echo base_url("assets");?>/img/common/icon/food.gif" alt="食べる" /></a></li>
+										<li><a href="" title="宿泊・温泉"><img src="<?php echo base_url("assets");?>/img/common/icon/stay.gif" alt="宿泊・温泉" /></a></li>
+										<li><a href="" title="乗り物/乗り場"><img src="<?php echo base_url("assets");?>/img/common/icon/transport.gif" alt="乗り物/乗り場" /></a></li>
+										<li><a href="" title="買う"><img src="<?php echo base_url("assets");?>/img/common/icon/shopping.gif" alt="買う" /></a></li>
+									</ul>
+								</dd>
 							</dl>
 						</div>
 						<!-- //photo_area -->
@@ -88,9 +76,9 @@
 							<!-- //maininfo -->
 							
 							<p class="linkbtn">
-								<a href="../tour/" class="mouse_over pg_detail"><img src="<?php echo base_url("assets");?>/img/common/btn/tourlinkbtn.gif" alt="ツアー内容を見る"></a>
-								<br /><a href="../tour/" class="mouse_over pg_edit">編集</a>
-								<br /><a href="../tour/" class="mouse_over pg_delete">削除</a>
+								<a href="../tour/" class="mouse_over pg_detail">ツアー内容を見る</a>
+								<a href="../tour/" class="mouse_over pg_edit">ツアーを編集する</a>
+								<a href="../tour/" class="mouse_over pg_delete">ツアーを削除する</a>
 							</p>
 			
 						</div>
@@ -108,29 +96,11 @@
 
 			<div class="search_info">
 				<p class="total">検索結果：<em class="search_count">0</em></p>
-				
-				<!--
-				<div class="pager">
-				
-					<p class="order">
-						<select name="order">
-							<option value="new">新着順</option>
-						</select>
-					</p>
-				
-					<p class="prev"><a href="">前へ</a></p>
-					<ul>
-						<li class="select">1</li>
-						<li><a href="">2</a></li>
-						<li><a href="">3</a></li>
-						<li><a href="">4</a></li>
-						<li><a href="">5</a></li>
-						<li>...<a href="">46</a></li>
-					</ul>
-					<p class="next"><a href="">次へ</a></p>
-				</div>
+				<div class="pager"></div>
 				<!-- //pager -->
+				<!--
 				<div class="pagenation" style="clear:both;"></div>
+				-->
 			</div>
 			<!-- //search_info -->
 
