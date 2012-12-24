@@ -18,6 +18,7 @@
 	
 	<script type="text/javascript" src="../../jquery/jquery.js"></script>
 	<script type="text/javascript" src="../../jquery/jquery.easing.js"></script>
+	<script type="text/javascript" src="../../jquery/jquery.powertip.min.js"></script>
 	<script type="text/javascript" src="../../js/browser.js"></script>
 	<script type="text/javascript" src="../../js/common.js"></script>
 	<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=true"></script>
@@ -63,7 +64,7 @@
 					<li><input type="radio" name="type" value="スポット" id="headersearch_spot"><label for="headersearch_spot">スポット</label></li>
 				</ul>
 				<p class="keyword"><input type="text" class="text" name="keyword" value="" /></p>
-				<p class="submit mouse_over"><input type="image" src="../../images/common/header/searchbtn.gif" alt="検索" /></p>
+				<p class="submit mouse_over"><input type="submit" class="submitbtn" value="検索" /></p>
 			</form>
 		</dd>
 	</dl>
@@ -96,7 +97,7 @@
 	</ul>
 	
 	<div id="map_area">
-		<p id="mapsearch" class="mouse_over"><input type="text" class="text" /><input type="image" class="btn" src="../../images/common/header/searchbtn.gif" alt="検索" /></p>
+		<p id="mapsearch" class="mouse_over"><input type="text" class="text" /><input type="submit" class="submitbtn btn" value="検索" /></p>
 		<div id="map"></div>
 	</div>
 	<!-- //maparea -->
@@ -128,9 +129,9 @@
 				<dt><img src="../../images/user/spot/category.gif" alt="カテゴリ" /></dt>
 				<dd>
 					<ul class="categories">
-						<li class="category1"><a href="#add" class="mouse_over category_add"><img src="../../images/user/spot/addbtn.gif" alt="カテゴリを追加" /></a></li>
-						<li class="category2"><a href="#add" class="mouse_over category_add"><img src="../../images/user/spot/addbtn.gif" alt="カテゴリを追加" /></a></li>
-						<li class="category3"><a href="#add" class="mouse_over category_add"><img src="../../images/user/spot/addbtn.gif" alt="カテゴリを追加" /></a></li>
+						<li class="category1"><a href="#add" class="mouse_over category_add selectbtn">カテゴリを追加</a></li>
+						<li class="category2"><a href="#add" class="mouse_over category_add selectbtn">カテゴリを追加</a></li>
+						<li class="category3"><a href="#add" class="mouse_over category_add selectbtn">カテゴリを追加</a></li>
 					</ul>
 					<div class="categoryselect">
 						<ul>

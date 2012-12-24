@@ -94,6 +94,7 @@
 	padding-bottom:12px;
 	margin-bottom:12px;
 	border-bottom:1px dotted #333333;
+	width:100%;
 }
 #input_area .category .categories .category1{
 	background:url(../../images/user/spot/category1.gif) 0 2px no-repeat;
@@ -104,6 +105,9 @@
 #input_area .category .categories .category3{
 	background:url(../../images/user/spot/category3.gif) 0 2px no-repeat;
 	border-bottom:none;
+}
+#input_area .category .categories li a{
+	width:160px;
 }
 
 #input_area .categoryselect{

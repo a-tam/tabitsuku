@@ -42,7 +42,13 @@
 	display:none;
 }
 
-
+#mainvisual .movie-area{
+	float:right;
+	width:321px;
+	height:207px;
+	margin-top:26px;
+	margin-right:20px;
+}
 #mainvisual .login-area{
 	float:right;
 	background:url(../../images/top/login_bg.gif) no-repeat;
@@ -210,6 +216,14 @@ section h3{
 	position:absolute;
 	bottom:0;
 }
+.list_area .list_item .category_icon{
+	
+}
+.list_area .list_item .category_icon li{
+	display:inline;
+	margin-left:1px;
+}
+
 
 
 /* clearfix */

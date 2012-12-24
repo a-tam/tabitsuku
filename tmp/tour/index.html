@@ -18,6 +18,7 @@
 	
 	<script type="text/javascript" src="../jquery/jquery.js"></script>
 	<script type="text/javascript" src="../jquery/jquery.easing.js"></script>
+	<script type="text/javascript" src="../jquery/jquery.powertip.min.js"></script>
 	<script type="text/javascript" src="../js/browser.js"></script>
 	<script type="text/javascript" src="../js/common.js"></script>
 	<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=true"></script>
@@ -63,7 +64,7 @@
 					<li><input type="radio" name="type" value="スポット" id="headersearch_spot"><label for="headersearch_spot">スポット</label></li>
 				</ul>
 				<p class="keyword"><input type="text" class="text" name="keyword" value="" /></p>
-				<p class="submit mouse_over"><input type="image" src="../images/common/header/searchbtn.gif" alt="検索" /></p>
+				<p class="submit mouse_over"><input type="submit" class="submitbtn" value="検索" /></p>
 			</form>
 		</dd>
 	</dl>
@@ -150,7 +151,7 @@
 
 		<div class="fb-like" data-href="http://www.google.co.jp/" data-send="false" data-layout="button_count" data-width="450" data-show-faces="false"></div>
 		
-		<p class="edit"><a href="../user/spot/"><img src="../images/spot/edit.gif" alt="編集する" /></a></p>
+		<p class="edit"><a href="../user/spot/" class="selectbtn mouse_over">編集する</a></p>
 		
 	</div>
 	<!-- //detail_area -->
@@ -180,7 +181,7 @@
 						<dt><img src="../images/tour/memo.gif" alt="一言メモ" /></dt>
 						<dd>テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。</dd>
 					</dl>
-					<p class="detaillink"><a href="#spot" onClick="spotCtl.show('../spot/');return false;" class="mouse_over"><img src="../images/common/btn/spotlinkbtn.gif" alt="スポット詳細をみる" /></a></p>
+					<p class="linkbtn"><a href="#spot" onClick="spotCtl.show('../spot/');return false;" class="mouse_over">スポット詳細をみる</a></p>
 					
 				</div>
 				<!-- //info_area -->
@@ -214,7 +215,7 @@
 						<dt><img src="../images/tour/memo.gif" alt="一言メモ" /></dt>
 						<dd>テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。</dd>
 					</dl>
-					<p class="detaillink"><a href="#spot" onClick="spotCtl.show('../spot/');return false;" class="mouse_over"><img src="../images/common/btn/spotlinkbtn.gif" alt="スポット詳細をみる" /></a></p>
+					<p class="linkbtn"><a href="#spot" onClick="spotCtl.show('../spot/');return false;" class="mouse_over">スポット詳細をみる</a></p>
 					
 				</div>
 				<!-- //info_area -->
@@ -248,7 +249,7 @@
 						<dt><img src="../images/tour/memo.gif" alt="一言メモ" /></dt>
 						<dd>テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。</dd>
 					</dl>
-					<p class="detaillink"><a href="#spot" onClick="spotCtl.show('../spot/');return false;" class="mouse_over"><img src="../images/common/btn/spotlinkbtn.gif" alt="スポット詳細をみる" /></a></p>
+					<p class="linkbtn"><a href="#spot" onClick="spotCtl.show('../spot/');return false;" class="mouse_over">スポット詳細をみる</a></p>
 					
 				</div>
 				<!-- //info_area -->
@@ -293,7 +294,7 @@
 						<dt><img src="../images/tour/memo.gif" alt="一言メモ" /></dt>
 						<dd>テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。</dd>
 					</dl>
-					<p class="detaillink"><a href="#spot" onClick="spotCtl.show('../spot/');return false;" class="mouse_over"><img src="../images/common/btn/spotlinkbtn.gif" alt="スポット詳細をみる" /></a></p>
+					<p class="linkbtn"><a href="#spot" onClick="spotCtl.show('../spot/');return false;" class="mouse_over">スポット詳細をみる</a></p>
 					
 				</div>
 				<!-- //info_area -->
@@ -327,7 +328,7 @@
 						<dt><img src="../images/tour/memo.gif" alt="一言メモ" /></dt>
 						<dd>テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。</dd>
 					</dl>
-					<p class="detaillink"><a href="#spot" onClick="spotCtl.show('../spot/');return false;" class="mouse_over"><img src="../images/common/btn/spotlinkbtn.gif" alt="スポット詳細をみる" /></a></p>
+					<p class="linkbtn"><a href="#spot" onClick="spotCtl.show('../spot/');return false;" class="mouse_over">スポット詳細をみる</a></p>
 					
 				</div>
 				<!-- //info_area -->
@@ -361,7 +362,7 @@
 						<dt><img src="../images/tour/memo.gif" alt="一言メモ" /></dt>
 						<dd>テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。</dd>
 					</dl>
-					<p class="detaillink"><a href="#spot" onClick="spotCtl.show('../spot/');return false;" class="mouse_over"><img src="../images/common/btn/spotlinkbtn.gif" alt="スポット詳細をみる" /></a></p>
+					<p class="linkbtn"><a href="#spot" onClick="spotCtl.show('../spot/');return false;" class="mouse_over">スポット詳細をみる</a></p>
 					
 				</div>
 				<!-- //info_area -->
@@ -390,7 +391,7 @@
 		</div>
 		<!-- //routes -->
 		
-		<p class="copy"><a href="../user/tour/" class="mouse_over"><img src="../images/tour/copy.gif" alt="コピーしてツアーを作る" /></a></p>
+		<p class="copy"><a href="../user/tour/" class="selectbtn mouse_over">コピーしてツアーを作る</a></p>
 		
 	</div>
 	<!-- //route_area -->
@@ -408,7 +409,7 @@
 				<dl class="category">
 					<dt><img src="../images/common/search/category.gif" alt="カテゴリ" /></dt>
 					<dd>
-						<p class="selectbtn"><a href="#categoryselect" class="mouse_over"><img src="../images/common/search/categoryselect.gif" alt="検索カテゴリを選択" /></a></p>
+						<p class="selectbtn"><a href="#categoryselect" class="mouse_over">検索カテゴリを選択</a></p>
 						<!--<p class="selectedCategory"><a href="#close" class="close mouse_over"><img src="../images/common/search/close.gif" alt="CLOSE" /></a>見る</p>-->
 						<div class="categoryselect">
 							<ul>
@@ -442,8 +443,8 @@
 				<dt><img src="../images/common/search/search_l.gif" alt="検索" /></dt>
 				<dd>
 					<ul>
-						<li><input type="image" src="../images/common/search/listsearch.gif" alt="一覧で探す" /></li>
-						<li><a href=""><img src="../images/common/search/mapsearch.gif" alt="地図で探す" /></a></li>
+						<li class="list_search mouse_over"><input type="submit" class="submitbtn" value="一覧で探す" /></li>
+						<li class="map_search"><a href="" class="selectbtn mouse_over">地図で探す</a></li>
 					</ul>
 				</dd>
 			</dl>

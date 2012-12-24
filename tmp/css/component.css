@@ -25,6 +25,7 @@
 .explain:after,
 ul.navigation:after,
 ul.items li:after,
+header:after,
 section:after,
 .contents .side dl dd:after,
 .contents .container:after,
@@ -55,6 +56,7 @@ section:after,
 .explain,
 ul.navigation,
 ul.items li,
+header,
 section,
 .contents .side dl dd,
 .contents .container,
@@ -234,6 +236,9 @@ ul.items li { display: inline-block;
 .search_box .search_setting .category dd{
 	width:200px;
 }
+.search_box .search_setting .category .selectbtn{
+	width:150px;
+}
 .search_box .search_setting .type{
 	border-left:1px dotted #666666;
 	margin-left:10px;
@@ -245,18 +250,40 @@ ul.items li { display: inline-block;
 	left:590px;
 	z-index:1;
 	width:180px;
-
 }
 .search_box .search-btn dt{
-	margin-bottom:12px;
+	margin-bottom:14px;
+}
+.search_box .search-btn dd{
+	margin-left:3px;
 }
 .search_box .search-btn dd ul li{
-	text-align:center;
-	margin-bottom:10px;
+	margin-bottom:15px;
 }
 .search_box .search-btn dd ul li.select{
 	font-weight:bold;
 }
+.search_box .search-btn .submitbtn,
+.search_box .search-btn .selectbtn{
+	width:170px;
+	display:block;
+	text-align:center;
+}
+.search_box_l .search-btn .submitbtn,
+.search_box_l .search-btn .selectbtn{
+	width:241px;
+}
+.search_box .search-btn .submitbtn{
+	padding-top:5px;
+	padding-bottom:5px;
+}
+@-moz-document url-prefix(){
+	.search_box .search-btn .submitbtn{
+		padding-top:2px;
+		padding-bottom:2px;
+	}
+}
+
 .search_box .category{
 	position:relative;
 }
@@ -618,7 +645,8 @@ ol.decimal li{
 -------------------------------- */
 .mouse_over a:hover img,
 .mouse_over:hover img,
-.mouse_over:hover input{
+.mouse_over:hover input,
+a.mouse_over:hover{
 	filter:alpha(opacity=90);  
     -ms-filter: "alpha(opacity=90)";
 	-moz-opacity:0.9; 

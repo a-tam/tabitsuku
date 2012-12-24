@@ -81,6 +81,19 @@ input.submit{
 	padding-top:2px;
 }
 
+input.submitbtn{
+	background-color:#282828;
+	border:1px solid #999;
+	border-radius:4px;
+	color:#FFF;
+	font-size:12px;
+	cursor:pointer;
+	padding-top:3px;
+	padding-bottom:3px;
+}
+
+
+
 /* --------------------------------
    □ link
 -------------------------------- */
@@ -108,6 +121,36 @@ a:hover{
 	padding-left:10px;
 	font-size:12px;
 	color:#f76b1e;
+}
+
+.linkbtn a{
+	display:block;
+	background:url(../images/common/btn/bg.gif);
+	color:#FFF;
+	text-decoration:none;
+	text-align:center;
+	padding-top:4px;
+	padding-bottom:4px;
+	border:1px solid #CCC;
+	border-radius:4px;
+	font-weight:bold;
+}
+.selectbtn a,
+a.selectbtn{
+	display:block;
+	background-color:#282828;
+	border:1px solid #999;
+	border-radius:4px;
+	color:#FFF;
+	font-size:12px;
+	text-decoration:none;
+	padding-top:3px;
+	padding-bottom:3px;
+	text-align:center;
+}
+
+.list_item .linkbtn a{
+	width:160px;
 }
 
 /* =================================
@@ -193,15 +236,23 @@ header .search .keyword input{
 }
 header .search .submit{
 	float:right;
-	padding-top:3px;
 	margin-right:10px;
 	/*margin-left:10px;*/
 }
 header .login{
 	float:right;
 	padding-top:5px;
+	margin-bottom:0;
 }
-
+header .username{
+	float:right;
+	padding-top:5px;
+	font-size:11px;
+	margin-bottom:3px;
+}
+header .username span{
+	color:#3882b8;
+}
 /* --------------------------------
    □ ページコンテンツ
 -------------------------------- */

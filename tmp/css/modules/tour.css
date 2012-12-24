@@ -92,6 +92,10 @@
 	float:right;
 	margin-right:15px;
 }
+#detail_area .edit a{
+	padding-left:5px;
+	padding-right:5px;
+}
 
 
 
@@ -127,8 +131,13 @@
 
 #route_area .copy{
 	clear:both;
-	text-align:right;
+	float:right;
 }
+#route_area .copy a{
+	padding-left:5px;
+	padding-right:5px;
+}
+
 
 #route_area .routes{
 	clear:both;
@@ -206,12 +215,16 @@
 }
 
 
-#route_area .item .info_area .detaillink{
-	text-align:right;
+#route_area .item .info_area .linkbtn{
+	float:right;
 	margin:0;
 	clear:both;
 	height:23px;
 }
+#route_area .item .info_area .linkbtn a{
+	padding:1px 10px;
+}
+
 
 #route_area .item .subinfo{
 	float:right;

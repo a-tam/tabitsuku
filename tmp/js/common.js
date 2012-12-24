@@ -23,6 +23,15 @@ commonCtl.init=function(){
 	
 	$(window).resize(commonCtl.resize);
 	commonCtl.resize();
+	
+	if(!browser.touchOSchk()&&$(".category_icon").length>0){
+		$(".category_icon a").powerTip({
+			placement: 'n',
+			fadeInTime:20,
+			fadeOutTime:20,
+			intentPollInterval:60
+		});
+	}
 }
 
 

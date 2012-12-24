@@ -91,7 +91,10 @@
 	float:right;
 	margin-right:15px;
 }
-
+#detail_area .edit a{
+	padding-left:5px;
+	padding-right:5px;
+}
 
 
 /* list_area
@@ -175,6 +178,13 @@ section h3{
 	bottom:0;
 }
 
+.list_area .list_item .category_icon{
+	
+}
+.list_area .list_item .category_icon li{
+	display:inline;
+	margin-left:1px;
+}
 
 
 /* spot direct

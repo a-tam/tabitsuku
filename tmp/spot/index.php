@@ -18,6 +18,7 @@
 	
 	<script type="text/javascript" src="../jquery/jquery.js"></script>
 	<script type="text/javascript" src="../jquery/jquery.easing.js"></script>
+	<script type="text/javascript" src="../jquery/jquery.powertip.min.js"></script>
 	<script type="text/javascript" src="../js/browser.js"></script>
 	<script type="text/javascript" src="../js/common.js"></script>
 	<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=true"></script>
@@ -68,7 +69,7 @@
 					<li><input type="radio" name="type" value="スポット" id="headersearch_spot"><label for="headersearch_spot">スポット</label></li>
 				</ul>
 				<p class="keyword"><input type="text" class="text" name="keyword" value="" /></p>
-				<p class="submit mouse_over"><input type="image" src="../images/common/header/searchbtn.gif" alt="検索" /></p>
+				<p class="submit mouse_over"><input type="submit" class="submitbtn" value="検索" /></p>
 			</form>
 		</dd>
 	</dl>
@@ -155,7 +156,7 @@
 
 		<div class="fb-like" data-href="http://www.google.co.jp/" data-send="false" data-layout="button_count" data-width="450" data-show-faces="false"></div>
 		
-		<p class="edit"><a href="../user/spot/"><img src="../images/spot/edit.gif" alt="編集する" /></a></p>
+		<p class="edit"><a href="../user/spot/" class="selectbtn mouse_over">編集する</a></p>
 		
 	</div>
 	<!-- //detail_area -->
@@ -172,7 +173,13 @@
 					<div class="fb-like" data-href="http://www.google.co.jp/" data-send="false" data-layout="button_count" data-width="450" data-show-faces="false"></div>
 					<dl class="category">
 						<dt><img src="../images/common/icon/category.gif" alt="CATEGORY" /></dt>
-						<dd>見る</dd>
+						<dd>
+							<ul class="category_icon">
+								<li><a href="" title="見る"><img src="../images/common/icon/site.gif" alt="見る" /></a></li>
+								<li><a href="" title="遊ぶ"><img src="../images/common/icon/enjoy.gif" alt="遊ぶ" /></a></li>
+								<li><a href="" title="食べる"><img src="../images/common/icon/food.gif" alt="食べる" /></a></li>
+							</ul>
+						</dd>
 					</dl>
 				</div>
 				<!-- //photo_area -->
@@ -200,7 +207,7 @@
 					</div>
 					<!-- //subinfo -->
 	
-					<p class="linkbtn"><a href="../tour/" class="mouse_over"><img src="../images/common/btn/tourlinkbtn.gif" alt="ツアー内容を見る"></a></p>
+					<p class="linkbtn"><a href="../tour/" class="mouse_over">ツアー内容を見る</a></p>
 	
 				</div>
 				<!-- //info_area -->
@@ -216,7 +223,13 @@
 					<div class="fb-like" data-href="http://www.google.co.jp/" data-send="false" data-layout="button_count" data-width="450" data-show-faces="false"></div>
 					<dl class="category">
 						<dt><img src="../images/common/icon/category.gif" alt="CATEGORY" /></dt>
-						<dd>見る</dd>
+						<dd>
+							<ul class="category_icon">
+								<li><a href="" title="見る"><img src="../images/common/icon/site.gif" alt="見る" /></a></li>
+								<li><a href="" title="遊ぶ"><img src="../images/common/icon/enjoy.gif" alt="遊ぶ" /></a></li>
+								<li><a href="" title="食べる"><img src="../images/common/icon/food.gif" alt="食べる" /></a></li>
+							</ul>
+						</dd>
 					</dl>
 				</div>
 				<!-- //photo_area -->
@@ -244,7 +257,7 @@
 					</div>
 					<!-- //subinfo -->
 	
-					<p class="linkbtn"><a href="../tour/" class="mouse_over"><img src="../images/common/btn/tourlinkbtn.gif" alt="ツアー内容を見る"></a></p>
+					<p class="linkbtn"><a href="../tour/" class="mouse_over">ツアー内容を見る</a></p>
 	
 				</div>
 				<!-- //info_area -->
@@ -260,7 +273,13 @@
 					<div class="fb-like" data-href="http://www.google.co.jp/" data-send="false" data-layout="button_count" data-width="450" data-show-faces="false"></div>
 					<dl class="category">
 						<dt><img src="../images/common/icon/category.gif" alt="CATEGORY" /></dt>
-						<dd>見る</dd>
+						<dd>
+							<ul class="category_icon">
+								<li><a href="" title="見る"><img src="../images/common/icon/site.gif" alt="見る" /></a></li>
+								<li><a href="" title="遊ぶ"><img src="../images/common/icon/enjoy.gif" alt="遊ぶ" /></a></li>
+								<li><a href="" title="食べる"><img src="../images/common/icon/food.gif" alt="食べる" /></a></li>
+							</ul>
+						</dd>
 					</dl>
 				</div>
 				<!-- //photo_area -->
@@ -288,7 +307,7 @@
 					</div>
 					<!-- //subinfo -->
 	
-					<p class="linkbtn"><a href="../tour/" class="mouse_over"><img src="../images/common/btn/tourlinkbtn.gif" alt="ツアー内容を見る"></a></p>
+					<p class="linkbtn"><a href="../tour/" class="mouse_over">ツアー内容を見る</a></p>
 	
 				</div>
 				<!-- //info_area -->
@@ -304,7 +323,13 @@
 					<div class="fb-like" data-href="http://www.google.co.jp/" data-send="false" data-layout="button_count" data-width="450" data-show-faces="false"></div>
 					<dl class="category">
 						<dt><img src="../images/common/icon/category.gif" alt="CATEGORY" /></dt>
-						<dd>見る</dd>
+						<dd>
+							<ul class="category_icon">
+								<li><a href="" title="見る"><img src="../images/common/icon/site.gif" alt="見る" /></a></li>
+								<li><a href="" title="遊ぶ"><img src="../images/common/icon/enjoy.gif" alt="遊ぶ" /></a></li>
+								<li><a href="" title="食べる"><img src="../images/common/icon/food.gif" alt="食べる" /></a></li>
+							</ul>
+						</dd>
 					</dl>
 				</div>
 				<!-- //photo_area -->
@@ -332,7 +357,7 @@
 					</div>
 					<!-- //subinfo -->
 	
-					<p class="linkbtn"><a href="../tour/" class="mouse_over"><img src="../images/common/btn/tourlinkbtn.gif" alt="ツアー内容を見る"></a></p>
+					<p class="linkbtn"><a href="../tour/" class="mouse_over">ツアー内容を見る</a></p>
 	
 				</div>
 				<!-- //info_area -->
@@ -348,7 +373,13 @@
 					<div class="fb-like" data-href="http://www.google.co.jp/" data-send="false" data-layout="button_count" data-width="450" data-show-faces="false"></div>
 					<dl class="category">
 						<dt><img src="../images/common/icon/category.gif" alt="CATEGORY" /></dt>
-						<dd>見る</dd>
+						<dd>
+							<ul class="category_icon">
+								<li><a href="" title="見る"><img src="../images/common/icon/site.gif" alt="見る" /></a></li>
+								<li><a href="" title="遊ぶ"><img src="../images/common/icon/enjoy.gif" alt="遊ぶ" /></a></li>
+								<li><a href="" title="食べる"><img src="../images/common/icon/food.gif" alt="食べる" /></a></li>
+							</ul>
+						</dd>
 					</dl>
 				</div>
 				<!-- //photo_area -->
@@ -376,7 +407,7 @@
 					</div>
 					<!-- //subinfo -->
 	
-					<p class="linkbtn"><a href="../tour/" class="mouse_over"><img src="../images/common/btn/tourlinkbtn.gif" alt="ツアー内容を見る"></a></p>
+					<p class="linkbtn"><a href="../tour/" class="mouse_over">ツアー内容を見る</a></p>
 	
 				</div>
 				<!-- //info_area -->
@@ -392,7 +423,13 @@
 					<div class="fb-like" data-href="http://www.google.co.jp/" data-send="false" data-layout="button_count" data-width="450" data-show-faces="false"></div>
 					<dl class="category">
 						<dt><img src="../images/common/icon/category.gif" alt="CATEGORY" /></dt>
-						<dd>見る</dd>
+						<dd>
+							<ul class="category_icon">
+								<li><a href="" title="見る"><img src="../images/common/icon/site.gif" alt="見る" /></a></li>
+								<li><a href="" title="遊ぶ"><img src="../images/common/icon/enjoy.gif" alt="遊ぶ" /></a></li>
+								<li><a href="" title="食べる"><img src="../images/common/icon/food.gif" alt="食べる" /></a></li>
+							</ul>
+						</dd>
 					</dl>
 				</div>
 				<!-- //photo_area -->
@@ -420,7 +457,7 @@
 					</div>
 					<!-- //subinfo -->
 	
-					<p class="linkbtn"><a href="../tour/" class="mouse_over"><img src="../images/common/btn/tourlinkbtn.gif" alt="ツアー内容を見る"></a></p>
+					<p class="linkbtn"><a href="../tour/" class="mouse_over">ツアー内容を見る</a></p>
 	
 				</div>
 				<!-- //info_area -->

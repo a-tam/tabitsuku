@@ -18,6 +18,7 @@
 	
 	<script type="text/javascript" src="../../jquery/jquery.js"></script>
 	<script type="text/javascript" src="../../jquery/jquery.easing.js"></script>
+	<script type="text/javascript" src="../../jquery/jquery.powertip.min.js"></script>
 	<script type="text/javascript" src="../../js/browser.js"></script>
 	<script type="text/javascript" src="../../js/common.js"></script>
 	<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=true"></script>
@@ -63,12 +64,13 @@
 					<li><input type="radio" name="type" value="スポット" id="headersearch_spot"><label for="headersearch_spot">スポット</label></li>
 				</ul>
 				<p class="keyword"><input type="text" class="text" name="keyword" value="" /></p>
-				<p class="submit mouse_over"><input type="image" src="../../images/common/header/searchbtn.gif" alt="検索" /></p>
+				<p class="submit mouse_over"><input type="submit" class="submitbtn" value="検索" /></p>
 			</form>
 		</dd>
 	</dl>
 	<!-- //search -->
 	<p class="login"><a href="#logout" class="loginbtn mouse_over"><img src="../../images/common/header/logout.gif" alt="ログアウト" /></a></p>
+	<p class="username">ようこそ　<span><em>ヤマダタロウ</em>さん</span></p>
 </header>
 
 
@@ -96,32 +98,33 @@
 	</ul>
 	
 	<p class="howto"><a href="" class="mouse_over"><img src="../../images/user/tour/howto.gif" alt="ツアーの作り方" /></a></p>
+
+
 	
 	<div id="basic_area">
+
+		<h2><img src="../../images/user/tour/title.gif" alt="1：スポットを検索する" /></h2>
+
+		<div id="map_area">
+			<div id="mapsearch">
+				<p class="search mouse_over"><input type="text" class="text" /><input type="submit" class="submitbtn" value="検索" /></p>
+			</div>
+			<div id="map"></div>
+		</div>
+		<!-- //maparea -->
+
 	
-		<div id="input_area">
-			<h2><img src="../../images/user/tour/title.gif" alt="1：ツアー基本情報を入力する" /></h2>
-			<form class="input_form">
-				<dl class="name">
-					<dt><img src="../../images/user/spot/name.gif" alt="名称" /></dt>
-					<dd><input type="text" name="name" class="text" /></dd>
-				</dl>
-				<dl class="description">
-					<dt><img src="../../images/user/spot/description.gif" alt="説明" /></dt>
-					<dd><input type="text" name="description" class="text" /></dd>
-				</dl>
-				<dl class="tag">
-					<dt><img src="../../images/user/spot/tag.gif" alt="タグ" /></dt>
-					<dd><input type="text" name="tag" class="text" /></dd>
+		<div id="spot_search">
+
+			<div class="search_box">
+				<dl class="keyword">
+					<dt><img src="../../images/user/tour/keyword.gif" alt="キーワード" /></dt>
+					<dd><input type="text" class="text" name="keyword" /></dd>
 				</dl>
 				<dl class="category">
-					<dt><img src="../../images/user/spot/category.gif" alt="カテゴリ" /></dt>
+					<dt><img src="../../images/user/tour/category.gif" alt="カテゴリ" /></dt>
 					<dd>
-						<ul class="categories">
-							<li class="category1"><a href="#add" class="mouse_over category_add"><img src="../../images/user/spot/addbtn.gif" alt="カテゴリを追加" /></a></li>
-							<li class="category2"><a href="#add" class="mouse_over category_add"><img src="../../images/user/spot/addbtn.gif" alt="カテゴリを追加" /></a></li>
-							<li class="category3"><a href="#add" class="mouse_over category_add"><img src="../../images/user/spot/addbtn.gif" alt="カテゴリを追加" /></a></li>
-						</ul>
+						<p class="selectbtn"><a href="#categoryselect" class="mouse_over">検索カテゴリを選択</a></p>
 						<div class="categoryselect">
 							<ul>
 								<li><a href="">見る</a></li>
@@ -131,84 +134,47 @@
 								<li><a href="">乗り物/乗り場</a></li>
 								<li><a href="">買う</a></li>
 							</ul>
-							<input type="text" name="subcategory_input" maxlength="20" class="text" />
 							<p class="close"><a href="#close" class="mouse_over"><img src="../../images/common/search/close.png" alt="CLSOE" /></a></p>
-							<p class="add"><a href="#add" class="mouse_over"><img src="../../images/common/icon/add.gif" alt="追加" /></a></p>
 							<p class="tri">&nbsp;</p>
 						</div>
 						<!-- //categoryselect -->
-	
 					</dd>
 				</dl>
-				
-			</form>
-		</div>
-		<!-- //input_area -->
 	
-		<div id="map_area">
-			<div id="mapsearch" class="mouse_over">
-				<h2><img src="../../images/user/tour/map.gif" alt="地図を確認" /></h2>
-				<p class="search"><input type="text" class="text" /><input type="image" class="btn" src="../../images/common/header/searchbtn.gif" alt="検索" /></p>
+				<p class="userspot"><input type="checkbox" name="userspot" id="userspot" /><label for="userspot">登録したスポットから探す</label></p>
+				<p class="search-btn mouse_over"><input type="subimt" class="submitbtn" value="検索" /></p>
 			</div>
-			<div id="map"></div>
+			<!-- //search_input -->
+
 		</div>
-		<!-- //maparea -->
+		<!-- //spot_search -->
 		
 	</div>
 	<!-- //basic_area -->
 	
-	<div id="spot_search">
+	<div id="spot_select">
 		<h2><img src="../../images/user/tour/search_title.gif" alt="2：スポットを検索して追加する" /></h2>
 		
-		<div class="search_box">
-			<dl class="keyword">
-				<dt><img src="../../images/user/tour/keyword.gif" alt="キーワード" /></dt>
-				<dd><input type="text" class="text" name="keyword" /></dd>
-			</dl>
-			<dl class="category">
-				<dt><img src="../../images/user/tour/category.gif" alt="カテゴリ" /></dt>
-				<dd>
-					<p class="selectbtn"><a href="#categoryselect" class="mouse_over"><img src="../../images/user/tour/category_select.gif" alt="検索カテゴリを選択" /></a></p>
-					<div class="categoryselect">
-						<ul>
-							<li><a href="">見る</a></li>
-							<li><a href="">遊ぶ</a></li>
-							<li><a href="">食べる</a></li>
-							<li><a href="">宿泊・温泉</a></li>
-							<li><a href="">乗り物/乗り場</a></li>
-							<li><a href="">買う</a></li>
-						</ul>
-						<p class="close"><a href="#close" class="mouse_over"><img src="../../images/common/search/close.png" alt="CLSOE" /></a></p>
-						<p class="tri">&nbsp;</p>
-					</div>
-					<!-- //categoryselect -->
-				</dd>
-			</dl>
-
-			<p class="userspot"><input type="checkbox" name="userspot" id="userspot" /><label for="userspot">登録したスポットから探す</label></p>
-			<p class="search-btn mouse_over"><input type="image" src="../../images/common/header/searchbtn.gif" /></p>
-		</div>
-		<!-- //search_input -->
 		
 		<p class="attention"><img src="../../images/user/tour/attention_routeadd.gif" alt="スポットをドラッグしてルートに追加しよう" /></p>
 		
 		<div class="search_info">
-			<p class="total">検索結果：<em>67件</em></p>
+			<p class="total">検索結果：<em>67件</em>
+				<select name="order">
+					<option value="new">新着順</option>
+				</select>
+			</p>
 			
 			<div class="pager">
-				<p class="order">
-					<select name="order">
-						<option value="new">新着順</option>
-					</select>
-				</p>
-			
-				<p class="prev"><a href="">前へ</a></p>
+				<p class="prev"><a href="" class="selectbtn">前へ</a></p>
 				<ul>
 					<li class="select">1</li>
 					<li><a href="">2</a></li>
 					<li><a href="">3</a></li>
+					<li><a href="">4</a></li>
+					<li><a href="">5</a></li>
 				</ul>
-				<p class="next"><a href="">次へ</a></p>
+				<p class="next"><a href="" class="selectbtn">次へ</a></p>
 			</div>
 			<!-- //pager -->
 			
@@ -221,7 +187,73 @@
 				<dl>
 					<dt>スポット名スポット名</dt>
 					<dd class="staytime">参考滞在時間 60分</dd>
-					<dd class="detaillink"><a href="#spot" onClick="spotCtl.show('../../spot/');return false;" class="mouse_over"><img src="../../images/common/btn/spotlink_s.gif" alt="スポット詳細を見る" /></a></dd>
+					<dd class="linkbtn"><a href="#spot" onClick="spotCtl.show('../../spot/');return false;" class="mouse_over">スポット詳細を見る</a></dd>
+				</dl>
+				<p class="ctlbtn "><a href="#add"><img src="../../images/user/tour/plus.gif" alt="ツアーに追加" /></a></p>
+			</div>
+			<!-- /list -->
+
+			<div class="list_item">
+				<p class="pic"><img src="../../images/top/sample.jpg" alt="スポット名スポット名スポット名スポット名スポット名スポット名スポット名スポット名スポット名スポット名" /></p>
+				<dl>
+					<dt>スポット名スポット名スポット名スポット名スポット名スポット名スポット名スポット名スポット名スポット名</dt>
+					<dd class="staytime">参考滞在時間 60分</dd>
+					<dd class="linkbtn"><a href="#spot" onClick="spotCtl.show('../../spot/');return false;" class="mouse_over">スポット詳細を見る</a></dd>
+				</dl>
+				<p class="ctlbtn"><a href="#add"><img src="../../images/user/tour/plus.gif" alt="ツアーに追加" /></a></p>
+			</div>
+			<!-- /list -->
+
+			<div class="list_item">
+				<p class="pic"><img src="../../images/top/sample.jpg" alt="スポット名スポット名" /></p>
+				<dl>
+					<dt>スポット名スポット名</dt>
+					<dd class="staytime">参考滞在時間 60分</dd>
+					<dd class="linkbtn"><a href="#spot" onClick="spotCtl.show('../../spot/');return false;" class="mouse_over">スポット詳細を見る</a></dd>
+				</dl>
+				<p class="ctlbtn"><a href="#add"><img src="../../images/user/tour/plus.gif" alt="ツアーに追加" /></a></p>
+			</div>
+			<!-- /list -->
+
+			<div class="list_item">
+				<p class="pic"><img src="../../images/top/sample.jpg" alt="スポット名スポット名" /></p>
+				<dl>
+					<dt>スポット名スポット名</dt>
+					<dd class="staytime">参考滞在時間 60分</dd>
+					<dd class="linkbtn"><a href="#spot" onClick="spotCtl.show('../../spot/');return false;" class="mouse_over">スポット詳細を見る</a></dd>
+				</dl>
+				<p class="ctlbtn"><a href="#add"><img src="../../images/user/tour/plus.gif" alt="ツアーに追加" /></a></p>
+			</div>
+			<!-- /list -->
+
+			<div class="list_item">
+				<p class="pic"><img src="../../images/top/sample.jpg" alt="スポット名スポット名" /></p>
+				<dl>
+					<dt>スポット名スポット名</dt>
+					<dd class="staytime">参考滞在時間 60分</dd>
+					<dd class="linkbtn"><a href="#spot" onClick="spotCtl.show('../../spot/');return false;" class="mouse_over">スポット詳細を見る</a></dd>
+				</dl>
+				<p class="ctlbtn"><a href="#add"><img src="../../images/user/tour/plus.gif" alt="ツアーに追加" /></a></p>
+			</div>
+			<!-- /list -->
+
+			<div class="list_item">
+				<p class="pic"><img src="../../images/top/sample.jpg" alt="スポット名スポット名" /></p>
+				<dl>
+					<dt>スポット名スポット名</dt>
+					<dd class="staytime">参考滞在時間 60分</dd>
+					<dd class="linkbtn"><a href="#spot" onClick="spotCtl.show('../../spot/');return false;" class="mouse_over">スポット詳細を見る</a></dd>
+				</dl>
+				<p class="ctlbtn"><a href="#add"><img src="../../images/user/tour/plus.gif" alt="ツアーに追加" /></a></p>
+			</div>
+			<!-- /list -->
+
+			<div class="list_item">
+				<p class="pic"><img src="../../images/top/sample.jpg" alt="スポット名スポット名" /></p>
+				<dl>
+					<dt>スポット名スポット名</dt>
+					<dd class="staytime">参考滞在時間 60分</dd>
+					<dd class="linkbtn"><a href="#spot" onClick="spotCtl.show('../../spot/');return false;" class="mouse_over">スポット詳細を見る</a></dd>
 				</dl>
 				<p class="ctlbtn"><a href="#add"><img src="../../images/user/tour/plus.gif" alt="ツアーに追加" /></a></p>
 			</div>
@@ -232,7 +264,7 @@
 				<dl>
 					<dt>スポット名スポット名スポット名スポット名スポット名スポット名スポット名スポット名スポット名スポット名</dt>
 					<dd class="staytime">参考滞在時間 60分</dd>
-					<dd class="detaillink"><a href="#spot" onClick="spotCtl.show('../../spot/');return false;" class="mouse_over"><img src="../../images/common/btn/spotlink_s.gif" alt="スポット詳細を見る" /></a></dd>
+					<dd class="linkbtn"><a href="#spot" onClick="spotCtl.show('../../spot/');return false;" class="mouse_over">スポット詳細を見る</a></dd>
 				</dl>
 				<p class="ctlbtn"><a href="#add"><img src="../../images/user/tour/plus.gif" alt="ツアーに追加" /></a></p>
 			</div>
@@ -243,7 +275,7 @@
 				<dl>
 					<dt>スポット名スポット名</dt>
 					<dd class="staytime">参考滞在時間 60分</dd>
-					<dd class="detaillink"><a href="#spot" onClick="spotCtl.show('../../spot/');return false;" class="mouse_over"><img src="../../images/common/btn/spotlink_s.gif" alt="スポット詳細を見る" /></a></dd>
+					<dd class="linkbtn"><a href="#spot" onClick="spotCtl.show('../../spot/');return false;" class="mouse_over">スポット詳細を見る</a></dd>
 				</dl>
 				<p class="ctlbtn"><a href="#add"><img src="../../images/user/tour/plus.gif" alt="ツアーに追加" /></a></p>
 			</div>
@@ -254,7 +286,7 @@
 				<dl>
 					<dt>スポット名スポット名</dt>
 					<dd class="staytime">参考滞在時間 60分</dd>
-					<dd class="detaillink"><a href="#spot" onClick="spotCtl.show('../../spot/');return false;" class="mouse_over"><img src="../../images/common/btn/spotlink_s.gif" alt="スポット詳細を見る" /></a></dd>
+					<dd class="linkbtn"><a href="#spot" onClick="spotCtl.show('../../spot/');return false;" class="mouse_over">スポット詳細を見る</a></dd>
 				</dl>
 				<p class="ctlbtn"><a href="#add"><img src="../../images/user/tour/plus.gif" alt="ツアーに追加" /></a></p>
 			</div>
@@ -265,7 +297,7 @@
 				<dl>
 					<dt>スポット名スポット名</dt>
 					<dd class="staytime">参考滞在時間 60分</dd>
-					<dd class="detaillink"><a href="#spot" onClick="spotCtl.show('../../spot/');return false;" class="mouse_over"><img src="../../images/common/btn/spotlink_s.gif" alt="スポット詳細を見る" /></a></dd>
+					<dd class="linkbtn"><a href="#spot" onClick="spotCtl.show('../../spot/');return false;" class="mouse_over">スポット詳細を見る</a></dd>
 				</dl>
 				<p class="ctlbtn"><a href="#add"><img src="../../images/user/tour/plus.gif" alt="ツアーに追加" /></a></p>
 			</div>
@@ -276,73 +308,7 @@
 				<dl>
 					<dt>スポット名スポット名</dt>
 					<dd class="staytime">参考滞在時間 60分</dd>
-					<dd class="detaillink"><a href="#spot" onClick="spotCtl.show('../../spot/');return false;" class="mouse_over"><img src="../../images/common/btn/spotlink_s.gif" alt="スポット詳細を見る" /></a></dd>
-				</dl>
-				<p class="ctlbtn"><a href="#add"><img src="../../images/user/tour/plus.gif" alt="ツアーに追加" /></a></p>
-			</div>
-			<!-- /list -->
-
-			<div class="list_item">
-				<p class="pic"><img src="../../images/top/sample.jpg" alt="スポット名スポット名" /></p>
-				<dl>
-					<dt>スポット名スポット名</dt>
-					<dd class="staytime">参考滞在時間 60分</dd>
-					<dd class="detaillink"><a href="#spot" onClick="spotCtl.show('../../spot/');return false;" class="mouse_over"><img src="../../images/common/btn/spotlink_s.gif" alt="スポット詳細を見る" /></a></dd>
-				</dl>
-				<p class="ctlbtn"><a href="#add"><img src="../../images/user/tour/plus.gif" alt="ツアーに追加" /></a></p>
-			</div>
-			<!-- /list -->
-
-			<div class="list_item">
-				<p class="pic"><img src="../../images/top/sample.jpg" alt="スポット名スポット名スポット名スポット名スポット名スポット名スポット名スポット名スポット名スポット名" /></p>
-				<dl>
-					<dt>スポット名スポット名スポット名スポット名スポット名スポット名スポット名スポット名スポット名スポット名</dt>
-					<dd class="staytime">参考滞在時間 60分</dd>
-					<dd class="detaillink"><a href="#spot" onClick="spotCtl.show('../../spot/');return false;" class="mouse_over"><img src="../../images/common/btn/spotlink_s.gif" alt="スポット詳細を見る" /></a></dd>
-				</dl>
-				<p class="ctlbtn"><a href="#add"><img src="../../images/user/tour/plus.gif" alt="ツアーに追加" /></a></p>
-			</div>
-			<!-- /list -->
-
-			<div class="list_item">
-				<p class="pic"><img src="../../images/top/sample.jpg" alt="スポット名スポット名" /></p>
-				<dl>
-					<dt>スポット名スポット名</dt>
-					<dd class="staytime">参考滞在時間 60分</dd>
-					<dd class="detaillink"><a href="#spot" onClick="spotCtl.show('../../spot/');return false;" class="mouse_over"><img src="../../images/common/btn/spotlink_s.gif" alt="スポット詳細を見る" /></a></dd>
-				</dl>
-				<p class="ctlbtn"><a href="#add"><img src="../../images/user/tour/plus.gif" alt="ツアーに追加" /></a></p>
-			</div>
-			<!-- /list -->
-
-			<div class="list_item">
-				<p class="pic"><img src="../../images/top/sample.jpg" alt="スポット名スポット名" /></p>
-				<dl>
-					<dt>スポット名スポット名</dt>
-					<dd class="staytime">参考滞在時間 60分</dd>
-					<dd class="detaillink"><a href="#spot" onClick="spotCtl.show('../../spot/');return false;" class="mouse_over"><img src="../../images/common/btn/spotlink_s.gif" alt="スポット詳細を見る" /></a></dd>
-				</dl>
-				<p class="ctlbtn"><a href="#add"><img src="../../images/user/tour/plus.gif" alt="ツアーに追加" /></a></p>
-			</div>
-			<!-- /list -->
-
-			<div class="list_item">
-				<p class="pic"><img src="../../images/top/sample.jpg" alt="スポット名スポット名" /></p>
-				<dl>
-					<dt>スポット名スポット名</dt>
-					<dd class="staytime">参考滞在時間 60分</dd>
-					<dd class="detaillink"><a href="#spot" onClick="spotCtl.show('../../spot/');return false;" class="mouse_over"><img src="../../images/common/btn/spotlink_s.gif" alt="スポット詳細を見る" /></a></dd>
-				</dl>
-				<p class="ctlbtn"><a href="#add"><img src="../../images/user/tour/plus.gif" alt="ツアーに追加" /></a></p>
-			</div>
-			<!-- /list -->
-
-			<div class="list_item">
-				<p class="pic"><img src="../../images/top/sample.jpg" alt="スポット名スポット名" /></p>
-				<dl>
-					<dt>スポット名スポット名</dt>
-					<dd class="staytime">参考滞在時間 60分</dd>
-					<dd class="detaillink"><a href="#spot" onClick="spotCtl.show('../../spot/');return false;" class="mouse_over"><img src="../../images/common/btn/spotlink_s.gif" alt="スポット詳細を見る" /></a></dd>
+					<dd class="linkbtn"><a href="#spot" onClick="spotCtl.show('../../spot/');return false;" class="mouse_over">スポット詳細を見る</a></dd>
 				</dl>
 				<p class="ctlbtn"><a href="#add"><img src="../../images/user/tour/plus.gif" alt="ツアーに追加" /></a></p>
 			</div>
@@ -354,7 +320,7 @@
 		<div class="memo_item">
 			<dl>
 				<dt><img src="../../images/user/tour/memo.gif" alt="メモ" /></dt>
-				<dd>メモが必要な場合は追加してください。</dd>
+				<dd>移動時間やメモを追加</dd>
 			</dl>
 			<p class="ctlbtn"><a href="#add"><img src="../../images/user/tour/plus.gif" alt="ツアーに追加" /></a></p>
 		</div>
@@ -379,7 +345,7 @@
 					<dl>
 						<dt>スポット名スポット名</dt>
 						<dd class="staytime">参考滞在時間 60分</dd>
-						<dd class="detaillink"><a href="#spot" onClick="spotCtl.show('../../spot/');return false;" class="mouse_over"><img src="../../images/common/btn/spotlink_s.gif" alt="スポット詳細を見る" /></a></dd>
+						<dd class="linkbtn"><a href="#spot" onClick="spotCtl.show('../../spot/');return false;" class="mouse_over">スポット詳細を見る</a></dd>
 					</dl>
 					<div class="ctlbtn">
 						<p class="remove"><a href="#remove"><img src="../../images/user/tour/remove.gif" alt="ツアーから外す" /></a></p>
@@ -429,7 +395,7 @@
 					<dl>
 						<dt>スポット名スポット名</dt>
 						<dd class="staytime">参考滞在時間 60分</dd>
-						<dd class="detaillink"><a href="#spot" onClick="spotCtl.show('../../spot/');return false;" class="mouse_over"><img src="../../images/common/btn/spotlink_s.gif" alt="スポット詳細を見る" /></a></dd>
+						<dd class="linkbtn"><a href="#spot" onClick="spotCtl.show('../../spot/');return false;" class="mouse_over">スポット詳細を見る</a></dd>
 					</dl>
 					<div class="ctlbtn">
 						<p class="remove"><a href="#remove"><img src="../../images/user/tour/remove.gif" alt="ツアーから外す" /></a></p>
@@ -497,9 +463,9 @@
 				<div class="list_item">
 					<p class="pic"><img src="../../images/top/sample.jpg" alt="スポット名スポット名" /></p>
 					<dl>
-						<dt>スポット名スポット名</dt>
+						<dt>スポット名スポット名スポット名</dt>
 						<dd class="staytime">参考滞在時間 60分</dd>
-						<dd class="detaillink"><a href="#spot" onClick="spotCtl.show('../../spot/');return false;" class="mouse_over"><img src="../../images/common/btn/spotlink_s.gif" alt="スポット詳細を見る" /></a></dd>
+						<dd class="linkbtn"><a href="#spot" onClick="spotCtl.show('../../spot/');return false;" class="mouse_over">スポット詳細を見る</a></dd>
 					</dl>
 					<div class="ctlbtn">
 						<p class="remove"><a href="#remove"><img src="../../images/user/tour/remove.gif" alt="ツアーから外す" /></a></p>
@@ -550,7 +516,7 @@
 					<dl>
 						<dt>スポット名スポット名</dt>
 						<dd class="staytime">参考滞在時間 60分</dd>
-						<dd class="detaillink"><a href="#spot" onClick="spotCtl.show('../../spot/');return false;" class="mouse_over"><img src="../../images/common/btn/spotlink_s.gif" alt="スポット詳細を見る" /></a></dd>
+						<dd class="linkbtn"><a href="#spot" onClick="spotCtl.show('../../spot/');return false;" class="mouse_over">スポット詳細を見る</a></dd>
 					</dl>
 					<div class="ctlbtn">
 						<p class="remove"><a href="#remove"><img src="../../images/user/tour/remove.gif" alt="ツアーから外す" /></a></p>
@@ -599,16 +565,63 @@
 		
 		<p class="timeline"><img src="../../images/user/tour/timeline.gif" alt="タイムラインを計算" /></p>
 		<p class="totaltime">所要時間：<span>2時間</span><span>45分</span></p>
-		<p class="submit mouse_over"><input type="image" src="../../images/user/tour/savebtn.gif" alt="ツアーを保存する" /></p>
+		<p class="inputshowbtn selectbtn"><a href="#inputShow" class="mouse_over">&#9315; ツアー情報を入力する</a></p>
 		
 	</div>
 	<!-- //tour_make -->
 
-	<div id="joint">
-		<span class="left">&nbsp;</span>
-		<span class="right">&nbsp;</span>
-	</div>
+	<p id="joint"></p>
+	
+	
+	<div id="input_area">
+		<p class="cover"></p>
+		<div id="input_box">
+			<h2><img src="../../images/user/tour/input_title.gif" alt="4：ツアー基本情報を入力する" /></h2>
+			<dl class="name">
+				<dt><img src="../../images/user/spot/name.gif" alt="名称" /></dt>
+				<dd><input type="text" name="name" class="text" /></dd>
+			</dl>
+			<dl class="description">
+				<dt><img src="../../images/user/spot/description.gif" alt="説明" /></dt>
+				<dd><input type="text" name="description" class="text" /></dd>
+			</dl>
+			<dl class="tag">
+				<dt><img src="../../images/user/spot/tag.gif" alt="タグ" /></dt>
+				<dd><input type="text" name="tag" class="text" /></dd>
+			</dl>
+			<dl class="category">
+				<dt><img src="../../images/user/spot/category.gif" alt="カテゴリ" /></dt>
+				<dd>
+					<ul class="categories">
+						<li class="category1"><a href="#add" class="mouse_over category_add selectbtn">カテゴリを追加</a></li>
+						<li class="category2"><a href="#add" class="mouse_over category_add selectbtn">カテゴリを追加</a></li>
+						<li class="category3"><a href="#add" class="mouse_over category_add selectbtn">カテゴリを追加</a></li>
+					</ul>
+					<div class="categoryselect">
+						<ul>
+							<li><a href="">見る</a></li>
+							<li><a href="">遊ぶ</a></li>
+							<li><a href="">食べる</a></li>
+							<li><a href="">宿泊・温泉</a></li>
+							<li><a href="">乗り物/乗り場</a></li>
+							<li><a href="">買う</a></li>
+						</ul>
+						<input type="text" name="subcategory_input" maxlength="20" class="text" />
+						<p class="close"><a href="#close" class="mouse_over"><img src="../../images/common/search/close.png" alt="CLSOE" /></a></p>
+						<p class="add"><a href="#add" class="mouse_over"><img src="../../images/common/icon/add.gif" alt="追加" /></a></p>
+						<p class="tri">&nbsp;</p>
+					</div>
+					<!-- //categoryselect -->
 
+				</dd>
+			</dl>
+			<p class="submit mouse_over"><input type="submit" value="ツアーを保存する" /></p>
+			<p class="close"><a href="#close"><img src="../../images/common/btn/close.png" alt="close" /></a></p>
+		</div>
+		<!-- //input_box -->
+	
+	</div>
+	<!-- /info_inputarea -->
 
 </div>
 <!-- //contents -->

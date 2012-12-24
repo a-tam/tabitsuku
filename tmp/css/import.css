@@ -17,6 +17,6 @@
 @import "./reset.css";
 @import "./component.css";
 @import "./common.css";
-@import "menu.css";
-
+@import "./menu.css";
+@import "./jquery.powertip.css";
 
