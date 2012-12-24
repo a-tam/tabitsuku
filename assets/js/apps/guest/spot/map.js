@@ -220,16 +220,19 @@
 		});
 
 		$(".pg_delete").live('click',function(){
-			if (confirm("本当に削除しますか？")) {
-				if ($(".jPag-current")) {
-					page = $.text($(".jPag-current")[0]);
-				} else {
-					page = 1;
+			elm.find(".pg_delete").click(function() {
+				if (confirm("本当に削除しますか？")) {
+					if ($(".pager ul .select a")) {
+						page = $($(".pager ul .select a")[0]).attr("data-page");
+					} else {
+						page = 1;
+					}
+					$.get(gBaseUrl + "user/spot/delete/" + info.id);
+					show_spot(page);
 				}
-				$.get($(this).attr("href"));
-				show_spot(page);
-			}
-			return false;
+				event.stopPropagation();
+				return false;
+			});
 		});
 		
 		function editShow(){

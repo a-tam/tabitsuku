@@ -319,17 +319,19 @@
 		});
 
 		$(".pg_delete").live('click',function(event){
-			if (confirm("本当に削除しますか？")) {
-				if ($(".jPag-current")) {
-					page = $.text($(".jPag-current")[0]);
-				} else {
-					page = 1;
+			elm.find(".pg_delete").click(function() {
+				if (confirm("本当に削除しますか？")) {
+					if ($(".pager ul .select a")) {
+						page = $($(".pager ul .select a")[0]).attr("data-page");
+					} else {
+						page = 1;
+					}
+					$.get(gBaseUrl + "user/tour/delete/" + info.id);
+					show_tour(page);
 				}
-				$.get($(this).attr("href"));
-				show_tour(page);
-			}
-			event.stopPropagation();
-			return false;
+				event.stopPropagation();
+				return false;
+			});
 		});
 		
 		function editShow(){
