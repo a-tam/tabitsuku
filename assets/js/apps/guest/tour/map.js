@@ -23,6 +23,29 @@
 				mapTypeId: google.maps.MapTypeId.ROADMAP
 			};
 			map = new google.maps.Map(document.getElementById("map"),myOptions);
+			// 地図検索
+			var autocomplete = new google.maps.places.Autocomplete($('#search-address')[0]);
+			autocomplete.bindTo('bounds', map);
+			// 移動
+			google.maps.event.addListener(autocomplete, 'place_changed', function() {
+				var place = autocomplete.getPlace();
+				if (place.geometry.viewport) {
+					map.fitBounds(place.geometry.viewport);
+				} else {
+					map.setCenter(place.geometry.location);
+					map.setZoom(17);  // Why 17? Because it looks good.
+				}
+				//
+				var _place = $("#search-place").val();
+				var _name = $("#search-name").val();
+				var request={
+						location: place.geometry.location,
+						radius: '500',
+						types: [_place],
+						name: _name
+					};
+			});
+			
 			google.maps.event.addListener(map, 'dragend', function() {
 				if ($("#pg_search_map_select:checked").length > 0) {
 					show_tour(1);
