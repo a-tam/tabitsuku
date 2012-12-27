@@ -210,7 +210,7 @@ tourentryCtl.init=function(){
 			}
 		});
 		
-		$(".detaillink a").live("click", function() {
+		$(".linkbtn a").live("click", function() {
 			spotCtl.popup($(this).attr("href"));
 			return false;
 		});
@@ -473,7 +473,7 @@ tourentryCtl.init=function(){
 						.text(spot_info.description);
 					spot_elm.find(".pg_standard_time")
 						.text(spot_info.stay_time);
-					spot_elm.find(".detaillink a").attr("href", gBaseUrl + 'spot/show/' + spot_info.id);
+					spot_elm.find(".linkbtn a").attr("href", gBaseUrl + 'spot/show/' + spot_info.id);
 					spot_elm.appendTo("#spot_select .list_area");
 					
 					var img_src = "";
