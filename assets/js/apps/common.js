@@ -447,7 +447,7 @@ tourCtl.render = function(info, relation, class_name) {
 	
 	// image
 	if (info.image) {
-		$(this.routes).each(function(i, route) {
+		$(info.routes).each(function(i, route) {
 			if (route.id == info.image) {
 				elm.find(".pg_img .pg_detail img")
 					.attr("src", gBaseUrl + "uploads/spot/thumb/" + route.image.file_name)
