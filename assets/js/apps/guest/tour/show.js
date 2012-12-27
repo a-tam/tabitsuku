@@ -104,4 +104,9 @@ $(function() {
 		}
 	}
 
+	$(".linkbtn a").live("click", function() {
+		spotCtl.popup($(this).attr("href"));
+		return false;
+	});
+
 });

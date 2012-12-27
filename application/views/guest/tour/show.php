@@ -151,7 +151,7 @@
 						<dt><img src="<?php echo base_url("assets");?>/img/tour/memo.gif" alt="一言メモ" /></dt>
 						<dd><?php echo $ruote["description"]; ?></dd>
 					</dl>
-					<p class="linkbtn"><a href="#spot" onClick="spotCtl.show('<?php echo base_url("spot/show/".$ruote["id"]);?>');return false;" class="mouse_over">スポット詳細をみる</a></p>
+					<p class="linkbtn"><a href="<?php echo base_url("spot/show/".$ruote["id"]);?>" class="mouse_over">スポット詳細をみる</a></p>
 					
 				</div>
 				<!-- //info_area -->
