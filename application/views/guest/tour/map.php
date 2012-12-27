@@ -2,7 +2,7 @@
 <link rel="stylesheet" type="text/css" media="screen,print" href="<?php echo base_url("assets");?>/css/modules/user.css" />
 
 <!-- javascript -->
-<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=true"></script>
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=true&libraries=places"></script>
 <script type="text/javascript" src="<?php echo base_url("assets");?>/js/apps/guest/tour/map.js"></script>
 
 </head>
@@ -38,7 +38,6 @@
 
 				<div id="map_area">
 					<div id="mapsearch" class="mouse_over">
-						<h2><img src="<?php echo base_url("assets");?>/img/user/tour/map.gif" alt="地図を確認" /></h2>
 						<p class="search"><input type="text" class="text" id="search-address" /><input type="image" class="btn" src="<?php echo base_url("assets");?>/img/common/header/searchbtn.gif" alt="検索" /></p>
 					</div>
 					<div id="map"></div>
@@ -49,8 +48,8 @@
 					<div class="list_item pg_temp pg_tour_list" style="display:none;">
 						<p class="icon"><img src="<?php echo base_url("assets");?>/img/common/icon/tour.png" alt="ツアー" /></p>
 						
-						<div class="photo_area">
-							<p><a href="../tour/" class="pg_detail"><img class="pg_image" src="<?php echo base_url("assets");?>/img/common/noimage_s.jpg" alt="" /></a></p>
+						<div class="photo_area pg_img">
+							<p><a href="../tour/" class="pg_detail"><img src="<?php echo base_url("assets");?>/img/common/noimage_s.jpg" alt="" /></a></p>
 							<div class="pg_like_count" data-href="http://www.google.co.jp/" data-send="false" data-layout="button_count" data-width="450" data-show-faces="false"></div>
 							<dl class="category pg_category">
 								<dt><img src="<?php echo base_url("assets");?>/img/common/icon/category.gif" alt="CATEGORY" /></dt>
