@@ -335,3 +335,8 @@ footer nav li a:hover{
 .pg_like_count {
 	height: 22px;
 }
+
+.category_icon li {
+	display: inline;
+	margin-left: 1px;
+}
