@@ -651,7 +651,6 @@ $(function() {
 		if (typeof(options.onChange) == 'function') {
 			options.onChange = defaults.onChange;
 		}
-		console.log(options);
 
 		return this.each(function() {
 			$(this).empty();

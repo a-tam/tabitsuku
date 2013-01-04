@@ -527,6 +527,7 @@ tourentryCtl.init=function(){
 				
 				pager(page_count, page);
 				show_route();
+				blockHeightAdjust();
 			}
 		});
 	}
@@ -598,7 +599,7 @@ tourentryCtl.init=function(){
 	function blockHeightAdjust(){
 		var spotSearch=$("#spot_select");
 		var tourMake=$("#tour_make");
-		setInterval(heightAdjust,200);
+		heightAdjust();
 		function heightAdjust(){
 			var targetHeight=$("#basic_area").height();
 			spotSearch.find(".list_area").css("height",(targetHeight-spotSearch.find(".search_box").height()-spotSearch.find(".search_info").height()-spotSearch.find(".memo_item").height()-100)+"px");
@@ -607,6 +608,9 @@ tourentryCtl.init=function(){
 		}
 	}
 //	blockHeightAdjust();
+	
+	
+	
 	
 	
 	// inputpopup 
