@@ -123,7 +123,7 @@
 			<div class="list_item pg_temp" style="display:none;">
 				<p class="icon"><img src="<?php echo base_url("assets"); ?>/img/common/icon/spot.png" alt="スポット" /></p>
 				
-				<div class="photo_area">
+				<div class="photo_area pg_img">
 					<p><a href="./" class="pg_detail">
 						<img src="<?php echo base_url("assets");?>/img/common/noimage.jpg" width="137" height="104" alt="" />
 					</a></p>

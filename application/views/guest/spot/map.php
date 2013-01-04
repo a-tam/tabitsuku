@@ -48,8 +48,8 @@
 				<div class="list_area" id="pg_spots">
 					<div class="list_item pg_temp pg_spot_list" style="display:none;">
 						<p class="icon"><img src="<?php echo base_url("assets");?>/img/common/icon/spot.png" alt="スポット" /></p>
-						<div class="photo_area">
-							<p><a href="../spot/" class="pg_detail"><img class="pg_image" src="<?php echo base_url("assets");?>/img/common/noimage_s.jpg" alt="" /></a></p>
+						<div class="photo_area pg_img">
+							<p><a href="../spot/" class="pg_detail"><img src="<?php echo base_url("assets");?>/img/common/noimage_s.jpg" alt="" /></a></p>
 							<div class="pg_like_count" data-href="http://www.google.co.jp/" data-send="false" data-layout="button_count" data-width="450" data-show-faces="false"></div>
 							<dl class="category pg_category">
 								<dt><img src="<?php echo base_url("assets");?>/img/common/icon/category.gif" alt="CATEGORY" /></dt>

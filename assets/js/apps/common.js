@@ -335,7 +335,7 @@ spotCtl.render = function(info, relation, class_name) {
 	elm.css("display", "block");
 	
 	if (info.image) {
-		elm.find(".pg_img img")
+		elm.find(".pg_img .pg_detail img")
 			.attr("src", gBaseUrl + "uploads/spot/thumb/" + info.image.file_name);
 	}
 	
