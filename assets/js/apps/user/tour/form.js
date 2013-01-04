@@ -606,10 +606,7 @@ tourentryCtl.init=function(){
 			$("#joint span").css("height",spotSearch.find(".search_box").height()+39+"px");
 		}
 	}
-	blockHeightAdjust();
-	
-	
-	
+//	blockHeightAdjust();
 	
 	
 	// inputpopup 

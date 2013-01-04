@@ -75,7 +75,7 @@ class Spot extends MY_Controller {
 			// オリジナルデータを移動
 			rename($data["image"]["tmp"]["full_path"], FCPATH.'uploads/spot/origin/'.$data["image"]["tmp"]["file_name"]);
 		}
-		$tags = $this->Tag_model->tag_keys($this->input->post("tags"));
+		$tags = $this->Tag_model->tag_keys($data["tags"]["name"]);
 		$data["tags"] = implode(",", $tags);
 		if ($data["id"]) {
 			$this->Spot_model->update($data, $data["id"]);
