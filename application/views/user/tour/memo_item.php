@@ -1,4 +1,4 @@
-		<div class="tour_point pg_memo_temp"<?php if (!$route):?> style="display:none;"<?php endif;?>>
+		<div class="tour_point pg_memo_temp">
 			<p class="time"><span class="pg_timecode">08:00</span><span class="line">&nbsp;</span></p>
 			<div class="memo_item">
 				<div class="select">
