@@ -52,6 +52,9 @@ $(document).ready(function () {
 					});
 					commonCtl.iconTips();
 				}
+				$(class_name + " .pg_description").trunk8({
+					lines: 4
+				});
 			}
 		});
 	}
@@ -69,6 +72,9 @@ $(document).ready(function () {
 					});
 					commonCtl.iconTips();
 				}
+				$(class_name + " .pg_description").trunk8({
+					lines: 4
+				});
 			}
 		});
 	}

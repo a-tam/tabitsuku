@@ -2,6 +2,8 @@
 <link rel="stylesheet" type="text/css" media="screen,print" href="<?php echo base_url("assets"); ?>/css/modules/top.css" />
 <script type="text/javascript" src="<?php echo base_url("assets"); ?>/js/top.js"></script>
 <script type="text/javascript" src="<?php echo base_url("assets"); ?>/js/apps/top.js"></script>
+<script type="text/javascript" src="<?php echo base_url("assets"); ?>/js/jquery/layout/trunk8.js"></script>
+
 
 </head>
 <body id="index">

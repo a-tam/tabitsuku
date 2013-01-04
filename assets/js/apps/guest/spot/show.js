@@ -36,6 +36,9 @@ $(function() {
 					tourCtl.render(info, json["relation"], ".list_area");
 				});
 				commonCtl.iconTips();
+				$(".list_area .pg_description").trunk8({
+					lines: 4
+				});
 			}
 		}
 	});

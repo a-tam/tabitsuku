@@ -4,6 +4,7 @@
 <!-- javascript -->
 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=true"></script>
 <script type="text/javascript" src="<?php echo base_url("assets"); ?>/js/apps/guest/spot/show.js"></script>
+<script type="text/javascript" src="<?php echo base_url("assets"); ?>/js/jquery/layout/trunk8.js"></script>
 
 </head>
 <?php if(isset($_GET["mode"]) && $_GET["mode"]=="direct"){ ?>

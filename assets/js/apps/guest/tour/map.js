@@ -214,6 +214,10 @@
 								tour_path_list[tour_id] = linePath;
 							}
 						});
+						$("#pg_tours .pg_description").trunk8({
+							lines: 4
+						});
+
 					}
 					/*
 					var ne = new google.maps.LatLng(lat_max, lng_max);
