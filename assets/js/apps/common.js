@@ -333,6 +333,11 @@ spotCtl.render = function(info, relation, class_name) {
 		.attr("data-spot-id", info.id)
 		.attr("data-zoom", info.zoom);
 	elm.css("display", "block");
+
+	// icon
+	elm.find(".icon img")
+	.attr("src", gAssetUrl + "/img/common/icon/spot.png")
+	.attr("alt", "スポット");
 	
 	if (info.image) {
 		elm.find(".pg_img .pg_detail img")
@@ -431,7 +436,12 @@ tourCtl.render = function(info, relation, class_name) {
 		.removeClass("pg_temp")
 		.attr("data-tour-id", info.id);
 	elm.css("display", "block");
-	
+
+	// icon
+	elm.find(".icon img")
+	.attr("src", gAssetUrl + "/img/common/icon/tour.png")
+	.attr("alt", "ツアー");
+
 	// name
 	elm.find(".pg_name")
 		.text(info.name);

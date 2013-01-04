@@ -32,7 +32,7 @@ $(document).ready(function () {
 	// 特集スポット
 	get_spot({
 		owner		: "",
-		limit		: 6,
+		limit		: 3,
 		page		: 1,
 		keyword		: "",
 		sort		: "created_time",
