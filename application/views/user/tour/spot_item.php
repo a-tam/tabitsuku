@@ -16,7 +16,7 @@
 						<dt class="pg_name"><?php echo $route["name"]?></dt>
 						<dd class="standard_time">参考滞在時間 <span class="pg_standard_time"><?php echo $route["defalut_time"]?></span>分</dd>
 						<dd class="linkbtn">
-						<a href="#spot" class="mouse_over">スポット詳細を見る</a>
+						<a href="<?php echo base_url("spot/show/".$route["id"]);?>" class="mouse_over">スポット詳細を見る</a>
 						<?php if ($route):?>
 							<?php if ($route["image"]):?>
 							<label class="pg_select_image"><input type="radio" name="select_image" value="<?php echo $route["id"];?>"<?php if ($data["image"] == $route["id"]):?> checked="checked"<?php endif;?>>画像</label>
@@ -41,7 +41,7 @@
 					<select class="pg_stay_time">
 <?php
 		$step = 15;
-		for ($i = 1; $i <= 24; $i++):
+		for ($i = 0; $i <= 24; $i++):
 			$stay_time = $i * $step;
 			$disp_stay_time = date("H:i", mktime(0, $stay_time, 0, 0, 0, 0));
 ?>
