@@ -68,8 +68,8 @@ class Spot extends MY_Controller {
 			// サムネイル
 			$img_config['source_image']	= $data["image"]["tmp"]["full_path"];
  			$img_config['new_image']	= FCPATH.'uploads/spot/thumb/';
-			$img_config['width']		= 110;
-			$img_config['height']		= 81;
+			$img_config['width']		= 320;
+			$img_config['height']		= 240;
 			$this->image_lib->initialize($img_config);
 			$this->image_lib->resize();
 			// オリジナルデータを移動
