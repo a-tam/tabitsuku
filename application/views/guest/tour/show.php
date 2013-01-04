@@ -166,8 +166,8 @@
 		<!-- //routes -->
 		
 			<p class="copy">
-				<a href="<?php echo base_url("user/tour/copy/".$data["id"]);?>" class="selectbtn mouse_over">コピーしてツアーを作る</a>
-				<a href="<?php echo base_url("user/tour/delete/".$data["id"]);?>" class="selectbtn mouse_over">削除する</a>
+				<a href="<?php echo base_url("user/tour/copy/".$data["id"]);?>" class="selectbtn mouse_over pg_copy">コピーしてツアーを作る</a>
+				<a href="<?php echo base_url("user/tour/delete/".$data["id"]);?>" class="selectbtn mouse_over pg_delete">削除する</a>
 			</p>
 		
 	</div>

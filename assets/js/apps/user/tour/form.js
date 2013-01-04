@@ -280,10 +280,12 @@ tourentryCtl.init=function(){
 			input_item.push("#tour-description");
 		}
 		
+		/*
 		if ($("#tags").tagit("assignedTags").length == 0) {
 			messages.push("タグの入力がありません");
 			input_item.push("#tags");
 		}
+		*/
 		
 		if ($(".maincategory").length == 0) {
 			messages.push("カテゴリの指定がありません");
@@ -632,6 +634,12 @@ tourentryCtl.init=function(){
 
 		if ($("#tour_make .list_area .tour_point").length < 2) {
 			alert("ルートの指定がありません");
+			$("#start_time").forcus();
+			return false;
+		}
+
+		if ($("#tour_make .list_area .tour_point").length > 10) {
+			alert("1日のツアーは10拠点以上登録できません");
 			$("#start_time").forcus();
 			return false;
 		}

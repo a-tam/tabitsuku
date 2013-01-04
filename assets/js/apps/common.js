@@ -458,9 +458,9 @@ tourCtl.render = function(info, relation, class_name) {
 	}
 	
 	// category
+	elm.find(".pg_category dd .category_icon").empty();
 	var category_ids = [];
 	if (info.category) {
-		elm.find(".pg_category dd .category_icon").empty();
 		// ルートカテゴリのみ取得
 		$(info.category.split(",")).each(function(i, category_path) {
 			category_ids.push(category_path.match(/\d+/g)[0]);
@@ -627,7 +627,7 @@ $(function() {
 		var defaults = {
 				count		: 10,
 				current		: 3,
-				display		: 2,
+				side_page	: 2,
 				onChange	: function(page) {
 					alert(page);
 					return false;
@@ -637,10 +637,11 @@ $(function() {
 		
 		options.count = parseInt(options.count);
 		options.current = parseInt(options.current);
-		options.display = parseInt(options.display);
+		options.side_page = parseInt(options.side_page);
 		if (typeof(options.onChange) == 'function') {
 			options.onChange = defaults.onChange;
 		}
+		console.log(options);
 
 		return this.each(function() {
 			$(this).empty();
@@ -655,46 +656,50 @@ $(function() {
 			*/
 
 			// prev
-			var prev = $(document.createElement('p')).addClass('prev');
 			if (options.current > 1) {
+				var prev = $(document.createElement('p')).addClass('prev');
 				prev.append($(document.createElement('a'))
 					.addClass("selectbtn")
 					.attr('data-page', options.current - 1)
 					.text('前へ'));
+				$(this).append(prev);
 			}
-			$(this).append(prev);
 
 			// list
+			var page_number = options.side_page * 2 + 1;
+			var start = options.current - options.side_page;
+			if (start < 1) start = 1;
 			var ul = $(document.createElement('ul'));
-			// list-prev
-			for(i = (options.current - options.display); i < options.current; i++) {
-				if (i > 0) {
-					var li = $(document.createElement('li'));
-					li.append($(document.createElement('a'))
-							.attr('data-page', i)
-							.text(i));
-					$(ul).append(li);
-				}
-			}
-			// list-current
-			var li = $(document.createElement('li')).addClass('select');
+
+			// first page
+			var li = $(document.createElement('li'));
 			li.append($(document.createElement('a'))
-					.attr('data-page', options.current)
-					.text(options.current));
+					.attr('data-page', 1)
+					.text(" [ 1 ] "));
 			$(ul).append(li);
 
-			// list-next
-			for(i = (options.current + 1); i < (options.current + options.display + 1); i++) {
-				if (i < options.count) {
+			// list-prev
+			for(i = 0; i < page_number; i++) {
+				if (options.count >= start + i) {
 					var li = $(document.createElement('li'));
+					if (start + i == options.current) {
+						li.addClass("select");
+					} 
 					li.append($(document.createElement('a'))
-							.attr('data-page', i)
-							.text(i));
+							.attr('data-page', start + i)
+							.text(start + i));
 					$(ul).append(li);
 				}
 			}
 			$(this).append(ul);
 
+			// last page
+			var li = $(document.createElement('li'));
+			li.append($(document.createElement('a'))
+					.attr('data-page', options.count)
+					.text(" [ "+options.count+" ] "));
+			$(ul).append(li);
+			
 			// next
 			var next = $(document.createElement('p')).addClass('next');
 			if (options.current < options.count) {

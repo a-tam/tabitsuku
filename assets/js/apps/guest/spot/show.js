@@ -40,4 +40,12 @@ $(function() {
 		}
 	});
 
+	$(".pg_delete").live("click", function() {
+		if ($(".list_item:not(.pg_temp)").length > 0) {
+			return confirm("このスポットが含まれるツアーが存在します。\n本当に削除しますか？");
+		} else {
+			return confirm("本当に削除しますか？");
+		}
+	});
+
 });

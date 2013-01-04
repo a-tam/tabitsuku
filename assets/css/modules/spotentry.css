@@ -49,8 +49,8 @@
 #input_area{
 	float:right;
 	background:url(../../img/user/spot/bg.gif) no-repeat 0 bottom;
-	width:510px;
-	margin-right:-7px;
+	width:515px;
+	margin-right:-10px;
 }
 #input_area form{
 	margin-left:29px;
@@ -121,11 +121,12 @@
 	z-index:10;
 }
 
+/*
 #input_area .pic{
-/*	clear:none; 
-	float:right; */
+	clear:none; 
+	float:right;
 	margin-bottom:25px;
-	/*width:240px;*/
+	width:240px;
 }
 #input_area .pic dt{
 	float:none;
@@ -136,12 +137,10 @@
 }
 #input_area .pic input{
 }
-
+*/
 
 #input_area .submit{
-	/*
 	float:right;
-	*/
 }
 
 

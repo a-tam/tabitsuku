@@ -76,8 +76,10 @@
 							
 							<p class="linkbtn">
 								<a href="../tour/" class="mouse_over pg_detail">ツアー内容を見る</a>
+								<!--
 								<a href="../tour/" class="mouse_over pg_edit">ツアーを編集する</a>
 								<a href="../tour/" class="mouse_over pg_delete">ツアーを削除する</a>
+								-->
 							</p>
 			
 						</div>

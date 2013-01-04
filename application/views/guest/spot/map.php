@@ -76,8 +76,10 @@
 							
 							<p class="linkbtn">
 							<a href="../spot/" class="mouse_over pg_detail">スポット詳細を見る</a>
+							<!--
 							<a href="../spot/" class="mouse_over pg_edit">スポットを編集する</a>
 							<a href="../spot/" class="mouse_over pg_delete">スポットを削除する</a>
+							-->
 							</p>
 							
 						</div>

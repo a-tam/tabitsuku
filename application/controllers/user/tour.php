@@ -192,5 +192,6 @@ class Tour extends MY_Controller {
 	function delete($id) {
 		if (!$this->auth()) return $this->login_form();
 		$this->Tour_model->delete($id);
+		redirect("tour/search");
 	}
 }

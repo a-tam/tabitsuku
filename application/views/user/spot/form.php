@@ -32,6 +32,7 @@
 			<input type="image" class="btn" id="search-map" src="<?php echo base_url("assets");?>/img/common/header/searchbtn.gif" alt="検索" />
 		</p>
 		<div id="map"></div>
+		<p class="around_spot_message">周辺に <span class="pg_around_number">0</span> 件のスポットが登録されています。<br />既に登録されていないか確認してください。</p><br />
 	</div>
 	<!-- //maparea -->
 	<div id="input_area">
@@ -137,7 +138,6 @@ for($i = 0; $i < 3; $i++):?>
 				</dd>
 			</dl>
 			<p class="submit mouse_over">
-			周辺に <span class="pg_around_number">0</span> 件のスポットが登録されています。<br />既に登録されていないか確認してください。<br />
 			<input type="image" id="headerSaveArea" src="<?php echo base_url("assets");?>/img/user/spot/regist.gif" alt="スポットを登録する" />
 			</p>
 			

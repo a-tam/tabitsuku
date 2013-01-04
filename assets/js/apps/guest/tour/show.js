@@ -108,5 +108,9 @@ $(function() {
 		spotCtl.popup($(this).attr("href"));
 		return false;
 	});
+	
+	$(".pg_delete").live("click", function() {
+		return confirm("本当に削除しますか？");
+	});
 
 });

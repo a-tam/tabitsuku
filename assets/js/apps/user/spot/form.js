@@ -229,10 +229,11 @@ spotentryCtl.init=function(){
 				input_item.push("#spot-lng");
 			}
 
+			/*
 			if ($("#tags").tagit("assignedTags").length == 0) {
 				messages.push("タグの入力がありません");
 				input_item.push("#tags");
-			}
+			}*/
 			
 			if ($(".maincategory").length == 0) {
 				messages.push("カテゴリの指定がありません");

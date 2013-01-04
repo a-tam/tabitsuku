@@ -75,7 +75,7 @@ class Spot extends MY_Controller {
 			// オリジナルデータを移動
 			rename($data["image"]["tmp"]["full_path"], FCPATH.'uploads/spot/origin/'.$data["image"]["tmp"]["file_name"]);
 		}
-		$tags = $this->Tag_model->tag_keys($data["tags"]["name"]);
+		$tags = $this->Tag_model->tag_keys($this->input->post("tags"));
 		$data["tags"] = implode(",", $tags);
 		if ($data["id"]) {
 			$this->Spot_model->update($data, $data["id"]);
@@ -103,6 +103,7 @@ class Spot extends MY_Controller {
 	function delete($id) {
 		if (!$this->auth()) return $this->login_form();
 		$this->Spot_model->delete($id);
+		redirect("spot/search");
 	}
 	
 	function like_plus() {

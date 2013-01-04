@@ -149,6 +149,7 @@
 	width:319px;
 	margin-bottom:10px;
 	margin-left:4px;
+	overflow: hidden;
 	
 }
 .list_area .list_item .icon{

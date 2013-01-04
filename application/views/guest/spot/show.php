@@ -95,8 +95,8 @@ foreach($data["category"] as $tree):
 		
 		<p class="edit">
 		<?php if (($this->user_info["id"]) && ($this->user_info["id"] == $data["owner"])):?>
-			<a href="<?php echo base_url("user/spot/form/".$data["id"]);?>" class="selectbtn mouse_over">編集する</a>
-			<a href="<?php echo base_url("user/spot/delete/".$data["id"]);?>" class="selectbtn mouse_over">削除する</a>
+			<a href="<?php echo base_url("user/spot/form/".$data["id"]);?>" class="selectbtn mouse_over pg_edit">編集する</a>
+			<a href="<?php echo base_url("user/spot/delete/".$data["id"]);?>" class="selectbtn mouse_over pg_delete">削除する</a>
 		<?php endif;?>
 		</p>
 		

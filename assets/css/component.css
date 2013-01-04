@@ -406,6 +406,10 @@ ul.items li { display: inline-block;
 	float:right;
 	margin-right:15px;
 	padding-top:8px;
+	user-select: none; /* CSS3 */
+	-moz-user-select: none; /* Firefox */
+	-webkit-user-select: none; /* Safari、Chromeなど */
+	-ms-user-select: none; /* IE10かららしい */
 }
 .search_info .pager .order{
 	float:left;
@@ -421,10 +425,16 @@ ul.items li { display: inline-block;
 	padding-top:2px;
 	margin-right:20px;
 }
+
 .search_info .pager ul li{
 	display:inline;
 	margin-right:5px;
 }
+
+.search_info .pager ul li.select {
+	font-weight: bold;
+}
+
 .search_info .pager ul li a{
 	text-decoration:none;
 }
