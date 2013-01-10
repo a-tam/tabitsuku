@@ -23,6 +23,44 @@
 
 	<div id="map_area">
 		<div id="map"></div>
+		<div id="route_distance"></div>
+		<div>
+		<?php if ($this->user_info): ?>
+			<?php if ($data["fb_event_permission"] == true): ?>
+			<form id="pg_fb_event_add">
+				<input type="hidden" name="tour_id" value="<?php echo $data["id"];?>">
+				<ul>
+					<li>
+						<label>イベント名</label>
+						<input type="text" name="name" value="<?php echo $data["name"];?>" required="required" />
+					</li>
+					<li>
+						<label>イベント詳細</label>
+						<textarea name="description" cols="50" rows="4" required="required"><?php echo $data["description"];?></textarea>
+					</li>
+					<li>
+						<label>開始日時</label>
+						<input type="date" name="start_time" required="required" min="<?php echo date("Y-m-d");?>" />
+					</li>
+					<li>
+						<label>終了日時</label>
+						<input type="date" name="end_time" min="<?php echo date("Y-m-d");?>" />
+					</li>
+					<li>
+						<label>プライバシー</label>
+						<label><input type="radio" name="privacy" value="open" checked="checked">公開</label>
+						<label><input type="radio" name="privacy" value="friends">友達</label>
+						<label><input type="radio" name="privacy" value="secret">自分のみ</label>
+					</li>
+				</ul>
+				<input type="submit" value="登録" id="pg_fb_event_submit" />
+			</form>
+			<div id="pg_fb_event_result"></div>
+			<?php else:?>
+				<a href="<?php echo $data["fb_permission_url"];?>">Facebookのイベント投稿を許可</a>
+			<?php endif;?>
+		<?php endif;?>
+		</div>
 	</div>
 	<!-- //maparea -->
 	

@@ -92,7 +92,7 @@ $(function() {
 		for(var i=0; i<response.routes[0].legs.length; i++){
 			m += response.routes[0].legs[i].distance.value;	// 距離(m)
 		}
-		document.getElementById("result").innerHTML = m+"メートル";
+		$("#route_distance").text("総移動距離："+m+"メートル");
 	}
 	// 情報ウィンドウを探し出して現在時刻に書き換える
 	function changeText(){
@@ -113,4 +113,30 @@ $(function() {
 		return confirm("本当に削除しますか？");
 	});
 
+	$("#pg_fb_event_add").submit(function() {
+		$.ajax({
+			url: "/api/tour/fb_event_add",
+			type: "post",
+			data: $("#pg_fb_event_add").serialize(),
+			dataType: "json",
+			success: function(json) {
+				if (json.status == "error") {
+					if (json.result == "permission") {
+				      	window.open(json.info.login_url);
+					} 
+				} else {
+					alert("Facebookにイベントを登録しました");
+					var result_anchor = $(document.createElement('a'))
+						.attr({
+							'target': "_blank",
+							'href': "https://www.facebook.com/events/"+json.result,
+						})
+						.text("登録したイベントを表示する");
+					$("#pg_fb_event_result").append(result_anchor);
+					$("#pg_fb_event_add").reset();
+				}
+			}
+		});
+		return false;
+	});
 });

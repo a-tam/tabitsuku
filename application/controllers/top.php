@@ -13,6 +13,12 @@ class Top extends MY_Controller {
 	function index() {
 		// FBログインURL
 		$params = array("redirect_uri" => base_url("user/top/fb_auth"));
+		/*
+		$params = array(
+				"scope" => "create_event",
+				"redirect_uri" => base_url("user/top/fb_auth")
+			);
+		*/
 		$data["fb_login"] = $this->facebook->getLoginUrl($params);
 		$this->render_view('guest/top', $data);
 	}
@@ -20,7 +26,13 @@ class Top extends MY_Controller {
 	function login_popup() {
 		// FBログインURL
 		$redirect_url = $this->input->get("redirect");
-		$params = array("redirect_uri" => base_url("user/top/fb_auth/".$redirect_url));
+		$params = array("redirect_uri" => base_url("user/top/fb_auth"));
+		/*
+		$params = array(
+				"scope" => "create_event",
+				"redirect_uri" => base_url("user/top/fb_auth")
+			);
+		*/
 		$data["fb_login"] = $this->facebook->getLoginUrl($params);
 		$this->load->view("user/login.php", $data);
 	}
@@ -77,6 +89,9 @@ class Top extends MY_Controller {
 		$data["category_names"]	= $this->Category_model->get_names($data["category_keys"]);
 		$data["tag_names"]		= $this->Tag_model->tag_values($data["tags"]);
 		$data["routes"] = $this->Spot_model->get_route($id);
+		if (!$data["fb_event_permission"] = $this->isScope("create_event")) {
+			$data["fb_permission_url"] = $this->facebook->getLoginUrl(array('scope' => 'create_event'));
+		}
 		$this->render_view("guest/tour/show", $data);
 	}
 	

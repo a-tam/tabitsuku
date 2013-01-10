@@ -4,6 +4,7 @@ class Tour extends MY_Controller {
 	function __construct() {
 		parent::__construct();
 		$this->load->model("Tour_model");
+		$this->load->model("Spot_model");
 		$this->load->model("Tag_model");
 		$this->load->model("Category_model");
 	}
@@ -45,5 +46,58 @@ class Tour extends MY_Controller {
 			$tour["relation"]["tags"] 		= $this->Tag_model->tag_values($tour["relation"]["tags"]);
 		}
 		print json_encode($tour);
+	}
+	
+	function fb_event_add() {
+		try {
+			log_message('error', print_r($this->input->post(), true));
+	      	$access_token = $this->facebook->getAccessToken();
+	      	$privacy = "SECRET";
+	      	switch (strtolower($this->input->post("privacy"))) {
+	      		case "open":
+	      			$privacy = "OPEN";
+	      			break;
+	      		case "friends":
+	      			$privacy = "FRIENDS";
+	      			break;
+	      		case "secret":
+	      			$privacy = "SECRET";
+	      			break;
+	      	}
+	      	$id = $this->input->post("tour_id");
+	      	$data = $this->Tour_model->row($id);
+	      	$data["category_names"]	= $this->Category_model->get_names($data["category_keys"]);
+	      	$data["tag_names"]		= $this->Tag_model->tag_values($data["tags"]);
+	      	$data["routes"] = $this->Spot_model->get_route($id);
+	      	log_message("error", print_r($data, true));
+	      	$description = $this->input->post("description");
+	      	$description .= "\n".base_url("tour/show/".$id);
+	      	
+			$event_param = array(
+					"access_token"	=> $access_token,
+					"name" 			=> $this->input->post("name"),
+					"description"	=> $description,
+					"start_time" 	=> date("c", strtotime($this->input->post("start_time"))),
+					"end_time" 		=> date("c", strtotime($this->input->post("end_time"))),
+					"privacy_type"	=> $privacy,
+			);
+	      	log_message("error", print_r($event_param, true));
+			$ret_obj = $this->facebook->api('/me/events', "POST", $event_param);
+			$ret = array(
+					"status" => "success",
+					"result" => $ret_obj["id"]
+			);
+			log_message("error", print_r($ret, true));
+			echo json_encode($ret);
+		} catch (FacebookApiException $e) {
+	      	if ($e->getType() == "OAuthException") {
+				$ret = array(
+					"status" => "error",
+					"result" => "permission"
+				);
+	      	}
+			echo json_encode($ret);
+//	      	header("Location: ".$login_url);
+		}
 	}
 }

@@ -31,6 +31,12 @@ class MY_Controller extends CI_Controller {
 	
 	function login_form() {
 		$params = array("redirect_uri" => base_url("user/top/fb_auth"));
+		/*
+		$params = array(
+				"scope" => "create_event",
+				"redirect_uri" => base_url("user/top/fb_auth")
+			);
+		*/
 		$data["fb_login"] = $this->facebook->getLoginUrl($params);
 		$this->load->library("form_validation");
 		redirect("/");
@@ -141,4 +147,31 @@ class MY_Controller extends CI_Controller {
 		$id = str_replace('-', '/', $id);
 		return $this->encrypt->decode($id);
 	}
+
+	function isScope($scope){
+		$uid = $this->facebook->getUser();
+		$_ispermit = true;
+		$access_token = $this->facebook->getAccessToken();
+		try {
+			$fql = 'SELECT '.$scope .' FROM permissions WHERE uid ="'.$uid .'"';
+			$scopes = $this->facebook->api(array(
+					'method' => 'fql.query',
+					'access_token' => $access_token,
+					'query' => $fql
+			));
+			foreach($scopes[0] as $k=>$v) {
+				if($v === '0') {
+					$_ispermit = false;
+				}
+			}
+		} catch (FacebookApiException $e) {
+			// エラー処理
+			error_log("error", $e->getMessage());
+			print $e->getMessage();
+			$this->isError;
+			exit;
+		}
+		return $_ispermit;
+	}
+	
 }
