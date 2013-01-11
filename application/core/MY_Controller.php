@@ -149,7 +149,9 @@ class MY_Controller extends CI_Controller {
 	}
 
 	function isScope($scope){
-		$uid = $this->facebook->getUser();
+		if (!$uid = $this->facebook->getUser()) {
+			return false;
+		}
 		$_ispermit = true;
 		$access_token = $this->facebook->getAccessToken();
 		try {
@@ -159,10 +161,14 @@ class MY_Controller extends CI_Controller {
 					'access_token' => $access_token,
 					'query' => $fql
 			));
-			foreach($scopes[0] as $k=>$v) {
-				if($v === '0') {
-					$_ispermit = false;
+			if ($scopes[0]) {
+				foreach($scopes[0] as $k=>$v) {
+					if($v === '0') {
+						$_ispermit = false;
+					}
 				}
+			} else {
+				$_ispermit = false;
 			}
 		} catch (FacebookApiException $e) {
 			// エラー処理
