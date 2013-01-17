@@ -2,11 +2,9 @@
 .project
 .settings
 .htaccess
-uploads
 application/cache/*
 application/config/*
 application/logs/*
-<<<<<<< HEAD
 uploads/spot/thumb/*
 uploads/spot/origin/*
 uploads/spot/middle/*
@@ -14,7 +12,4 @@ uploads/tmp/*
 uploads/spot/*
 uploads/tabelog/*
 base_html/*
-=======
-base_html/*
 .DS_Store
->>>>>>> ignore
