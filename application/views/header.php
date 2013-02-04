@@ -16,7 +16,7 @@
 	<link rel="stylesheet" type="text/css" media="screen,print" href="<?php echo base_url("assets"); ?>/css/import.css" />
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url("assets"); ?>/css/ui-lightness/jquery-ui-1.8.20.custom.css">
 	<link rel="start index" href="/" title="たびつく　自分だけの旅行プランを作ろう" />
-	
+		
 	<!-- common js -->
 	<script type="text/javascript" src="<?php echo base_url("assets"); ?>/js/jquery/jquery-1.7.2.min.js"></script>
 	<script type="text/javascript" src="<?php echo base_url("assets"); ?>/js/jquery/jquery-ui-1.8.20.custom.min.js"></script>

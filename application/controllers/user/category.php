@@ -26,6 +26,7 @@ class Category extends MY_Controller {
 			);
 		}
 // 		print_r($data);
+		header("Content-Type: text/json");
 		print json_encode($data);
 	}
 	
@@ -38,6 +39,7 @@ class Category extends MY_Controller {
 		} else {
 			$tree = $this->Category_model->get_tree($id);
 // 			print_r($tree);
+			header("Content-Type: text/json");
 			print json_encode($tree);
 		}
 	}
@@ -50,6 +52,7 @@ class Category extends MY_Controller {
 				$rows[$row["id"]] = $row["name"];
 			}
 		}
+		header("Content-Type: text/json");
 		print json_encode($rows);
 	}
 }

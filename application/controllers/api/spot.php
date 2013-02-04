@@ -46,6 +46,7 @@ class Spot extends MY_Controller {
 			$spot["relation"]["categories"] = $this->Category_model->get_names($spot["relation"]["categories"]);
 			$spot["relation"]["tags"] 		= $this->Tag_model->tag_values($spot["relation"]["tags"]);
 		}
+		header("Content-Type: application/json");
 		print json_encode($spot);
 	}
 	

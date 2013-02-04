@@ -45,6 +45,7 @@ class Tour extends MY_Controller {
 			$tour["relation"]["categories"] = $this->Category_model->get_names($tour["relation"]["categories"]);
 			$tour["relation"]["tags"] 		= $this->Tag_model->tag_values($tour["relation"]["tags"]);
 		}
+		header("Content-Type: application/json");
 		print json_encode($tour);
 	}
 	

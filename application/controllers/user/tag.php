@@ -13,6 +13,7 @@ class Tag extends MY_Controller {
 	function search() {
 		$term = $this->input->get("term");
 		$result = $this->Tag_model->like($term);
+		header("Content-Type: text/json");
 		print json_encode($result);
 	}
 }
