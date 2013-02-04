@@ -22,7 +22,7 @@
 	<!-- //message-area -->
 	
 	<div class="movie-area">
-		<iframe width="300" height="200" src="http://www.youtube.com/embed/Jy9kT2AWH04" frameborder="0" allowfullscreen></iframe>
+		<iframe width="300" height="200" src="http://www.youtube.com/embed/ZiGTK8Vm4VY?rel=0" frameborder="0" allowfullscreen></iframe>
 	</div>
 	<!--
 	<div class="login-area">
