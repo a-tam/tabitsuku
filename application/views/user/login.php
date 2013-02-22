@@ -6,10 +6,10 @@
 		<p class="title"><img src="<?php echo base_url("assets");?>/img/login/login.gif" alt="ログイン" /></p>
 		
 		<p class="facebook"><a href="<?php echo $fb_login; ?>" target="_top" class="mouse_over"><img src="<?php echo base_url("assets");?>/img/common/facebook.gif" alt="Facebookアカウントでログイン" /></a></p>
-		<form>
+		<form action="<?php echo base_url("user/top/login"); ?>" method="post" target="_top">
 		<dl>
 			<dt><img src="<?php echo base_url("assets");?>/img/login/userid.gif" alt="ユーザーID" /></dt>
-			<dd><input type="text" name="userid" value="" class="text" /></dd>
+			<dd><input type="text" name="login_id" value="" class="text" /></dd>
 			<dt><img src="<?php echo base_url("assets");?>/img/login/password.gif" alt="パスワード" /></dt>
 			<dd><input type="text" name="password" value="" class="text" /><br /><a href="" class="textlink">パスワードを忘れた方はこちら</a></dd>
 		</dl>
@@ -22,10 +22,10 @@
 	<div class="box" id="regist_box">
 		<p class="title"><img src="<?php echo base_url("assets");?>/img/login/regist.gif" alt="新規会員登録" /></p>
 		
-		<form>
+		<form action="<?php echo base_url("user/top/signin"); ?>" method="post" target="_top">
 		<dl>
 			<dt><img src="<?php echo base_url("assets");?>/img/login/useridmail.gif" alt="ユーザーID（Email）" /></dt>
-			<dd><input type="text" name="userid" value="" class="text" /></dd>
+			<dd><input type="text" name="login_id" value="" class="text" /></dd>
 			<dt><img src="<?php echo base_url("assets");?>/img/login/password.gif" alt="パスワード" /></dt>
 			<dd><input type="text" name="password" value="" class="text" /></dd>
 			<dt><img src="<?php echo base_url("assets");?>/img/login/name.gif" alt="お名前" /></dt>
